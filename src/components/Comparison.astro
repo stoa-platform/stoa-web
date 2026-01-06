@@ -8,8 +8,8 @@ const features = [
   { name: 'WebAssembly Plugins', stoa: true, kong: false, tyk: false, gravitee: false, apisix: true },
   { name: 'Kubernetes Native', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
   { name: 'Open Source', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
-  { name: 'Developer Portal', stoa: true, kong: 'enterprise', tyk: true, gravitee: true, apisix: 'partial' },
-  { name: 'Real-time Analytics', stoa: true, kong: 'enterprise', tyk: true, gravitee: true, apisix: true },
+  { name: 'Developer Portal', stoa: true, kong: true, tyk: true, gravitee: true, apisix: 'partial' },
+  { name: 'Real-time Analytics', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
 ];
 
 const competitors = [
@@ -31,8 +31,6 @@ function renderValue(value: boolean | string) {
     </svg>`;
   } else if (value === 'partial') {
     return `<span class="text-yellow-500 text-xs font-medium">Partial</span>`;
-  } else if (value === 'enterprise') {
-    return `<span class="text-gray-500 text-xs font-medium">Enterprise</span>`;
   }
   return value;
 }
