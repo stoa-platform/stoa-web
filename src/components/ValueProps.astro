@@ -1,0 +1,79 @@
+---
+const pillars = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>`,
+    title: 'MCP Native',
+    description: 'First-class support for the Model Context Protocol. Connect AI agents to your APIs with zero friction.',
+    features: ['Native MCP server support', 'Tool auto-discovery', 'Context streaming'],
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+    </svg>`,
+    title: 'UAC Standard',
+    description: 'Universal Access Control for AI workloads. Fine-grained permissions that work across all your services.',
+    features: ['Role-based access', 'Token policies', 'Audit logging'],
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+    </svg>`,
+    title: 'Multi-Tenant',
+    description: 'Enterprise-grade isolation with complete tenant separation. Scale from startup to enterprise seamlessly.',
+    features: ['Tenant isolation', 'Resource quotas', 'Custom domains'],
+  },
+];
+---
+
+<section class="py-24 bg-gray-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+        Built for the <span class="gradient-text">AI-First</span> World
+      </h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+        Three pillars that make STOA the modern choice for API management
+      </p>
+    </div>
+
+    <!-- Pillars grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {pillars.map((pillar, index) => (
+        <div
+          class="group relative bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-primary-600/50 transition-all duration-300"
+        >
+          <!-- Glow effect on hover -->
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-600/5 to-purple-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+          <div class="relative">
+            <!-- Icon -->
+            <div class="w-14 h-14 bg-primary-600/10 rounded-xl flex items-center justify-center text-primary-400 mb-6 group-hover:bg-primary-600/20 transition-colors">
+              <Fragment set:html={pillar.icon} />
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-xl font-bold text-white mb-3">{pillar.title}</h3>
+
+            <!-- Description -->
+            <p class="text-gray-400 mb-6">{pillar.description}</p>
+
+            <!-- Features list -->
+            <ul class="space-y-2">
+              {pillar.features.map((feature) => (
+                <li class="flex items-center text-sm text-gray-500">
+                  <svg class="w-4 h-4 text-primary-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

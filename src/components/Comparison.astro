@@ -1,0 +1,96 @@
+---
+const features = [
+  { name: 'MCP Protocol Support', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
+  { name: 'AI-Native Gateway', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
+  { name: 'Universal Access Control', stoa: true, kong: 'partial', tyk: 'partial', gravitee: 'partial', apisix: 'partial' },
+  { name: 'Multi-Tenant Native', stoa: true, kong: 'partial', tyk: true, gravitee: true, apisix: 'partial' },
+  { name: 'Token-Based Metering', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
+  { name: 'WebAssembly Plugins', stoa: true, kong: false, tyk: false, gravitee: false, apisix: true },
+  { name: 'Kubernetes Native', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
+  { name: 'Open Source', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
+  { name: 'Developer Portal', stoa: true, kong: 'enterprise', tyk: true, gravitee: true, apisix: 'partial' },
+  { name: 'Real-time Analytics', stoa: true, kong: 'enterprise', tyk: true, gravitee: true, apisix: true },
+];
+
+const competitors = [
+  { key: 'stoa', name: 'STOA', highlight: true },
+  { key: 'kong', name: 'Kong' },
+  { key: 'tyk', name: 'Tyk' },
+  { key: 'gravitee', name: 'Gravitee' },
+  { key: 'apisix', name: 'APISIX' },
+];
+
+function renderValue(value: boolean | string) {
+  if (value === true) {
+    return `<svg class="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+    </svg>`;
+  } else if (value === false) {
+    return `<svg class="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>`;
+  } else if (value === 'partial') {
+    return `<span class="text-yellow-500 text-xs font-medium">Partial</span>`;
+  } else if (value === 'enterprise') {
+    return `<span class="text-gray-500 text-xs font-medium">Enterprise</span>`;
+  }
+  return value;
+}
+---
+
+<section id="comparison" class="py-24 bg-gray-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <span class="text-primary-400 font-semibold text-sm uppercase tracking-wider">Comparison</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">
+        See How STOA <span class="gradient-text">Compares</span>
+      </h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+        Purpose-built for AI workloads, not retrofitted
+      </p>
+    </div>
+
+    <!-- Comparison table -->
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[800px]">
+        <thead>
+          <tr class="border-b border-gray-800">
+            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">Feature</th>
+            {competitors.map((competitor) => (
+              <th class={`py-4 px-4 text-center ${competitor.highlight ? 'bg-primary-600/10' : ''}`}>
+                <span class={`font-semibold ${competitor.highlight ? 'text-primary-400' : 'text-gray-300'}`}>
+                  {competitor.name}
+                </span>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {features.map((feature, index) => (
+            <tr class={`border-b border-gray-800/50 ${index % 2 === 0 ? 'bg-gray-900/30' : ''}`}>
+              <td class="py-4 px-4 text-gray-300 text-sm">{feature.name}</td>
+              {competitors.map((competitor) => (
+                <td class={`py-4 px-4 text-center ${competitor.highlight ? 'bg-primary-600/5' : ''}`}>
+                  <div class="flex justify-center">
+                    <Fragment set:html={renderValue(feature[competitor.key as keyof typeof feature] as boolean | string)} />
+                  </div>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bottom note -->
+    <div class="mt-8 text-center">
+      <p class="text-gray-500 text-sm">
+        Data as of January 2025. Feature availability may change.
+        <a href="https://github.com/stoa-platform/stoa/blob/main/docs/comparison.md" target="_blank" rel="noopener noreferrer" class="text-primary-400 hover:text-primary-300 ml-1">
+          View full comparison
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
