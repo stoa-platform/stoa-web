@@ -5,7 +5,7 @@ const features = [
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
     </svg>`,
     title: 'No performance tax',
-    description: 'Sub-ms overhead, Rust-powered proxy engine.',
+    description: 'Low latency overhead, optimized proxy engine.',
   },
   {
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,6 +55,7 @@ const features = [
     </svg>`,
     title: 'Extend without forking',
     description: 'WebAssembly plugin system for custom logic.',
+    badge: 'Roadmap',
   },
   {
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,6 +63,7 @@ const features = [
     </svg>`,
     title: 'Fast everywhere',
     description: 'Deploy to edge locations for minimal latency.',
+    badge: 'Roadmap',
   },
 ];
 ---
@@ -88,7 +90,12 @@ const features = [
           <div class="w-12 h-12 bg-primary-600/10 rounded-lg flex items-center justify-center text-primary-400 mb-4 group-hover:bg-primary-600/20 group-hover:scale-110 transition-all">
             <Fragment set:html={feature.icon} />
           </div>
-          <h3 class="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+          <div class="flex items-center gap-2 mb-2">
+            <h3 class="text-lg font-semibold text-white">{feature.title}</h3>
+            {feature.badge && (
+              <span class="px-2 py-0.5 text-xs font-medium bg-amber-500/20 text-amber-400 rounded-full">{feature.badge}</span>
+            )}
+          </div>
           <p class="text-gray-400 text-sm">{feature.description}</p>
         </div>
       ))}
