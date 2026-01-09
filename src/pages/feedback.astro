@@ -1,0 +1,49 @@
+---
+// src/pages/feedback.astro
+// Dedicated feedback page
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Feedback - STOA Platform">
+  <main class="min-h-screen bg-slate-950 pt-24 pb-16">
+    <div class="max-w-2xl mx-auto px-4">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-white mb-4">
+          Share Your Feedback
+        </h1>
+        <p class="text-slate-400 text-lg">
+          Help us improve STOA Platform. Your feedback matters!
+        </p>
+      </div>
+
+      <!-- Tally Form -->
+      <div class="bg-slate-900/50 rounded-2xl p-8 border border-slate-800">
+        <iframe
+          data-tally-src="https://tally.so/embed/yP2Oo8?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="450"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="STOA Feedback Form"
+          class="rounded-lg"
+        ></iframe>
+      </div>
+
+      <!-- Alternative contact -->
+      <div class="mt-8 text-center text-slate-500">
+        <p>
+          Prefer email? Reach us at{' '}
+          <a href="mailto:hello@gostoa.dev" class="text-indigo-400 hover:text-indigo-300">
+            hello@gostoa.dev
+          </a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script is:inline src="https://tally.so/widgets/embed.js"></script>
+</Layout>
