@@ -1,0 +1,84 @@
+---
+// Structured Data (JSON-LD) for SEO
+// Helps search engines understand the page content
+
+interface Props {
+  type?: 'WebSite' | 'SoftwareApplication' | 'Organization';
+}
+
+const { type = 'WebSite' } = Astro.props;
+
+const websiteData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "STOA Platform",
+  "alternateName": "STOA Gateway",
+  "url": "https://gostoa.dev",
+  "description": "API & MCP Gateway for the AI Era. eBPF-native, CLI-first, AI-ready.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://docs.gostoa.dev/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const softwareData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "STOA Platform",
+  "operatingSystem": "Linux, Kubernetes",
+  "applicationCategory": "DeveloperApplication",
+  "applicationSubCategory": "API Gateway",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Open Source - Apache 2.0 License"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "STOA Platform",
+    "url": "https://gostoa.dev"
+  },
+  "downloadUrl": "https://github.com/stoa-platform/stoa",
+  "softwareVersion": "0.1.0",
+  "releaseNotes": "https://github.com/stoa-platform/stoa/releases",
+  "screenshot": "https://gostoa.dev/og-image.png",
+  "featureList": [
+    "MCP Gateway for AI agents",
+    "eBPF-native performance",
+    "Multi-tenant architecture",
+    "OAuth2/OIDC authentication",
+    "Real-time observability"
+  ]
+};
+
+const organizationData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "STOA Platform",
+  "url": "https://gostoa.dev",
+  "logo": "https://gostoa.dev/logo.png",
+  "sameAs": [
+    "https://github.com/stoa-platform",
+    "https://discord.gg/j8tHSSes",
+    "https://twitter.com/stoagateway"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "technical support",
+    "url": "https://discord.gg/j8tHSSes"
+  }
+};
+
+const data = type === 'SoftwareApplication' 
+  ? softwareData 
+  : type === 'Organization' 
+    ? organizationData 
+    : websiteData;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

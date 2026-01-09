@@ -1,0 +1,12 @@
+# STOA Platform - robots.txt
+# https://gostoa.dev
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://gostoa.dev/sitemap-index.xml
+
+# Block sensitive paths (if any)
+Disallow: /api/
+Disallow: /_astro/
