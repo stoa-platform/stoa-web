@@ -1,4 +1,45 @@
 ---
+// Paradigm comparison - Strategic dimensions, not features
+const dimensions = [
+  { 
+    dimension: 'Target Consumer', 
+    incumbents: 'Human developers', 
+    stoa: 'AI Agents + Human developers',
+    icon: '👤'
+  },
+  { 
+    dimension: 'Design Paradigm', 
+    incumbents: 'Spec-centric (OpenAPI)', 
+    stoa: 'Contract-centric (UAC)',
+    icon: '📐'
+  },
+  { 
+    dimension: 'Protocol Strategy', 
+    incumbents: 'REST-first, others as add-ons', 
+    stoa: 'Protocol-agnostic native',
+    icon: '🔌'
+  },
+  { 
+    dimension: 'API Discovery', 
+    incumbents: 'Portal + documentation', 
+    stoa: 'MCP tools + Portal',
+    icon: '🔍'
+  },
+  { 
+    dimension: 'AI Observability', 
+    incumbents: 'Non-existent', 
+    stoa: 'Native (token metering, agent tracing)',
+    icon: '📊'
+  },
+  { 
+    dimension: 'Open Source Model', 
+    incumbents: 'Open-core with restrictions', 
+    stoa: 'Apache 2.0 / CNCF-ready',
+    icon: '🔓'
+  },
+];
+
+// Feature comparison (keeping original for detail)
 const features = [
   { name: 'MCP Protocol Support', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
   { name: 'AI-Native Gateway', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
@@ -8,8 +49,6 @@ const features = [
   { name: 'WebAssembly Plugins', stoa: true, kong: false, tyk: false, gravitee: false, apisix: true },
   { name: 'Kubernetes Native', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
   { name: 'Open Source', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
-  { name: 'Developer Portal', stoa: true, kong: true, tyk: true, gravitee: true, apisix: 'partial' },
-  { name: 'Real-time Analytics', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
 ];
 
 const competitors = [
@@ -18,6 +57,27 @@ const competitors = [
   { key: 'tyk', name: 'Tyk' },
   { key: 'gravitee', name: 'Gravitee' },
   { key: 'apisix', name: 'APISIX' },
+];
+
+const differentiators = [
+  {
+    icon: '🤖',
+    title: 'MCP-Native',
+    subtitle: 'First gateway built for AI agents',
+    description: 'While others retrofit AI support, STOA was designed from day one for the Model Context Protocol. Your agents get first-class treatment, not afterthoughts.',
+  },
+  {
+    icon: '📜',
+    title: 'Universal API Contract',
+    subtitle: 'Define once, expose everywhere',
+    description: 'One contract definition exposes your API across REST, MCP, GraphQL, gRPC, and Kafka. No duplication, no drift, no maintenance nightmare.',
+  },
+  {
+    icon: '🔓',
+    title: 'True Open Source',
+    subtitle: 'CNCF model, not bait-and-switch',
+    description: 'Apache 2.0 licensed with no "enterprise-only" gotchas. We learned from Kubernetes, not Elasticsearch. Your interests stay aligned with ours.',
+  },
 ];
 
 function renderValue(value: boolean | string) {
@@ -38,57 +98,172 @@ function renderValue(value: boolean | string) {
 
 <section id="comparison" class="py-24 bg-gray-950">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header -->
-    <div class="text-center mb-16">
-      <span class="text-primary-400 font-semibold text-sm uppercase tracking-wider">Comparison</span>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">
-        See How STOA <span class="gradient-text">Compares</span>
+    
+    <!-- ============================================ -->
+    <!-- PART 1: Paradigm Shift Header               -->
+    <!-- ============================================ -->
+    <div class="text-center mb-20">
+      <span class="text-primary-400 font-semibold text-sm uppercase tracking-wider">The Paradigm Shift</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-6">
+        From Human-First to <span class="gradient-text">Agent-First</span>
       </h2>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-        Purpose-built for AI workloads, not retrofitted
-      </p>
+      
+      <!-- TTFAC comparison -->
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-6 mt-10">
+          <!-- Incumbents -->
+          <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
+            <div class="text-gray-500 text-sm uppercase tracking-wider mb-2">Traditional Gateways</div>
+            <div class="text-2xl font-bold text-gray-300 mb-3">
+              Optimize for <span class="text-amber-400">TTFAC</span>
+            </div>
+            <div class="text-gray-400">
+              Time To First <span class="text-white font-medium">API</span> Call
+            </div>
+            <div class="mt-4 text-sm text-gray-500">
+              Portal → Read docs → Get key → Write code → First call
+            </div>
+          </div>
+          
+          <!-- STOA -->
+          <div class="p-6 bg-primary-900/20 border border-primary-600/50 rounded-xl">
+            <div class="text-primary-400 text-sm uppercase tracking-wider mb-2">STOA Platform</div>
+            <div class="text-2xl font-bold text-white mb-3">
+              Optimizes for <span class="text-primary-400">TTFAC</span>
+            </div>
+            <div class="text-gray-300">
+              Time To First <span class="text-primary-400 font-medium">Agent</span> Call
+            </div>
+            <div class="mt-4 text-sm text-gray-400">
+              MCP discover → Agent understands → Governed call → Done
+            </div>
+          </div>
+        </div>
+        
+        <p class="text-gray-500 mt-8 text-lg italic">
+          "The same acronym. A completely different world."
+        </p>
+      </div>
     </div>
 
-    <!-- Comparison table -->
-    <div class="overflow-x-auto">
-      <table class="w-full min-w-[800px]">
-        <thead>
-          <tr class="border-b border-gray-800">
-            <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">Feature</th>
-            {competitors.map((competitor) => (
-              <th class={`py-4 px-4 text-center ${competitor.highlight ? 'bg-primary-600/10' : ''}`}>
-                <span class={`font-semibold ${competitor.highlight ? 'text-primary-400' : 'text-gray-300'}`}>
-                  {competitor.name}
+    <!-- ============================================ -->
+    <!-- PART 2: Strategic Dimensions Table          -->
+    <!-- ============================================ -->
+    <div class="mb-20">
+      <div class="text-center mb-10">
+        <h3 class="text-2xl font-bold text-white">
+          How We <span class="gradient-text">Think Differently</span>
+        </h3>
+        <p class="text-gray-400 mt-2">Strategic dimensions, not feature checklists</p>
+      </div>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[700px]">
+          <thead>
+            <tr class="border-b border-gray-800">
+              <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm w-1/4">Dimension</th>
+              <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm w-1/3">
+                <span class="flex items-center gap-2">
+                  <span class="text-gray-500">Kong, Tyk, Gravitee...</span>
                 </span>
               </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {features.map((feature, index) => (
-            <tr class={`border-b border-gray-800/50 ${index % 2 === 0 ? 'bg-gray-900/30' : ''}`}>
-              <td class="py-4 px-4 text-gray-300 text-sm">{feature.name}</td>
-              {competitors.map((competitor) => (
-                <td class={`py-4 px-4 text-center ${competitor.highlight ? 'bg-primary-600/5' : ''}`}>
-                  <div class="flex justify-center">
-                    <Fragment set:html={renderValue(feature[competitor.key as keyof typeof feature] as boolean | string)} />
+              <th class="text-left py-4 px-4 text-sm w-1/3 bg-primary-600/10">
+                <span class="text-primary-400 font-semibold">STOA</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {dimensions.map((row, index) => (
+              <tr class={`border-b border-gray-800/50 ${index % 2 === 0 ? 'bg-gray-900/30' : ''}`}>
+                <td class="py-4 px-4">
+                  <div class="flex items-center gap-3">
+                    <span class="text-xl">{row.icon}</span>
+                    <span class="text-gray-300 font-medium">{row.dimension}</span>
                   </div>
                 </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                <td class="py-4 px-4 text-gray-500">{row.incumbents}</td>
+                <td class="py-4 px-4 text-white bg-primary-600/5 font-medium">{row.stoa}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <!-- Bottom note -->
-    <div class="mt-8 text-center">
-      <p class="text-gray-500 text-sm">
-        Data as of January 2026. Feature availability may change.
-        <a href="https://github.com/stoa-platform/stoa/blob/main/docs/comparison.md" target="_blank" rel="noopener noreferrer" class="text-primary-400 hover:text-primary-300 ml-1">
-          View full comparison
-        </a>
-      </p>
+    <!-- ============================================ -->
+    <!-- PART 3: Key Differentiators Cards           -->
+    <!-- ============================================ -->
+    <div class="mb-20">
+      <div class="text-center mb-10">
+        <h3 class="text-2xl font-bold text-white">
+          What Makes STOA <span class="gradient-text">Different</span>
+        </h3>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        {differentiators.map((item) => (
+          <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl hover:border-primary-600/50 transition-all duration-300">
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <h4 class="text-xl font-bold text-white mb-1">{item.title}</h4>
+            <div class="text-primary-400 text-sm font-medium mb-3">{item.subtitle}</div>
+            <p class="text-gray-400 text-sm">{item.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
+
+    <!-- ============================================ -->
+    <!-- PART 4: Detailed Feature Comparison         -->
+    <!-- ============================================ -->
+    <div>
+      <div class="text-center mb-10">
+        <h3 class="text-2xl font-bold text-white">
+          Feature-by-Feature <span class="gradient-text">Comparison</span>
+        </h3>
+        <p class="text-gray-400 mt-2">For the detail-oriented among us</p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[800px]">
+          <thead>
+            <tr class="border-b border-gray-800">
+              <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm">Feature</th>
+              {competitors.map((competitor) => (
+                <th class={`py-4 px-4 text-center ${competitor.highlight ? 'bg-primary-600/10' : ''}`}>
+                  <span class={`font-semibold ${competitor.highlight ? 'text-primary-400' : 'text-gray-300'}`}>
+                    {competitor.name}
+                  </span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {features.map((feature, index) => (
+              <tr class={`border-b border-gray-800/50 ${index % 2 === 0 ? 'bg-gray-900/30' : ''}`}>
+                <td class="py-4 px-4 text-gray-300 text-sm">{feature.name}</td>
+                {competitors.map((competitor) => (
+                  <td class={`py-4 px-4 text-center ${competitor.highlight ? 'bg-primary-600/5' : ''}`}>
+                    <div class="flex justify-center">
+                      <Fragment set:html={renderValue(feature[competitor.key as keyof typeof feature] as boolean | string)} />
+                    </div>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Bottom note -->
+      <div class="mt-8 text-center">
+        <p class="text-gray-500 text-sm">
+          Data as of January 2026. Feature availability may change.
+          <a href="https://docs.gostoa.dev/comparison" class="text-primary-400 hover:text-primary-300 ml-1">
+            View full comparison →
+          </a>
+        </p>
+      </div>
+    </div>
+
   </div>
 </section>
