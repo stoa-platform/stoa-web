@@ -32,6 +32,12 @@ const dimensions = [
     icon: '📊'
   },
   { 
+    dimension: 'Data Sovereignty', 
+    incumbents: 'US-based (CLOUD Act)', 
+    stoa: 'European (NIS2/DORA ready)',
+    icon: '🇪🇺'
+  },
+  { 
     dimension: 'Open Source Model', 
     incumbents: 'Open-core with restrictions', 
     stoa: 'Apache 2.0 / CNCF-ready',
@@ -43,10 +49,10 @@ const dimensions = [
 const features = [
   { name: 'MCP Protocol Support', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
   { name: 'AI-Native Gateway', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
+  { name: 'European Sovereign', stoa: true, kong: false, tyk: false, gravitee: 'partial', apisix: false },
   { name: 'Universal Access Control', stoa: true, kong: 'partial', tyk: 'partial', gravitee: 'partial', apisix: 'partial' },
   { name: 'Multi-Tenant Native', stoa: true, kong: 'partial', tyk: true, gravitee: true, apisix: 'partial' },
   { name: 'Token-Based Metering', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
-  { name: 'WebAssembly Plugins', stoa: true, kong: false, tyk: false, gravitee: false, apisix: true },
   { name: 'Kubernetes Native', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
   { name: 'Open Source', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
 ];
@@ -73,10 +79,16 @@ const differentiators = [
     description: 'One contract definition exposes your API across REST, MCP, GraphQL, gRPC, and Kafka. No duplication, no drift, no maintenance nightmare.',
   },
   {
+    icon: '🇪🇺',
+    title: 'European Sovereign',
+    subtitle: 'No CLOUD Act. No compromises.',
+    description: 'Built in France, hosted in Europe. NIS2 and DORA ready. Your data stays under European jurisdiction — not subject to US extraterritorial reach.',
+  },
+  {
     icon: '🔓',
     title: 'True Open Source',
-    subtitle: 'CNCF model, not bait-and-switch',
-    description: 'Apache 2.0 licensed with no "enterprise-only" gotchas. We learned from Kubernetes, not Elasticsearch. Your interests stay aligned with ours.',
+    subtitle: '45% revenue redistribution',
+    description: 'Apache 2.0 with transparent contributor rewards. 15% of enterprise revenue goes directly to contributors. We learned from Kubernetes, not Elasticsearch.',
   },
 ];
 
@@ -164,7 +176,7 @@ function renderValue(value: boolean | string) {
               <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm w-1/4">Dimension</th>
               <th class="text-left py-4 px-4 text-gray-400 font-medium text-sm w-1/3">
                 <span class="flex items-center gap-2">
-                  <span class="text-gray-500">Kong, Tyk, Gravitee...</span>
+                  <span class="text-gray-500">Kong, Tyk, APISIX...</span>
                 </span>
               </th>
               <th class="text-left py-4 px-4 text-sm w-1/3 bg-primary-600/10">
@@ -200,7 +212,7 @@ function renderValue(value: boolean | string) {
         </h3>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {differentiators.map((item) => (
           <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl hover:border-primary-600/50 transition-all duration-300">
             <div class="text-4xl mb-4">{item.icon}</div>
@@ -254,8 +266,22 @@ function renderValue(value: boolean | string) {
         </table>
       </div>
 
+      <!-- Sovereignty note -->
+      <div class="mt-8 p-4 bg-primary-900/20 border border-primary-600/30 rounded-lg">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">🇪🇺</span>
+          <div>
+            <h4 class="text-white font-semibold">Why European Sovereignty Matters</h4>
+            <p class="text-gray-400 text-sm mt-1">
+              Kong (US), Tyk (UK post-Brexit), APISIX (China/Apache) — all subject to foreign jurisdiction. 
+              Only STOA offers a fully European alternative, essential for banks, public sector, and regulated industries under NIS2/DORA.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <!-- Bottom note -->
-      <div class="mt-8 text-center">
+      <div class="mt-6 text-center">
         <p class="text-gray-500 text-sm">
           Data as of January 2026. Feature availability may change.
           <a href="https://docs.gostoa.dev/comparison" class="text-primary-400 hover:text-primary-300 ml-1">
