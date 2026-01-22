@@ -1,45 +1,41 @@
 ---
-import { inject } from '@vercel/analytics';
+import Analytics from '@vercel/analytics/astro';
+import SEO from '../components/SEO.astro';
+import StructuredData from '../components/StructuredData.astro';
 
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  structuredDataType?: 'WebSite' | 'SoftwareApplication' | 'Organization';
 }
 
-const { title, description = "STOA Platform - The Cilium of API Management. AI-Native Gateway for the MCP Protocol Era." } = Astro.props;
-
-inject();
+const {
+  title,
+  description,
+  image,
+  structuredDataType = 'WebSite'
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gostoa.dev" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <SEO title={title} description={description} image={image} />
+    <StructuredData type={structuredDataType} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
-    <title>{title}</title>
   </head>
   <body class="bg-gray-950 text-gray-100 font-sans antialiased">
     <slot />
+    <Analytics />
   </body>
 </html>
 

@@ -1,0 +1,129 @@
+# STOA Platform - Extended AI Agent Information
+# https://gostoa.dev/llms-full.txt
+
+## Overview
+
+STOA (derived from Greek "stoa" - covered walkway) is the European Agent Gateway, the first API gateway designed specifically for AI agents and the Model Context Protocol (MCP).
+
+## The Problem STOA Solves
+
+Traditional API gateways were built for human developers:
+- They don't understand MCP protocol
+- They can't meter AI tokens
+- They treat agent traffic like regular HTTP calls
+- They lack AI-specific governance and audit capabilities
+
+STOA solves this by being MCP-native from the ground up.
+
+## Core Concepts
+
+### Model Context Protocol (MCP)
+MCP is Anthropic's open protocol that enables AI agents to discover and call tools. STOA acts as an MCP gateway, allowing:
+- Automatic exposure of REST APIs as MCP tools
+- Tool discovery for AI agents
+- Governed access to enterprise capabilities
+- Complete audit trail of AI actions
+
+### Universal Access Control (UAC)
+One policy model for both human API access and AI agent access:
+- Same RBAC rules
+- Unified audit trail
+- Consistent security model
+
+### Token Metering
+Native support for tracking AI token usage:
+- Per-tenant metering
+- Per-team quotas
+- Real-time cost visibility
+- Budget controls
+
+## Architecture
+
+STOA consists of:
+1. Data Plane: High-performance Rust proxy for request routing
+2. Control Plane: Policy management and configuration
+3. MCP Server: Native MCP protocol handling
+4. Audit System: Complete action logging
+
+## Deployment
+
+- Kubernetes-native with Helm charts
+- Docker support for local development
+- Multi-tenant by design
+- GitOps-ready (ArgoCD, Flux)
+
+## Comparison with Alternatives
+
+| Feature | STOA | Traditional Gateways |
+|---------|------|---------------------|
+| MCP Support | Native | None |
+| Target Consumer | AI Agents + Humans | Humans only |
+| Token Metering | Built-in | N/A |
+| European Sovereign | Yes | Usually US-based |
+
+## Key Differentiators
+
+1. MCP-Native: First gateway built for AI agents
+2. Universal API Contract: Define once, expose everywhere (REST, MCP, GraphQL)
+3. European Sovereign: No CLOUD Act, NIS2/DORA compliant
+4. True Open Source: Apache 2.0 with 45% revenue redistribution model
+
+## Getting Started
+
+Quick start:
+```
+curl -fsSL https://get.gostoa.dev | sh
+```
+
+Documentation: https://docs.gostoa.dev/docs/intro
+Architecture: https://docs.gostoa.dev/docs/concepts/architecture
+
+## API Reference
+
+Control Plane API: https://docs.gostoa.dev/docs/api/control-plane
+MCP Integration: https://docs.gostoa.dev/docs/api/mcp
+
+## License
+
+Apache 2.0 - fully open source with 45% revenue redistribution model:
+- 10% to foundation
+- 20% to maintainers
+- 15% to contributors
+
+## Community
+
+- GitHub: https://github.com/stoa-platform/stoa
+- Discord: https://discord.gg/j8tHSSes
+- Twitter: @stoagateway
+
+## Use Cases
+
+### For Enterprises
+- Govern AI agent access to internal APIs
+- Track and control AI costs across teams
+- Maintain compliance with EU regulations
+- Audit all AI actions for security
+
+### For Developers
+- Expose APIs as MCP tools without code changes
+- CLI-first workflow, GitOps native
+- Local development in 60 seconds
+- Sensible defaults, minimal configuration
+
+### For AI Agent Builders
+- Native MCP protocol support
+- Tool auto-discovery
+- Context streaming
+- Standardized API access patterns
+
+## Technical Specifications
+
+- Runtime: Rust-based high-performance proxy
+- Protocol Support: REST, MCP, GraphQL, gRPC
+- Authentication: OAuth2, OIDC, API Keys, mTLS
+- Deployment: Kubernetes, Docker, bare metal
+- Observability: OpenTelemetry, Prometheus, custom dashboards
+
+## Keywords
+
+MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance

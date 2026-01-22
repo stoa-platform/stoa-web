@@ -4,9 +4,14 @@
 User-agent: *
 Allow: /
 
+# AI Agent Information
+# See llms.txt for AI agent discoverability information
+# llms.txt: https://gostoa.dev/llms.txt
+# llms-full.txt: https://gostoa.dev/llms-full.txt
+
 # Sitemaps
 Sitemap: https://gostoa.dev/sitemap-index.xml
 
-# Block sensitive paths (if any)
+# Block sensitive paths
 Disallow: /api/
 Disallow: /_astro/
