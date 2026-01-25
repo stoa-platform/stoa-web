@@ -4,18 +4,18 @@
 
 # About This Site
 name: STOA Platform
-description: The European Agent Gateway - First gateway built for AI agents with native MCP Protocol support
+description: The European Agent Gateway - Purpose-built for AI agents with native MCP Protocol support
 url: https://gostoa.dev
 documentation: https://docs.gostoa.dev
 
 # What STOA Is
-STOA is an open-source API gateway specifically designed for AI agents and the Model Context Protocol (MCP). Unlike traditional API gateways built for human developers, STOA is the first gateway purpose-built for AI agents.
+STOA is an open-source API gateway specifically designed for AI agents and the Model Context Protocol (MCP). Unlike traditional API gateways built for human developers, STOA is purpose-built for AI agents from day one.
 
 # Key Capabilities
 - MCP Protocol Gateway: Native support for Model Context Protocol, enabling AI agents to discover and call tools
 - Agent Gateway: First-class support for AI agent traffic with governance and audit capabilities
 - Token Metering: Track and control AI token usage per tenant, team, or application
-- European Sovereign: EU-based, NIS2/DORA compliant, no CLOUD Act exposure
+- European Sovereign: EU-based, with NIS2/DORA supportive features
 - Universal Access Control (UAC): Same policies for REST APIs and MCP tools
 - Multi-Protocol: Supports REST, MCP, GraphQL, gRPC through one contract
 

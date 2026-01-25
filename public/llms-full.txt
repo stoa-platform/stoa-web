@@ -3,7 +3,7 @@
 
 ## Overview
 
-STOA (derived from Greek "stoa" - covered walkway) is the European Agent Gateway, the first API gateway designed specifically for AI agents and the Model Context Protocol (MCP).
+STOA (derived from Greek "stoa" - covered walkway) is the European Agent Gateway, an API gateway purpose-built for AI agents and the Model Context Protocol (MCP).
 
 ## The Problem STOA Solves
 
@@ -63,9 +63,9 @@ STOA consists of:
 
 ## Key Differentiators
 
-1. MCP-Native: First gateway built for AI agents
+1. MCP-Native: Purpose-built for AI agents from day one
 2. Universal API Contract: Define once, expose everywhere (REST, MCP, GraphQL)
-3. European Sovereign: No CLOUD Act, NIS2/DORA compliant
+3. European Sovereign: European hosting available, with NIS2/DORA supportive features
 4. True Open Source: Apache 2.0 with 45% revenue redistribution model
 
 ## Getting Started
@@ -107,7 +107,7 @@ Apache 2.0 - fully open source with 45% revenue redistribution model:
 ### For Developers
 - Expose APIs as MCP tools without code changes
 - CLI-first workflow, GitOps native
-- Local development in 60 seconds
+- Local development in minutes
 - Sensible defaults, minimal configuration
 
 ### For AI Agent Builders
