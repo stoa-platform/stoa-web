@@ -84,18 +84,18 @@
               <span class="inline-block w-2 h-5 bg-primary-500 ml-1 animate-pulse" id="cursor"></span>
             </div>
             <div id="output-container" class="hidden">
-              <div class="text-gray-500 mt-4">Installing STOA Platform...</div>
+              <div class="text-gray-500 mt-4">Starting STOA Platform...</div>
               <div class="mt-2 text-primary-400">
-                <span class="text-green-400">✓</span> Agent Gateway initialized
+                <span class="text-green-400">✓</span> Control Plane API started
               </div>
               <div class="text-primary-400">
-                <span class="text-green-400">✓</span> UAC policies loaded
+                <span class="text-green-400">✓</span> MCP Gateway initialized
               </div>
               <div class="text-primary-400">
-                <span class="text-green-400">✓</span> MCP + REST + GraphQL ready
+                <span class="text-green-400">✓</span> Developer Portal ready
               </div>
               <div class="mt-4 text-white">
-                <span class="text-green-400">Ready!</span> STOA is running at <span class="text-primary-400">http://localhost:8080</span>
+                <span class="text-green-400">Ready!</span> STOA is running at <span class="text-primary-400">http://localhost:8000</span>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@
 </section>
 
 <script>
-  const command = 'curl -fsSL https://get.gostoa.dev | sh';
+  const command = 'docker compose up -d';
   const typingElement = document.getElementById('typing-command');
   const cursor = document.getElementById('cursor');
   const outputContainer = document.getElementById('output-container');

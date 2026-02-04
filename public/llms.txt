@@ -17,7 +17,7 @@ STOA is an open-source API gateway specifically designed for AI agents and the M
 - Token Metering: Track and control AI token usage per tenant, team, or application
 - European Sovereign: EU-based, with NIS2/DORA supportive features
 - Universal Access Control (UAC): Same policies for REST APIs and MCP tools
-- Multi-Protocol: Supports REST, MCP, GraphQL, gRPC through one contract
+- Multi-Protocol: Supports REST and MCP through one contract
 
 # Primary Use Cases
 1. Expose existing APIs as MCP tools for AI agents
@@ -28,7 +28,7 @@ STOA is an open-source API gateway specifically designed for AI agents and the M
 
 # Technical Details
 - License: Apache 2.0
-- Built with: Rust
+- Built with: Python/FastAPI
 - Deployment: Kubernetes-native
 - Architecture: https://docs.gostoa.dev/docs/concepts/architecture
 
