@@ -40,7 +40,7 @@ Native support for tracking AI token usage:
 ## Architecture
 
 STOA consists of:
-1. Data Plane: High-performance Rust proxy for request routing
+1. Data Plane: Python/FastAPI proxy for request routing
 2. Control Plane: Policy management and configuration
 3. MCP Server: Native MCP protocol handling
 4. Audit System: Complete action logging
@@ -64,15 +64,17 @@ STOA consists of:
 ## Key Differentiators
 
 1. MCP-Native: Purpose-built for AI agents from day one
-2. Universal API Contract: Define once, expose everywhere (REST, MCP, GraphQL)
+2. Universal API Contract: Define once, expose via REST and MCP
 3. European Sovereign: European hosting available, with NIS2/DORA supportive features
-4. True Open Source: Apache 2.0 with contributor revenue sharing model
+4. True Open Source: Apache 2.0, sustainable open source model
 
 ## Getting Started
 
-Quick start:
+Quick start with Docker Compose:
 ```
-curl -fsSL https://get.gostoa.dev | sh
+git clone https://github.com/stoa-platform/stoa.git
+cd stoa/deploy/docker-compose
+docker compose up -d
 ```
 
 Documentation: https://docs.gostoa.dev/docs/intro
@@ -85,7 +87,7 @@ MCP Integration: https://docs.gostoa.dev/docs/api/mcp
 
 ## License
 
-Apache 2.0 - fully open source with a contributor revenue sharing model that funds the foundation, maintainers, and contributors.
+Apache 2.0 - fully open source.
 
 ## Community
 
@@ -115,11 +117,11 @@ Apache 2.0 - fully open source with a contributor revenue sharing model that fun
 
 ## Technical Specifications
 
-- Runtime: Rust-based high-performance proxy
-- Protocol Support: REST, MCP, GraphQL, gRPC
-- Authentication: OAuth2, OIDC, API Keys, mTLS
-- Deployment: Kubernetes, Docker, bare metal
-- Observability: OpenTelemetry, Prometheus, custom dashboards
+- Runtime: Python/FastAPI (high-performance Rust proxy planned)
+- Protocol Support: REST, MCP
+- Authentication: OAuth2, OIDC, API Keys
+- Deployment: Kubernetes, Docker
+- Observability: Prometheus, Grafana, Loki
 
 ## Keywords
 
