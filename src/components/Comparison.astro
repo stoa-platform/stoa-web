@@ -27,13 +27,13 @@ const dimensions = [
   },
   { 
     dimension: 'AI Observability', 
-    incumbents: 'Non-existent', 
+    incumbents: 'Limited or retrofitted',
     stoa: 'Native (token metering, agent tracing)',
     icon: '📊'
   },
   {
     dimension: 'Data Sovereignty',
-    incumbents: 'US-based (Data residency)',
+    incumbents: 'Varies by vendor',
     stoa: 'European (NIS2/DORA supportive)',
     icon: '🇪🇺'
   },
@@ -49,7 +49,7 @@ const dimensions = [
 const features = [
   { name: 'MCP Protocol Support', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
   { name: 'AI-Native Gateway', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
-  { name: 'European Sovereign', stoa: true, kong: false, tyk: false, gravitee: 'partial', apisix: false },
+  { name: 'European Sovereign', stoa: true, kong: false, tyk: false, gravitee: true, apisix: false },
   { name: 'Universal Access Control', stoa: true, kong: 'partial', tyk: 'partial', gravitee: 'partial', apisix: 'partial' },
   { name: 'Multi-Tenant Native', stoa: true, kong: 'partial', tyk: true, gravitee: true, apisix: 'partial' },
   { name: 'Token-Based Metering', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
@@ -87,8 +87,8 @@ const differentiators = [
   {
     icon: '🔓',
     title: 'True Open Source',
-    subtitle: '45% revenue redistribution*',
-    description: '45% revenue redistribution: 10% foundation, 20% maintainers, 15% contributors. We learned from Kubernetes, not Elasticsearch.',
+    subtitle: 'Revenue sharing for contributors',
+    description: 'Committed to a revenue sharing model that funds the foundation, maintainers, and contributors. Inspired by sustainable open source governance.',
   },
 ];
 
@@ -283,7 +283,7 @@ function renderValue(value: boolean | string) {
       <!-- Bottom note -->
       <div class="mt-6 text-center">
         <p class="text-gray-500 text-sm">
-          Data as of January 2026. Feature availability may change.
+          Based on publicly available documentation as of January 2026. Feature availability may change.
           <a href="https://docs.gostoa.dev/comparison" class="text-primary-400 hover:text-primary-300 ml-1">
             View full comparison →
           </a>
