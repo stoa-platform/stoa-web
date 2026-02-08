@@ -1,10 +1,10 @@
 ---
 // Paradigm comparison - Strategic dimensions, not features
 const dimensions = [
-  { 
-    dimension: 'Target Consumer', 
-    incumbents: 'Human developers', 
-    stoa: 'AI Agents + Human developers',
+  {
+    dimension: 'Design Philosophy',
+    incumbents: 'Gateway-centric (add AI later)',
+    stoa: 'Agent-centric (AI-first, APIs included)',
     icon: '👤'
   },
   { 
@@ -25,10 +25,10 @@ const dimensions = [
     stoa: 'MCP tools + Portal',
     icon: '🔍'
   },
-  { 
-    dimension: 'AI Observability', 
-    incumbents: 'Limited or retrofitted',
-    stoa: 'Native (token metering, agent tracing)',
+  {
+    dimension: 'AI Observability',
+    incumbents: 'Retrofitted (plugin-based)',
+    stoa: 'Native (built-in from day 1)',
     icon: '📊'
   },
   {
@@ -45,16 +45,17 @@ const dimensions = [
   },
 ];
 
-// Feature comparison (keeping original for detail)
+// Feature comparison — verified February 2026
 const features = [
-  { name: 'MCP Protocol Support', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
-  { name: 'AI-Native Gateway', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
-  { name: 'European Sovereign', stoa: true, kong: false, tyk: false, gravitee: true, apisix: false },
-  { name: 'Universal Access Control', stoa: true, kong: 'partial', tyk: 'partial', gravitee: 'partial', apisix: 'partial' },
-  { name: 'Multi-Tenant Native', stoa: true, kong: 'partial', tyk: true, gravitee: true, apisix: 'partial' },
-  { name: 'Token-Based Metering', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
-  { name: 'Kubernetes Native', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
-  { name: 'Open Source', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
+  { name: 'MCP-Native Architecture', stoa: true, kong: 'no:Plugin', tyk: 'no:Add-on', gravitee: 'no:Add-on', apisix: 'no:Plugin' },
+  { name: 'Universal API Contract (UAC)', stoa: true, kong: false, tyk: false, gravitee: false, apisix: false },
+  { name: 'Legacy Gateway Orchestration', stoa: true, kong: false, tyk: false, gravitee: 'partial', apisix: false },
+  { name: 'European Sovereign', stoa: true, kong: 'no:US', tyk: 'no:UK', gravitee: 'yes:FR/EU', apisix: 'no:CN/Apache' },
+  { name: 'True Open Source (no open-core)', stoa: true, kong: 'partial', tyk: 'partial', gravitee: 'partial', apisix: true },
+  { name: 'On-Premise Control Plane', stoa: true, kong: 'no:Konnect', tyk: 'no:Tyk Cloud', gravitee: 'no:Gravitee Cloud', apisix: true },
+  { name: 'Multi-Tenant Native', stoa: true, kong: 'partial', tyk: false, gravitee: false, apisix: 'partial' },
+  { name: 'Kubernetes CRD-Native', stoa: true, kong: true, tyk: false, gravitee: false, apisix: true },
+  { name: 'AI Token Metering', stoa: true, kong: true, tyk: true, gravitee: true, apisix: true },
 ];
 
 const competitors = [
@@ -70,7 +71,7 @@ const differentiators = [
     icon: '🤖',
     title: 'MCP-Native',
     subtitle: 'Purpose-built for AI agents from day one',
-    description: 'While others retrofit AI support, STOA was designed from the ground up for the Model Context Protocol. Your agents get first-class treatment, not afterthoughts.',
+    description: 'Every major gateway now offers MCP plugins. STOA is the only one built MCP-native from day one — no plugins to install, no add-ons to configure, no protocol translation layer.',
   },
   {
     icon: '📜',
@@ -93,16 +94,21 @@ const differentiators = [
 ];
 
 function renderValue(value: boolean | string) {
+  const checkIcon = `<svg class="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
+  const xIcon = `<svg class="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`;
+
   if (value === true) {
-    return `<svg class="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-    </svg>`;
+    return checkIcon;
   } else if (value === false) {
-    return `<svg class="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-    </svg>`;
+    return xIcon;
   } else if (value === 'partial') {
     return `<span class="text-yellow-500 text-xs font-medium">Partial</span>`;
+  } else if (typeof value === 'string' && value.startsWith('no:')) {
+    const label = value.substring(3);
+    return `<div class="flex flex-col items-center gap-0.5">${xIcon}<span class="text-gray-500 text-[10px]">${label}</span></div>`;
+  } else if (typeof value === 'string' && value.startsWith('yes:')) {
+    const label = value.substring(4);
+    return `<div class="flex flex-col items-center gap-0.5">${checkIcon}<span class="text-green-400 text-[10px]">${label}</span></div>`;
   }
   return value;
 }
@@ -273,8 +279,9 @@ function renderValue(value: boolean | string) {
           <div>
             <h4 class="text-white font-semibold">Why European Sovereignty Matters</h4>
             <p class="text-gray-400 text-sm mt-1">
-              Kong (US-based), Tyk (UK-based), APISIX (Apache Foundation) — subject to their respective jurisdictions.
-              STOA offers a European alternative, relevant for central banks, public sector, and regulated industries with NIS2/DORA requirements.**
+              Kong (US), Tyk (UK post-Brexit), APISIX (China/Apache) are subject to foreign jurisdiction.
+              Gravitee is European but operates an open-core model with cloud-first SaaS.
+              STOA is the only fully open-source (Apache 2.0), on-premise-first European alternative — relevant for central banks, public sector, and regulated industries with NIS2/DORA requirements.
             </p>
           </div>
         </div>
@@ -283,7 +290,8 @@ function renderValue(value: boolean | string) {
       <!-- Bottom note -->
       <div class="mt-6 text-center">
         <p class="text-gray-500 text-sm">
-          Based on publicly available documentation. Last verified: February 2026. Feature availability may change.
+          Comparison data verified February 2026. All trademarks belong to their respective owners.
+          Feature availability based on publicly available documentation. We welcome corrections — contact hello@gostoa.dev
           <a href="https://docs.gostoa.dev/comparison" class="text-primary-400 hover:text-primary-300 ml-1">
             View full comparison →
           </a>

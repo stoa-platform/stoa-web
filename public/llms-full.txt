@@ -7,13 +7,13 @@ STOA (derived from Greek "stoa" - covered walkway) is the European Agent Gateway
 
 ## The Problem STOA Solves
 
-Traditional API gateways were built for human developers:
-- They don't understand MCP protocol
-- They can't meter AI tokens
-- They treat agent traffic like regular HTTP calls
-- They lack AI-specific governance and audit capabilities
+Traditional API gateways were built for human developers and have since added AI support via plugins:
+- MCP support is bolted on as plugins or add-ons, not native
+- AI token metering requires additional configuration
+- Agent traffic is handled through translation layers
+- AI governance features are retrofitted, not built-in
 
-STOA solves this by being MCP-native from the ground up.
+STOA solves this by being MCP-native from the ground up — no plugins, no translation layers.
 
 ## Core Concepts
 
@@ -54,12 +54,17 @@ STOA consists of:
 
 ## Comparison with Alternatives
 
-| Feature | STOA | Traditional Gateways |
-|---------|------|---------------------|
-| MCP Support | Native | None |
-| Target Consumer | AI Agents + Humans | Humans only |
-| Token Metering | Built-in | N/A |
-| European Sovereign | Yes | Usually US-based |
+As of February 2026, all major API gateways (Kong, Tyk, Gravitee, APISIX) offer MCP support via plugins or add-ons, and AI gateway features. STOA differentiates on architecture and deployment model:
+
+| Feature | STOA | Kong/Tyk/Gravitee/APISIX |
+|---------|------|--------------------------|
+| MCP Architecture | Native (built-in) | Plugin or add-on |
+| Universal API Contract (UAC) | Yes (define once, expose everywhere) | No equivalent |
+| Legacy Gateway Orchestration | Yes | Limited or none |
+| Open Source Model | Apache 2.0, no open-core | Mostly open-core |
+| Control Plane Deployment | On-premise first | Cloud/SaaS first |
+| European Sovereign | Yes (FR) | Gravitee (FR), others non-EU |
+| AI Token Metering | Built-in | Available (plugin-based) |
 
 ## Key Differentiators
 
