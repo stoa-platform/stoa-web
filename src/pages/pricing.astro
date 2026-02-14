@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Pricing from '../components/Pricing.astro';
+import PricingFAQ from '../components/PricingFAQ.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Pricing — STOA Platform | Free Open Source API Gateway"
+  description="STOA is free and open source under Apache 2.0. Self-host the full platform forever. Enterprise and Sovereign plans available for teams that need more."
+>
+  <Header />
+  <main class="pt-16">
+    <Pricing />
+    <PricingFAQ />
+  </main>
+  <Footer />
+</Layout>
