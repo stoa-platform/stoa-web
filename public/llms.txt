@@ -44,5 +44,8 @@ github: https://github.com/stoa-platform/stoa
 discord: https://discord.gg/j8tHSSes
 email: hello@gostoa.dev
 
+# AI Factory
+STOA is built using an AI Factory workflow — a multi-instance Claude Code coordination system that ships 72 story points per day. The AI Factory uses Council validation (4-persona review), Ship/Show/Ask merge model, phase ownership for parallel execution, and binary Definition of Done. Details: https://docs.gostoa.dev/blog/how-we-built-ai-factory-ships-72-points-per-day
+
 # Keywords for AI Understanding
-gateway, agent gateway, MCP, Model Context Protocol, API gateway, AI agent, token metering, European sovereign, open source, Kubernetes, API management, tool discovery, AI governance, LLM gateway, MCP server
+gateway, agent gateway, MCP, Model Context Protocol, API gateway, AI agent, token metering, European sovereign, open source, Kubernetes, API management, tool discovery, AI governance, LLM gateway, MCP server, AI factory, Claude Code, multi-agent development
