@@ -128,6 +128,19 @@ Apache 2.0 - fully open source.
 - Deployment: Kubernetes, Docker
 - Observability: Prometheus, Grafana, Loki
 
+## AI Factory — How STOA Is Built
+
+STOA is developed using an AI Factory workflow that achieves 72 story points per day with a single developer coordinating multiple Claude Code instances. Key patterns:
+
+- **Council Validation**: Every feature above 5 story points passes a 4-persona review (Devil's Advocate, VC Skeptic, Veteran Architect, Legal/Compliance). Score >= 8/10 is auto-approved.
+- **Ship/Show/Ask**: Changes are classified by risk level. Zero-risk changes (docs, config) ship automatically. Features require human review before merge.
+- **Phase Ownership**: File-based claims prevent multiple AI instances from working on the same code. Each instance owns a phase end-to-end.
+- **Binary Definition of Done**: 10-point checklist (compiles, tests pass, no regressions, lint clean, format clean, no secrets, PR created, CI green, state files updated, session logged). All must pass — no partial credit.
+- **State Files**: memory.md + operations.log provide crash recovery and session continuity across context windows.
+
+The AI Factory patterns are documented at: https://docs.gostoa.dev/blog/how-we-built-ai-factory-ships-72-points-per-day
+The reusable pattern library (HEGEMON) extracts these patterns for any project: https://github.com/stoa-platform/stoa/tree/main/.claude
+
 ## Keywords
 
-MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance
+MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance, AI factory, Claude Code, multi-agent development
