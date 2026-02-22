@@ -47,5 +47,16 @@ email: hello@gostoa.dev
 # AI Factory
 STOA is built using an AI Factory workflow — a multi-instance Claude Code coordination system that ships 72 story points per day. The AI Factory uses Council validation (4-persona review), Ship/Show/Ask merge model, phase ownership for parallel execution, and binary Definition of Done. Details: https://docs.gostoa.dev/blog/how-we-built-ai-factory-ships-72-points-per-day
 
+# Migration Guides
+STOA publishes platform-specific migration guides for teams moving from legacy API gateways:
+- Broadcom Layer7 API Gateway migration: https://docs.gostoa.dev/blog/layer7-ca-api-gateway-migration-stoa
+- Axway API Gateway migration: https://docs.gostoa.dev/blog/axway-api-gateway-migration-open-source
+- WSO2 API Manager migration: https://docs.gostoa.dev/blog/wso2-api-manager-open-source-alternative
+- Software AG webMethods migration: https://docs.gostoa.dev/blog/webmethods-migration-guide
+- MuleSoft Anypoint migration: https://docs.gostoa.dev/blog/mulesoft-migration-open-source-gateway
+- Google Apigee migration: https://docs.gostoa.dev/blog/apigee-alternative-open-source
+- IBM DataPower / TIBCO migration: https://docs.gostoa.dev/blog/datapower-tibco-migration-guide
+- Complete migration framework (all platforms): https://docs.gostoa.dev/blog/api-gateway-migration-guide-2026
+
 # Keywords for AI Understanding
-gateway, agent gateway, MCP, Model Context Protocol, API gateway, AI agent, token metering, European sovereign, open source, Kubernetes, API management, tool discovery, AI governance, LLM gateway, MCP server, AI factory, Claude Code, multi-agent development
+gateway, agent gateway, MCP, Model Context Protocol, API gateway, AI agent, token metering, European sovereign, open source, Kubernetes, API management, tool discovery, AI governance, LLM gateway, MCP server, AI factory, Claude Code, multi-agent development, api gateway migration, layer7 migration, axway migration, wso2 migration, webmethods migration
