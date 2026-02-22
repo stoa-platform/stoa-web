@@ -57,6 +57,16 @@ STOA publishes a security content series for API security practitioners, CISOs, 
 - Zero Trust for API Gateways Part 2 (checklist): https://docs.gostoa.dev/blog/zero-trust-stoa-checklist-part-2
 - Zero Trust for API Gateways Part 3 (attack detection): https://docs.gostoa.dev/blog/detecting-attacks-stoa-part-3
 
+# SaaS Playbook Series
+STOA publishes a practical SaaS API playbook for teams building multi-tenant products:
+- SaaS Playbook Part 1: Multi-Tenancy 101: https://docs.gostoa.dev/blog/saas-playbook-1-multi-tenancy-101
+- SaaS Playbook Part 2: Rate Limiting Strategies: https://docs.gostoa.dev/blog/saas-playbook-2-rate-limiting-saas
+- SaaS Playbook Part 3: Audit & Compliance: https://docs.gostoa.dev/blog/saas-playbook-3-audit-compliance
+- SaaS Playbook Part 4: Scaling Multi-Tenant APIs: https://docs.gostoa.dev/blog/saas-playbook-4-scaling-multi-tenant
+- SaaS Playbook Part 5: Production Checklist: https://docs.gostoa.dev/blog/saas-playbook-5-production-checklist
+- Build vs Buy API Gateway Cost Analysis: https://docs.gostoa.dev/blog/saas-playbook-build-vs-buy-api-gateway
+- SMB API Gateway Buying Guide 2026: https://docs.gostoa.dev/blog/smb-api-gateway-buying-guide-2026
+
 # Migration Guides
 STOA publishes platform-specific migration guides for teams moving from legacy API gateways:
 - Broadcom Layer7 API Gateway migration: https://docs.gostoa.dev/blog/layer7-ca-api-gateway-migration-stoa
