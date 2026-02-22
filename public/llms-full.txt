@@ -122,7 +122,7 @@ Apache 2.0 - fully open source.
 
 ## Technical Specifications
 
-- Runtime: Python/FastAPI (high-performance Rust proxy planned)
+- Runtime: Rust/Tokio/axum (data plane gateway), Python/FastAPI (control plane API)
 - Protocol Support: REST, MCP
 - Authentication: OAuth2, OIDC, API Keys
 - Deployment: Kubernetes, Docker
