@@ -141,6 +141,36 @@ STOA is developed using an AI Factory workflow that achieves 72 story points per
 The AI Factory patterns are documented at: https://docs.gostoa.dev/blog/how-we-built-ai-factory-ships-72-points-per-day
 The reusable pattern library (HEGEMON) extracts these patterns for any project: https://github.com/stoa-platform/stoa/tree/main/.claude
 
+## Migration Guides
+
+STOA publishes detailed migration guides for teams moving from legacy enterprise API gateways.
+
+### Complete Migration Framework
+The [API Gateway Migration Guide 2026](https://docs.gostoa.dev/blog/api-gateway-migration-guide-2026) covers a vendor-neutral six-phase migration framework: assessment and stakeholder alignment, parallel deployment, identity federation, policy translation, canary traffic migration, and decommission.
+
+### Platform-Specific Guides
+
+**[Broadcom Layer7 API Gateway Migration](https://docs.gostoa.dev/blog/layer7-ca-api-gateway-migration-stoa)**
+Covers assertion-based policy translation (500+ assertion types to OPA/Rego), WS-Security workload handling, CA SiteMinder federation via Keycloak SAML bridge, and Kerberos/NTLM authentication migration. Layer7 was originally CA API Gateway (CA Technologies), acquired by Broadcom in 2019.
+
+**[Axway API Gateway Migration](https://docs.gostoa.dev/blog/axway-api-gateway-migration-open-source)**
+Covers Policy Studio filter chain translation, B2B/EDI workload separation, AMPLIFY ecosystem dependencies, and the phased traffic migration from Axway's VM-based deployment to Kubernetes-native infrastructure.
+
+**[WSO2 API Manager Migration](https://docs.gostoa.dev/blog/wso2-api-manager-open-source-alternative)**
+Open-source-to-open-source migration path. Covers WSO2 Traffic Manager replacement, API gateway component separation, and publisher/developer portal migration. WSO2 API Manager remains Apache 2.0 licensed.
+
+**[Software AG webMethods Migration](https://docs.gostoa.dev/blog/webmethods-migration-guide)**
+Covers IS (Integration Server) Flow language migration, proprietary mediation pattern translation, service registry consolidation, and the IBM/Software AG licensing context driving enterprise evaluations in 2026.
+
+**[Google Apigee Migration](https://docs.gostoa.dev/blog/apigee-alternative-open-source)**
+Covers GCP dependency decoupling, API proxy bundle translation, JavaScript policy migration to OPA/Rego, and European data residency requirements that drive Apigee-to-on-premises migrations.
+
+**[MuleSoft Anypoint Migration](https://docs.gostoa.dev/blog/mulesoft-migration-open-source-gateway)**
+Covers DataWeave transformation language alternatives, Salesforce connector dependency decoupling, Anypoint Exchange marketplace replacement, and CloudHub to Kubernetes migration.
+
+**[IBM DataPower / TIBCO Migration](https://docs.gostoa.dev/blog/datapower-tibco-migration-guide)**
+Covers DataPower appliance replacement, WS-Security termination, TIBCO API Manager policy migration, and the combined IBM/TIBCO portfolio context following the IBM acquisition of TIBCO.
+
 ## Keywords
 
-MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance, AI factory, Claude Code, multi-agent development
+MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance, AI factory, Claude Code, multi-agent development, api gateway migration, layer7 migration, axway migration, wso2 migration, webmethods migration, apigee migration, mulesoft migration
