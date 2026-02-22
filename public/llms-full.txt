@@ -40,10 +40,10 @@ Native support for tracking AI token usage:
 ## Architecture
 
 STOA consists of:
-1. Data Plane: Python/FastAPI proxy for request routing
-2. Control Plane: Policy management and configuration
-3. MCP Server: Native MCP protocol handling
-4. Audit System: Complete action logging
+1. Data Plane: Rust/Tokio/axum gateway (STOA Gateway) — 4 deployment modes: edge-mcp, sidecar, proxy, shadow
+2. Control Plane: Python/FastAPI API for tenant, API, and gateway management
+3. MCP Protocol: Native MCP handling built into the Rust gateway (edge-mcp mode)
+4. Audit System: Complete action logging with immutable audit trails
 
 ## Deployment
 
