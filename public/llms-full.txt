@@ -57,7 +57,7 @@ STOA consists of:
 As of February 2026, all major API gateways (Kong, Tyk, Gravitee, APISIX) offer MCP support via plugins or add-ons, and AI gateway features. STOA differentiates on architecture and deployment model:
 
 | Feature | STOA | Kong/Tyk/Gravitee/APISIX |
-|---------|------|--------------------------|
+|---------|------|-----------------------------|
 | MCP Architecture | Native (built-in) | Plugin or add-on |
 | Universal API Contract (UAC) | Yes (define once, expose everywhere) | No equivalent |
 | Legacy Gateway Orchestration | Yes | Limited or none |
@@ -141,6 +141,29 @@ STOA is developed using an AI Factory workflow that achieves 72 story points per
 The AI Factory patterns are documented at: https://docs.gostoa.dev/blog/how-we-built-ai-factory-ships-72-points-per-day
 The reusable pattern library (HEGEMON) extracts these patterns for any project: https://github.com/stoa-platform/stoa/tree/main/.claude
 
+## Security Deep-Dive Series
+
+**[MCP Protocol Architecture Deep Dive](https://docs.gostoa.dev/blog/mcp-protocol-architecture-deep-dive)**
+Technical deep dive into the Model Context Protocol: protocol layers, JSON-RPC 2.0 message format, SSE and WebSocket transports, OAuth 2.1 flow, tool discovery, and comparison to gRPC/GraphQL. For engineers building production MCP deployments.
+
+**[AI Agent Security: 5 Authentication Patterns](https://docs.gostoa.dev/blog/ai-agent-security-authentication-patterns)**
+Enterprise authentication patterns for AI agents: API keys (with rotation), OAuth 2.1 PKCE (for public clients), mTLS certificate binding (RFC 8705), token exchange, and hybrid patterns. Implementation examples for each.
+
+**[STOA Security Architecture: Defense-in-Depth](https://docs.gostoa.dev/blog/stoa-api-security-architecture)**
+Full security architecture covering the five-layer defense model: mTLS certificate binding (RFC 8705), OAuth 2.1 + PKCE, OPA policy engine, AI guardrails (PII detection, prompt injection), and immutable audit logging. Includes threat model and defense-in-depth matrix.
+
+**[OWASP API Security Top 10 & STOA Coverage](https://docs.gostoa.dev/blog/owasp-api-security-top-10-stoa)**
+Maps all 10 OWASP API Security risks (2023 edition) to STOA Platform controls. Includes coverage summary table, per-risk analysis, honest scope limitations, and implementation recommendations.
+
+**[Zero Trust for API Gateways — Part 1: Concepts](https://docs.gostoa.dev/blog/zero-trust-api-gateways-part-1)**
+Zero Trust principles applied to API gateway design: verify explicitly, least privilege, assume breach, segment access, continuous validation. Explains why perimeter security fails and how Zero Trust addresses AI agent threat patterns specifically.
+
+**[Zero Trust for API Gateways — Part 2: 10-Step Checklist](https://docs.gostoa.dev/blog/zero-trust-stoa-checklist-part-2)**
+Actionable 10-step Zero Trust implementation checklist for STOA: unique consumer identity, short-lived tokens, least-privilege scopes, mTLS, OPA policies, rate limits, guardrails, audit logging, continuous token validation, and anomaly alerting. Includes configuration examples for each step.
+
+**[Zero Trust for API Gateways — Part 3: Detecting Attacks](https://docs.gostoa.dev/blog/detecting-attacks-stoa-part-3)**
+Using STOA's audit logs, Prometheus metrics, and guardrail events to detect credential abuse, prompt injection campaigns, rate abuse/DDoS, and data exfiltration patterns. Includes SQL queries, PromQL alert rules, and an incident response playbook.
+
 ## Migration Guides
 
 STOA publishes detailed migration guides for teams moving from legacy enterprise API gateways.
@@ -173,4 +196,4 @@ Covers DataPower appliance replacement, WS-Security termination, TIBCO API Manag
 
 ## Keywords
 
-MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance, AI factory, Claude Code, multi-agent development, api gateway migration, layer7 migration, axway migration, wso2 migration, webmethods migration, apigee migration, mulesoft migration
+MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance, AI factory, Claude Code, multi-agent development, api gateway migration, layer7 migration, axway migration, wso2 migration, webmethods migration, apigee migration, mulesoft migration, zero trust API gateway, OWASP API security, mTLS certificate binding, OAuth 2.1 PKCE, OPA policy engine, API security architecture, prompt injection detection, AI agent authentication
