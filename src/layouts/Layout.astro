@@ -2,6 +2,7 @@
 import Analytics from '@vercel/analytics/astro';
 import SEO from '../components/SEO.astro';
 import StructuredData from '../components/StructuredData.astro';
+import '../styles/v4.css';
 
 interface Props {
   title: string;
@@ -19,7 +20,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,70 +29,17 @@ const {
     <SEO title={title} description={description} image={image} />
     <StructuredData type={structuredDataType} />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-gray-950 text-gray-100 font-sans antialiased">
+  <body>
     <slot />
     <Analytics />
+    <script src="../scripts/v4.js"></script>
   </body>
 </html>
-
-<style is:global>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    min-height: 100vh;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #1f2937;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #4b5563;
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #6b7280;
-  }
-
-  /* Selection */
-  ::selection {
-    background: #2563eb;
-    color: white;
-  }
-
-  /* Gradient text utility */
-  .gradient-text {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Glow effect */
-  .glow {
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3), 0 0 40px rgba(37, 99, 235, 0.1);
-  }
-
-  .glow-text {
-    text-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
-  }
-</style>

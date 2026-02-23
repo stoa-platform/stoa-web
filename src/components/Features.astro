@@ -1,109 +1,85 @@
 ---
-const features = [
-  {
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-    </svg>`,
-    title: 'No performance tax',
-    description: 'Low latency overhead, optimized proxy engine.',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-    </svg>`,
-    title: 'Works with AI out of the box',
-    description: 'Purpose-built for LLM workloads and agent orchestration.',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-    </svg>`,
-    title: 'Security without config hell',
-    description: 'mTLS, auto-rotation, zero-trust — all built-in.',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-    </svg>`,
-    title: 'Never break consumers',
-    description: 'Schema registry with versioning and compatibility checks.',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-    </svg>`,
-    title: 'Know where your money goes',
-    description: 'Usage, performance, and token costs in real-time.',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-    </svg>`,
-    title: 'Self-service = fewer tickets',
-    description: 'Developer portal for API discovery and onboarding.',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-    </svg>`,
-    title: 'Sleep at night',
-    description: 'Auto-scaling, Kubernetes-native, built for reliability.',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-    </svg>`,
-    title: 'Extend without forking',
-    description: 'WebAssembly plugin system for custom logic.',
-    badge: 'Roadmap',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>`,
-    title: 'Fast everywhere',
-    description: 'Deploy to edge locations for minimal latency.',
-    badge: 'Roadmap',
-  },
-];
 ---
 
-<section id="features" class="py-24 bg-gray-950">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header -->
-    <div class="text-center mb-16">
-      <span class="text-primary-400 font-semibold text-sm uppercase tracking-wider">Features</span>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">
-        Built to Scale With You
-      </h2>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-        Enterprise-grade capabilities, simplified
-      </p>
-    </div>
+<section class="features-v4" id="features" aria-label="Key features">
 
-    <!-- Features grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {features.map((feature, index) => (
-        <div
-          class="group p-6 bg-gray-900 border border-gray-800 rounded-xl hover:border-primary-600/50 hover:bg-gray-900/80 transition-all duration-300"
-        >
-          <div class="w-12 h-12 bg-primary-600/10 rounded-lg flex items-center justify-center text-primary-400 mb-4 group-hover:bg-primary-600/20 group-hover:scale-110 transition-all">
-            <Fragment set:html={feature.icon} />
-          </div>
-          <div class="flex items-center gap-2 mb-2">
-            <h3 class="text-lg font-semibold text-white">{feature.title}</h3>
-            {feature.badge && (
-              <span class="px-2 py-0.5 text-xs font-medium bg-amber-500/20 text-amber-400 rounded-full">{feature.badge}</span>
-            )}
-          </div>
-          <p class="text-gray-400 text-sm">{feature.description}</p>
+  <!-- Feature 1: MCP-Native -->
+  <div class="feature-block">
+    <div class="feature-text reveal" data-reveal>
+      <span class="feature-tag">AI-Native Protocol</span>
+      <h2 class="feature-title">MCP-Native<br/>from day one</h2>
+      <p class="feature-desc">STOA speaks the Model Context Protocol natively. No adapters, no plugins, no middleware. Your AI agents connect directly to enterprise APIs through a standardized, secure gateway.</p>
+      <ul class="feature-list">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#10b981" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Tool discovery &amp; execution</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#10b981" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>OAuth 2.1 + PKCE authentication</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#10b981" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Streaming &amp; WebSocket transport</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal" data-reveal data-reveal-delay="200">
+      <div class="feature-anim-mcp">
+        <div class="mcp-center"><div class="mcp-hub">STOA</div></div>
+        <div class="mcp-agent mcp-agent-1"><span>Claude</span></div>
+        <div class="mcp-agent mcp-agent-2"><span>GPT-4</span></div>
+        <div class="mcp-agent mcp-agent-3"><span>Gemini</span></div>
+        <div class="mcp-line mcp-line-1"></div>
+        <div class="mcp-line mcp-line-2"></div>
+        <div class="mcp-line mcp-line-3"></div>
+        <div class="mcp-pulse mcp-pulse-1"></div>
+        <div class="mcp-pulse mcp-pulse-2"></div>
+        <div class="mcp-pulse mcp-pulse-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 2: UAC -->
+  <div class="feature-block feature-block-reverse">
+    <div class="feature-text reveal" data-reveal>
+      <span class="feature-tag">Kill Feature</span>
+      <h2 class="feature-title">Universal API<br/><span class="gradient-text">Contract</span></h2>
+      <p class="feature-desc">Define your API contract once, and STOA exposes it everywhere — REST, GraphQL, MCP, gRPC. One source of truth that adapts to any consumer.</p>
+      <ul class="feature-list">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#8b5cf6" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>OpenAPI &rarr; MCP auto-transform</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#8b5cf6" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Schema validation at the edge</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#8b5cf6" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Version-aware routing</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal" data-reveal data-reveal-delay="200">
+      <div class="feature-anim-uac">
+        <div class="uac-source"><code>openapi.yaml</code></div>
+        <div class="uac-arrows">
+          <div class="uac-arrow uac-arrow-1"><span>REST</span></div>
+          <div class="uac-arrow uac-arrow-2"><span>MCP</span></div>
+          <div class="uac-arrow uac-arrow-3"><span>GraphQL</span></div>
+          <div class="uac-arrow uac-arrow-4"><span>gRPC</span></div>
         </div>
-      ))}
+      </div>
     </div>
+  </div>
 
-    <!-- Roadmap note -->
-    <p class="text-center text-sm text-gray-500 mt-8">
-      Items marked <span class="text-amber-400 font-medium">Roadmap</span> are planned features, not yet available in the current release.
-    </p>
+  <!-- Feature 3: Multi-Gateway -->
+  <div class="feature-block">
+    <div class="feature-text reveal" data-reveal>
+      <span class="feature-tag">Enterprise Ready</span>
+      <h2 class="feature-title">Multi-Gateway<br/>orchestration</h2>
+      <p class="feature-desc">One control plane for all your gateways. STOA orchestrates Kong, Gravitee, Apigee, Azure APIM, AWS API Gateway, and webMethods from a single pane of glass.</p>
+      <ul class="feature-list">
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2dd4bf" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>7 Stoa Links</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2dd4bf" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Unified policy engine (OPA)</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2dd4bf" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Hybrid cloud + on-premise</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal" data-reveal data-reveal-delay="200">
+      <div class="feature-anim-gw">
+        <div class="gw-orbit">
+          <div class="gw-center-logo">STOA</div>
+          <div class="gw-item gw-item-1">Kong</div>
+          <div class="gw-item gw-item-2">Gravitee</div>
+          <div class="gw-item gw-item-3">Apigee</div>
+          <div class="gw-item gw-item-4">Azure</div>
+          <div class="gw-item gw-item-5">AWS</div>
+          <div class="gw-item gw-item-6">wM</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
