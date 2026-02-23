@@ -1,146 +1,120 @@
 ---
 ---
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-b from-primary-950/20 via-gray-950 to-gray-950"></div>
+<section class="hero" id="hero" aria-label="Hero — The European Agent Gateway">
+  <div class="hero-bg">
+    <div class="orb orb-teal" data-parallax="0.15"></div>
+    <div class="orb orb-purple" data-parallax="0.25"></div>
+    <div class="orb orb-blue" data-parallax="0.1"></div>
+    <div class="grid-overlay"></div>
+  </div>
 
-  <!-- Animated grid background -->
-  <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
-  <!-- Glow orbs -->
-  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600/20 rounded-full blur-3xl animate-pulse-slow"></div>
-  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
-
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <!-- Badge -->
-    <div class="inline-flex items-center space-x-2 bg-gray-800/50 border border-gray-700/50 rounded-full px-4 py-2 mb-8 animate-fade-in">
-      <span class="text-sm font-medium">🇪🇺</span>
-      <span class="text-sm text-gray-300 font-medium">European Sovereign</span>
-      <span class="text-gray-600">•</span>
-      <span class="text-sm text-gray-300 font-medium">Open Source</span>
-      <span class="text-gray-600">•</span>
-      <span class="text-sm text-gray-300 font-medium">Apache 2.0</span>
+  <div class="hero-content">
+    <div class="badge reveal" data-reveal>
+      <span class="badge-flag">&#127466;&#127482;</span>
+      Open Source &middot; Apache 2.0 &middot; European Sovereign
     </div>
 
-    <!-- Main headline -->
-    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 animate-slide-up">
-      <span class="text-white">The European</span>
-      <br />
-      <span class="gradient-text">Agent Gateway</span>
+    <h1 class="hero-title reveal" data-reveal data-reveal-delay="100">
+      <span class="gradient-text">The European</span><br/>
+      <span class="gradient-text-alt">Agent Gateway</span>
     </h1>
 
-    <!-- Subtitle -->
-    <p class="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-4 animate-slide-up" style="animation-delay: 0.1s;">
-      API Gateways were built for human developers. STOA is purpose-built for AI agents. One contract, all protocols — sovereign, open-source, production-ready.
+    <p class="hero-sub reveal" data-reveal data-reveal-delay="200">
+      <span class="typewriter" data-typewriter="Define Once, Expose Everywhere — connect legacy APIs to AI agents in minutes, not months."></span>
     </p>
 
-    <!-- Subtext -->
-    <p class="text-sm text-gray-500 mb-10 animate-slide-up" style="animation-delay: 0.15s;">
-      European hosting available. No vendor lock-in. Built by API management practitioners.
-    </p>
-
-    <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-16 animate-slide-up w-full max-w-md sm:max-w-none mx-auto" style="animation-delay: 0.2s;">
-      <a
-        href="https://portal.gostoa.dev"
-        class="group relative inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-primary-600 rounded-xl hover:bg-primary-500 transition-all duration-300 glow"
-      >
-        <span>Try STOA Free</span>
-        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
+    <div class="hero-ctas reveal" data-reveal data-reveal-delay="300">
+      <a href="https://console.gostoa.dev" class="btn btn-primary glow-btn">
+        Start Building
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a
-        href="mailto:demo@gostoa.dev?subject=STOA%20Demo%20Request"
-        class="inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-gray-800/50 border border-primary-600/50 rounded-xl hover:bg-primary-900/30 hover:border-primary-500 transition-all duration-300"
-      >
-        <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-        <span>Book a Demo</span>
-      </a>
-      <a
-        href="https://github.com/stoa-platform"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-gray-300 bg-gray-800/50 border border-gray-700 rounded-xl hover:bg-gray-800 hover:border-gray-600 transition-all duration-300"
-      >
-        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-        </svg>
-        <span>View on GitHub</span>
+      <a href="https://docs.gostoa.dev/docs/guides/quick-start" class="btn btn-secondary">
+        Quick Start
       </a>
     </div>
 
-    <!-- Terminal Animation -->
-    <div class="max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.3s;">
-      <div class="bg-gray-900 rounded-xl border border-gray-800 shadow-2xl overflow-hidden">
-        <!-- Terminal header -->
-        <div class="flex items-center space-x-2 px-4 py-3 bg-gray-800/50 border-b border-gray-800">
-          <div class="w-3 h-3 rounded-full bg-red-500"></div>
-          <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div class="w-3 h-3 rounded-full bg-green-500"></div>
-          <span class="ml-4 text-sm text-gray-500 font-mono">terminal</span>
-        </div>
+    <div class="hero-meta reveal" data-reveal data-reveal-delay="400">
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 2v12l4-3 4 3V2z" stroke="#10b981" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+        916 PRs merged
+      </span>
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.5 5 5.5.8-4 3.9 1 5.3L8 13l-5 3 1-5.3-4-3.9 5.5-.8z" fill="#8b5cf6"/></svg>
+        13.5 PRs/day
+      </span>
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#2dd4bf" stroke-width="2" fill="none"/><path d="M6 8l2 2 3-4" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        3,900+ tests
+      </span>
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#f59e0b" stroke-width="1.5" fill="none"/><path d="M5 8h6M8 5v6" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/></svg>
+        68 days
+      </span>
+    </div>
+  </div>
 
-        <!-- Terminal content -->
-        <div class="p-6 font-mono text-sm text-left">
-          <div class="space-y-3">
-            <div class="flex items-start">
-              <span class="text-green-400 mr-2">$</span>
-              <span class="text-gray-300" id="typing-command"></span>
-              <span class="inline-block w-2 h-5 bg-primary-500 ml-1 animate-pulse" id="cursor"></span>
+  <!-- Mock UI Dashboard -->
+  <div class="mock-ui reveal" data-reveal data-reveal-delay="500">
+    <div class="mock-ui-inner">
+      <div class="mock-titlebar">
+        <div class="mock-dots"><span></span><span></span><span></span></div>
+        <span class="mock-titlebar-text">STOA Console — Dashboard</span>
+      </div>
+      <div class="mock-body">
+        <!-- Row 1: Stats -->
+        <div class="mock-stats">
+          <div class="mock-stat-card stagger-child" data-stagger="0">
+            <span class="mock-stat-label">PRs Merged</span>
+            <span class="mock-stat-value" data-counter="916">0</span>
+            <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 92%"></div></div>
+          </div>
+          <div class="mock-stat-card stagger-child" data-stagger="1">
+            <span class="mock-stat-label">Tests Passing</span>
+            <span class="mock-stat-value" data-counter="3906">0</span>
+            <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 100%"></div></div>
+          </div>
+          <div class="mock-stat-card stagger-child" data-stagger="2">
+            <span class="mock-stat-label">LOC Shipped</span>
+            <span class="mock-stat-value" data-counter="194501">0</span>
+            <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 78%"></div></div>
+          </div>
+          <div class="mock-stat-card stagger-child" data-stagger="3">
+            <span class="mock-stat-label">PRs / Day</span>
+            <span class="mock-stat-value">13.5</span>
+            <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 85%"></div></div>
+          </div>
+        </div>
+        <!-- Row 2: Chart + Terminal -->
+        <div class="mock-row2">
+          <div class="mock-chart stagger-child" data-stagger="4">
+            <span class="mock-chart-title">AI Velocity (3 months)</span>
+            <svg class="mock-chart-svg" viewBox="0 0 300 80" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#10b981" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="chart-area" d="M0,75 C30,74 60,73 100,72 C120,70 140,45 180,35 C210,22 250,10 300,5 L300,80 L0,80 Z" fill="url(#chart-grad)"/>
+              <path class="chart-line" d="M0,75 C30,74 60,73 100,72 C120,70 140,45 180,35 C210,22 250,10 300,5" fill="none" stroke="#10b981" stroke-width="2"/>
+            </svg>
+            <div class="mock-chart-labels">
+              <span>Dec</span><span>Jan</span><span>Feb</span>
             </div>
-            <div id="output-container" class="hidden">
-              <div class="text-gray-500 mt-4">Starting STOA Platform...</div>
-              <div class="mt-2 text-primary-400">
-                <span class="text-green-400">✓</span> Control Plane API started
-              </div>
-              <div class="text-primary-400">
-                <span class="text-green-400">✓</span> MCP Gateway initialized
-              </div>
-              <div class="text-primary-400">
-                <span class="text-green-400">✓</span> Developer Portal ready
-              </div>
-              <div class="mt-4 text-white">
-                <span class="text-green-400">Ready!</span> STOA is running at <span class="text-primary-400">http://localhost:8000</span>
-              </div>
+          </div>
+          <div class="mock-terminal stagger-child" data-stagger="5">
+            <span class="mock-terminal-title">AI Factory</span>
+            <div class="mock-terminal-lines">
+              <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">claude /council CAB-1432</span></div>
+              <div class="term-line term-output term-success">&#10003; Council: 9.2/10 — Go (Ship)</div>
+              <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">gh pr merge --squash 903</span></div>
+              <div class="term-line term-output term-success">&#10003; PR #903 merged (13.5 PRs/day avg)</div>
+              <div class="term-line"><span class="term-prompt">$</span> <span class="term-cursor">|</span></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-    </div>
   </div>
 </section>
-
-<script>
-  const command = 'docker compose up -d';
-  const typingElement = document.getElementById('typing-command');
-  const cursor = document.getElementById('cursor');
-  const outputContainer = document.getElementById('output-container');
-  let index = 0;
-
-  function typeCommand() {
-    if (index < command.length) {
-      typingElement!.textContent += command.charAt(index);
-      index++;
-      setTimeout(typeCommand, 50 + Math.random() * 50);
-    } else {
-      setTimeout(() => {
-        cursor?.classList.add('hidden');
-        outputContainer?.classList.remove('hidden');
-      }, 500);
-    }
-  }
-
-  // Start typing after a delay
-  setTimeout(typeCommand, 1000);
-</script>

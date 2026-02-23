@@ -1,51 +1,27 @@
 ---
-const stats = [
-  { value: '916+', label: 'PRs Merged', detail: '13.5 PRs/day — AI-powered velocity' },
-  { value: '3,900+', label: 'Automated Tests', detail: 'Cargo + Vitest + Pytest + E2E' },
-  { value: '7', label: 'Stoa Links', detail: 'STOA, Kong, Gravitee, webMethods, Apigee, AWS, Azure' },
-  { value: '194K', label: 'Lines of Code', detail: 'Rust + Python + TypeScript' },
-];
-
-const badges = [
-  { icon: '🛡️', text: 'SOC 2 Type II Supportive' },
-  { icon: '🇪🇺', text: 'NIS2 / DORA Supportive' },
-  { icon: '🔓', text: 'Apache 2.0 Licensed' },
-  { icon: '🏗️', text: 'Built in Public' },
-];
 ---
 
-<section class="py-20 bg-gray-950 border-t border-gray-800/50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header -->
-    <div class="text-center mb-12">
-      <span class="text-primary-400 font-semibold text-sm uppercase tracking-wider">By the Numbers</span>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">
-        Built for Production, <span class="gradient-text">Not for Demos</span>
-      </h2>
-      <p class="text-lg text-gray-400 max-w-2xl mx-auto">
-        Real metrics from a real platform. No vanity numbers.
-      </p>
-    </div>
-
-    <!-- Stats grid -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-12">
-      {stats.map((stat) => (
-        <div class="relative group bg-gray-900/50 border border-gray-800 rounded-xl p-4 sm:p-6 text-center hover:border-primary-600/50 transition-colors">
-          <div class="text-2xl sm:text-4xl font-bold text-white mb-1">{stat.value}</div>
-          <div class="text-xs sm:text-sm font-semibold text-primary-400 mb-2">{stat.label}</div>
-          <div class="text-xs text-gray-500 hidden sm:block">{stat.detail}</div>
-        </div>
-      ))}
-    </div>
-
-    <!-- Trust badges -->
-    <div class="flex flex-wrap items-center justify-center gap-4">
-      {badges.map((badge) => (
-        <div class="inline-flex items-center space-x-2 bg-gray-900/50 border border-gray-800 rounded-full px-4 py-2">
-          <span class="text-sm">{badge.icon}</span>
-          <span class="text-xs text-gray-400 font-medium">{badge.text}</span>
-        </div>
-      ))}
+<section class="social-proof" id="social-proof" aria-label="Open standards and AI velocity">
+  <p class="social-proof-label reveal" data-reveal>916 PRs in 68 days &mdash; built on open standards</p>
+  <div class="logo-scroll">
+    <div class="logo-track">
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="10" fill="#5f6880" font-family="Outfit">CNCF</text></svg><span>CNCF</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="4" y="4" width="32" height="32" rx="4" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="9" fill="#5f6880" font-family="Outfit">MCP</text></svg><span>MCP Protocol</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><polygon points="20,4 36,30 4,30" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="26" text-anchor="middle" font-size="8" fill="#5f6880" font-family="Outfit">IETF</text></svg><span>IETF</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="7" fill="#5f6880" font-family="Outfit">OpenID</text></svg><span>OpenID Connect</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="4" y="10" width="32" height="20" rx="3" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="8" fill="#5f6880" font-family="Outfit">OAuth</text></svg><span>OAuth 2.1</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M20 4L4 36h32z" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="30" text-anchor="middle" font-size="7" fill="#5f6880" font-family="Outfit">OPA</text></svg><span>Open Policy Agent</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#5f6880" stroke-width="1.5" fill="none"/><path d="M12 20h16M20 12v16" stroke="#5f6880" stroke-width="1.5"/></svg><span>Apache 2.0</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="6" width="28" height="28" rx="6" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="7" fill="#5f6880" font-family="Outfit">K8s</text></svg><span>Kubernetes</span></div>
+      <!-- Duplicate set for seamless scroll loop -->
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="10" fill="#5f6880" font-family="Outfit">CNCF</text></svg><span>CNCF</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="4" y="4" width="32" height="32" rx="4" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="9" fill="#5f6880" font-family="Outfit">MCP</text></svg><span>MCP Protocol</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><polygon points="20,4 36,30 4,30" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="26" text-anchor="middle" font-size="8" fill="#5f6880" font-family="Outfit">IETF</text></svg><span>IETF</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="7" fill="#5f6880" font-family="Outfit">OpenID</text></svg><span>OpenID Connect</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="4" y="10" width="32" height="20" rx="3" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="8" fill="#5f6880" font-family="Outfit">OAuth</text></svg><span>OAuth 2.1</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M20 4L4 36h32z" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="30" text-anchor="middle" font-size="7" fill="#5f6880" font-family="Outfit">OPA</text></svg><span>Open Policy Agent</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#5f6880" stroke-width="1.5" fill="none"/><path d="M12 20h16M20 12v16" stroke="#5f6880" stroke-width="1.5"/></svg><span>Apache 2.0</span></div>
+      <div class="logo-item"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="6" width="28" height="28" rx="6" stroke="#5f6880" stroke-width="1.5" fill="none"/><text x="20" y="24" text-anchor="middle" font-size="7" fill="#5f6880" font-family="Outfit">K8s</text></svg><span>Kubernetes</span></div>
     </div>
   </div>
 </section>
