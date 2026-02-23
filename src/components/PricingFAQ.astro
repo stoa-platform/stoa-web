@@ -2,82 +2,56 @@
 const faqs = [
   {
     question: 'Is STOA really free?',
-    answer:
-      'Yes. STOA is open source under the Apache 2.0 license. You can self-host the full platform forever at no cost. No usage limits, no feature gates, no trial expiration.',
+    answer: 'Yes. STOA is open source under the Apache 2.0 license. You can self-host the full platform forever at no cost. No usage limits, no feature gates, no trial expiration.',
   },
   {
     question: "What's included in the Community plan?",
-    answer:
-      'Everything you need to run an AI-native API gateway: MCP Protocol support, the Control Plane API, Console UI, Developer Portal, basic analytics, and community support via GitHub and Discord.',
+    answer: 'Everything you need to run an AI-native API gateway: MCP Protocol support, the Control Plane API, Console UI, Developer Portal, basic analytics, and community support via GitHub and Discord.',
   },
   {
     question: 'How does Enterprise pricing work?',
-    answer:
-      'Enterprise pricing is based on your deployment scale and support needs. Contact our sales team for a custom quote. We offer flexible options for both cloud-hosted and on-premise deployments.',
+    answer: 'Enterprise pricing is based on your deployment scale and support needs. Contact our sales team for a custom quote. We offer flexible options for both cloud-hosted and on-premise deployments.',
   },
   {
     question: 'Can I self-host Enterprise features?',
-    answer:
-      'Yes. STOA is designed for on-premise and hybrid deployments. Enterprise plans include advanced features like SSO/SAML, multi-environment support, and priority SLA — all deployable in your own infrastructure.',
+    answer: 'Yes. STOA is designed for on-premise and hybrid deployments. Enterprise plans include advanced features like SSO/SAML, multi-environment support, and priority SLA — all deployable in your own infrastructure.',
   },
   {
     question: "What's the Sovereign plan?",
-    answer:
-      'The Sovereign plan is designed for regulated industries (financial services, healthcare, government) that require dedicated infrastructure, data residency guarantees, and compliance support for frameworks like NIS2 and DORA.',
+    answer: 'The Sovereign plan is designed for regulated industries (financial services, healthcare, government) that require dedicated infrastructure, data residency guarantees, and compliance support for frameworks like NIS2 and DORA.',
   },
   {
     question: 'Do you offer a free trial?',
-    answer:
-      'The Community plan is free forever — no trial needed. You get the full platform with no time limits. For Enterprise and Sovereign plans, we offer guided proof-of-concept engagements.',
+    answer: 'The Community plan is free forever — no trial needed. You get the full platform with no time limits. For Enterprise and Sovereign plans, we offer guided proof-of-concept engagements.',
   },
   {
     question: 'How do I migrate from another API gateway?',
-    answer:
-      'STOA provides migration guides for Kong, Gravitee, Apigee, webMethods, and other popular gateways. Our multi-gateway orchestration lets you run STOA alongside your existing gateway during the transition.',
+    answer: 'STOA provides migration guides for Kong, Gravitee, Apigee, webMethods, and other popular gateways. Our multi-gateway orchestration lets you run STOA alongside your existing gateway during the transition.',
   },
 ];
 ---
 
-<section id="faq" class="py-20 bg-gray-950">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-      <p class="text-gray-400">
-        Everything you need to know about STOA pricing and plans.
-      </p>
+<section class="faq-section" id="faq">
+  <div class="section-container">
+    <div class="section-header reveal" data-reveal>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Everything you need to know about STOA pricing and plans.</p>
     </div>
 
-    <!-- FAQ items -->
-    <div class="space-y-4">
+    <div class="faq-list">
       {faqs.map((faq) => (
-        <details class="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-white font-medium hover:bg-gray-800/50 transition-colors list-none">
+        <details class="faq-item reveal" data-reveal>
+          <summary>
             <span>{faq.question}</span>
-            <svg
-              class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <div class="px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-gray-800 pt-4">
-            {faq.answer}
-          </div>
+          <div class="faq-answer">{faq.answer}</div>
         </details>
       ))}
     </div>
 
-    <!-- Contact -->
-    <div class="mt-10 text-center">
-      <p class="text-gray-400">
-        Still have questions?
-        <a href="mailto:hello@gostoa.dev" class="text-primary-400 hover:text-primary-300 font-medium ml-1">
-          Get in touch
-        </a>
-      </p>
+    <div class="faq-contact reveal" data-reveal>
+      <p>Still have questions? <a href="mailto:hello@gostoa.dev">Get in touch</a></p>
     </div>
   </div>
 </section>

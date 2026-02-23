@@ -56,87 +56,44 @@ const plans = [
 ];
 ---
 
-<section id="pricing" class="py-24 bg-gray-900/50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header -->
-    <div class="text-center mb-16">
-      <span class="text-primary-400 font-semibold text-sm uppercase tracking-wider">Pricing</span>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">
-        Simple, Transparent <span class="gradient-text">Pricing</span>
-      </h2>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-        Start free, scale as you grow. Transparent pricing.
-      </p>
+<section class="pricing-section" id="pricing">
+  <div class="section-container">
+    <div class="section-header reveal" data-reveal>
+      <span class="section-tag">Pricing</span>
+      <h2 class="section-title">Simple, Transparent <span class="gradient-text">Pricing</span></h2>
+      <p class="section-desc">Start free, scale as you grow. No hidden fees.</p>
     </div>
 
-    <!-- Pricing cards -->
-    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <div class="pricing-grid">
       {plans.map((plan) => (
-        <div
-          class={`relative rounded-2xl p-8 ${
-            plan.highlight
-              ? 'bg-gradient-to-b from-primary-900/50 to-gray-900 border-2 border-primary-600'
-              : 'bg-gray-900 border border-gray-800'
-          }`}
-        >
+        <div class={`pricing-card reveal ${plan.highlight ? 'pricing-card-highlight' : ''}`} data-reveal data-tilt>
           {plan.badge && (
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-              <span class="bg-primary-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                {plan.badge}
-              </span>
-            </div>
+            <div class="pricing-badge">{plan.badge}</div>
           )}
-
-          <!-- Plan name -->
-          <h3 class="text-xl font-bold text-white mb-2">{plan.name}</h3>
-
-          <!-- Price -->
-          <div class="mb-4">
-            <span class="text-4xl font-bold text-white">{plan.price}</span>
-            <span class="text-gray-400 ml-1">{plan.period}</span>
+          <h3 class="pricing-name">{plan.name}</h3>
+          <div class="pricing-price">
+            <span class="pricing-amount">{plan.price}</span>
+            <span class="pricing-period">{plan.period}</span>
           </div>
-
-          <!-- Description -->
-          <p class="text-gray-400 text-sm mb-6">{plan.description}</p>
-
-          <!-- Features -->
-          <ul class="space-y-3 mb-8">
+          <p class="pricing-desc">{plan.description}</p>
+          <ul class="pricing-features">
             {plan.features.map((feature) => (
-              <li class="flex items-start text-sm">
-                <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span class="text-gray-300">{feature}</span>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#10b981" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
-
-          <!-- CTA -->
-          <a
-            href={plan.ctaLink}
-            class={`block w-full py-3 px-4 rounded-lg text-center font-semibold transition-all ${
-              plan.highlight
-                ? 'bg-primary-600 hover:bg-primary-500 text-white'
-                : 'bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700'
-            }`}
-          >
+          <a href={plan.ctaLink} class={`pricing-cta ${plan.highlight ? 'pricing-cta-primary' : ''}`}>
             {plan.cta}
           </a>
         </div>
       ))}
     </div>
 
-    <!-- FAQ link -->
-    <div class="mt-12 text-center">
-      <p class="text-gray-400">
-        Have questions?
-        <a href="/pricing#faq" class="text-primary-400 hover:text-primary-300 font-medium ml-1">
-          Read the FAQ
-        </a>
-      </p>
-      <p class="text-xs text-gray-500 mt-4">
-        Pricing details available upon request. Plans and quotas subject to change before general availability.
-      </p>
+    <div class="pricing-footer reveal" data-reveal>
+      <p>Have questions? <a href="/pricing#faq">Read the FAQ</a></p>
+      <p class="pricing-footnote">Pricing details available upon request. Plans and quotas subject to change before general availability.</p>
     </div>
   </div>
 </section>
