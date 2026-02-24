@@ -1,0 +1,38 @@
+---
+const metrics = [
+  { value: 559, suffix: '+', label: 'Tests' },
+  { value: 6, suffix: '', label: 'Gateway Integrations' },
+  { value: 101, suffix: '+', label: 'Docs Pages' },
+  { value: 100, suffix: '%', label: 'Open Source' },
+];
+const badges = ['Cargo', 'Vitest', 'Pytest', 'Playwright E2E'];
+---
+
+<section class="metrics" id="metrics" aria-label="Platform Metrics">
+  <div class="section-container">
+    <div class="section-header reveal" data-reveal>
+      <span class="section-tag">By the Numbers</span>
+      <h2 class="section-title">Built to <span class="gradient-text-alt">Ship</span></h2>
+    </div>
+
+    <div class="metrics-grid reveal" data-reveal>
+      {metrics.map((m) => (
+        <div class="metric-card">
+          <span class="metric-value">
+            <span data-counter={m.value}>0</span>{m.suffix}
+          </span>
+          <span class="metric-label">{m.label}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="metrics-badges reveal" data-reveal data-reveal-delay="200">
+      {badges.map((badge) => (
+        <span class="metrics-badge">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M6 8l2 2 3-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          {badge}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

@@ -18,10 +18,10 @@ function initReveals() {
   els.forEach((el) => obs.observe(el));
 }
 
-/* Staggered Children (Mock UI) */
+/* Staggered Children (Mock UI + any [data-stagger-parent]) */
 function initStagger() {
-  const mockUI = document.querySelector('.mock-ui');
-  if (!mockUI) return;
+  const parents = document.querySelectorAll('.mock-ui, [data-stagger-parent]');
+  if (!parents.length) return;
   const obs = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -35,7 +35,24 @@ function initStagger() {
     },
     { threshold: 0.1 }
   );
-  obs.observe(mockUI);
+  parents.forEach((el) => obs.observe(el));
+}
+
+/* Divider Animations */
+function initDividers() {
+  const dividers = document.querySelectorAll('.divider');
+  if (!dividers.length) return;
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('vis');
+        obs.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.3 }
+  );
+  dividers.forEach((el) => obs.observe(el));
 }
 
 /* Parallax */
@@ -196,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initReveals();
   initStagger();
+  initDividers();
   initParallax();
   initCounters();
   initTypewriter();

@@ -1,0 +1,28 @@
+---
+const standards = [
+  { label: 'IETF Token Exchange', sub: 'RFC 8693', cls: 'si-ietf', icon: '\uD83D\uDD10' },
+  { label: 'OpenID Connect', sub: 'OIDC Federation', cls: 'si-oidc', icon: '\uD83D\uDD11' },
+  { label: 'CNCF Keycloak', sub: 'Identity Provider', cls: 'si-cncf', icon: '\uD83D\uDEE1\uFE0F' },
+  { label: 'CNCF Prometheus', sub: 'Observability', cls: 'si-prom', icon: '\uD83D\uDCCA' },
+  { label: 'MCP Protocol', sub: 'AI Agent Gateway', cls: 'si-mcp', icon: '\u2699\uFE0F' },
+  { label: 'Apache License 2.0', sub: 'True Open Source', cls: 'si-apache', icon: '\uD83D\uDCC4' },
+];
+---
+
+<section class="standards" id="standards" aria-label="Standards and Compliance">
+  <div class="section-container">
+    <div class="section-header reveal" data-reveal>
+      <span class="section-tag">Standards</span>
+      <h2 class="section-title">Built on <span class="gradient-text">Open Standards</span></h2>
+    </div>
+
+    <div class="standards-row reveal" data-reveal data-reveal-delay="100">
+      {standards.map((s) => (
+        <div class="standard-badge">
+          <div class={`standard-icon ${s.cls}`}>{s.icon}</div>
+          <div class="standard-text">{s.label}<br /><span style="color: var(--text-muted); font-weight: 400;">{s.sub}</span></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

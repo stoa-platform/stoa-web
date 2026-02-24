@@ -1,0 +1,48 @@
+---
+const before = [
+  'API catalogue = Excel spreadsheet',
+  'Subscription = email + meetings',
+  'Rigid identity layer, hard to federate',
+  'Gateway = expensive black box',
+  'AI agents? Not possible',
+];
+const after = [
+  'Visual API portal, self-service',
+  'Self-service subscription in 2 clicks',
+  'Federated identity across IDPs',
+  'Gateway orchestrated by STOA',
+  'AI agents governed by MCP',
+];
+---
+
+<section class="before-after" id="before-after" aria-label="Before and After STOA">
+  <div class="section-container">
+    <div class="section-header reveal" data-reveal>
+      <span class="section-tag">The Problem</span>
+      <h2 class="section-title">Before <span class="gradient-text-alt">&amp; After</span></h2>
+      <p class="section-desc">See what changes when you adopt STOA.</p>
+    </div>
+
+    <div class="ba-grid" data-stagger-parent>
+      <div class="ba-col">
+        <span class="ba-col-title ba-before-title">Before STOA</span>
+        {before.map((item, i) => (
+          <div class={`ba-item ba-item-before stagger-child`} data-stagger={i}>{item}</div>
+        ))}
+      </div>
+
+      <div class="ba-arrow">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <div class="ba-col">
+        <span class="ba-col-title ba-after-title">After STOA</span>
+        {after.map((item, i) => (
+          <div class={`ba-item ba-item-after stagger-child`} data-stagger={i + 5}>{item}</div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

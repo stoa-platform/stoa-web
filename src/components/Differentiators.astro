@@ -1,0 +1,49 @@
+---
+const cards = [
+  {
+    icon: '\u26A1',
+    title: 'MCP-Native',
+    subtitle: 'Not a plugin. Architecture.',
+    desc: 'MCP is built into the core, not bolted on. Every API you publish is instantly available to AI agents via the Model Context Protocol.',
+  },
+  {
+    icon: '\uD83D\uDD17',
+    title: 'Universal API Contract',
+    subtitle: 'Define once, expose everywhere.',
+    desc: 'One contract powers REST, GraphQL, gRPC, and MCP endpoints. Change once, propagate to all consumers automatically.',
+  },
+  {
+    icon: '\uD83C\uDDEA\uD83C\uDDFA',
+    title: 'European Sovereign',
+    subtitle: 'Not US. Not UK. Not CN.',
+    desc: 'Designed for European data sovereignty. GDPR-native, NIS2-ready, DORA-supportive. Your data never leaves your jurisdiction.',
+  },
+  {
+    icon: '\uD83D\uDD13',
+    title: 'True Open Source',
+    subtitle: 'Apache 2.0. No BSL. No tricks.',
+    desc: 'Full Apache 2.0 license. No feature gates, no usage limits, no enterprise-only modules. Fork it, modify it, ship it.',
+  },
+];
+---
+
+<section class="differentiators" id="differentiators" aria-label="Key Differentiators">
+  <div class="section-container">
+    <div class="section-header reveal" data-reveal>
+      <span class="section-tag">Why STOA</span>
+      <h2 class="section-title">What Makes Us <span class="gradient-text">Different</span></h2>
+      <p class="section-desc">Four pillars that define the STOA approach.</p>
+    </div>
+
+    <div class="diff-grid" data-stagger-parent>
+      {cards.map((card, i) => (
+        <div class="diff-card stagger-child" data-stagger={i}>
+          <div class="diff-icon">{card.icon}</div>
+          <h3 class="diff-title">{card.title}</h3>
+          <p class="diff-subtitle">{card.subtitle}</p>
+          <p class="diff-desc">{card.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

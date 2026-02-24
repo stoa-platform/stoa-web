@@ -1,0 +1,12 @@
+---
+interface Props {
+  color?: 'teal' | 'purple' | 'blue' | 'orange' | 'green' | 'yellow';
+}
+const { color = 'teal' } = Astro.props;
+---
+
+<div class={`divider dv-${color}`} aria-hidden="true">
+  <div class="dv-line"></div>
+  <div class="dv-dot"></div>
+  <div class="dv-line"></div>
+</div>

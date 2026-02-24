@@ -1,0 +1,57 @@
+---
+const cloudNodes = ['Portal', 'Control Plane', 'Keycloak', 'Observability', 'MCP Gateway'];
+const onpremNodes = ['Your IDP', 'Your Gateway', 'Your Backends'];
+const connectors = [
+  { label: 'API Sync', color: 'teal' },
+  { label: 'OIDC Federation', color: 'violet' },
+  { label: 'Metrics Push', color: 'orange' },
+];
+---
+
+<section class="architecture" id="architecture" aria-label="Architecture Diagram">
+  <div class="section-container">
+    <div class="section-header reveal" data-reveal>
+      <span class="section-tag">Architecture</span>
+      <h2 class="section-title">Cloud + <span class="gradient-text">On-Premise</span></h2>
+      <p class="section-desc">Hybrid by design. Your data stays where you need it.</p>
+    </div>
+
+    <div class="arch-diagram" data-stagger-parent>
+      <div class="arch-layer stagger-child" data-stagger="0">
+        <div class="arch-layer-title arch-cloud">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
+          Cloud (STOA Control Plane)
+        </div>
+        <div class="arch-nodes">
+          {cloudNodes.map((node) => (
+            <div class="arch-node">{node}</div>
+          ))}
+        </div>
+      </div>
+
+      <div class="arch-bridge stagger-child" data-stagger="1">
+        {connectors.map((c, i) => (
+          <div class={`arch-lane arch-lane-${c.color}`}>
+            <div class="arch-lane-line">
+              <div class="arch-pulse arch-pulse-down" style={`animation-delay: ${i * 0.6}s`}></div>
+              <div class="arch-pulse arch-pulse-up" style={`animation-delay: ${i * 0.6 + 1.2}s`}></div>
+            </div>
+            <span class="arch-lane-label">{c.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="arch-layer stagger-child" data-stagger="2">
+        <div class="arch-layer-title arch-onprem">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg>
+          On-Premise (Your Infrastructure)
+        </div>
+        <div class="arch-nodes">
+          {onpremNodes.map((node) => (
+            <div class="arch-node">{node}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
