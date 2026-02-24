@@ -2,6 +2,7 @@
 import Analytics from '@vercel/analytics/astro';
 import SEO from '../components/SEO.astro';
 import StructuredData from '../components/StructuredData.astro';
+import { getLocaleFromUrl, getLocalePath, type Locale } from '../i18n/index';
 import '../styles/v4.css';
 
 interface Props {
@@ -9,25 +10,37 @@ interface Props {
   description?: string;
   image?: string;
   structuredDataType?: 'WebSite' | 'SoftwareApplication' | 'Organization';
+  locale?: Locale;
 }
 
 const {
   title,
   description,
   image,
-  structuredDataType = 'WebSite'
+  structuredDataType = 'WebSite',
+  locale: propLocale,
 } = Astro.props;
+
+const locale = propLocale ?? getLocaleFromUrl(Astro.url);
+const currentPath = Astro.url.pathname.replace(/^\/fr/, '') || '/';
+const enUrl = `https://gostoa.dev${getLocalePath(currentPath, 'en')}`;
+const frUrl = `https://gostoa.dev${getLocalePath(currentPath, 'fr')}`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale === 'fr' ? 'fr' : 'en'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <SEO title={title} description={description} image={image} />
+    <SEO title={title} description={description} image={image} locale={locale} />
     <StructuredData type={structuredDataType} />
+
+    <!-- hreflang tags for i18n SEO -->
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="fr" href={frUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

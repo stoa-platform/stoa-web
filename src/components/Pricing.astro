@@ -1,72 +1,28 @@
 ---
-const plans = [
-  {
-    name: 'Community',
-    price: 'Free',
-    period: 'forever',
-    description: 'Full platform, no limits. Self-host or use our cloud.',
-    features: [
-      'Full MCP Protocol support',
-      'Control Plane API + Console UI',
-      'Developer Portal',
-      'Multi-gateway orchestration',
-      'UAC (Universal API Contract)',
-      'Community support (GitHub, Discord)',
-    ],
-    cta: 'Try STOA Free',
-    ctaLink: 'https://portal.gostoa.dev',
-    highlight: false,
-  },
-  {
-    name: 'Enterprise',
-    price: 'Custom',
-    period: 'pricing',
-    description: 'For teams that need SLAs, SSO, and dedicated support.',
-    features: [
-      'Everything in Community',
-      'SSO / SAML integration',
-      'Multi-environment (dev/staging/prod)',
-      'Advanced analytics dashboard',
-      'Priority support with SLA',
-      'Custom domain + TLS',
-      'Onboarding assistance',
-    ],
-    cta: 'Book a Demo',
-    ctaLink: 'mailto:demo@gostoa.dev?subject=STOA%20Enterprise%20Demo',
-    highlight: true,
-    badge: 'Recommended',
-  },
-  {
-    name: 'Sovereign',
-    price: 'Custom',
-    period: 'pricing',
-    description: 'For regulated industries requiring full data control.',
-    features: [
-      'Everything in Enterprise',
-      'Dedicated infrastructure (EU)',
-      'On-premise or air-gapped deployment',
-      'NIS2 / DORA supportive features',
-      'Dedicated success manager',
-      'Custom SLA + audit support',
-    ],
-    cta: 'Contact Us',
-    ctaLink: 'mailto:partners@gostoa.dev?subject=STOA%20Sovereign%20Inquiry',
-    highlight: false,
-  },
+import { getLocaleFromUrl, t, getLocalePath } from '../i18n/index';
+
+const locale = getLocaleFromUrl(Astro.url);
+const i18n = t(locale);
+
+const ctaLinks = [
+  'https://portal.gostoa.dev',
+  'mailto:demo@gostoa.dev?subject=STOA%20Enterprise%20Demo',
+  'mailto:partners@gostoa.dev?subject=STOA%20Sovereign%20Inquiry',
 ];
+const highlights = [false, true, false];
 ---
 
 <section class="pricing-section" id="pricing">
   <div class="section-container">
     <div class="section-header reveal" data-reveal>
-      <span class="section-tag">Pricing</span>
-      <h2 class="section-title">Simple, Transparent <span class="gradient-text">Pricing</span></h2>
-      <p class="section-desc">Start free, scale as you grow. No hidden fees.</p>
+      <span class="section-tag">{i18n.pricing.sectionTag}</span>
+      <h2 class="section-title" set:html={i18n.pricing.title} />
+      <p class="section-desc">{i18n.pricing.desc}</p>
     </div>
 
     <div class="pricing-grid">
-      {plans.map((plan) => (
-        <div class={`pricing-card reveal ${plan.highlight ? 'pricing-card-highlight' : ''}`} data-reveal data-tilt>
+      {i18n.pricing.plans.map((plan: { name: string; price: string; period: string; description: string; features: string[]; cta: string; badge?: string }, idx: number) => (
+        <div class={`pricing-card reveal ${highlights[idx] ? 'pricing-card-highlight' : ''}`} data-reveal data-tilt>
           {plan.badge && (
             <div class="pricing-badge">{plan.badge}</div>
           )}
@@ -77,14 +33,14 @@ const plans = [
           </div>
           <p class="pricing-desc">{plan.description}</p>
           <ul class="pricing-features">
-            {plan.features.map((feature) => (
+            {plan.features.map((feature: string) => (
               <li>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#10b981" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span>{feature}</span>
               </li>
             ))}
           </ul>
-          <a href={plan.ctaLink} class={`pricing-cta ${plan.highlight ? 'pricing-cta-primary' : ''}`}>
+          <a href={ctaLinks[idx]} class={`pricing-cta ${highlights[idx] ? 'pricing-cta-primary' : ''}`}>
             {plan.cta}
           </a>
         </div>
@@ -92,8 +48,8 @@ const plans = [
     </div>
 
     <div class="pricing-footer reveal" data-reveal>
-      <p>Have questions? <a href="/pricing#faq">Read the FAQ</a></p>
-      <p class="pricing-footnote">Pricing details available upon request. Plans and quotas subject to change before general availability.</p>
+      <p>{i18n.pricing.faqQuestion} <a href={getLocalePath('/pricing#faq', locale)}>{i18n.pricing.faqLink}</a></p>
+      <p class="pricing-footnote">{i18n.pricing.footnote}</p>
     </div>
   </div>
 </section>

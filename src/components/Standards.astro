@@ -1,4 +1,9 @@
 ---
+import { getLocaleFromUrl, t } from '../i18n/index';
+
+const locale = getLocaleFromUrl(Astro.url);
+const i18n = t(locale);
+
 const standards = [
   { label: 'IETF Token Exchange', sub: 'RFC 8693', cls: 'si-ietf', icon: '\uD83D\uDD10' },
   { label: 'OpenID Connect', sub: 'OIDC Federation', cls: 'si-oidc', icon: '\uD83D\uDD11' },
@@ -12,8 +17,8 @@ const standards = [
 <section class="standards" id="standards" aria-label="Standards and Compliance">
   <div class="section-container">
     <div class="section-header reveal" data-reveal>
-      <span class="section-tag">Standards</span>
-      <h2 class="section-title">Built on <span class="gradient-text">Open Standards</span></h2>
+      <span class="section-tag">{i18n.standards.sectionTag}</span>
+      <h2 class="section-title" set:html={i18n.standards.title} />
     </div>
 
     <div class="standards-row reveal" data-reveal data-reveal-delay="100">

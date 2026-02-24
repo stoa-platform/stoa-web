@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Pricing from '../../components/Pricing.astro';
+import PricingFAQ from '../../components/PricingFAQ.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Tarifs — STOA Platform | Passerelle API Open Source Gratuite"
+  description="STOA est gratuit et open source sous licence Apache 2.0. Auto-hebergez la plateforme complete indefiniment. Plans Entreprise et Souverain disponibles."
+  locale="fr"
+>
+  <Header />
+  <main style="padding-top: 80px;">
+    <Pricing />
+    <PricingFAQ />
+  </main>
+  <Footer />
+</Layout>

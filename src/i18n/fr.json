@@ -1,0 +1,298 @@
+{
+  "nav": {
+    "features": "Fonctionnalites",
+    "architecture": "Architecture",
+    "ttfac": "TTFAC",
+    "pricing": "Tarifs",
+    "docs": "Docs",
+    "github": "GitHub",
+    "tryFree": "Essayer gratuitement"
+  },
+  "hero": {
+    "badge": "Open Source \u00b7 Apache 2.0 \u00b7 Souverainete europeenne",
+    "titleLine1": "La passerelle",
+    "titleLine2": "Agent europeenne",
+    "typewriter": "Definir une fois, exposer partout \u2014 connectez vos APIs historiques aux agents IA en minutes, pas en mois.",
+    "ctaPrimary": "Essayer STOA gratuitement",
+    "ctaSecondary": "Demarrage rapide",
+    "metaPRs": "916 PRs fusionnees",
+    "metaVelocity": "13,5 PRs/jour",
+    "metaTests": "3 900+ tests",
+    "metaDays": "68 jours",
+    "mockDashboard": "Console STOA \u2014 Tableau de bord",
+    "mockPRsMerged": "PRs fusionnees",
+    "mockTestsPassing": "Tests valides",
+    "mockLOC": "LOC livrees",
+    "mockPRsDay": "PRs / Jour",
+    "mockChartTitle": "Velocite IA (3 mois)",
+    "mockTerminalTitle": "Usine IA"
+  },
+  "socialProof": {
+    "label": "916 PRs en 68 jours \u2014 base sur des standards ouverts"
+  },
+  "beforeAfter": {
+    "sectionTag": "Le probleme",
+    "title": "Avant <span class=\"gradient-text-alt\">&amp; Apres</span>",
+    "desc": "Decouvrez ce qui change quand vous adoptez STOA.",
+    "beforeTitle": "Avant STOA",
+    "afterTitle": "Apres STOA",
+    "before": [
+      "Catalogue d'APIs = tableur Excel",
+      "Souscription = email + reunions",
+      "Couche d'identite rigide, difficile a federer",
+      "Passerelle = boite noire couteuse",
+      "Agents IA ? Impossible"
+    ],
+    "after": [
+      "Portail API visuel, self-service",
+      "Souscription self-service en 2 clics",
+      "Identite federee entre les IDPs",
+      "Passerelle orchestree par STOA",
+      "Agents IA gouvernes par MCP"
+    ]
+  },
+  "ttfac": {
+    "sectionTag": "Temps du premier appel API",
+    "title": "De semaines a <span class=\"gradient-text\">minutes</span>",
+    "desc": "Les passerelles API traditionnelles necessitent des semaines de configuration. STOA connecte votre premier agent IA en moins de 5 minutes.",
+    "traditional": "Passerelle traditionnelle",
+    "stoa": "Plateforme STOA",
+    "days": "jours",
+    "minutes": "minutes",
+    "traditionalSteps": [
+      "Approvisionnement et licences",
+      "Provisionnement d'infrastructure",
+      "Installation de la passerelle",
+      "Configuration des APIs",
+      "Mise en place des politiques de securite",
+      "Tests et validation",
+      "Developpement d'adaptateur MCP"
+    ],
+    "stoaSteps": [
+      "docker compose up",
+      "Definir le contrat UAC",
+      "Connecter un agent IA via MCP"
+    ]
+  },
+  "features": {
+    "mcp": {
+      "tag": "Protocole IA natif",
+      "title": "MCP natif<br/>des le premier jour",
+      "desc": "STOA parle nativement le Model Context Protocol. Pas d'adaptateurs, pas de plugins, pas de middleware. Vos agents IA se connectent directement aux APIs d'entreprise via une passerelle standardisee et securisee.",
+      "items": [
+        "Decouverte et execution d'outils",
+        "Authentification OAuth 2.1 + PKCE",
+        "Transport Streaming et WebSocket"
+      ]
+    },
+    "uac": {
+      "tag": "Fonctionnalite phare",
+      "title": "Universal API<br/><span class=\"gradient-text\">Contract</span>",
+      "desc": "Definissez votre contrat API une seule fois, et STOA l'expose partout \u2014 REST, GraphQL, MCP, gRPC. Une seule source de verite qui s'adapte a tout consommateur.",
+      "items": [
+        "OpenAPI \u2192 MCP auto-transformation",
+        "Validation de schema en peripherie",
+        "Routage adapte aux versions"
+      ]
+    },
+    "gateway": {
+      "tag": "Pret pour l'entreprise",
+      "title": "Orchestration<br/>multi-passerelle",
+      "desc": "Un plan de controle pour toutes vos passerelles. STOA orchestre Kong, Gravitee, Apigee, Azure APIM, AWS API Gateway et webMethods depuis une interface unique.",
+      "items": [
+        "7 Stoa Links",
+        "Moteur de politiques unifie (OPA)",
+        "Cloud hybride + on-premise"
+      ]
+    }
+  },
+  "architecture": {
+    "sectionTag": "Architecture",
+    "title": "Cloud + <span class=\"gradient-text\">On-Premise</span>",
+    "desc": "Hybride par conception. Vos donnees restent la ou vous en avez besoin.",
+    "cloud": "Cloud (Plan de controle STOA)",
+    "onPremise": "On-Premise (Votre infrastructure)",
+    "cloudNodes": ["Portail", "Plan de controle", "Keycloak", "Observabilite", "Passerelle MCP"],
+    "onpremNodes": ["Votre IDP", "Votre passerelle", "Vos backends"],
+    "connectors": [
+      { "label": "Sync API", "color": "teal" },
+      { "label": "Federation OIDC", "color": "violet" },
+      { "label": "Push metriques", "color": "orange" }
+    ]
+  },
+  "differentiators": {
+    "sectionTag": "Pourquoi STOA",
+    "title": "Ce qui nous rend <span class=\"gradient-text\">differents</span>",
+    "desc": "Quatre piliers qui definissent l'approche STOA.",
+    "cards": [
+      {
+        "icon": "\u26a1",
+        "title": "MCP natif",
+        "subtitle": "Pas un plugin. Une architecture.",
+        "desc": "MCP est integre au coeur du systeme, pas ajoute apres coup. Chaque API que vous publiez est instantanement disponible pour les agents IA via le Model Context Protocol."
+      },
+      {
+        "icon": "\ud83d\udd17",
+        "title": "Universal API Contract",
+        "subtitle": "Definir une fois, exposer partout.",
+        "desc": "Un seul contrat alimente les points d'acces REST, GraphQL, gRPC et MCP. Modifiez une fois, propagez automatiquement a tous les consommateurs."
+      },
+      {
+        "icon": "\ud83c\uddea\ud83c\uddfa",
+        "title": "Souverainete europeenne",
+        "subtitle": "Ni US. Ni UK. Ni CN.",
+        "desc": "Concu pour la souverainete des donnees europeennes. RGPD natif, NIS2-ready, compatible DORA. Vos donnees ne quittent jamais votre juridiction."
+      },
+      {
+        "icon": "\ud83d\udd13",
+        "title": "Vrai open source",
+        "subtitle": "Apache 2.0. Pas de BSL. Pas de piege.",
+        "desc": "Licence Apache 2.0 complete. Pas de restrictions fonctionnelles, pas de limites d'usage, pas de modules reserves a l'entreprise. Forkez, modifiez, deployez."
+      }
+    ]
+  },
+  "metrics": {
+    "sectionTag": "En chiffres",
+    "title": "Construit pour <span class=\"gradient-text-alt\">livrer</span>",
+    "items": [
+      { "value": 559, "suffix": "+", "label": "Tests" },
+      { "value": 6, "suffix": "", "label": "Integrations passerelle" },
+      { "value": 101, "suffix": "+", "label": "Pages de docs" },
+      { "value": 100, "suffix": "%", "label": "Open Source" }
+    ],
+    "badges": ["Cargo", "Vitest", "Pytest", "Playwright E2E"]
+  },
+  "standards": {
+    "sectionTag": "Standards",
+    "title": "Base sur des <span class=\"gradient-text\">standards ouverts</span>"
+  },
+  "pricing": {
+    "sectionTag": "Tarifs",
+    "title": "Des tarifs simples et <span class=\"gradient-text\">transparents</span>",
+    "desc": "Commencez gratuitement, evoluez selon vos besoins. Pas de frais caches.",
+    "plans": [
+      {
+        "name": "Communaute",
+        "price": "Gratuit",
+        "period": "pour toujours",
+        "description": "Plateforme complete, sans limites. Hebergez-la ou utilisez notre cloud.",
+        "features": [
+          "Support complet du protocole MCP",
+          "API du plan de controle + Console",
+          "Portail developpeur",
+          "Orchestration multi-passerelle",
+          "UAC (Universal API Contract)",
+          "Support communautaire (GitHub, Discord)"
+        ],
+        "cta": "Essayer gratuitement"
+      },
+      {
+        "name": "Entreprise",
+        "price": "Sur mesure",
+        "period": "tarification",
+        "description": "Pour les equipes qui ont besoin de SLA, SSO et support dedie.",
+        "features": [
+          "Tout le plan Communaute",
+          "Integration SSO / SAML",
+          "Multi-environnement (dev/staging/prod)",
+          "Tableau de bord analytique avance",
+          "Support prioritaire avec SLA",
+          "Domaine personnalise + TLS",
+          "Assistance a l'integration"
+        ],
+        "cta": "Reserver une demo",
+        "badge": "Recommande"
+      },
+      {
+        "name": "Souverain",
+        "price": "Sur mesure",
+        "period": "tarification",
+        "description": "Pour les industries reglementees exigeant un controle total des donnees.",
+        "features": [
+          "Tout le plan Entreprise",
+          "Infrastructure dediee (UE)",
+          "Deploiement on-premise ou air-gap",
+          "Fonctionnalites compatibles NIS2 / DORA",
+          "Responsable de compte dedie",
+          "SLA personnalise + support audit"
+        ],
+        "cta": "Nous contacter"
+      }
+    ],
+    "faqLink": "Lire la FAQ",
+    "faqQuestion": "Des questions ?",
+    "footnote": "Details tarifaires disponibles sur demande. Les plans et quotas sont susceptibles de changer avant la disponibilite generale."
+  },
+  "faq": {
+    "title": "Questions frequentes",
+    "desc": "Tout ce que vous devez savoir sur les tarifs et plans STOA.",
+    "contact": "Encore des questions ?",
+    "contactLink": "Contactez-nous",
+    "items": [
+      {
+        "question": "STOA est-il vraiment gratuit ?",
+        "answer": "Oui. STOA est open source sous licence Apache 2.0. Vous pouvez auto-heberger la plateforme complete indefiniment et gratuitement. Pas de limites d'utilisation, pas de restrictions fonctionnelles, pas d'expiration d'essai."
+      },
+      {
+        "question": "Que comprend le plan Communaute ?",
+        "answer": "Tout ce dont vous avez besoin pour faire tourner une passerelle API IA-native : support du protocole MCP, API du plan de controle, Console, Portail developpeur, analytique de base, et support communautaire via GitHub et Discord."
+      },
+      {
+        "question": "Comment fonctionne la tarification Entreprise ?",
+        "answer": "La tarification Entreprise est basee sur l'echelle de votre deploiement et vos besoins de support. Contactez notre equipe commerciale pour un devis personnalise. Nous offrons des options flexibles pour les deploiements cloud et on-premise."
+      },
+      {
+        "question": "Puis-je auto-heberger les fonctionnalites Entreprise ?",
+        "answer": "Oui. STOA est concu pour les deploiements on-premise et hybrides. Les plans Entreprise incluent des fonctionnalites avancees comme SSO/SAML, le support multi-environnement, et un SLA prioritaire \u2014 le tout deployable dans votre propre infrastructure."
+      },
+      {
+        "question": "Qu'est-ce que le plan Souverain ?",
+        "answer": "Le plan Souverain est concu pour les industries reglementees (services financiers, sante, secteur public) qui necessitent une infrastructure dediee, des garanties de residence des donnees, et un support de conformite pour des cadres comme NIS2 et DORA."
+      },
+      {
+        "question": "Proposez-vous un essai gratuit ?",
+        "answer": "Le plan Communaute est gratuit indefiniment \u2014 pas besoin d'essai. Vous beneficiez de la plateforme complete sans limite de temps. Pour les plans Entreprise et Souverain, nous proposons des engagements de preuve de concept accompagnes."
+      },
+      {
+        "question": "Comment migrer depuis une autre passerelle API ?",
+        "answer": "STOA fournit des guides de migration pour Kong, Gravitee, Apigee, webMethods et d'autres passerelles populaires. Notre orchestration multi-passerelle vous permet de faire fonctionner STOA en parallele de votre passerelle existante pendant la transition."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Pret a connecter<br/><span class=\"gradient-text-alt\">le legacy a l'IA ?</span>",
+    "desc": "Rejoignez des centaines d'equipes qui utilisent STOA pour connecter leurs APIs d'entreprise a l'ecosysteme des agents IA.",
+    "ctaPrimary": "Essayer STOA gratuitement",
+    "ctaSecondary": "Star sur GitHub",
+    "stats": {
+      "prs": "PRs fusionnees",
+      "loc": "lignes de code",
+      "tests": "tests valides",
+      "links": "Stoa Links"
+    }
+  },
+  "footer": {
+    "desc": "La passerelle Agent europeenne.<br/>Open source, Apache 2.0.",
+    "product": "Produit",
+    "quickStart": "Demarrage rapide",
+    "architecture": "Architecture",
+    "apiReference": "Reference API",
+    "community": "Communaute",
+    "blog": "Blog",
+    "philosophy": "Philosophie",
+    "company": "Entreprise",
+    "enterprise": "Entreprise",
+    "faq": "FAQ",
+    "trademarks": "Mentions legales",
+    "copyright": "\u00a9 2026 STOA Platform. Licence Apache 2.0."
+  },
+  "feedback": {
+    "title": "Partagez vos retours",
+    "desc": "Aidez-nous a ameliorer STOA Platform. Vos retours comptent !",
+    "emailAlt": "Vous preferez l'email ? Contactez-nous a"
+  },
+  "languageSwitcher": {
+    "en": "EN",
+    "fr": "FR"
+  }
+}

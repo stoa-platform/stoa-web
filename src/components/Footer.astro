@@ -1,4 +1,8 @@
 ---
+import { getLocaleFromUrl, getLocalePath, t } from '../i18n/index';
+
+const locale = getLocaleFromUrl(Astro.url);
+const i18n = t(locale);
 ---
 
 <footer class="footer-v4">
@@ -14,28 +18,28 @@
         </svg>
         <span>STOA</span>
       </a>
-      <p class="footer-desc">The European Agent Gateway.<br/>Open source, Apache 2.0.</p>
+      <p class="footer-desc" set:html={i18n.footer.desc} />
     </div>
     <div class="footer-col">
-      <h4>Product</h4>
-      <a href="https://docs.gostoa.dev/docs/guides/quickstart">Quick Start</a>
-      <a href="https://docs.gostoa.dev/docs/concepts/architecture">Architecture</a>
-      <a href="https://docs.gostoa.dev/docs/api">API Reference</a>
+      <h4>{i18n.footer.product}</h4>
+      <a href="https://docs.gostoa.dev/docs/guides/quickstart">{i18n.footer.quickStart}</a>
+      <a href="https://docs.gostoa.dev/docs/concepts/architecture">{i18n.footer.architecture}</a>
+      <a href="https://docs.gostoa.dev/docs/api">{i18n.footer.apiReference}</a>
     </div>
     <div class="footer-col">
-      <h4>Community</h4>
+      <h4>{i18n.footer.community}</h4>
       <a href="https://github.com/stoa-platform/stoa">GitHub</a>
-      <a href="https://docs.gostoa.dev/blog">Blog</a>
-      <a href="https://docs.gostoa.dev/docs/community/philosophy">Philosophy</a>
+      <a href="https://docs.gostoa.dev/blog">{i18n.footer.blog}</a>
+      <a href="https://docs.gostoa.dev/docs/community/philosophy">{i18n.footer.philosophy}</a>
     </div>
     <div class="footer-col">
-      <h4>Company</h4>
-      <a href="https://docs.gostoa.dev/docs/enterprise">Enterprise</a>
-      <a href="https://docs.gostoa.dev/docs/community/faq">FAQ</a>
-      <a href="https://docs.gostoa.dev/legal/trademarks">Trademarks</a>
+      <h4>{i18n.footer.company}</h4>
+      <a href="https://docs.gostoa.dev/docs/enterprise">{i18n.footer.enterprise}</a>
+      <a href="https://docs.gostoa.dev/docs/community/faq">{i18n.footer.faq}</a>
+      <a href="https://docs.gostoa.dev/legal/trademarks">{i18n.footer.trademarks}</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 STOA Platform. Apache 2.0 License.</span>
+    <span>{i18n.footer.copyright}</span>
   </div>
 </footer>

@@ -1,4 +1,8 @@
 ---
+import { getLocaleFromUrl, t } from '../i18n/index';
+
+const locale = getLocaleFromUrl(Astro.url);
+const i18n = t(locale);
 ---
 
 <section class="features-v4" id="features" aria-label="Key features">
@@ -6,13 +10,13 @@
   <!-- Feature 1: MCP-Native -->
   <div class="feature-block">
     <div class="feature-text reveal" data-reveal>
-      <span class="feature-tag">AI-Native Protocol</span>
-      <h2 class="feature-title">MCP-Native<br/>from day one</h2>
-      <p class="feature-desc">STOA speaks the Model Context Protocol natively. No adapters, no plugins, no middleware. Your AI agents connect directly to enterprise APIs through a standardized, secure gateway.</p>
+      <span class="feature-tag">{i18n.features.mcp.tag}</span>
+      <h2 class="feature-title" set:html={i18n.features.mcp.title} />
+      <p class="feature-desc">{i18n.features.mcp.desc}</p>
       <ul class="feature-list">
-        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#10b981" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Tool discovery &amp; execution</li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#10b981" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>OAuth 2.1 + PKCE authentication</li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#10b981" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Streaming &amp; WebSocket transport</li>
+        {i18n.features.mcp.items.map((item: string) => (
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#10b981" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{item}</li>
+        ))}
       </ul>
     </div>
     <div class="feature-visual reveal" data-reveal data-reveal-delay="200">
@@ -34,13 +38,13 @@
   <!-- Feature 2: UAC -->
   <div class="feature-block feature-block-reverse">
     <div class="feature-text reveal" data-reveal>
-      <span class="feature-tag">Kill Feature</span>
-      <h2 class="feature-title">Universal API<br/><span class="gradient-text">Contract</span></h2>
-      <p class="feature-desc">Define your API contract once, and STOA exposes it everywhere — REST, GraphQL, MCP, gRPC. One source of truth that adapts to any consumer.</p>
+      <span class="feature-tag">{i18n.features.uac.tag}</span>
+      <h2 class="feature-title" set:html={i18n.features.uac.title} />
+      <p class="feature-desc">{i18n.features.uac.desc}</p>
       <ul class="feature-list">
-        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#8b5cf6" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>OpenAPI &rarr; MCP auto-transform</li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#8b5cf6" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Schema validation at the edge</li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#8b5cf6" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Version-aware routing</li>
+        {i18n.features.uac.items.map((item: string) => (
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#8b5cf6" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{item}</li>
+        ))}
       </ul>
     </div>
     <div class="feature-visual reveal" data-reveal data-reveal-delay="200">
@@ -59,13 +63,13 @@
   <!-- Feature 3: Multi-Gateway -->
   <div class="feature-block">
     <div class="feature-text reveal" data-reveal>
-      <span class="feature-tag">Enterprise Ready</span>
-      <h2 class="feature-title">Multi-Gateway<br/>orchestration</h2>
-      <p class="feature-desc">One control plane for all your gateways. STOA orchestrates Kong, Gravitee, Apigee, Azure APIM, AWS API Gateway, and webMethods from a single pane of glass.</p>
+      <span class="feature-tag">{i18n.features.gateway.tag}</span>
+      <h2 class="feature-title" set:html={i18n.features.gateway.title} />
+      <p class="feature-desc">{i18n.features.gateway.desc}</p>
       <ul class="feature-list">
-        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2dd4bf" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>7 Stoa Links</li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2dd4bf" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Unified policy engine (OPA)</li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2dd4bf" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Hybrid cloud + on-premise</li>
+        {i18n.features.gateway.items.map((item: string) => (
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2dd4bf" stroke-width="1.5" fill="none"/><path d="M5 8l2 2 4-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{item}</li>
+        ))}
       </ul>
     </div>
     <div class="feature-visual reveal" data-reveal data-reveal-delay="200">

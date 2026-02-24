@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import SocialProof from '../../components/SocialProof.astro';
+import Divider from '../../components/Divider.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import TTFAC from '../../components/TTFAC.astro';
+import Features from '../../components/Features.astro';
+import Architecture from '../../components/Architecture.astro';
+import Differentiators from '../../components/Differentiators.astro';
+import Metrics from '../../components/Metrics.astro';
+import Standards from '../../components/Standards.astro';
+import Pricing from '../../components/Pricing.astro';
+import PricingFAQ from '../../components/PricingFAQ.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="STOA — La Passerelle Agent Europeenne | Passerelle MCP Open Source"
+  description="Passerelle API AI-native open source. Definir une fois, exposer partout. Connectez vos APIs historiques aux agents IA via MCP en minutes. Souverainete europeenne, Apache 2.0."
+  structuredDataType="SoftwareApplication"
+  locale="fr"
+>
+  <Header />
+  <main>
+    <Hero />
+    <SocialProof />
+    <Divider color="teal" />
+    <BeforeAfter />
+    <Divider color="purple" />
+    <TTFAC />
+    <Divider color="blue" />
+    <Features />
+    <Divider color="orange" />
+    <Architecture />
+    <Divider color="green" />
+    <Differentiators />
+    <Metrics />
+    <Standards />
+    <Pricing />
+    <PricingFAQ />
+    <FinalCTA />
+  </main>
+  <Footer />
+</Layout>

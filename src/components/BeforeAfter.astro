@@ -1,32 +1,22 @@
 ---
-const before = [
-  'API catalogue = Excel spreadsheet',
-  'Subscription = email + meetings',
-  'Rigid identity layer, hard to federate',
-  'Gateway = expensive black box',
-  'AI agents? Not possible',
-];
-const after = [
-  'Visual API portal, self-service',
-  'Self-service subscription in 2 clicks',
-  'Federated identity across IDPs',
-  'Gateway orchestrated by STOA',
-  'AI agents governed by MCP',
-];
+import { getLocaleFromUrl, t } from '../i18n/index';
+
+const locale = getLocaleFromUrl(Astro.url);
+const i18n = t(locale);
 ---
 
 <section class="before-after" id="before-after" aria-label="Before and After STOA">
   <div class="section-container">
     <div class="section-header reveal" data-reveal>
-      <span class="section-tag">The Problem</span>
-      <h2 class="section-title">Before <span class="gradient-text-alt">&amp; After</span></h2>
-      <p class="section-desc">See what changes when you adopt STOA.</p>
+      <span class="section-tag">{i18n.beforeAfter.sectionTag}</span>
+      <h2 class="section-title" set:html={i18n.beforeAfter.title} />
+      <p class="section-desc">{i18n.beforeAfter.desc}</p>
     </div>
 
     <div class="ba-grid" data-stagger-parent>
       <div class="ba-col">
-        <span class="ba-col-title ba-before-title">Before STOA</span>
-        {before.map((item, i) => (
+        <span class="ba-col-title ba-before-title">{i18n.beforeAfter.beforeTitle}</span>
+        {i18n.beforeAfter.before.map((item: string, i: number) => (
           <div class={`ba-item ba-item-before stagger-child`} data-stagger={i}>{item}</div>
         ))}
       </div>
@@ -38,8 +28,8 @@ const after = [
       </div>
 
       <div class="ba-col">
-        <span class="ba-col-title ba-after-title">After STOA</span>
-        {after.map((item, i) => (
+        <span class="ba-col-title ba-after-title">{i18n.beforeAfter.afterTitle}</span>
+        {i18n.beforeAfter.after.map((item: string, i: number) => (
           <div class={`ba-item ba-item-after stagger-child`} data-stagger={i + 5}>{item}</div>
         ))}
       </div>

@@ -1,0 +1,298 @@
+{
+  "nav": {
+    "features": "Features",
+    "architecture": "Architecture",
+    "ttfac": "TTFAC",
+    "pricing": "Pricing",
+    "docs": "Docs",
+    "github": "GitHub",
+    "tryFree": "Try Free"
+  },
+  "hero": {
+    "badge": "Open Source \u00b7 Apache 2.0 \u00b7 European Sovereign",
+    "titleLine1": "The European",
+    "titleLine2": "Agent Gateway",
+    "typewriter": "Define Once, Expose Everywhere \u2014 connect legacy APIs to AI agents in minutes, not months.",
+    "ctaPrimary": "Try STOA Free",
+    "ctaSecondary": "Quick Start",
+    "metaPRs": "916 PRs merged",
+    "metaVelocity": "13.5 PRs/day",
+    "metaTests": "3,900+ tests",
+    "metaDays": "68 days",
+    "mockDashboard": "STOA Console \u2014 Dashboard",
+    "mockPRsMerged": "PRs Merged",
+    "mockTestsPassing": "Tests Passing",
+    "mockLOC": "LOC Shipped",
+    "mockPRsDay": "PRs / Day",
+    "mockChartTitle": "AI Velocity (3 months)",
+    "mockTerminalTitle": "AI Factory"
+  },
+  "socialProof": {
+    "label": "916 PRs in 68 days \u2014 built on open standards"
+  },
+  "beforeAfter": {
+    "sectionTag": "The Problem",
+    "title": "Before <span class=\"gradient-text-alt\">&amp; After</span>",
+    "desc": "See what changes when you adopt STOA.",
+    "beforeTitle": "Before STOA",
+    "afterTitle": "After STOA",
+    "before": [
+      "API catalogue = Excel spreadsheet",
+      "Subscription = email + meetings",
+      "Rigid identity layer, hard to federate",
+      "Gateway = expensive black box",
+      "AI agents? Not possible"
+    ],
+    "after": [
+      "Visual API portal, self-service",
+      "Self-service subscription in 2 clicks",
+      "Federated identity across IDPs",
+      "Gateway orchestrated by STOA",
+      "AI agents governed by MCP"
+    ]
+  },
+  "ttfac": {
+    "sectionTag": "Time to First API Call",
+    "title": "From weeks to <span class=\"gradient-text\">minutes</span>",
+    "desc": "Traditional API gateways require weeks of configuration. STOA gets your first AI agent connected in under 5 minutes.",
+    "traditional": "Traditional Gateway",
+    "stoa": "STOA Platform",
+    "days": "days",
+    "minutes": "minutes",
+    "traditionalSteps": [
+      "Procurement & licensing",
+      "Infrastructure provisioning",
+      "Gateway installation",
+      "API configuration",
+      "Security policy setup",
+      "Testing & validation",
+      "Custom MCP adapter development"
+    ],
+    "stoaSteps": [
+      "docker compose up",
+      "Define UAC contract",
+      "Connect AI agent via MCP"
+    ]
+  },
+  "features": {
+    "mcp": {
+      "tag": "AI-Native Protocol",
+      "title": "MCP-Native<br/>from day one",
+      "desc": "STOA speaks the Model Context Protocol natively. No adapters, no plugins, no middleware. Your AI agents connect directly to enterprise APIs through a standardized, secure gateway.",
+      "items": [
+        "Tool discovery & execution",
+        "OAuth 2.1 + PKCE authentication",
+        "Streaming & WebSocket transport"
+      ]
+    },
+    "uac": {
+      "tag": "Kill Feature",
+      "title": "Universal API<br/><span class=\"gradient-text\">Contract</span>",
+      "desc": "Define your API contract once, and STOA exposes it everywhere \u2014 REST, GraphQL, MCP, gRPC. One source of truth that adapts to any consumer.",
+      "items": [
+        "OpenAPI \u2192 MCP auto-transform",
+        "Schema validation at the edge",
+        "Version-aware routing"
+      ]
+    },
+    "gateway": {
+      "tag": "Enterprise Ready",
+      "title": "Multi-Gateway<br/>orchestration",
+      "desc": "One control plane for all your gateways. STOA orchestrates Kong, Gravitee, Apigee, Azure APIM, AWS API Gateway, and webMethods from a single pane of glass.",
+      "items": [
+        "7 Stoa Links",
+        "Unified policy engine (OPA)",
+        "Hybrid cloud + on-premise"
+      ]
+    }
+  },
+  "architecture": {
+    "sectionTag": "Architecture",
+    "title": "Cloud + <span class=\"gradient-text\">On-Premise</span>",
+    "desc": "Hybrid by design. Your data stays where you need it.",
+    "cloud": "Cloud (STOA Control Plane)",
+    "onPremise": "On-Premise (Your Infrastructure)",
+    "cloudNodes": ["Portal", "Control Plane", "Keycloak", "Observability", "MCP Gateway"],
+    "onpremNodes": ["Your IDP", "Your Gateway", "Your Backends"],
+    "connectors": [
+      { "label": "API Sync", "color": "teal" },
+      { "label": "OIDC Federation", "color": "violet" },
+      { "label": "Metrics Push", "color": "orange" }
+    ]
+  },
+  "differentiators": {
+    "sectionTag": "Why STOA",
+    "title": "What Makes Us <span class=\"gradient-text\">Different</span>",
+    "desc": "Four pillars that define the STOA approach.",
+    "cards": [
+      {
+        "icon": "\u26a1",
+        "title": "MCP-Native",
+        "subtitle": "Not a plugin. Architecture.",
+        "desc": "MCP is built into the core, not bolted on. Every API you publish is instantly available to AI agents via the Model Context Protocol."
+      },
+      {
+        "icon": "\ud83d\udd17",
+        "title": "Universal API Contract",
+        "subtitle": "Define once, expose everywhere.",
+        "desc": "One contract powers REST, GraphQL, gRPC, and MCP endpoints. Change once, propagate to all consumers automatically."
+      },
+      {
+        "icon": "\ud83c\uddea\ud83c\uddfa",
+        "title": "European Sovereign",
+        "subtitle": "Not US. Not UK. Not CN.",
+        "desc": "Designed for European data sovereignty. GDPR-native, NIS2-ready, DORA-supportive. Your data never leaves your jurisdiction."
+      },
+      {
+        "icon": "\ud83d\udd13",
+        "title": "True Open Source",
+        "subtitle": "Apache 2.0. No BSL. No tricks.",
+        "desc": "Full Apache 2.0 license. No feature gates, no usage limits, no enterprise-only modules. Fork it, modify it, ship it."
+      }
+    ]
+  },
+  "metrics": {
+    "sectionTag": "By the Numbers",
+    "title": "Built to <span class=\"gradient-text-alt\">Ship</span>",
+    "items": [
+      { "value": 559, "suffix": "+", "label": "Tests" },
+      { "value": 6, "suffix": "", "label": "Gateway Integrations" },
+      { "value": 101, "suffix": "+", "label": "Docs Pages" },
+      { "value": 100, "suffix": "%", "label": "Open Source" }
+    ],
+    "badges": ["Cargo", "Vitest", "Pytest", "Playwright E2E"]
+  },
+  "standards": {
+    "sectionTag": "Standards",
+    "title": "Built on <span class=\"gradient-text\">Open Standards</span>"
+  },
+  "pricing": {
+    "sectionTag": "Pricing",
+    "title": "Simple, Transparent <span class=\"gradient-text\">Pricing</span>",
+    "desc": "Start free, scale as you grow. No hidden fees.",
+    "plans": [
+      {
+        "name": "Community",
+        "price": "Free",
+        "period": "forever",
+        "description": "Full platform, no limits. Self-host or use our cloud.",
+        "features": [
+          "Full MCP Protocol support",
+          "Control Plane API + Console UI",
+          "Developer Portal",
+          "Multi-gateway orchestration",
+          "UAC (Universal API Contract)",
+          "Community support (GitHub, Discord)"
+        ],
+        "cta": "Try STOA Free"
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom",
+        "period": "pricing",
+        "description": "For teams that need SLAs, SSO, and dedicated support.",
+        "features": [
+          "Everything in Community",
+          "SSO / SAML integration",
+          "Multi-environment (dev/staging/prod)",
+          "Advanced analytics dashboard",
+          "Priority support with SLA",
+          "Custom domain + TLS",
+          "Onboarding assistance"
+        ],
+        "cta": "Book a Demo",
+        "badge": "Recommended"
+      },
+      {
+        "name": "Sovereign",
+        "price": "Custom",
+        "period": "pricing",
+        "description": "For regulated industries requiring full data control.",
+        "features": [
+          "Everything in Enterprise",
+          "Dedicated infrastructure (EU)",
+          "On-premise or air-gapped deployment",
+          "NIS2 / DORA supportive features",
+          "Dedicated success manager",
+          "Custom SLA + audit support"
+        ],
+        "cta": "Contact Us"
+      }
+    ],
+    "faqLink": "Read the FAQ",
+    "faqQuestion": "Have questions?",
+    "footnote": "Pricing details available upon request. Plans and quotas subject to change before general availability."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "desc": "Everything you need to know about STOA pricing and plans.",
+    "contact": "Still have questions?",
+    "contactLink": "Get in touch",
+    "items": [
+      {
+        "question": "Is STOA really free?",
+        "answer": "Yes. STOA is open source under the Apache 2.0 license. You can self-host the full platform forever at no cost. No usage limits, no feature gates, no trial expiration."
+      },
+      {
+        "question": "What's included in the Community plan?",
+        "answer": "Everything you need to run an AI-native API gateway: MCP Protocol support, the Control Plane API, Console UI, Developer Portal, basic analytics, and community support via GitHub and Discord."
+      },
+      {
+        "question": "How does Enterprise pricing work?",
+        "answer": "Enterprise pricing is based on your deployment scale and support needs. Contact our sales team for a custom quote. We offer flexible options for both cloud-hosted and on-premise deployments."
+      },
+      {
+        "question": "Can I self-host Enterprise features?",
+        "answer": "Yes. STOA is designed for on-premise and hybrid deployments. Enterprise plans include advanced features like SSO/SAML, multi-environment support, and priority SLA \u2014 all deployable in your own infrastructure."
+      },
+      {
+        "question": "What's the Sovereign plan?",
+        "answer": "The Sovereign plan is designed for regulated industries (financial services, healthcare, government) that require dedicated infrastructure, data residency guarantees, and compliance support for frameworks like NIS2 and DORA."
+      },
+      {
+        "question": "Do you offer a free trial?",
+        "answer": "The Community plan is free forever \u2014 no trial needed. You get the full platform with no time limits. For Enterprise and Sovereign plans, we offer guided proof-of-concept engagements."
+      },
+      {
+        "question": "How do I migrate from another API gateway?",
+        "answer": "STOA provides migration guides for Kong, Gravitee, Apigee, webMethods, and other popular gateways. Our multi-gateway orchestration lets you run STOA alongside your existing gateway during the transition."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Ready to bridge<br/><span class=\"gradient-text-alt\">legacy to AI?</span>",
+    "desc": "Join hundreds of teams using STOA to connect their enterprise APIs to the AI agent ecosystem.",
+    "ctaPrimary": "Try STOA Free",
+    "ctaSecondary": "Star on GitHub",
+    "stats": {
+      "prs": "PRs merged",
+      "loc": "lines of code",
+      "tests": "tests passing",
+      "links": "Stoa Links"
+    }
+  },
+  "footer": {
+    "desc": "The European Agent Gateway.<br/>Open source, Apache 2.0.",
+    "product": "Product",
+    "quickStart": "Quick Start",
+    "architecture": "Architecture",
+    "apiReference": "API Reference",
+    "community": "Community",
+    "blog": "Blog",
+    "philosophy": "Philosophy",
+    "company": "Company",
+    "enterprise": "Enterprise",
+    "faq": "FAQ",
+    "trademarks": "Trademarks",
+    "copyright": "\u00a9 2026 STOA Platform. Apache 2.0 License."
+  },
+  "feedback": {
+    "title": "Share Your Feedback",
+    "desc": "Help us improve STOA Platform. Your feedback matters!",
+    "emailAlt": "Prefer email? Reach us at"
+  },
+  "languageSwitcher": {
+    "en": "EN",
+    "fr": "FR"
+  }
+}

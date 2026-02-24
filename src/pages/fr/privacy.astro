@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Politique de confidentialite — STOA Platform"
+  description="Politique de confidentialite de STOA Platform. Comment nous traitons vos donnees, analyses et communications."
+  locale="fr"
+>
+  <Header />
+  <main class="pt-24 pb-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-white mb-8">Politique de confidentialite</h1>
+      <p class="text-sm text-gray-500 mb-8">Derniere mise a jour : fevrier 2026</p>
+
+      <div class="prose prose-invert prose-gray max-w-none space-y-8 text-gray-300 text-sm leading-relaxed">
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">1. Qui sommes-nous</h2>
+          <p>
+            STOA Platform est un projet open source de gestion d'API maintenu par CAB Ingenierie, une societe de conseil francaise.
+            Cette politique couvre le site web <strong>gostoa.dev</strong> et les services associes
+            (portal.gostoa.dev, console.gostoa.dev, docs.gostoa.dev).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">2. Donnees collectees</h2>
+          <p><strong>Analyse du site web :</strong> Nous utilisons Vercel Analytics pour collecter des donnees anonymes et agregees de pages vues. Aucun cookie n'est installe. Aucune donnee personnelle n'est collectee par l'analytique.</p>
+          <p><strong>Newsletter :</strong> Si vous vous abonnez a notre newsletter (via Buttondown), nous stockons votre adresse email pour envoyer des mises a jour. Vous pouvez vous desabonner a tout moment.</p>
+          <p><strong>Comptes Portal / Console :</strong> Lorsque vous creez un compte sur portal.gostoa.dev, nous collectons votre email et votre nom via Keycloak (authentification auto-hebergee). Ces donnees sont stockees sur une infrastructure europeenne (OVH, France).</p>
+          <p><strong>Formulaires de contact :</strong> Les emails envoyes a hello@gostoa.dev, demo@gostoa.dev ou sales@gostoa.dev sont traites par notre equipe et ne sont pas partages avec des tiers.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">3. Utilisation de vos donnees</h2>
+          <ul class="list-disc list-inside space-y-2 text-gray-400">
+            <li>Fournir et ameliorer les services STOA Platform</li>
+            <li>Envoyer des mises a jour produit (abonnes newsletter uniquement)</li>
+            <li>Repondre aux demandes de demo et de support</li>
+            <li>Generer des statistiques d'utilisation anonymes</li>
+          </ul>
+          <p class="mt-3">Nous ne vendons, ne louons et ne partageons pas vos donnees personnelles avec des tiers a des fins marketing.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">4. Stockage et securite des donnees</h2>
+          <p>
+            Toutes les donnees de la plateforme sont hebergees sur une infrastructure europeenne (OVH GRA9, Hetzner FSN1).
+            L'authentification est geree par Keycloak auto-heberge. Les secrets sont geres via Infisical auto-heberge.
+            Aucune donnee n'est stockee chez des fournisseurs cloud americains pour les services de production.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">5. Vos droits (RGPD)</h2>
+          <p>En vertu du Reglement General sur la Protection des Donnees (RGPD), vous avez le droit de :</p>
+          <ul class="list-disc list-inside space-y-2 text-gray-400 mt-2">
+            <li>Acceder a vos donnees personnelles</li>
+            <li>Rectifier les donnees inexactes</li>
+            <li>Demander la suppression de vos donnees</li>
+            <li>Exporter vos donnees dans un format portable</li>
+            <li>Vous opposer au traitement</li>
+          </ul>
+          <p class="mt-3">
+            Pour exercer ces droits, contactez-nous a
+            <a href="mailto:privacy@gostoa.dev" class="text-primary-400 hover:text-primary-300">privacy@gostoa.dev</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">6. Cookies</h2>
+          <p>
+            gostoa.dev n'utilise pas de cookies de suivi. Vercel Analytics fonctionne sans cookies.
+            Les sessions d'authentification sur le portail/console utilisent des cookies de session securises, HTTP-only, strictement necessaires au fonctionnement du service.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">7. Contact</h2>
+          <p>
+            Pour les questions relatives a la confidentialite :
+            <a href="mailto:privacy@gostoa.dev" class="text-primary-400 hover:text-primary-300">privacy@gostoa.dev</a>
+          </p>
+          <p class="mt-2">
+            CAB Ingenierie — France
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

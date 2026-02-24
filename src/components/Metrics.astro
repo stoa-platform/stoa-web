@@ -1,22 +1,19 @@
 ---
-const metrics = [
-  { value: 559, suffix: '+', label: 'Tests' },
-  { value: 6, suffix: '', label: 'Gateway Integrations' },
-  { value: 101, suffix: '+', label: 'Docs Pages' },
-  { value: 100, suffix: '%', label: 'Open Source' },
-];
-const badges = ['Cargo', 'Vitest', 'Pytest', 'Playwright E2E'];
+import { getLocaleFromUrl, t } from '../i18n/index';
+
+const locale = getLocaleFromUrl(Astro.url);
+const i18n = t(locale);
 ---
 
 <section class="metrics" id="metrics" aria-label="Platform Metrics">
   <div class="section-container">
     <div class="section-header reveal" data-reveal>
-      <span class="section-tag">By the Numbers</span>
-      <h2 class="section-title">Built to <span class="gradient-text-alt">Ship</span></h2>
+      <span class="section-tag">{i18n.metrics.sectionTag}</span>
+      <h2 class="section-title" set:html={i18n.metrics.title} />
     </div>
 
     <div class="metrics-grid reveal" data-reveal>
-      {metrics.map((m) => (
+      {i18n.metrics.items.map((m: { value: number; suffix: string; label: string }) => (
         <div class="metric-card">
           <span class="metric-value">
             <span data-counter={m.value}>0</span>{m.suffix}
@@ -27,7 +24,7 @@ const badges = ['Cargo', 'Vitest', 'Pytest', 'Playwright E2E'];
     </div>
 
     <div class="metrics-badges reveal" data-reveal data-reveal-delay="200">
-      {badges.map((badge) => (
+      {i18n.metrics.badges.map((badge: string) => (
         <span class="metrics-badge">
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M6 8l2 2 3-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           {badge}

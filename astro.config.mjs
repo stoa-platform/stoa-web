@@ -5,9 +5,24 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://gostoa.dev',
 
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   integrations: [
     tailwind(),
     sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en-US',
+          fr: 'fr-FR',
+        },
+      },
       serialize(item) {
         if (item.url === 'https://gostoa.dev/') {
           item.changefreq = 'weekly';
