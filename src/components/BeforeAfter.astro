@@ -1,31 +1,36 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const before = [
-  'API catalogue = Excel spreadsheet',
-  'Subscription = email + meetings',
-  'Rigid identity layer, hard to federate',
-  'Gateway = expensive black box',
-  'AI agents? Not possible',
+  t('beforeAfter.before.item1'),
+  t('beforeAfter.before.item2'),
+  t('beforeAfter.before.item3'),
+  t('beforeAfter.before.item4'),
+  t('beforeAfter.before.item5'),
 ];
 const after = [
-  'Visual API portal, self-service',
-  'Self-service subscription in 2 clicks',
-  'Federated identity across IDPs',
-  'Gateway orchestrated by STOA',
-  'AI agents governed by MCP',
+  t('beforeAfter.after.item1'),
+  t('beforeAfter.after.item2'),
+  t('beforeAfter.after.item3'),
+  t('beforeAfter.after.item4'),
+  t('beforeAfter.after.item5'),
 ];
 ---
 
 <section class="before-after" id="before-after" aria-label="Before and After STOA">
   <div class="section-container">
     <div class="section-header reveal" data-reveal>
-      <span class="section-tag">The Problem</span>
-      <h2 class="section-title">Before <span class="gradient-text-alt">&amp; After</span></h2>
-      <p class="section-desc">See what changes when you adopt STOA.</p>
+      <span class="section-tag">{t('beforeAfter.tag')}</span>
+      <h2 class="section-title" set:html={t('beforeAfter.title')} />
+      <p class="section-desc">{t('beforeAfter.description')}</p>
     </div>
 
     <div class="ba-grid" data-stagger-parent>
       <div class="ba-col">
-        <span class="ba-col-title ba-before-title">Before STOA</span>
+        <span class="ba-col-title ba-before-title">{t('beforeAfter.before.title')}</span>
         {before.map((item, i) => (
           <div class={`ba-item ba-item-before stagger-child`} data-stagger={i}>{item}</div>
         ))}
@@ -38,7 +43,7 @@ const after = [
       </div>
 
       <div class="ba-col">
-        <span class="ba-col-title ba-after-title">After STOA</span>
+        <span class="ba-col-title ba-after-title">{t('beforeAfter.after.title')}</span>
         {after.map((item, i) => (
           <div class={`ba-item ba-item-after stagger-child`} data-stagger={i + 5}>{item}</div>
         ))}

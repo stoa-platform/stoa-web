@@ -2,11 +2,15 @@
 // Structured Data (JSON-LD) for SEO
 // Helps search engines understand the page content
 
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
 interface Props {
   type?: 'WebSite' | 'SoftwareApplication' | 'Organization';
 }
 
 const { type = 'WebSite' } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const websiteData = {
   "@context": "https://schema.org",
@@ -14,9 +18,9 @@ const websiteData = {
   "name": "STOA Platform",
   "alternateName": ["STOA Gateway", "STOA Agent Gateway", "STOA MCP Gateway"],
   "url": "https://gostoa.dev",
-  "description": "The European Agent Gateway - Purpose-built for AI agents with native MCP Protocol support, token metering, and European sovereignty.",
-  "keywords": "MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway",
-  "inLanguage": "en",
+  "description": t('structuredData.website.description'),
+  "keywords": t('seo.keywords'),
+  "inLanguage": lang,
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
@@ -35,12 +39,12 @@ const softwareData = {
   "operatingSystem": "Linux, Kubernetes",
   "applicationCategory": "DeveloperApplication",
   "applicationSubCategory": "API Gateway, MCP Gateway, Agent Gateway",
-  "description": "A gateway purpose-built for AI agents. Native MCP Protocol support, token metering, European sovereignty.",
+  "description": t('structuredData.software.description'),
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "EUR",
-    "description": "Open Source - Apache 2.0 License"
+    "description": t('structuredData.software.offerDescription')
   },
   "author": {
     "@type": "Organization",
@@ -54,15 +58,16 @@ const softwareData = {
   "downloadUrl": "https://github.com/stoa-platform",
   "releaseNotes": "https://github.com/stoa-platform/releases",
   "screenshot": "https://gostoa.dev/og-image.png",
+  "inLanguage": lang,
   "featureList": [
-    "MCP Gateway - Native Model Context Protocol support for AI agents",
-    "Agent Gateway - First-class AI agent traffic handling and governance",
-    "Token Metering - Track AI token usage per tenant and team",
-    "European Sovereign - EU-based, with NIS2/DORA supportive features",
-    "Universal Access Control - Same policies for REST APIs and MCP tools",
-    "Multi-Protocol - REST and MCP through one contract"
+    t('structuredData.software.feature1'),
+    t('structuredData.software.feature2'),
+    t('structuredData.software.feature3'),
+    t('structuredData.software.feature4'),
+    t('structuredData.software.feature5'),
+    t('structuredData.software.feature6')
   ],
-  "keywords": "MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, token metering"
+  "keywords": t('seo.keywords')
 };
 
 const organizationData = {
@@ -71,7 +76,7 @@ const organizationData = {
   "name": "STOA Platform",
   "url": "https://gostoa.dev",
   "logo": "https://gostoa.dev/favicon.svg",
-  "description": "European open-source company building the Agent Gateway for AI and MCP Protocol",
+  "description": t('structuredData.org.description'),
   "sameAs": [
     "https://github.com/stoa-platform",
     "https://discord.gg/j8tHSSes",

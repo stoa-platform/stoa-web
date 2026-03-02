@@ -2,6 +2,8 @@
 // SEO Component for STOA Website
 // Usage: <SEO title="Page Title" description="Page description" />
 
+import { getLangFromUrl, useTranslations, getAlternateUrl, type Lang } from '../i18n/utils';
+
 interface Props {
   title?: string;
   description?: string;
@@ -16,9 +18,12 @@ interface Props {
   };
 }
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const {
-  title = "STOA - European Agent Gateway | MCP Protocol & AI-Native API Gateway",
-  description = "The purpose-built gateway built for AI agents. Native MCP Protocol support, token metering, European sovereignty. Open source Agent Gateway for Model Context Protocol.",
+  title = t('seo.defaultTitle'),
+  description = t('seo.defaultDescription'),
   image = "https://gostoa.dev/og-image.png",
   url = Astro.url.href,
   type = "website",
@@ -27,8 +32,17 @@ const {
 
 const siteName = "STOA Platform";
 const twitterHandle = "@stoagateway";
+const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
+const ogLocaleAlt = lang === 'fr' ? 'en_US' : 'fr_FR';
 
 const fullTitle = title.includes('STOA') ? title : `${title} | ${siteName}`;
+
+// Build hreflang URLs
+const siteBase = 'https://gostoa.dev';
+const enPath = getAlternateUrl(Astro.url, 'en');
+const frPath = getAlternateUrl(Astro.url, 'fr');
+const enUrl = `${siteBase}${enPath}`;
+const frUrl = `${siteBase}${frPath}`;
 ---
 
 <!-- Primary Meta Tags -->
@@ -36,10 +50,15 @@ const fullTitle = title.includes('STOA') ? title : `${title} | ${siteName}`;
 <meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 <meta name="author" content="STOA Platform Team" />
-<meta name="keywords" content="MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source" />
+<meta name="keywords" content={t('seo.keywords')} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={url} />
+
+<!-- hreflang for i18n -->
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="fr" href={frUrl} />
+<link rel="alternate" hreflang="x-default" href={enUrl} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
@@ -50,7 +69,8 @@ const fullTitle = title.includes('STOA') ? title : `${title} | ${siteName}`;
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:site_name" content={siteName} />
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlt} />
 
 {article && (
   <>

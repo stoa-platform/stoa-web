@@ -1,4 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="hero" id="hero" aria-label="Hero — The European Agent Gateway">
@@ -12,44 +16,44 @@
   <div class="hero-content">
     <div class="badge reveal" data-reveal>
       <span class="badge-flag">&#127466;&#127482;</span>
-      Open Source &middot; Apache 2.0 &middot; European Sovereign
+      <span set:html={t('hero.badge')} />
     </div>
 
     <h1 class="hero-title reveal" data-reveal data-reveal-delay="100">
-      <span class="gradient-text">The European</span><br/>
-      <span class="gradient-text-alt">Agent Gateway</span>
+      <span class="gradient-text">{t('hero.title.line1')}</span><br/>
+      <span class="gradient-text-alt">{t('hero.title.line2')}</span>
     </h1>
 
     <p class="hero-sub reveal" data-reveal data-reveal-delay="200">
-      <span class="typewriter" data-typewriter="Define Once, Expose Everywhere — connect legacy APIs to AI agents in minutes, not months."></span>
+      <span class="typewriter" data-typewriter={t('hero.subtitle')}></span>
     </p>
 
     <div class="hero-ctas reveal" data-reveal data-reveal-delay="300">
       <a href="https://portal.gostoa.dev" class="btn btn-primary glow-btn">
-        Try STOA Free
+        {t('hero.cta.tryFree')}
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="https://docs.gostoa.dev/docs/guides/quickstart" class="btn btn-secondary">
-        Quick Start
+        {t('hero.cta.quickStart')}
       </a>
     </div>
 
     <div class="hero-meta reveal" data-reveal data-reveal-delay="400">
       <span class="meta-item">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 2v12l4-3 4 3V2z" stroke="#10b981" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
-        1,312 PRs merged
+        {t('hero.meta.prsMerged')}
       </span>
       <span class="meta-item">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.5 5 5.5.8-4 3.9 1 5.3L8 13l-5 3 1-5.3-4-3.9 5.5-.8z" fill="#8b5cf6"/></svg>
-        17.7 PRs/day
+        {t('hero.meta.prsDay')}
       </span>
       <span class="meta-item">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#2dd4bf" stroke-width="2" fill="none"/><path d="M6 8l2 2 3-4" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        4,500+ tests
+        {t('hero.meta.tests')}
       </span>
       <span class="meta-item">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#f59e0b" stroke-width="1.5" fill="none"/><path d="M5 8h6M8 5v6" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/></svg>
-        74 days
+        {t('hero.meta.days')}
       </span>
     </div>
   </div>
@@ -59,28 +63,28 @@
     <div class="mock-ui-inner">
       <div class="mock-titlebar">
         <div class="mock-dots"><span></span><span></span><span></span></div>
-        <span class="mock-titlebar-text">STOA Console — Dashboard</span>
+        <span class="mock-titlebar-text">{t('hero.mock.title')}</span>
       </div>
       <div class="mock-body">
         <!-- Row 1: Stats -->
         <div class="mock-stats">
           <div class="mock-stat-card stagger-child" data-stagger="0">
-            <span class="mock-stat-label">PRs Merged</span>
+            <span class="mock-stat-label">{t('hero.mock.prsMerged')}</span>
             <span class="mock-stat-value" data-counter="1312">0</span>
             <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 92%"></div></div>
           </div>
           <div class="mock-stat-card stagger-child" data-stagger="1">
-            <span class="mock-stat-label">Tests Passing</span>
+            <span class="mock-stat-label">{t('hero.mock.testsPassing')}</span>
             <span class="mock-stat-value" data-counter="4500">0</span>
             <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 100%"></div></div>
           </div>
           <div class="mock-stat-card stagger-child" data-stagger="2">
-            <span class="mock-stat-label">LOC Shipped</span>
+            <span class="mock-stat-label">{t('hero.mock.locShipped')}</span>
             <span class="mock-stat-value" data-counter="234862">0</span>
             <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 78%"></div></div>
           </div>
           <div class="mock-stat-card stagger-child" data-stagger="3">
-            <span class="mock-stat-label">PRs / Day</span>
+            <span class="mock-stat-label">{t('hero.mock.prsDay')}</span>
             <span class="mock-stat-value">17.7</span>
             <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 85%"></div></div>
           </div>
@@ -88,7 +92,7 @@
         <!-- Row 2: Chart + Terminal -->
         <div class="mock-row2">
           <div class="mock-chart stagger-child" data-stagger="4">
-            <span class="mock-chart-title">AI Velocity (3 months)</span>
+            <span class="mock-chart-title">{t('hero.mock.chartTitle')}</span>
             <svg class="mock-chart-svg" viewBox="0 0 300 80" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
@@ -100,16 +104,16 @@
               <path class="chart-line" d="M0,75 C30,74 60,73 100,72 C120,70 140,45 180,35 C210,22 250,10 300,5" fill="none" stroke="#10b981" stroke-width="2"/>
             </svg>
             <div class="mock-chart-labels">
-              <span>Jan</span><span>Feb</span><span>Mar</span>
+              <span>{t('hero.mock.chartJan')}</span><span>{t('hero.mock.chartFeb')}</span><span>{t('hero.mock.chartMar')}</span>
             </div>
           </div>
           <div class="mock-terminal stagger-child" data-stagger="5">
-            <span class="mock-terminal-title">AI Factory</span>
+            <span class="mock-terminal-title">{t('hero.mock.terminalTitle')}</span>
             <div class="mock-terminal-lines">
-              <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">claude /council CAB-1432</span></div>
-              <div class="term-line term-output term-success">&#10003; Council: 9.2/10 — Go (Ship)</div>
+              <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">{t('hero.mock.terminalCmd')}</span></div>
+              <div class="term-line term-output term-success">&#10003; {t('hero.mock.terminalOut')}</div>
               <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">gh pr merge --squash 903</span></div>
-              <div class="term-line term-output term-success">&#10003; PR #903 merged (17.7 PRs/day avg)</div>
+              <div class="term-line term-output term-success">&#10003; {t('hero.mock.terminalOut2')}</div>
               <div class="term-line"><span class="term-prompt">$</span> <span class="term-cursor">|</span></div>
             </div>
           </div>

@@ -2,6 +2,7 @@
 import Analytics from '@vercel/analytics/astro';
 import SEO from '../components/SEO.astro';
 import StructuredData from '../components/StructuredData.astro';
+import { getLangFromUrl } from '../i18n/utils';
 import '../styles/v4.css';
 
 interface Props {
@@ -17,10 +18,12 @@ const {
   image,
   structuredDataType = 'WebSite'
 } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -1,9 +1,14 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const metrics = [
-  { value: 559, suffix: '+', label: 'Tests' },
-  { value: 6, suffix: '', label: 'Gateway Integrations' },
-  { value: 101, suffix: '+', label: 'Docs Pages' },
-  { value: 100, suffix: '%', label: 'Open Source' },
+  { value: 559, suffix: '+', label: t('metrics.tests') },
+  { value: 6, suffix: '', label: t('metrics.gateways') },
+  { value: 101, suffix: '+', label: t('metrics.docs') },
+  { value: 100, suffix: '%', label: t('metrics.oss') },
 ];
 const badges = ['Cargo', 'Vitest', 'Pytest', 'Playwright E2E'];
 ---
@@ -11,8 +16,8 @@ const badges = ['Cargo', 'Vitest', 'Pytest', 'Playwright E2E'];
 <section class="metrics" id="metrics" aria-label="Platform Metrics">
   <div class="section-container">
     <div class="section-header reveal" data-reveal>
-      <span class="section-tag">By the Numbers</span>
-      <h2 class="section-title">Built to <span class="gradient-text-alt">Ship</span></h2>
+      <span class="section-tag">{t('metrics.tag')}</span>
+      <h2 class="section-title" set:html={t('metrics.title')} />
     </div>
 
     <div class="metrics-grid reveal" data-reveal>
