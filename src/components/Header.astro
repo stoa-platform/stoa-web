@@ -30,6 +30,27 @@ const t = useTranslations(lang);
         {lang === 'en' ? 'FR' : 'EN'}
       </a>
       <a href="https://portal.gostoa.dev" class="nav-cta">{t('header.tryFree')}</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="mobile-menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="mobile-menu-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-inner">
+    <a href="#features">{t('header.features')}</a>
+    <a href="#architecture">{t('header.architecture')}</a>
+    <a href="#ttfac">{t('header.ttfac')}</a>
+    <a href={getLocalizedHref(lang, '/pricing')}>{t('header.pricing')}</a>
+    <a href="https://docs.gostoa.dev" target="_blank" rel="noopener">{t('header.docs')}</a>
+    <a href="https://github.com/stoa-platform" target="_blank" rel="noopener">{t('header.github')}</a>
+    <div class="mobile-menu-footer">
+      <a href={getAlternateUrl(Astro.url, lang === 'en' ? 'fr' : 'en')} class="nav-lang">
+        {lang === 'en' ? 'FR' : 'EN'}
+      </a>
+      <a href="https://portal.gostoa.dev" class="btn-primary">{t('header.tryFree')}</a>
+    </div>
+  </div>
+</div>

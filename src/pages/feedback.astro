@@ -3,9 +3,12 @@
 // Dedicated feedback page
 
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Feedback - STOA Platform">
+  <Header />
   <main class="min-h-screen bg-slate-950 pt-24 pb-16">
     <div class="max-w-2xl mx-auto px-4">
       <!-- Header -->
@@ -46,4 +49,5 @@ import Layout from '../layouts/Layout.astro';
   </main>
 
   <script is:inline src="https://tally.so/widgets/embed.js"></script>
+  <Footer />
 </Layout>

@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('notFound.title')}>
+  <Header />
+  <main class="section" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+    <div style="text-align: center; max-width: 480px;">
+      <h1 style="font-size: 6rem; font-weight: 800; background: linear-gradient(135deg, var(--emerald-400), var(--teal-300, #5eead4)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 1rem;">
+        {t('notFound.heading')}
+      </h1>
+      <p class="text-secondary" style="font-size: 1.125rem; margin-bottom: 2rem;">
+        {t('notFound.description')}
+      </p>
+      <a href="/" class="btn-primary" style="display: inline-block; text-decoration: none;">
+        {t('notFound.backHome')}
+      </a>
+    </div>
+  </main>
+  <Footer />
+</Layout>
