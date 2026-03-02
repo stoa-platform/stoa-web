@@ -368,6 +368,11 @@
   "privacy.section7.text": "Pour les questions relatives à la confidentialité :",
   "privacy.section7.company": "CAB Ingenierie — France",
 
+  "notFound.title": "Page introuvable — STOA Platform",
+  "notFound.heading": "404",
+  "notFound.description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+  "notFound.backHome": "Retour à l'accueil",
+
   "feedback.title": "Feedback - STOA Platform",
   "feedback.heading": "Partagez vos retours",
   "feedback.subtitle": "Aidez-nous à améliorer STOA Platform. Votre avis compte !",
