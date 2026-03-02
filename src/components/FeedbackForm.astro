@@ -1,15 +1,19 @@
 ---
 // Feedback Form Component using Tally.so
 // Usage: <FeedbackForm />
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 interface Props {
   title?: string;
   showTitle?: boolean;
 }
 
-const { 
-  title = "Share your feedback",
-  showTitle = true 
+const {
+  title = t('feedback.heading'),
+  showTitle = true
 } = Astro.props;
 
 const tallyFormId = "yP2Oo8";
@@ -19,7 +23,7 @@ const tallyFormId = "yP2Oo8";
   {showTitle && (
     <h3 class="text-xl font-semibold text-white mb-4">{title}</h3>
   )}
-  
+
   <iframe
     data-tally-src={`https://tally.so/embed/${tallyFormId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
     loading="lazy"
@@ -28,7 +32,7 @@ const tallyFormId = "yP2Oo8";
     frameborder="0"
     marginheight="0"
     marginwidth="0"
-    title="STOA Feedback Form"
+    title={t('feedback.iframeTitle')}
     class="rounded-lg"
   ></iframe>
 </div>

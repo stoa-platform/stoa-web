@@ -1,32 +1,36 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="ttfac" id="ttfac" aria-label="Time to First API Call comparison">
   <div class="section-container">
     <div class="section-header reveal" data-reveal>
-      <span class="section-tag">Time to First API Call</span>
-      <h2 class="section-title">From weeks to <span class="gradient-text">minutes</span></h2>
-      <p class="section-desc">Traditional API gateways require weeks of configuration. STOA gets your first AI agent connected in under 5 minutes.</p>
+      <span class="section-tag">{t('ttfac.tag')}</span>
+      <h2 class="section-title" set:html={t('ttfac.title').replace('minutes', '<span class="gradient-text">minutes</span>').replace('minutes', '<span class="gradient-text">minutes</span>')} />
+      <p class="section-desc">{t('ttfac.description')}</p>
     </div>
 
     <div class="ttfac-compare">
       <div class="ttfac-card ttfac-old reveal tilt-card" data-reveal data-tilt>
         <div class="ttfac-card-header ttfac-header-old">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="2" fill="none"/><path d="M12 7v5l3 3" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
-          <span>Traditional Gateway</span>
+          <span>{t('ttfac.traditional.title')}</span>
         </div>
         <div class="ttfac-counter">
           <span class="ttfac-number" data-counter="14">0</span>
-          <span class="ttfac-unit">days</span>
+          <span class="ttfac-unit">{lang === 'fr' ? 'jours' : 'days'}</span>
         </div>
         <ul class="ttfac-steps">
-          <li>Procurement &amp; licensing</li>
-          <li>Infrastructure provisioning</li>
-          <li>Gateway installation</li>
-          <li>API configuration</li>
-          <li>Security policy setup</li>
-          <li>Testing &amp; validation</li>
-          <li>Custom MCP adapter development</li>
+          <li>{t('ttfac.traditional.step1')}</li>
+          <li>{t('ttfac.traditional.step2')}</li>
+          <li>{t('ttfac.traditional.step3')}</li>
+          <li>{t('ttfac.traditional.step4')}</li>
+          <li>{t('ttfac.traditional.step5')}</li>
+          <li>{t('ttfac.traditional.step6')}</li>
+          <li>{t('ttfac.traditional.step7')}</li>
         </ul>
       </div>
 
@@ -45,16 +49,16 @@
       <div class="ttfac-card ttfac-new reveal tilt-card" data-reveal data-reveal-delay="100" data-tilt>
         <div class="ttfac-card-header ttfac-header-new">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#10b981" stroke-width="2" fill="none"/><path d="M8 12l3 3 5-6" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>STOA Platform</span>
+          <span>{t('ttfac.stoa.title')}</span>
         </div>
         <div class="ttfac-counter">
           <span class="ttfac-number ttfac-number-green" data-counter="5">0</span>
           <span class="ttfac-unit">minutes</span>
         </div>
         <ul class="ttfac-steps ttfac-steps-fast">
-          <li>docker compose up</li>
-          <li>Define UAC contract</li>
-          <li>Connect AI agent via MCP</li>
+          <li>{t('ttfac.stoa.step1')}</li>
+          <li>{t('ttfac.stoa.step2')}</li>
+          <li>{t('ttfac.stoa.step3')}</li>
         </ul>
       </div>
     </div>

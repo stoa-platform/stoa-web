@@ -5,14 +5,29 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://gostoa.dev',
 
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   integrations: [
     tailwind(),
     sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en',
+          fr: 'fr',
+        },
+      },
       serialize(item) {
-        if (item.url === 'https://gostoa.dev/') {
+        if (item.url === 'https://gostoa.dev/' || item.url === 'https://gostoa.dev/fr/') {
           item.changefreq = 'weekly';
           item.priority = 1.0;
-        } else if (item.url === 'https://gostoa.dev/feedback/') {
+        } else if (item.url.includes('/feedback')) {
           item.changefreq = 'monthly';
           item.priority = 0.8;
         } else {
