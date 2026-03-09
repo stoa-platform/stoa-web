@@ -123,6 +123,48 @@ body.mobile-menu-open { overflow: hidden; }
 .meta-item { display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.8125rem; color: var(--text-muted); }
 .meta-item svg { display: inline; flex-shrink: 0; }
 
+/* Hero Pillars */
+.hero-pillars { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; max-width: 760px; }
+.pillar { display: flex; flex-direction: column; align-items: center; gap: 0.375rem; text-align: center; flex: 1; min-width: 180px; }
+.pillar-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); margin-bottom: 0.25rem; }
+.pillar strong { font-size: 1rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+.pillar-desc { font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5; max-width: 220px; }
+.pillar-sep { width: 1px; height: 60px; background: linear-gradient(180deg, transparent, var(--border), transparent); align-self: center; }
+@media (max-width: 640px) {
+  .hero-pillars { flex-direction: column; align-items: center; gap: 1.5rem; }
+  .pillar-sep { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+}
+
+/* ========== Try STOA ========== */
+.try-stoa { padding: 6rem 0; background: var(--bg-deep); }
+.try-stoa-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+.try-stoa-header { text-align: center; margin-bottom: 3rem; }
+.try-stoa-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 1rem; }
+.try-stoa-desc { font-size: 1.0625rem; color: var(--text-secondary); }
+.try-stoa-terminal { max-width: 700px; margin: 0 auto; border-radius: 16px; border: 1px solid var(--border); background: var(--bg-card); overflow: hidden; box-shadow: 0 25px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03); }
+.terminal-chrome { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--bg-elevated); border-bottom: 1px solid var(--border); }
+.terminal-dots { display: flex; gap: 6px; }
+.terminal-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.terminal-dots span:nth-child(1) { background: #ff5f57; }
+.terminal-dots span:nth-child(2) { background: #ffbd2e; }
+.terminal-dots span:nth-child(3) { background: #28c840; }
+.terminal-title { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+.terminal-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.terminal-step { display: flex; gap: 1rem; align-items: flex-start; }
+.terminal-step-num { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(16,185,129,0.12); color: var(--emerald-400); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 0.125rem; }
+.terminal-step-content { display: flex; flex-direction: column; gap: 0.375rem; flex: 1; min-width: 0; }
+.terminal-comment { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
+.terminal-line { display: flex; align-items: center; gap: 0.5rem; }
+.terminal-prompt { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--emerald-500); font-weight: 600; flex-shrink: 0; }
+.terminal-cmd { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-primary); word-break: break-all; }
+.terminal-output { font-family: var(--font-mono); font-size: 0.75rem; color: var(--emerald-400); }
+.terminal-divider { height: 1px; background: var(--border); margin: 0.25rem 0; }
+.try-stoa-footer { text-align: center; margin-top: 2rem; }
+@media (max-width: 480px) {
+  .terminal-body { padding: 1rem; }
+  .terminal-cmd { font-size: 0.6875rem; }
+}
+
 /* ========== Mock UI ========== */
 .mock-ui { position: relative; z-index: 1; width: 100%; max-width: 900px; margin: 3rem auto 0; }
 .mock-ui-inner { border-radius: 16px; border: 1px solid var(--border); background: var(--bg-card); overflow: hidden; box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03); }
