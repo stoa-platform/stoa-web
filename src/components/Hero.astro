@@ -25,8 +25,34 @@ const t = useTranslations(lang);
     </h1>
 
     <p class="hero-sub reveal" data-reveal data-reveal-delay="200">
-      <span class="typewriter" data-typewriter={t('hero.subtitle')}></span>
+      {t('hero.subtitle')}
     </p>
+
+    <div class="hero-pillars reveal" data-reveal data-reveal-delay="250">
+      <div class="pillar">
+        <span class="pillar-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 2a6 6 0 110 12 6 6 0 010-12z" fill="#10b981" opacity="0.3"/><circle cx="10" cy="6" r="1.5" fill="#10b981"/><circle cx="6" cy="13" r="1.5" fill="#10b981"/><circle cx="14" cy="13" r="1.5" fill="#10b981"/><path d="M10 7.5v2.5M8.5 11.5l-1.5 1M11.5 11.5l1.5 1" stroke="#10b981" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </span>
+        <strong>{t('hero.pillar1.title')}</strong>
+        <span class="pillar-desc">{t('hero.pillar1.desc')}</span>
+      </div>
+      <div class="pillar-sep" aria-hidden="true"></div>
+      <div class="pillar">
+        <span class="pillar-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10h4M13 10h4" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round"/><rect x="7" y="6" width="6" height="8" rx="1.5" stroke="#8b5cf6" stroke-width="1.5" fill="none"/><path d="M9 9h2M9 11h2" stroke="#8b5cf6" stroke-width="1" stroke-linecap="round"/></svg>
+        </span>
+        <strong>{t('hero.pillar2.title')}</strong>
+        <span class="pillar-desc">{t('hero.pillar2.desc')}</span>
+      </div>
+      <div class="pillar-sep" aria-hidden="true"></div>
+      <div class="pillar">
+        <span class="pillar-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v2M10 15v2M17 10h-2M5 10H3M14.95 5.05l-1.41 1.41M6.46 13.54l-1.41 1.41M14.95 14.95l-1.41-1.41M6.46 6.46L5.05 5.05" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round"/><circle cx="10" cy="10" r="3" stroke="#f59e0b" stroke-width="1.5" fill="none"/></svg>
+        </span>
+        <strong>{t('hero.pillar3.title')}</strong>
+        <span class="pillar-desc">{t('hero.pillar3.desc')}</span>
+      </div>
+    </div>
 
     <div class="hero-ctas reveal" data-reveal data-reveal-delay="300">
       <a href="https://portal.gostoa.dev" class="btn btn-primary glow-btn">
@@ -55,70 +81,6 @@ const t = useTranslations(lang);
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#f59e0b" stroke-width="1.5" fill="none"/><path d="M5 8h6M8 5v6" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/></svg>
         {t('hero.meta.days')}
       </span>
-    </div>
-  </div>
-
-  <!-- Mock UI Dashboard -->
-  <div class="mock-ui reveal" data-reveal data-reveal-delay="500">
-    <div class="mock-ui-inner">
-      <div class="mock-titlebar">
-        <div class="mock-dots"><span></span><span></span><span></span></div>
-        <span class="mock-titlebar-text">{t('hero.mock.title')}</span>
-      </div>
-      <div class="mock-body">
-        <!-- Row 1: Stats -->
-        <div class="mock-stats">
-          <div class="mock-stat-card stagger-child" data-stagger="0">
-            <span class="mock-stat-label">{t('hero.mock.prsMerged')}</span>
-            <span class="mock-stat-value" data-counter="1312">0</span>
-            <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 92%"></div></div>
-          </div>
-          <div class="mock-stat-card stagger-child" data-stagger="1">
-            <span class="mock-stat-label">{t('hero.mock.testsPassing')}</span>
-            <span class="mock-stat-value" data-counter="4500">0</span>
-            <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 100%"></div></div>
-          </div>
-          <div class="mock-stat-card stagger-child" data-stagger="2">
-            <span class="mock-stat-label">{t('hero.mock.locShipped')}</span>
-            <span class="mock-stat-value" data-counter="234862">0</span>
-            <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 78%"></div></div>
-          </div>
-          <div class="mock-stat-card stagger-child" data-stagger="3">
-            <span class="mock-stat-label">{t('hero.mock.prsDay')}</span>
-            <span class="mock-stat-value">17.7</span>
-            <div class="mock-stat-bar"><div class="mock-stat-fill" style="--fill: 85%"></div></div>
-          </div>
-        </div>
-        <!-- Row 2: Chart + Terminal -->
-        <div class="mock-row2">
-          <div class="mock-chart stagger-child" data-stagger="4">
-            <span class="mock-chart-title">{t('hero.mock.chartTitle')}</span>
-            <svg class="mock-chart-svg" viewBox="0 0 300 80" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#10b981" stop-opacity="0.4"/>
-                  <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <path class="chart-area" d="M0,75 C30,74 60,73 100,72 C120,70 140,45 180,35 C210,22 250,10 300,5 L300,80 L0,80 Z" fill="url(#chart-grad)"/>
-              <path class="chart-line" d="M0,75 C30,74 60,73 100,72 C120,70 140,45 180,35 C210,22 250,10 300,5" fill="none" stroke="#10b981" stroke-width="2"/>
-            </svg>
-            <div class="mock-chart-labels">
-              <span>{t('hero.mock.chartJan')}</span><span>{t('hero.mock.chartFeb')}</span><span>{t('hero.mock.chartMar')}</span>
-            </div>
-          </div>
-          <div class="mock-terminal stagger-child" data-stagger="5">
-            <span class="mock-terminal-title">{t('hero.mock.terminalTitle')}</span>
-            <div class="mock-terminal-lines">
-              <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">{t('hero.mock.terminalCmd')}</span></div>
-              <div class="term-line term-output term-success">&#10003; {t('hero.mock.terminalOut')}</div>
-              <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">gh pr merge --squash 903</span></div>
-              <div class="term-line term-output term-success">&#10003; {t('hero.mock.terminalOut2')}</div>
-              <div class="term-line"><span class="term-prompt">$</span> <span class="term-cursor">|</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>

@@ -1,0 +1,74 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="try-stoa" id="try-stoa" aria-label="Try STOA in 5 minutes">
+  <div class="try-stoa-inner">
+    <div class="try-stoa-header reveal" data-reveal>
+      <span class="feature-tag">{t('tryStoa.tag')}</span>
+      <h2 class="try-stoa-title" set:html={t('tryStoa.title')} />
+      <p class="try-stoa-desc">{t('tryStoa.description')}</p>
+    </div>
+
+    <div class="try-stoa-terminal reveal" data-reveal data-reveal-delay="200">
+      <div class="terminal-chrome">
+        <div class="terminal-dots"><span></span><span></span><span></span></div>
+        <span class="terminal-title">{t('tryStoa.terminalTitle')}</span>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-step">
+          <span class="terminal-step-num">1</span>
+          <div class="terminal-step-content">
+            <span class="terminal-comment"># {t('tryStoa.step1.comment')}</span>
+            <div class="terminal-line">
+              <span class="terminal-prompt">$</span>
+              <code class="terminal-cmd">git clone https://github.com/stoa-platform/stoa-quickstart && cd stoa-quickstart</code>
+            </div>
+            <div class="terminal-line">
+              <span class="terminal-prompt">$</span>
+              <code class="terminal-cmd">docker compose up -d</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="terminal-divider"></div>
+
+        <div class="terminal-step">
+          <span class="terminal-step-num">2</span>
+          <div class="terminal-step-content">
+            <span class="terminal-comment"># {t('tryStoa.step2.comment')}</span>
+            <div class="terminal-line">
+              <span class="terminal-prompt">$</span>
+              <code class="terminal-cmd">open http://localhost:3000</code>
+            </div>
+            <span class="terminal-output">{t('tryStoa.step2.output')}</span>
+          </div>
+        </div>
+
+        <div class="terminal-divider"></div>
+
+        <div class="terminal-step">
+          <span class="terminal-step-num">3</span>
+          <div class="terminal-step-content">
+            <span class="terminal-comment"># {t('tryStoa.step3.comment')}</span>
+            <div class="terminal-line">
+              <span class="terminal-prompt">$</span>
+              <code class="terminal-cmd">curl http://localhost:8080/mcp/tools/list</code>
+            </div>
+            <span class="terminal-output">{t('tryStoa.step3.output')}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-stoa-footer reveal" data-reveal data-reveal-delay="300">
+      <a href="https://docs.gostoa.dev/docs/guides/quickstart" class="btn btn-secondary">
+        {t('tryStoa.fullGuide')}
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

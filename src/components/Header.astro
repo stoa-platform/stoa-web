@@ -19,10 +19,10 @@ const t = useTranslations(lang);
     </a>
     <div class="nav-links">
       <a href="#features">{t('header.features')}</a>
-      <a href="#architecture">{t('header.architecture')}</a>
-      <a href="#ttfac">{t('header.ttfac')}</a>
-      <a href={getLocalizedHref(lang, '/pricing')}>{t('header.pricing')}</a>
       <a href="https://docs.gostoa.dev" target="_blank" rel="noopener">{t('header.docs')}</a>
+      <a href="https://docs.gostoa.dev/docs/community" target="_blank" rel="noopener">{t('header.community')}</a>
+      <a href="https://docs.gostoa.dev/docs/enterprise/use-cases" target="_blank" rel="noopener">{t('header.enterprise')}</a>
+      <a href={getLocalizedHref(lang, '/pricing')}>{t('header.pricing')}</a>
       <a href="https://github.com/stoa-platform" target="_blank" rel="noopener">{t('header.github')}</a>
     </div>
     <div class="nav-right">
@@ -41,10 +41,10 @@ const t = useTranslations(lang);
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-inner">
     <a href="#features">{t('header.features')}</a>
-    <a href="#architecture">{t('header.architecture')}</a>
-    <a href="#ttfac">{t('header.ttfac')}</a>
-    <a href={getLocalizedHref(lang, '/pricing')}>{t('header.pricing')}</a>
     <a href="https://docs.gostoa.dev" target="_blank" rel="noopener">{t('header.docs')}</a>
+    <a href="https://docs.gostoa.dev/docs/community" target="_blank" rel="noopener">{t('header.community')}</a>
+    <a href="https://docs.gostoa.dev/docs/enterprise/use-cases" target="_blank" rel="noopener">{t('header.enterprise')}</a>
+    <a href={getLocalizedHref(lang, '/pricing')}>{t('header.pricing')}</a>
     <a href="https://github.com/stoa-platform" target="_blank" rel="noopener">{t('header.github')}</a>
     <div class="mobile-menu-footer">
       <a href={getAlternateUrl(Astro.url, lang === 'en' ? 'fr' : 'en')} class="nav-lang">
