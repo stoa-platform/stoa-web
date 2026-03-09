@@ -1,67 +1,74 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const plans = [
   {
-    name: 'Community',
-    price: 'Free',
-    period: 'forever',
-    description: 'Full platform, no limits. Self-host or use our cloud.',
+    name: t('pricing.community.name'),
+    price: t('pricing.community.price'),
+    period: t('pricing.community.period'),
+    description: t('pricing.community.description'),
     features: [
-      'Full MCP Protocol support',
-      'Control Plane API + Console UI',
-      'Developer Portal',
-      'Multi-gateway orchestration',
-      'UAC (Universal API Contract)',
-      'Community support (GitHub, Discord)',
+      t('pricing.community.feature1'),
+      t('pricing.community.feature2'),
+      t('pricing.community.feature3'),
+      t('pricing.community.feature4'),
+      t('pricing.community.feature5'),
+      t('pricing.community.feature6'),
     ],
-    cta: 'Try STOA Free',
+    cta: t('pricing.community.cta'),
     ctaLink: 'https://portal.gostoa.dev',
     highlight: false,
   },
   {
-    name: 'Enterprise',
-    price: 'Custom',
-    period: 'pricing',
-    description: 'For teams that need SLAs, SSO, and dedicated support.',
+    name: t('pricing.enterprise.name'),
+    price: t('pricing.enterprise.price'),
+    period: t('pricing.enterprise.period'),
+    description: t('pricing.enterprise.description'),
     features: [
-      'Everything in Community',
-      'SSO / SAML integration',
-      'Multi-environment (dev/staging/prod)',
-      'Advanced analytics dashboard',
-      'Priority support with SLA',
-      'Custom domain + TLS',
-      'Onboarding assistance',
+      t('pricing.enterprise.feature1'),
+      t('pricing.enterprise.feature2'),
+      t('pricing.enterprise.feature3'),
+      t('pricing.enterprise.feature4'),
+      t('pricing.enterprise.feature5'),
+      t('pricing.enterprise.feature6'),
+      t('pricing.enterprise.feature7'),
     ],
-    cta: 'Book a Demo',
+    cta: t('pricing.enterprise.cta'),
     ctaLink: 'mailto:demo@gostoa.dev?subject=STOA%20Enterprise%20Demo',
     highlight: true,
-    badge: 'Recommended',
+    badge: t('pricing.enterprise.badge'),
   },
   {
-    name: 'Sovereign',
-    price: 'Custom',
-    period: 'pricing',
-    description: 'For regulated industries requiring full data control.',
+    name: t('pricing.sovereign.name'),
+    price: t('pricing.sovereign.price'),
+    period: t('pricing.sovereign.period'),
+    description: t('pricing.sovereign.description'),
     features: [
-      'Everything in Enterprise',
-      'Dedicated infrastructure (EU)',
-      'On-premise or air-gapped deployment',
-      'NIS2 / DORA supportive features',
-      'Dedicated success manager',
-      'Custom SLA + audit support',
+      t('pricing.sovereign.feature1'),
+      t('pricing.sovereign.feature2'),
+      t('pricing.sovereign.feature3'),
+      t('pricing.sovereign.feature4'),
+      t('pricing.sovereign.feature5'),
+      t('pricing.sovereign.feature6'),
     ],
-    cta: 'Contact Us',
+    cta: t('pricing.sovereign.cta'),
     ctaLink: 'mailto:partners@gostoa.dev?subject=STOA%20Sovereign%20Inquiry',
     highlight: false,
   },
 ];
+
+const faqPath = lang === 'fr' ? '/fr/pricing#faq' : '/pricing#faq';
 ---
 
 <section class="pricing-section" id="pricing">
   <div class="section-container">
     <div class="section-header reveal" data-reveal>
-      <span class="section-tag">Pricing</span>
-      <h2 class="section-title">Simple, Transparent <span class="gradient-text">Pricing</span></h2>
-      <p class="section-desc">Start free, scale as you grow. No hidden fees.</p>
+      <span class="section-tag">{t('pricing.tag')}</span>
+      <h2 class="section-title" set:html={t('pricing.title')} />
+      <p class="section-desc">{t('pricing.description')}</p>
     </div>
 
     <div class="pricing-grid">
@@ -92,8 +99,8 @@ const plans = [
     </div>
 
     <div class="pricing-footer reveal" data-reveal>
-      <p>Have questions? <a href="/pricing#faq">Read the FAQ</a></p>
-      <p class="pricing-footnote">Pricing details available upon request. Plans and quotas subject to change before general availability.</p>
+      <p>{t('pricing.footer.faqLink').split('FAQ')[0]}<a href={faqPath}>FAQ</a></p>
+      <p class="pricing-footnote">{t('pricing.footer.disclaimer')}</p>
     </div>
   </div>
 </section>
