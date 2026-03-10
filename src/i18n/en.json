@@ -294,7 +294,7 @@
   "comparison.features.row8": "Kubernetes CRD-Native",
   "comparison.features.row9": "AI Token Metering",
   "comparison.sovereignty.title": "Why European Sovereignty Matters",
-  "comparison.sovereignty.description": "Kong (US), Tyk (UK post-Brexit), APISIX (China/Apache) are subject to foreign jurisdiction. Gravitee is European but operates an open-core model with cloud-first SaaS. STOA is the only fully open-source (Apache 2.0), on-premise-first European alternative — relevant for central banks, public sector, and regulated industries with NIS2/DORA requirements.",
+  "comparison.sovereignty.description": "Kong (US), Tyk (UK post-Brexit), APISIX (China/Apache) are subject to foreign jurisdiction. Gravitee is European but operates an open-core model with cloud-first SaaS. STOA is the only fully open-source (Apache 2.0), on-premise-first European alternative — relevant for banks, public sector, and regulated industries with NIS2/DORA requirements.",
   "comparison.disclaimer": "Feature comparisons are based on publicly available documentation, last verified February 2026. Product capabilities change frequently. We encourage readers to verify current features directly with each vendor. All trademarks belong to their respective owners. We welcome corrections — contact hello@gostoa.dev",
   "comparison.fullLink": "View full comparison →",
 
