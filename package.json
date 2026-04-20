@@ -19,5 +19,17 @@
   "devDependencies": {
     "@types/node": "^20.0.0"
   },
+  "overrides": {
+    "devalue": "^5.6.4",
+    "rollup": "^4.59.0",
+    "esbuild": "^0.25.0",
+    "yaml": "^2.8.3",
+    "diff": "^5.2.2",
+    "picomatch": "^4.0.4",
+    "anymatch": { "picomatch": "^2.3.2" },
+    "micromatch": { "picomatch": "^2.3.2" },
+    "readdirp": { "picomatch": "^2.3.2" },
+    "@astrojs/sitemap": { "zod": "^3.22.3" }
+  },
   "license": "Apache-2.0"
 }
