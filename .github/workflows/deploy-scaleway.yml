@@ -21,6 +21,13 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with: { node-version: 22, cache: npm }
       - run: npm ci
+      # package-lock.json ne contient que les binaires natifs darwin (bug npm/cli#4828) :
+      # on ajoute ceux de linux-x64 aux versions exactes déjà verrouillées, sans toucher au lockfile.
+      - name: Binaires natifs linux-x64 (rollup, esbuild)
+        run: |
+          npm install --no-save --no-audit --no-fund \
+            "@rollup/rollup-linux-x64-gnu@$(node -p "require('rollup/package.json').version")" \
+            "@esbuild/linux-x64@$(node -p "require('esbuild/package.json').version")"
       - run: npm run build
       - name: Validation des chemins de release
         run: python3 .github/scripts/release-files.py dist
