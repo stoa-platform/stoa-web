@@ -1,17 +1,6 @@
-# STOA Platform - robots.txt
-# https://gostoa.dev
-
+# STOA Platform — https://www.gostoa.dev/
 User-agent: *
 Allow: /
-
-# AI Agent Information
-# See llms.txt for AI agent discoverability information
-# llms.txt: https://gostoa.dev/llms.txt
-# llms-full.txt: https://gostoa.dev/llms-full.txt
-
-# Sitemaps
-Sitemap: https://gostoa.dev/sitemap-index.xml
-
-# Block sensitive paths
-Disallow: /api/
-Disallow: /_astro/
+Sitemap: https://www.gostoa.dev/sitemap-index.xml
+# https://www.gostoa.dev/llms.txt
+# https://www.gostoa.dev/llms-full.txt

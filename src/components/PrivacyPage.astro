@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations, getLocalizedHref } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+interface Props { registration: string; address: string; }
+const { registration, address } = Astro.props;
+const publisher = t('privacy.publisher.text').replace('{registration}', registration).replace('{address}', address);
+const sections = ['publisher', 'technical', 'contact', 'retention', 'recipients', 'transfers', 'theme', 'language', 'rights', 'links'];
+---
+<Layout title={t('privacy.title')} description={t('privacy.description')}>
+  <section class="section"><div class="container prose"><div class="page-intro"><p class="eyebrow">CAB Ingénierie — France</p><h1 class="display">{t('privacy.heading')}</h1><p class="lead">{t('privacy.intro')}</p><p>{t('legal.pending')}</p></div>
+    {sections.map(key => <section><h2>{t(`privacy.${key}.title`)}</h2><p>{key === 'publisher' ? publisher : t(`privacy.${key}.text`)}</p></section>)}
+    <p class="scope-note"><a href="mailto:contact@gostoa.dev">contact@gostoa.dev</a> · <a href="https://www.cnil.fr">CNIL</a> · <a href={getLocalizedHref(lang, lang === 'fr' ? '/mentions-legales/' : '/legal/')}>{t('footer.legal')}</a></p>
+  </div></section>
+</Layout>

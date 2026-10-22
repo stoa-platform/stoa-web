@@ -1,0 +1,40 @@
+---
+import Logo from './Logo.astro';
+import { useTranslations, getLocalizedHref, type Lang } from '../../i18n/utils';
+interface Props { site: 'platform' | 'labs'; lang: Lang; }
+const { site, lang } = Astro.props;
+const t = useTranslations(lang);
+const platform = (path: string) => `${site === 'platform' ? '' : 'https://www.gostoa.dev'}${getLocalizedHref(lang, path)}`;
+const legal = platform(lang === 'fr' ? '/mentions-legales/' : '/legal/');
+const privacy = platform('/privacy/');
+const home = platform('/');
+const columns = [
+  { title: t('footer.platform'), links: [
+    { href: `${home}#produit`, text: t('nav.product') },
+    { href: `${home}#architecture`, text: t('nav.architecture') },
+    { href: platform('/pricing/'), text: t('footer.support') },
+  ] },
+  { title: t('footer.labs'), links: [{ href: 'https://labs.gostoa.dev', text: t('footer.services') }] },
+  { title: t('footer.resources'), links: [
+    { href: 'https://docs.gostoa.dev', text: t('nav.switch.docs') },
+    { href: 'https://github.com/stoa-platform', text: 'GitHub' },
+    { href: 'https://discord.gostoa.dev', text: 'Discord' },
+  ] },
+  { title: t('footer.company'), links: [
+    { href: platform('/contact/'), text: t('header.contact') },
+    { href: privacy, text: t('footer.privacy') },
+    { href: legal, text: t('footer.legal') },
+    { href: 'mailto:contact@gostoa.dev', text: 'contact@gostoa.dev' },
+  ] },
+];
+---
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="site-footer__grid">
+      <div class="site-footer__about"><a class="brand" href={site === 'platform' ? home : 'https://labs.gostoa.dev'}><Logo variant={site === 'labs' ? 'labs' : 'stoa'} /></a><p>{t('brand.tagline')}</p></div>
+      {columns.map((column, i) => <nav aria-labelledby={`footer-${i}`}><h2 id={`footer-${i}`}>{column.title}</h2><ul>{column.links.map(link => <li><a href={link.href}>{link.text}</a></li>)}</ul></nav>)}
+    </div>
+    <p class="site-footer__license">{t('license')}<a href={`${home}#open-source`}>{t('oss.title')}</a></p>
+    <div class="site-footer__bottom"><p>{t('footer.copyright')}</p><ul role="list"><li><a href={legal}>{t('footer.legal')}</a></li><li><a href={privacy}>{t('footer.privacy')}</a></li></ul></div>
+  </div>
+</footer>

@@ -1,0 +1,14 @@
+---
+import { useTranslations, getLangFromUrl, getLocalizedHref } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<section class="section" id="offres" aria-labelledby="offers-title"><div class="container">
+  <div class="section__head"><p class="eyebrow">{t('nav.offers')}</p><h2 class="h2" id="offers-title">{t('offers.title')}</h2><p>{t('offers.intro')}</p></div>
+  <div class="table-scroll" role="region" tabindex="0" aria-labelledby="offers-title"><table class="pricing">
+    <caption>{t('offers.disclaimer')}</caption>
+    <thead><tr><th scope="col">{t('offers.scope')}</th><th scope="col"><span class="pricing__plan">{t('offers.public')}</span></th><th scope="col"><span class="pricing__plan">{t('offers.services')}</span></th></tr></thead>
+    <tbody>{['code', 'rights', 'support'].map(key => <tr><th scope="row">{t(`offers.${key}.title`)}</th><td>{t(`offers.${key}.public`)}</td><td>{t(`offers.${key}.services`)}</td></tr>)}</tbody>
+    <tfoot><tr><td></td><td><a class="btn btn--secondary btn--sm" href="https://github.com/stoa-platform/stoa">STOA</a></td><td><a class="btn btn--secondary btn--sm" href={getLocalizedHref(lang, '/contact/')}>{t('header.contact')}</a></td></tr></tfoot>
+  </table></div>
+</div></section>

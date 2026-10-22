@@ -1,11 +1,11 @@
 {
-  "name": "STOA Platform",
+  "name": "STOA",
   "short_name": "STOA",
-  "description": "API & MCP Gateway for the AI Era",
+  "description": "Your APIs, governed as code",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#047857",
+  "background_color": "#FAFAF7",
+  "theme_color": "#FAFAF7",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

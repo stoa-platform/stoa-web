@@ -1,0 +1,31 @@
+---
+import SecurityMeta from './shared/SecurityMeta.astro';
+import ThemeScript from './shared/ThemeScript.astro';
+import { useTranslations } from '../i18n/utils';
+import '../styles/tokens.css';
+import '../styles/base.css';
+const en = useTranslations('en');
+const fr = useTranslations('fr');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <SecurityMeta />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="color-scheme" content="light dark" />
+    <ThemeScript />
+    <title>Page not found / Page introuvable — STOA</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/inter/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <main id="contenu" class="section"><div class="container prose">
+      <p class="eyebrow">404 / STOA</p>
+      <h1 class="h2">Page not found / <span lang="fr">Page introuvable</span></h1>
+      <section lang="en" aria-labelledby="error-en"><h2 id="error-en">{en('notFound.heading')}</h2><p>{en('notFound.intro')}</p><a class="btn btn--secondary" href="/">{en('notFound.back')} (EN)</a></section>
+      <section lang="fr" aria-labelledby="error-fr"><h2 id="error-fr">{fr('notFound.heading')}</h2><p>{fr('notFound.intro')}</p><a class="btn btn--secondary" href="/fr/">{fr('notFound.back')} (FR)</a></section>
+    </div></main>
+  </body>
+</html>

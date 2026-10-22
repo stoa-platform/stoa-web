@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations, getLocalizedHref } from '../i18n/utils';
+interface Props { mode?: 'contact' | 'feedback'; }
+const { mode = 'contact' } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<Layout title={t(`${mode}.title`)} description={t('contact.description')}>
+  <section class="section"><div class="container">
+    <div class="page-intro"><p class="eyebrow">{t('contact.eyebrow')}</p><h1 class="display">{t(`${mode}.heading`)}</h1><p class="lead">{t(`${mode}.intro`)}</p></div>
+    <div class="contact-grid"><div><h2 class="h2">{t('header.contact')}</h2><a class="email" href="mailto:contact@gostoa.dev">contact@gostoa.dev</a><p>{t('contact.emailNote')}</p><p>{t('contact.notice')}</p><a href={getLocalizedHref(lang, '/privacy/')}>{t('footer.privacy')}</a></div>
+    <div><h2 class="h2">{t('contact.context.title')}</h2><p>{t('contact.context.text')}</p><p>{t('contact.resources.text')}</p><a href="https://docs.gostoa.dev">{t('nav.switch.docs')}</a> · <a href="https://labs.gostoa.dev">STOA Labs</a></div></div>
+  </div></section>
+</Layout>

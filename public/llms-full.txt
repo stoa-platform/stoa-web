@@ -1,340 +1,82 @@
-# STOA Platform - Extended AI Agent Information
-# https://gostoa.dev/llms-full.txt
+# STOA — iPaaS Souverain / Sovereign iPaaS
 
-## Overview
+Your APIs, governed as code
 
-STOA (derived from Greek "stoa" - covered walkway) is the European Agent Gateway, an API gateway purpose-built for AI agents and the Model Context Protocol (MCP).
+Vos APIs, gouvernées comme du code
 
-## The Problem STOA Solves
+STOA's published code is open source under the Apache 2.0 licence.
 
-Traditional API gateways were built for human developers and have since added AI support via plugins:
-- MCP support is bolted on as plugins or add-ons, not native
-- AI token metering requires additional configuration
-- Agent traffic is handled through translation layers
-- AI governance features are retrofitted, not built-in
+Le code publié de STOA est open source, sous licence Apache 2.0.
 
-STOA solves this by being MCP-native from the ground up — no plugins, no translation layers.
+The public repositories are stoa-platform/stoa and stoa-platform/stoa-quickstart. Consult the licence and instructions for the version you use.
 
-## Core Concepts
+Les dépôts publics sont stoa-platform/stoa et stoa-platform/stoa-quickstart. Consultez la licence et les instructions de la version utilisée.
 
-### Model Context Protocol (MCP)
-MCP is Anthropic's open protocol that enables AI agents to discover and call tools. STOA acts as an MCP gateway, allowing:
-- Automatic exposure of REST APIs as MCP tools
-- Tool discovery for AI agents
-- Governed access to enterprise capabilities
-- Complete audit trail of AI actions
+Other components are not published. The published code licence does not extend to them.
 
-### Universal Access Control (UAC)
-One policy model for both human API access and AI agent access:
-- Same RBAC rules
-- Unified audit trail
-- Consistent security model
+Les autres composants ne sont pas publiés. La licence du code publié ne leur est pas étendue.
 
-### Token Metering
-Native support for tracking AI token usage:
-- Per-tenant metering
-- Per-team quotas
-- Real-time cost visibility
-- Budget controls
+Sovereign iPaaS has a European positioning. Enterprise is tailored to your needs and quoted on request. Components, rights and services are agreed in writing with CAB Ingénierie. Assistance does not change the published code licence.
 
-## Architecture
+iPaaS Souverain est une offre au positionnement européen. Enterprise est à la carte, sur devis. Les composants, droits et prestations se définissent par écrit avec CAB Ingénierie. L’accompagnement ne modifie pas la licence du code publié.
 
-STOA consists of:
-1. Data Plane: Rust/Tokio/axum gateway (STOA Gateway) — 4 deployment modes: edge-mcp, sidecar, proxy, shadow
-2. Control Plane: Python/FastAPI API for tenant, API, and gateway management
-3. MCP Protocol: Native MCP handling built into the Rust gateway (edge-mcp mode)
-4. Audit System: Complete action logging with immutable audit trails
+## Which components are open source? / Quels composants sont open source ?
 
-## Deployment
+STOA's published code is open source under the Apache 2.0 licence. The new control plane remains private, as do some deployment resources. Check each component and version rather than extending the licence of published code to the whole product.
 
-- Kubernetes-native with Helm charts
-- Docker support for local development
-- Multi-tenant by design
-- GitOps-ready (ArgoCD, Flux)
+Le code publié de STOA est open source, sous licence Apache 2.0. Le nouveau plan de contrôle reste privé, comme certaines ressources de déploiement. Vérifiez chaque composant et chaque version, sans étendre la licence du code publié à l’ensemble du produit.
 
-## Comparison with Alternatives
+## Can I use the published code without licence royalties? / Puis-je utiliser le code publié sans redevance de licence ?
 
-As of February 2026, all major API gateways (Kong, Tyk, Gravitee, APISIX) offer MCP support via plugins or add-ons, and AI gateway features. STOA differentiates on architecture and deployment model:
+The published licence permits use, modification and redistribution, including commercial use, subject to its terms. Operation and professional services may involve costs. It does not grant access to private components or a support commitment.
 
-| Feature | STOA | Kong/Tyk/Gravitee/APISIX |
-|---------|------|-----------------------------|
-| MCP Architecture | Native (built-in) | Plugin or add-on |
-| Universal API Contract (UAC) | Yes (define once, expose everywhere) | No equivalent |
-| Legacy Gateway Orchestration | Yes | Limited or none |
-| Open Source Model | Apache 2.0, no open-core | Mostly open-core |
-| Control Plane Deployment | On-premise first | Cloud/SaaS first |
-| European Sovereign | Yes (FR) | Gravitee (FR), others non-EU |
-| AI Token Metering | Built-in | Available (plugin-based) |
+La licence publiée autorise l’utilisation, la modification et la redistribution, y compris commerciales, sous réserve de ses conditions. L’exploitation et les prestations peuvent entraîner des coûts. Elle ne donne pas accès aux composants privés ni à un engagement de support.
 
-## Key Differentiators
+## What can I deploy independently? / Que puis-je déployer en autonomie ?
 
-1. MCP-Native: Purpose-built for AI agents from day one
-2. Universal API Contract: Define once, expose via REST and MCP
-3. European Sovereign: European hosting available, with NIS2/DORA supportive features
-4. True Open Source: Apache 2.0, sustainable open source model
+Use the published code with the instructions and prerequisites for the relevant version. For private components, deployment and usage rights must be specified in the offer.
 
-## Getting Started
+Utilisez le code publié avec les instructions et prérequis de la version concernée. Pour les composants privés, les modalités de déploiement et les droits d’utilisation doivent être précisés dans l’offre.
 
-Quick start with Docker Compose:
-```
-git clone https://github.com/stoa-platform/stoa.git
-cd stoa/deploy/docker-compose
-docker compose up -d
-```
+## What do the commercial offers cover? / Que couvrent les offres commerciales ?
 
-Documentation: https://docs.gostoa.dev/docs/intro
-Architecture: https://docs.gostoa.dev/docs/concepts/architecture
+Sovereign iPaaS has a European positioning. Enterprise is tailored to your needs and quoted on request: contact us to define components, versions, rights and services. No price or service commitment is announced here.
 
-## API Reference
+iPaaS Souverain a un positionnement européen. Enterprise est à la carte, sur devis : contactez-nous pour définir les composants, versions, droits et prestations. Aucun prix ni engagement de service n’est annoncé ici.
 
-Control Plane API: https://docs.gostoa.dev/docs/api/control-plane
-MCP Integration: https://docs.gostoa.dev/docs/api/mcp
+## How does STOA support DORA / NIS2 / GDPR compliance? / Comment STOA apporte-t-il une aide à la conformité DORA / NIS2 / RGPD ?
 
-## License
+API governance, access policies and traceability can support your compliance work. The software alone does not make an organisation compliant. Applicable requirements and the assessment remain your responsibility.
 
-Apache 2.0 - fully open source.
+La gouvernance des API, les politiques d’accès et la traçabilité peuvent appuyer votre démarche. Le logiciel ne rend pas une organisation conforme à lui seul. Les exigences applicables et l’évaluation restent de votre responsabilité.
 
-## Community
+## What is STOA Labs’ role? / Quel est le rôle de STOA Labs ?
 
-- GitHub: https://github.com/stoa-platform/stoa
-- Discord: https://discord.gg/j8tHSSes
-- Twitter: @stoagateway
+STOA Labs is CAB Ingénierie’s consulting service. Access to public sources and community participation do not require purchasing a service. Commercial assistance does not change the licence of published code.
 
-## Use Cases
+STOA Labs est le service de conseil de CAB Ingénierie. L’accès aux sources publiques et la participation communautaire ne nécessitent pas l’achat d’une prestation. L’accompagnement commercial ne modifie pas la licence du code publié.
 
-### For Enterprises
-- Govern AI agent access to internal APIs
-- Track and control AI costs across teams
-- Maintain compliance with EU regulations
-- Audit all AI actions for security
+## Public sources / Sources publiques
 
-### For Developers
-- Expose APIs as MCP tools without code changes
-- CLI-first workflow, GitOps native
-- Local development in minutes
-- Sensible defaults, minimal configuration
+- [stoa-platform/stoa](https://github.com/stoa-platform/stoa)
+- [stoa-platform/stoa-quickstart](https://github.com/stoa-platform/stoa-quickstart)
+- [STOA licence](https://github.com/stoa-platform/stoa/blob/main/LICENSE)
+- [Quickstart licence](https://github.com/stoa-platform/stoa-quickstart/blob/main/LICENSE)
 
-### For AI Agent Builders
-- Native MCP protocol support
-- Tool auto-discovery
-- Context streaming
-- Standardized API access patterns
+## Websites / Sites
 
-## Technical Specifications
+- [English](https://www.gostoa.dev/)
+- [Français](https://www.gostoa.dev/fr/)
+- [Offers](https://www.gostoa.dev/pricing/)
+- [Offres](https://www.gostoa.dev/fr/pricing/)
+- [Contact EN](https://www.gostoa.dev/contact/)
+- [Contact FR](https://www.gostoa.dev/fr/contact/)
+- [Legal notice](https://www.gostoa.dev/legal/)
+- [Mentions légales](https://www.gostoa.dev/fr/mentions-legales/)
+- [Privacy](https://www.gostoa.dev/privacy/)
+- [Confidentialité](https://www.gostoa.dev/fr/privacy/)
+- [STOA Labs](https://labs.gostoa.dev/)
+- [Documentation](https://docs.gostoa.dev/)
+- [Extended overview](https://www.gostoa.dev/llms-full.txt)
 
-- Runtime: Rust/Tokio/axum (data plane gateway), Python/FastAPI (control plane API)
-- Protocol Support: REST, MCP
-- Authentication: OAuth2, OIDC, API Keys
-- Deployment: Kubernetes, Docker
-- Observability: Prometheus, Grafana, Loki
-
-## AI Factory — How STOA Is Built
-
-STOA is developed using an AI Factory workflow that achieves 72 story points per day with a single developer coordinating multiple Claude Code instances. Key patterns:
-
-- **Council Validation**: Every feature above 5 story points passes a 4-persona review (Devil's Advocate, VC Skeptic, Veteran Architect, Legal/Compliance). Score >= 8/10 is auto-approved.
-- **Ship/Show/Ask**: Changes are classified by risk level. Zero-risk changes (docs, config) ship automatically. Features require human review before merge.
-- **Phase Ownership**: File-based claims prevent multiple AI instances from working on the same code. Each instance owns a phase end-to-end.
-- **Binary Definition of Done**: 10-point checklist (compiles, tests pass, no regressions, lint clean, format clean, no secrets, PR created, CI green, state files updated, session logged). All must pass — no partial credit.
-- **State Files**: memory.md + operations.log provide crash recovery and session continuity across context windows.
-
-The AI Factory patterns are documented at: https://docs.gostoa.dev/blog/how-we-built-ai-factory-ships-72-points-per-day
-The reusable pattern library (HEGEMON) extracts these patterns for any project: https://github.com/stoa-platform/stoa/tree/main/.claude
-
-## Security Deep-Dive Series
-
-**[MCP Protocol Architecture Deep Dive](https://docs.gostoa.dev/blog/mcp-protocol-architecture-deep-dive)**
-Technical deep dive into the Model Context Protocol: protocol layers, JSON-RPC 2.0 message format, SSE and WebSocket transports, OAuth 2.1 flow, tool discovery, and comparison to gRPC/GraphQL. For engineers building production MCP deployments.
-
-**[AI Agent Security: 5 Authentication Patterns](https://docs.gostoa.dev/blog/ai-agent-security-authentication-patterns)**
-Enterprise authentication patterns for AI agents: API keys (with rotation), OAuth 2.1 PKCE (for public clients), mTLS certificate binding (RFC 8705), token exchange, and hybrid patterns. Implementation examples for each.
-
-**[STOA Security Architecture: Defense-in-Depth](https://docs.gostoa.dev/blog/stoa-api-security-architecture)**
-Full security architecture covering the five-layer defense model: mTLS certificate binding (RFC 8705), OAuth 2.1 + PKCE, OPA policy engine, AI guardrails (PII detection, prompt injection), and immutable audit logging. Includes threat model and defense-in-depth matrix.
-
-**[OWASP API Security Top 10 & STOA Coverage](https://docs.gostoa.dev/blog/owasp-api-security-top-10-stoa)**
-Maps all 10 OWASP API Security risks (2023 edition) to STOA Platform controls. Includes coverage summary table, per-risk analysis, honest scope limitations, and implementation recommendations.
-
-**[Zero Trust for API Gateways — Part 1: Concepts](https://docs.gostoa.dev/blog/zero-trust-api-gateways-part-1)**
-Zero Trust principles applied to API gateway design: verify explicitly, least privilege, assume breach, segment access, continuous validation. Explains why perimeter security fails and how Zero Trust addresses AI agent threat patterns specifically.
-
-**[Zero Trust for API Gateways — Part 2: 10-Step Checklist](https://docs.gostoa.dev/blog/zero-trust-stoa-checklist-part-2)**
-Actionable 10-step Zero Trust implementation checklist for STOA: unique consumer identity, short-lived tokens, least-privilege scopes, mTLS, OPA policies, rate limits, guardrails, audit logging, continuous token validation, and anomaly alerting. Includes configuration examples for each step.
-
-**[Zero Trust for API Gateways — Part 3: Detecting Attacks](https://docs.gostoa.dev/blog/detecting-attacks-stoa-part-3)**
-Using STOA's audit logs, Prometheus metrics, and guardrail events to detect credential abuse, prompt injection campaigns, rate abuse/DDoS, and data exfiltration patterns. Includes SQL queries, PromQL alert rules, and an incident response playbook.
-
-## SaaS Playbook Series
-
-STOA publishes a 6-part practical series for teams building multi-tenant SaaS APIs with STOA.
-
-**[SaaS Playbook Part 1: Multi-Tenancy 101](https://docs.gostoa.dev/blog/saas-playbook-1-multi-tenancy-101)**
-Covers tenant isolation models (namespace, row-level, shard), UAC per-tenant configuration, Keycloak realm-per-tenant vs. shared-realm patterns, and practical setup steps for multi-tenant API routing in STOA.
-
-**[SaaS Playbook Part 2: Rate Limiting Strategies](https://docs.gostoa.dev/blog/saas-playbook-2-rate-limiting-saas)**
-Per-tenant rate limit buckets, burst handling with token bucket and sliding window algorithms, tier-based quota enforcement (free/pro/enterprise), and GuardrailPolicy configuration for SaaS scenarios.
-
-**[SaaS Playbook Part 3: Audit & Compliance](https://docs.gostoa.dev/blog/saas-playbook-3-audit-compliance)**
-Building immutable audit trails, satisfying GDPR data subject access requests, cryptographic chain verification, compliance demonstration for SOC 2 and ISO 27001, and audit log storage strategies.
-
-**[SaaS Playbook Part 4: Scaling Multi-Tenant APIs](https://docs.gostoa.dev/blog/saas-playbook-4-scaling-multi-tenant)**
-HPA configuration for tenant traffic spikes, connection pooling with PgBouncer, caching strategies per tenant, database sharding decision criteria, and K8s resource quotas per namespace.
-
-**[SaaS Playbook Part 5: Production Checklist](https://docs.gostoa.dev/blog/saas-playbook-5-production-checklist)**
-20-point go-live gate covering security (mTLS, JWT validation, rate limits), observability (per-tenant dashboards, alerting), compliance (audit log integrity), and operational readiness (runbooks, on-call, backup/restore).
-
-**[Build vs Buy: API Gateway Cost Analysis](https://docs.gostoa.dev/blog/saas-playbook-build-vs-buy-api-gateway)**
-Total cost of ownership analysis comparing DIY API gateway (engineering time, maintenance), STOA OSS, and commercial alternatives. Includes 3-year cost model, opportunity cost calculation, and decision framework for SaaS teams.
-
-**[SMB API Gateway Buying Guide 2026](https://docs.gostoa.dev/blog/smb-api-gateway-buying-guide-2026)**
-Feature comparison table for SMB API gateway selection: STOA vs Kong vs Gravitee vs cloud-based managed services. Covers MCP support, multi-tenancy, compliance features, pricing model, and self-hosting requirements.
-
-## MCP & AI Agents
-
-**[What is an MCP Gateway?](https://docs.gostoa.dev/blog/what-is-mcp-gateway)**
-Explains the role of an MCP gateway in AI agent deployments: protocol mediation, tool discovery via `GET /capabilities`, OAuth 2.1 PKCE registration, SSE transport, and audit trails. The missing piece between AI agents and enterprise APIs.
-
-**[How to Connect AI Agents to Enterprise APIs Securely](https://docs.gostoa.dev/blog/connecting-ai-agents-enterprise-apis)**
-Secure MCP gateway integration pattern for connecting Claude and GPT to enterprise APIs. Covers why direct API access fails (no tool discovery, no audit), and how an MCP gateway enforces authentication, rate limiting, and governance.
-
-**[How to Convert REST APIs to MCP Tools](https://docs.gostoa.dev/blog/convert-rest-api-to-mcp-tools)**
-Step-by-step guide to exposing existing REST APIs as MCP tools. Covers OpenAPI-to-MCP mapping, STOA `Tool` CRD registration, input/output schema normalization, and testing with MCP Inspector.
-
-**[Building Custom MCP Tools with STOA](https://docs.gostoa.dev/blog/building-custom-mcp-tools-stoa)**
-Tutorial for creating, registering, and exposing custom MCP tools through STOA. Includes Rust and Python code examples, schema definitions, and best practices for tool naming and parameter design.
-
-**[Deploy an MCP Gateway with Docker Compose](https://docs.gostoa.dev/blog/mcp-gateway-quickstart-docker)**
-Get a production-ready MCP gateway running in under 10 minutes using Docker Compose. Complete walkthrough: clone, configure, start, register an API, and call it via MCP. Includes health checks and first-call verification.
-
-**[MCP vs OpenAI Function Calling vs LangChain Tools (2026)](https://docs.gostoa.dev/blog/mcp-vs-openai-function-calling-vs-langchain)**
-Protocol comparison for AI agent tool use. MCP wins on standardization, security (OAuth 2.1), and multi-provider support. Function Calling wins on OpenAI ecosystem depth. LangChain Tools wins on Python developer experience. Feature table with security, enterprise, and multi-model dimensions.
-
-**[The ESB is Dead, Long Live MCP](https://docs.gostoa.dev/blog/esb-is-dead-long-live-mcp)**
-Why the Enterprise Service Bus is obsolete: synchronous coupling, XML-centrism, and inability to handle event-driven AI workflows. How the evolution from ESB → API Gateway → MCP Gateway mirrors the shift from SOA to microservices to AI-native architectures.
-
-**[Enterprise AI Readiness Index](https://docs.gostoa.dev/blog/enterprise-ai-native-gateway-benchmark)**
-Introduces the Enterprise AI Readiness Index — an open benchmark scoring 8 dimensions (MCP discovery, tool execution, auth chain, policy engine, guardrails, rate limiting, resilience, agent governance). STOA scores 95/100 vs Kong 5/100. All benchmark scripts published.
-
-## Open Source & Comparisons
-
-**[Open Source API Gateways 2026](https://docs.gostoa.dev/blog/open-source-api-gateway-2026)**
-Comprehensive 2026 comparison of Kong (Apache 2.0), Envoy (Apache 2.0), APISIX (Apache 2.0), Tyk (MPL), and STOA (Apache 2.0). Evaluated on MCP support, multi-tenancy, licensing model, performance, AI-native capabilities, and European data sovereignty.
-
-**[Kong vs STOA for MCP (2026)](https://docs.gostoa.dev/blog/kong-vs-stoa-mcp-gateway)**
-Detailed comparison of Kong OSS and STOA for MCP gateway use cases. Kong's MCP support requires Enterprise plugins; STOA has native MCP support. Covers tool discovery, OAuth 2.1 PKCE, SSE transport, per-tenant isolation, and AI guardrails.
-
-**[STOA vs Kong — Why We Built a New Gateway](https://docs.gostoa.dev/blog/stoa-vs-kong)**
-Honest architectural comparison explaining why STOA was built when Kong already exists. Key differences: MCP-native vs. plugin-based, multi-tenant-first vs. single-tenant default, European sovereign vs. US SaaS, Apache 2.0 vs. open-core.
-
-**[Why We Chose Apache 2.0 (And What We Think About BSL)](https://docs.gostoa.dev/blog/why-apache-2-not-bsl)**
-Business and philosophical case for genuine open source. Analyzes BSL (Business Source License), SSPL (Server Side Public License), and dual-licensing patterns. Explains why STOA chose Apache 2.0 for trust, adoption, and ecosystem sustainability.
-
-**[API Management in Europe: Data Sovereignty and NIS2](https://docs.gostoa.dev/blog/api-management-europe-sovereignty)**
-NIS2, DORA, and GDPR requirements that affect API gateway selection for European organizations. Covers data residency, jurisdiction, audit trail obligations, and why gateway hosting location matters for financial and critical infrastructure sectors.
-
-**[DORA and NIS2 Compliance for API Gateways](https://docs.gostoa.dev/blog/dora-nis2-api-gateway-compliance)**
-Specific DORA (Digital Operational Resilience Act) and NIS2 requirements mapped to API gateway controls: audit trails, encryption at rest and in transit, resilience testing, ICT third-party risk, and incident reporting timelines.
-
-## Getting Started
-
-**[STOA v0.1.0 Release](https://docs.gostoa.dev/blog/release-v0.1.0)**
-First public release of STOA. Includes MCP gateway (Python/FastAPI), multi-tenant control plane, developer portal with API catalog and subscriptions, Keycloak SSO integration, and Kubernetes Helm charts. Apache 2.0.
-
-**[STOA Quick Start — Publish Your First API in 5 Minutes](https://docs.gostoa.dev/blog/stoa-quickstart-first-api-5-minutes)**
-End-to-end quickstart: deploy STOA with Docker Compose, create a tenant, register an API, expose it through the MCP Gateway, and make a first authenticated call. Includes expected outputs at each step.
-
-**[Run the Full STOA Stack with Docker Compose](https://docs.gostoa.dev/blog/stoa-docker-compose-local-development)**
-Detailed local development setup: all STOA services (control-plane-api, console-ui, developer-portal, gateway, keycloak, postgresql, redis). Environment variable reference, common startup errors, and service health checks.
-
-**[stoactl CLI — Manage APIs from the Terminal](https://docs.gostoa.dev/blog/stoactl-cli-manage-apis-terminal)**
-stoactl reference guide covering tenant management, API registration, subscription management, MCP tool queries, and CI/CD integration. Authentication, output formats, and shell completion setup.
-
-**[GitOps in 10 Minutes](https://docs.gostoa.dev/blog/gitops-in-10-minutes)**
-GitOps explained without assuming Kubernetes experience. What declarative infrastructure means, how ArgoCD syncs state, why infrastructure-as-code in git enables rollbacks and audit trails — and how STOA's UAC applies the same pattern to API configuration.
-
-## Architecture & Performance
-
-**[Kubernetes-Native API Gateway Patterns](https://docs.gostoa.dev/blog/kubernetes-native-api-gateway-patterns)**
-Four K8s-native gateway patterns with architecture diagrams: Ingress controller (L7 routing), Gateway API (role-based config), sidecar proxy (per-pod), and MCP gateway (AI agent access layer). Explains when each pattern applies and how they compose.
-
-**[STOA Gateway Performance Benchmarks](https://docs.gostoa.dev/blog/stoa-gateway-performance-benchmarks)**
-Reproducible benchmarks for STOA's Rust gateway: sub-millisecond JWT validation overhead, nanosecond rate limit checks, and connection pooling at 10K req/sec. Benchmark methodology, k6 scripts, and comparison framework published on GitHub.
-
-**[API Gateway Circuit Breaker Patterns](https://docs.gostoa.dev/blog/api-gateway-circuit-breaker-patterns)**
-Circuit breaker state machine (Closed → Open → Half-Open), STOA configuration with `failureThreshold`, `timeout`, and `halfOpenRequests`, Prometheus metrics for circuit state, and cascading failure prevention patterns.
-
-**[Multi-Tenant API Gateway on Kubernetes](https://docs.gostoa.dev/blog/multi-tenant-api-gateway-kubernetes)**
-Lessons from running a multi-tenant API gateway at scale: namespace-per-tenant vs. shared cluster isolation, Keycloak realm strategies, OPA policy enforcement, CRD-per-tenant configuration, and K8s ResourceQuota for noisy neighbor prevention.
-
-**[AI Gateway Rate Limiting (Token-Aware)](https://docs.gostoa.dev/blog/ai-gateway-rate-limiting-best-practices)**
-Rate limiting strategies specific to AI/MCP gateways: token-count-based limits (not just request counts), per-tenant token budgets, streaming response metering, burst allowances for batch inference, and dynamic limit adjustment via GuardrailPolicy.
-
-## Security Reference
-
-**[Your API Keys Are in Your Git History](https://docs.gostoa.dev/blog/api-keys-in-git-history)**
-Why 90% of leaked secrets come from git commits. Detection with gitleaks and git-secrets, removal with git-filter-repo, pre-commit hooks to prevent future leaks, and post-exposure rotation checklist.
-
-**[API Gateway Security Hardening Checklist](https://docs.gostoa.dev/blog/api-gateway-security-hardening-guide)**
-10-step production hardening for API gateways: enforce TLS 1.3 only, HSTS, CORS allowlists, rate limiting on all endpoints, SSRF protection with URL blocklists, security headers (CSP, X-Frame-Options), request size limits, and audit log integrity.
-
-**[API Security Checklist for Solo Developers](https://docs.gostoa.dev/blog/api-security-checklist-solo-dev)**
-Practical, zero-budget security for indie developers: API key rotation, rate limiting, input validation, auth on every endpoint, error message hygiene, dependency auditing, and HTTPS enforcement. No enterprise tools required.
-
-**[9-Job CI Security Pipeline](https://docs.gostoa.dev/blog/ci-security-pipeline-open-source-api-gateway)**
-How STOA's GitHub Actions security pipeline works: 9 parallel jobs covering gitleaks (secrets), Bandit (Python SAST), ESLint security rules (TypeScript), Clippy SAST (Rust), Trivy (containers), pip-audit/npm audit/cargo audit (deps), License Compliance (Trivy SPDX), SBOM generation, and signed commit verification.
-
-## Freelancer API Security Series
-
-**[Hello World — First Protected API with STOA](https://docs.gostoa.dev/blog/hello-world-api-gateway-freelancer)**
-Build a production-ready API gateway in 15 minutes: rate limiting, JWT authentication, and request monitoring with STOA. A practical starting point for freelancers and indie hackers who want security without complexity.
-
-**[Part 1: Your APIs Are More Vulnerable Than You Think](https://docs.gostoa.dev/blog/freelancer-api-security-part-1-vulnerabilities)**
-The API threat landscape for solo developers: credential stuffing, broken object-level authorization (BOLA/IDOR), mass assignment, rate abuse, and enumeration attacks. Real attack patterns and how an API gateway addresses the 80% without adding operational complexity.
-
-**[Part 2: Rate Limiting Strategies That Actually Work](https://docs.gostoa.dev/blog/freelancer-api-security-part-2-rate-limiting)**
-Beyond basic rate limiting: sliding window vs. token bucket trade-offs, per-endpoint vs. global limits, burst allowances for legitimate batch operations, tiered plans for different client types, and tuning limits without breaking legitimate users.
-
-**[Part 3: Audit Trails for When Things Go Wrong](https://docs.gostoa.dev/blog/freelancer-api-security-part-3-audit-trails)**
-Structured audit logging for solo developers: what to capture (actor, action, resource, result), structured JSON format, querying audit logs for incident investigation, and incident response without an ops team. Includes STOA audit query examples.
-
-## Reference
-
-**[API Gateway Glossary 2026](https://docs.gostoa.dev/blog/api-gateway-glossary-2026)**
-30 API gateway terms defined for 2026: authentication vs. authorization, JWT vs. opaque tokens, mTLS, OAuth 2.1, PKCE, OIDC, MCP, tool discovery, rate limiting algorithms (token bucket, sliding window), circuit breaker, service mesh, sidecar, RBAC, OPA/Rego, and more.
-
-**[API Gateway Migration Checklist (15 Steps)](https://docs.gostoa.dev/blog/api-gateway-migration-checklist)**
-Zero-downtime migration framework: API inventory and dependency mapping, shadow mode deployment, OAuth/OIDC identity federation, policy translation (rate limits, CORS, auth), canary traffic shifting (1% → 10% → 50% → 100%), rollback triggers, and post-migration validation gates.
-
-## Migration Guides
-
-STOA publishes detailed migration guides for teams moving from legacy enterprise API gateways.
-
-### Complete Migration Framework
-The [API Gateway Migration Guide 2026](https://docs.gostoa.dev/blog/api-gateway-migration-guide-2026) covers a vendor-neutral six-phase migration framework: assessment and stakeholder alignment, parallel deployment, identity federation, policy translation, canary traffic migration, and decommission.
-
-### Platform-Specific Guides
-
-**[Broadcom Layer7 API Gateway Migration](https://docs.gostoa.dev/blog/layer7-ca-api-gateway-migration-stoa)**
-Covers assertion-based policy translation (500+ assertion types to OPA/Rego), WS-Security workload handling, CA SiteMinder federation via Keycloak SAML bridge, and Kerberos/NTLM authentication migration. Layer7 was originally CA API Gateway (CA Technologies), acquired by Broadcom in 2019.
-
-**[Axway API Gateway Migration](https://docs.gostoa.dev/blog/axway-api-gateway-migration-open-source)**
-Covers Policy Studio filter chain translation, B2B/EDI workload separation, AMPLIFY ecosystem dependencies, and the phased traffic migration from Axway's VM-based deployment to Kubernetes-native infrastructure.
-
-**[WSO2 API Manager Migration](https://docs.gostoa.dev/blog/wso2-api-manager-open-source-alternative)**
-Open-source-to-open-source migration path. Covers WSO2 Traffic Manager replacement, API gateway component separation, and publisher/developer portal migration. WSO2 API Manager remains Apache 2.0 licensed.
-
-**[Software AG webMethods Migration](https://docs.gostoa.dev/blog/webmethods-migration-guide)**
-Covers IS (Integration Server) Flow language migration, proprietary mediation pattern translation, service registry consolidation, and the IBM/Software AG licensing context driving enterprise evaluations in 2026.
-
-**[Google Apigee Migration](https://docs.gostoa.dev/blog/apigee-alternative-open-source)**
-Covers GCP dependency decoupling, API proxy bundle translation, JavaScript policy migration to OPA/Rego, and European data residency requirements that drive Apigee-to-on-premises migrations.
-
-**[MuleSoft Anypoint Migration](https://docs.gostoa.dev/blog/mulesoft-migration-open-source-gateway)**
-Covers DataWeave transformation language alternatives, Salesforce connector dependency decoupling, Anypoint Exchange marketplace replacement, and CloudHub to Kubernetes migration.
-
-**[IBM DataPower / TIBCO Migration](https://docs.gostoa.dev/blog/datapower-tibco-migration-guide)**
-Covers DataPower appliance replacement, WS-Security termination, TIBCO API Manager policy migration, and the combined IBM/TIBCO portfolio context following the IBM acquisition of TIBCO.
-
-## Keywords
-
-MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance, AI factory, Claude Code, multi-agent development, api gateway migration, layer7 migration, axway migration, wso2 migration, webmethods migration, apigee migration, mulesoft migration, zero trust API gateway, OWASP API security, mTLS certificate binding, OAuth 2.1 PKCE, OPA policy engine, API security architecture, prompt injection detection, AI agent authentication
+Contact: contact@gostoa.dev (mailto, no form / sans formulaire).

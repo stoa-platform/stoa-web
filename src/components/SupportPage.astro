@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Offers from './Offers.astro';
+import FAQ from './FAQ.astro';
+import CrossLink from './shared/CrossLink.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<Layout title={t('pricing.title')} description={t('pricing.description')}>
+  <section class="section"><div class="container"><div class="page-intro"><p class="eyebrow">STOA</p><h1 class="display">{t('pricing.heading')}</h1><p class="lead">{t('pricing.intro')}</p></div><div class="prose"><p>{t('license')}</p><p>{t('oss.private')}</p><p>{t('oss.services')}</p></div></div></section>
+  <Offers /><FAQ /><CrossLink target="labs" lang={lang} />
+</Layout>

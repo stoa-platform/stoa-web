@@ -1,0 +1,7 @@
+---
+interface Props { variant?: 'stoa' | 'labs'; }
+const { variant = 'stoa' } = Astro.props;
+---
+<img class="brand__logo" src="/favicon.svg" width="28" height="28" alt="" />
+<span>STOA</span>
+{variant === 'labs' && <><span class="brand__sep" aria-hidden="true"></span><span class="brand__sub">Labs</span></>}

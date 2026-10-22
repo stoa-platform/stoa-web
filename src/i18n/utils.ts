@@ -1,31 +1,23 @@
 import { ui, defaultLang, type Lang, languages } from './ui';
 
 export function getLangFromUrl(url: URL): Lang {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as Lang;
-  return defaultLang;
+  return /^\/fr(?:\/|$)/.test(url.pathname) ? 'fr' : defaultLang;
 }
 
 export function useTranslations(lang: Lang) {
-  return function t(key: string): string {
-    return ui[lang]?.[key] ?? ui[defaultLang]?.[key] ?? key;
-  };
+  return (key: string): string => ui[lang][key] ?? ui[defaultLang][key] ?? key;
 }
 
 export function getAlternateUrl(url: URL, targetLang: Lang): string {
-  const path = url.pathname;
-  if (targetLang === defaultLang) {
-    // Remove /fr/ prefix for EN
-    return path.replace(/^\/fr(?=\/|$)/, '') || '/';
-  }
-  // Add /fr prefix for FR
-  if (path.startsWith('/fr')) return path;
-  return `/fr${path === '/' ? '/' : path}`;
+  let path = url.pathname.replace(/^\/fr(?=\/|$)/, '') || '/';
+  if (/^\/(?:legal|mentions-legales)\/?$/.test(path)) path = targetLang === 'fr' ? '/mentions-legales/' : '/legal/';
+  const normalized = path.endsWith('/') ? path : `${path}/`;
+  return targetLang === defaultLang ? normalized : `/fr${normalized}`;
 }
 
 export function getLocalizedHref(lang: Lang, path: string): string {
-  if (lang === defaultLang) return path;
-  return `/fr${path}`;
+  const normalized = path.endsWith('/') ? path : `${path}/`;
+  return lang === defaultLang ? normalized : `/fr${normalized}`;
 }
 
 export { type Lang, languages, defaultLang };
