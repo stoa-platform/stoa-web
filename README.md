@@ -1,123 +1,47 @@
-<div align="center">
-  <h1>🌐 STOA Web</h1>
-  <p><strong>Landing page for STOA Platform</strong></p>
-  <p>
-    <a href="https://gostoa.dev">gostoa.dev</a>
-  </p>
-</div>
+# STOA Web
 
-<p align="center">
-  <a href="https://github.com/stoa-platform/stoa-web/actions/workflows/deploy.yml">
-    <img src="https://github.com/stoa-platform/stoa-web/actions/workflows/deploy.yml/badge.svg" alt="Deploy">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/license-Apache%202.0-green?style=flat-square" alt="License">
-  </a>
-  <a href="https://gostoa.dev">
-    <img src="https://img.shields.io/badge/website-live-brightgreen?style=flat-square" alt="Website">
-  </a>
-</p>
+Site vitrine de STOA, édité par CAB Ingénierie — France. Astro 4.16 et Tailwind, sortie statique. Canonique : https://www.gostoa.dev/. Anglais à la racine, français sous `/fr/`.
 
----
+## Développement
 
-## 🚀 Overview
-
-This repository contains the marketing website for STOA Platform, built with [Astro](https://astro.build) and deployed on [Vercel](https://vercel.com).
-
-**Live site**: [https://gostoa.dev](https://gostoa.dev)
-
----
-
-## 🛠️ Tech Stack
-
-| Technology | Purpose |
-|------------|---------|
-| [Astro](https://astro.build) | Static site generator |
-| [Tailwind CSS](https://tailwindcss.com) | Styling |
-| [TypeScript](https://www.typescriptlang.org) | Type safety |
-| [Vercel](https://vercel.com) | Hosting & deployment |
-| [Cloudflare](https://cloudflare.com) | DNS & CDN |
-
----
-
-## 🏃 Quick Start
-
-### Prerequisites
-
-- Node.js 18+
-- pnpm (recommended) or npm
-
-### Development
-
-```bash
-# Clone the repository
-git clone https://github.com/stoa-platform/stoa-web.git
-cd stoa-web
-
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-
-# Open http://localhost:4321
+```sh
+npm ci
+npm run dev
+npm run build
+npm run preview
 ```
 
-### Build
+L’installation demande les dépendances du lockfile. Dans un environnement sans réseau ni installation autorisée, se limiter aux vérifications locales disponibles ; le build reproductible reste à exécuter dans l’environnement de validation.
 
-```bash
-# Build for production
-pnpm build
+## Design commun
 
-# Preview production build
-pnpm preview
-```
+- Les valeurs des tokens de `src/styles/tokens.css` restent communes avec Labs ; les déclarations de fontes correspondent aux fichiers effectivement fournis.
+- `src/styles/base.css` définit la grammaire papier/encre, les titres serif, le corps sans et les repères mono.
+- Inter variable romain, Source Serif 4 variable romain/italique et JetBrains Mono statique sont auto-hébergés sous `public/fonts/`, avec leurs licences OFL. Voir `public/fonts/SOURCES.md`. Chaque face utilise `font-display: swap` ; seul Inter est préchargé. L’italique Inter n’a pas été fourni : aucun fichier absent n’est déclaré, le navigateur peut synthétiser cette variante.
+- Les composants `shared/` fournissent le chrome, les icônes et le thème sans ressource graphique distante. Le cercle S historique est conservé ; le choix final de l’emblème Labs relève de Marketing.
+- Le script synchrone du head lit le cookie `stoa-theme` avant le rendu. Un choix explicite écrit uniquement `light` ou `dark`, pour 12 mois, avec `Path=/; SameSite=Lax; Secure`. `Domain=.gostoa.dev` s’applique au domaine et à ses sous-domaines ; sur une autre origine, le cookie reste limité à l’hôte. La persistance requiert HTTPS. Durée et exemption de consentement restent à confirmer par Juridique.
+- Le thème se resynchronise à l’activation d’un onglet ; sans choix, le CSS suit le système, même sans JavaScript. Le menu et la copie sont progressifs, la FAQ utilise les éléments natifs.
 
----
+## Contenu et périmètre
 
-## 📁 Project Structure
+Le code publié de STOA est open source, sous licence Apache 2.0.
 
-```
-stoa-web/
-├── src/
-│   ├── components/     # Astro/React components
-│   ├── layouts/        # Page layouts
-│   ├── pages/          # Routes
-│   └── styles/         # Global styles
-├── public/             # Static assets
-├── astro.config.mjs    # Astro configuration
-└── tailwind.config.mjs # Tailwind configuration
-```
+STOA's published code is open source under the Apache 2.0 licence.
 
----
+Sources publiques du produit : [stoa-platform/stoa](https://github.com/stoa-platform/stoa) et [stoa-platform/stoa-quickstart](https://github.com/stoa-platform/stoa-quickstart). Les autres composants ne sont pas publiés. La licence du code publié ne couvre ni les services, ni ces composants, ni la marque, ni les contenus.
 
-## 🚀 Deployment
+iPaaS Souverain / Sovereign iPaaS a un positionnement européen. Enterprise est à la carte, sur devis : les CTA mènent à `/contact/` ou `/fr/contact/`. Aucun prix ni engagement de service n’est annoncé. STOA Labs est le service de conseil de CAB Ingénierie.
 
-Deployment is automatic via Vercel on push to `main`.
+Les dictionnaires FR/EN, la FAQ visible, son JSON-LD et `public/llms*.txt` partagent ce périmètre. Contact : contact@gostoa.dev, par mailto uniquement. Aucun formulaire, traceur, mesure d’audience, cookie autre que le thème ni CDN tiers.
 
-| Branch | Environment | URL |
-|--------|-------------|-----|
-| `main` | Production | [gostoa.dev](https://gostoa.dev) |
-| `*` | Preview | Auto-generated |
+Les mentions légales (`/legal/`, `/fr/mentions-legales/`) et la confidentialité (`/privacy/`, `/fr/privacy/`) conservent les champs `[À COMPLÉTER : …]` inconnus. La marque « STOA Platform » est déposée à l’INPI, propriété de CAB Ingénierie ; numéro et classes restent à renseigner.
 
----
+## Hébergement et publication
 
-## 🔗 Related Repositories
+Cible : Scaleway Object Storage website + Edge Services, région Paris (France). Le déploiement via GitHub Actions sera traité dans une PR séparée ; aucun workflow n’est modifié ici. Vercel est conservé uniquement comme repli pendant la migration, avec `vercel.json` inchangé. Aucun identifiant de ressource n’est nécessaire dans cette documentation.
 
-| Repository | Description |
-|------------|-------------|
-| [stoa](https://github.com/stoa-platform/stoa) | Main platform monorepo |
-| [stoa-docs](https://github.com/stoa-platform/stoa-docs) | Documentation site |
-| [stoa-helm](https://github.com/stoa-platform/stoa-helm) | Helm charts |
+`trailingSlash: 'always'` et `build.format: 'directory'` produisent les pages sous `dist/<route>/index.html`. Les anciennes routes `/demo` et `/fr/demo` utilisent les redirections statiques Astro vers contact : meta refresh, réponse HTML 200, sans promesse de 301 HTTP. Les routes de retours restent disponibles.
 
----
+Une seule erreur bilingue est produite : `dist/404.html`, avec `noindex` et liens vers `/` et `/fr/`. La page d’erreur doit être servie avec un statut 404 réel. Les métadonnées, le sitemap et les fichiers de découverte utilisent www.
 
-## 📄 License
-
-Apache License 2.0 - see [LICENSE](LICENSE) for details.
-
----
-
-<div align="center">
-  <p>Part of the <a href="https://github.com/stoa-platform">STOA Platform</a> project</p>
-</div>
+La CSP en meta et la politique de référent sont un repli partiel. Faire contrôler les en-têtes réellement servis, les routes avec et sans barre finale, les redirections, les deux langues, les ressources, les thèmes et les cookies en préproduction. La documentation de recette de la livraison détaille les routes attendues. La mise en ligne nécessite la validation des textes légaux et des lieux/durées de traitement ; elle n’est pas effectuée par cette refonte.

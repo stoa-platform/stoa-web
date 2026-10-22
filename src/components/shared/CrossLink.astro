@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations, type Lang } from '../../i18n/utils';
+interface Props { target: 'labs' | 'platform'; lang: Lang; }
+const { target, lang } = Astro.props;
+const t = useTranslations(lang);
+---
+<section class="section" aria-labelledby="crosslink-title"><div class="container"><aside class="crosslink">
+  <span class="crosslink__mark"><Icon name={target === 'labs' ? 'flask-conical' : 'git-branch'} /></span>
+  <div><h2 class="crosslink__title" id="crosslink-title">{t(`crosslink.${target}.title`)}</h2><p>{t(`crosslink.${target}.text`)}</p></div>
+  <a class="link-arrow" href={target === 'labs' ? 'https://labs.gostoa.dev' : 'https://www.gostoa.dev'}>{t(`crosslink.${target}.link`)}<Icon name="arrow-right" small /></a>
+</aside></div></section>

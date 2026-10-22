@@ -1,110 +1,32 @@
 ---
-// Structured Data (JSON-LD) for SEO
-// Helps search engines understand the page content
-
+import { faqKeys } from '../data/faq';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-
-interface Props {
-  type?: 'WebSite' | 'SoftwareApplication' | 'Organization';
-}
-
-const { type = 'WebSite' } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-const websiteData = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "STOA Platform",
-  "alternateName": ["STOA Gateway", "STOA Agent Gateway", "STOA MCP Gateway"],
-  "url": "https://gostoa.dev",
-  "description": t('structuredData.website.description'),
-  "keywords": t('seo.keywords'),
-  "inLanguage": lang,
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://docs.gostoa.dev/search?q={search_term_string}"
+const hasFaq = /^\/(?:fr\/)?(?:pricing\/)?$/.test(Astro.url.pathname);
+const data = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization', '@id': 'https://www.gostoa.dev/#publisher',
+      name: 'CAB Ingénierie — France', brand: { '@type': 'Brand', name: 'STOA' },
+      url: 'https://www.gostoa.dev', logo: 'https://www.gostoa.dev/favicon.svg',
+      email: 'contact@gostoa.dev',
+      sameAs: ['https://github.com/stoa-platform', 'https://labs.gostoa.dev', 'https://discord.gostoa.dev'],
     },
-    "query-input": "required name=search_term_string"
-  }
-};
-
-const softwareData = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "STOA Platform",
-  "alternateName": ["STOA Gateway", "STOA Agent Gateway", "STOA MCP Gateway"],
-  "operatingSystem": "Linux, Kubernetes",
-  "applicationCategory": "DeveloperApplication",
-  "applicationSubCategory": "API Gateway, MCP Gateway, Agent Gateway",
-  "description": t('structuredData.software.description'),
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR",
-    "description": t('structuredData.software.offerDescription')
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "STOA Platform",
-    "url": "https://gostoa.dev",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "FR"
-    }
-  },
-  "downloadUrl": "https://github.com/stoa-platform",
-  "releaseNotes": "https://github.com/stoa-platform/releases",
-  "screenshot": "https://gostoa.dev/og-image.png",
-  "inLanguage": lang,
-  "featureList": [
-    t('structuredData.software.feature1'),
-    t('structuredData.software.feature2'),
-    t('structuredData.software.feature3'),
-    t('structuredData.software.feature4'),
-    t('structuredData.software.feature5'),
-    t('structuredData.software.feature6')
+    {
+      '@type': 'WebSite', '@id': 'https://www.gostoa.dev/#website',
+      name: 'STOA', url: 'https://www.gostoa.dev', inLanguage: ['en', 'fr'],
+      description: t('seo.defaultDescription'), publisher: { '@id': 'https://www.gostoa.dev/#publisher' },
+    },
+    ...(hasFaq ? [{
+      '@type': 'FAQPage', inLanguage: lang,
+      mainEntity: faqKeys.map(key => ({
+        '@type': 'Question', name: t(`faq.${key}.q`),
+        acceptedAnswer: { '@type': 'Answer', text: `${key === 'scope' ? `${t('license')} ` : ''}${t(`faq.${key}.a`)}` },
+      })),
+    }] : []),
   ],
-  "keywords": t('seo.keywords')
 };
-
-const organizationData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "STOA Platform",
-  "url": "https://gostoa.dev",
-  "logo": "https://gostoa.dev/favicon.svg",
-  "description": t('structuredData.org.description'),
-  "sameAs": [
-    "https://github.com/stoa-platform",
-    "https://discord.gg/j8tHSSes",
-    "https://twitter.com/stoagateway",
-    "https://www.linkedin.com/in/christophe-aboulicam"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "FR"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "technical support",
-    "url": "https://discord.gg/j8tHSSes",
-    "email": "hello@gostoa.dev"
-  }
-};
-
-const data = type === 'SoftwareApplication'
-  ? softwareData
-  : type === 'Organization'
-    ? organizationData
-    : websiteData;
 ---
-
-<script type="application/ld+json" set:html={JSON.stringify(data)} />
-
-{/* Add Organization schema alongside primary schema for comprehensive coverage */}
-{type === 'SoftwareApplication' && (
-  <script type="application/ld+json" set:html={JSON.stringify(organizationData)} />
-)}
+<script type="application/ld+json" set:html={JSON.stringify(data).replace(/</g, '\\u003c')} />

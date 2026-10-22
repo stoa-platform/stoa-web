@@ -1,0 +1,39 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import SiteLinks from './SiteLinks.astro';
+import { useTranslations, getLocalizedHref, type Lang } from '../../i18n/utils';
+interface Props { site: 'platform' | 'labs'; lang: Lang; altLangUrl: string; links: { href: string; text: string }[]; }
+const { site, lang, altLangUrl, links } = Astro.props;
+const t = useTranslations(lang);
+const home = site === 'platform' ? getLocalizedHref(lang, '/') : 'https://labs.gostoa.dev';
+const contact = site === 'platform' ? getLocalizedHref(lang, '/contact/') : `https://www.gostoa.dev${getLocalizedHref(lang, '/contact/')}`;
+---
+<header class="site-header">
+  <div class="container container--wide site-header__inner">
+    <a class="brand" href={home} aria-label={t('brand.home')}><Logo variant={site === 'labs' ? 'labs' : 'stoa'} /></a>
+    <nav class="nav-primary" aria-label={t('nav.label')}>
+      {links.map(link => <a href={link.href}>{link.text}</a>)}
+    </nav>
+    <div class="header-tools">
+      <SiteLinks site={site} lang={lang} altLangUrl={altLangUrl} />
+      <ThemeToggle label={t('theme.toggle')} />
+      <a class="btn btn--primary btn--sm" href={contact}>{t('header.contact')}</a>
+      <button class="icon-btn menu-btn" type="button" aria-label={t('nav.menu')} aria-expanded="false" aria-controls="mobile-menu" hidden><Icon name="menu" /></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label={t('nav.label')}>
+      {links.map(link => <a href={link.href}>{link.text}</a>)}
+    </nav>
+    <div class="mobile-menu__row"><SiteLinks site={site} lang={lang} altLangUrl={altLangUrl} /></div>
+    <a class="btn btn--primary btn--sm mobile-contact" href={contact}>{t('header.contact')}</a>
+  </div>
+  <noscript><style is:inline>.site-header{position:static}</style><div class="nojs-nav"><nav aria-label={t('nav.label')}>
+    {links.map(link => <a href={link.href}>{link.text}</a>)}
+    <a href="https://labs.gostoa.dev">Labs</a><a href="https://docs.gostoa.dev">Docs<span class="sr-only">{t('nav.external')}</span></a>
+    <a href={altLangUrl} hreflang={lang === 'fr' ? 'en' : 'fr'} lang={lang === 'fr' ? 'en' : 'fr'}>{lang === 'fr' ? 'EN' : 'FR'}</a>
+    <a href={contact}>{t('header.contact')}</a>
+  </nav></div></noscript>
+</header>

@@ -1,0 +1,52 @@
+---
+import Icon from './shared/Icon.astro';
+import CrossLink from './shared/CrossLink.astro';
+import CodeBlock from './CodeBlock.astro';
+import Offers from './Offers.astro';
+import FAQ from './FAQ.astro';
+import { getLangFromUrl, useTranslations, getLocalizedHref } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const contract = `openapi: 3.0.3
+info:
+  title: Catalog API
+  version: example
+paths:
+  /catalog:
+    get:
+      summary: Read the catalog
+      responses:
+        '200':
+          description: Catalog response`;
+const sources = `git clone https://github.com/stoa-platform/stoa.git
+git clone https://github.com/stoa-platform/stoa-quickstart.git`;
+---
+<section class="hero" aria-labelledby="hero-title"><div class="container hero__grid">
+  <div><p class="eyebrow">{t('hero.eyebrow')}</p><h1 class="display" id="hero-title">{t('brand.tagline')}</h1><p class="lead">{t('hero.copy')}</p>
+    <div class="hero__actions"><a class="btn btn--primary" href={getLocalizedHref(lang, '/contact/')}>{t('header.contact')}</a><a class="btn btn--secondary" href="https://docs.gostoa.dev">{t('hero.link')}</a></div>
+    <ul class="hero__facts" role="list">{[1,2,3].map(i => <li><Icon name="check" />{t(`hero.principle${i}`)}</li>)}</ul>
+  </div>
+  <CodeBlock id="contract-example" title="catalog.openapi.yaml" code={contract} lang={lang} note={t('code.contractNote')} />
+</div></section>
+<section class="section" id="produit" aria-labelledby="product-title"><div class="container">
+  <div class="section__head"><p class="eyebrow">{t('nav.product')}</p><h2 class="h2" id="product-title">{t('capabilities.title')}</h2><p>{t('capabilities.intro')}</p></div>
+  <ul class="cards" role="list">{['file-code','shield-check','git-branch'].map((name,i) => <li class="card"><span class="card__icon"><Icon name={name} /></span><h3 class="h3">{t(`capabilities.card${i+1}.title`)}</h3><p>{t(`capabilities.card${i+1}.text`)}</p></li>)}</ul>
+</div></section>
+<section class="section section--alt" id="architecture" aria-labelledby="architecture-title"><div class="container">
+  <div class="section__head section__head--split"><div><p class="eyebrow">{t('nav.architecture')}</p><h2 class="h2" id="architecture-title">{t('architecture.title')}</h2></div><p>{t('architecture.copy')}</p></div>
+  <figure class="diagram" aria-labelledby="diagram-caption"><div class="diagram__flow">
+    <div class="diagram__col"><p class="diagram__label">{t('diagram.callers')}</p><div class="node">{t('diagram.applications')}</div><div class="node">{t('diagram.agents')}</div></div>
+    <div class="diagram__arrow"><Icon name="arrow-right" /></div>
+    <div class="diagram__col diagram__col--stoa"><p class="diagram__label">STOA</p><div class="node">{t('architecture.gateway.title')}</div><div class="node">{t('architecture.control.title')}</div><div class="node">{t('diagram.contracts')}</div></div>
+    <div class="diagram__arrow"><Icon name="arrow-right" /></div>
+    <div class="diagram__zone"><span class="diagram__zone-label">{t('diagram.environment')}</span><div class="diagram__col"><p class="diagram__label">{t('diagram.gateways')}</p><div class="node">{t('diagram.existing')}</div></div><div class="diagram__arrow"><Icon name="arrow-right" /></div><div class="diagram__col"><p class="diagram__label">{t('diagram.services')}</p><div class="node">REST</div><div class="node">SOAP</div></div></div>
+  </div><div class="diagram__rail"><strong>{t('diagram.shared')}</strong><span>{t('diagram.identity')}</span><span>{t('diagram.observability')}</span><span>{t('diagram.audit')}</span></div>
+  <figcaption id="diagram-caption">{t('diagram.caption')} {t('oss.private')}</figcaption></figure>
+</div></section>
+<section class="section" id="open-source" aria-labelledby="oss-title"><div class="container">
+  <div class="section__head"><p class="eyebrow">{t('oss.eyebrow')}</p><h2 class="h2" id="oss-title">{t('oss.title')}</h2><p>{t('license')}</p></div>
+  <dl class="facts">{['public','private','services','publisher'].map(key => <div class="fact"><dt>{t(`oss.${key}.title`)}</dt><dd>{t(`oss.${key}`)}</dd></div>)}</dl>
+  <div class="repo-links"><a href="https://github.com/stoa-platform/stoa">{t('oss.v1')}</a><a href="https://github.com/stoa-platform/stoa-quickstart">{t('oss.quickstart')}</a><a href="https://github.com/stoa-platform/stoa/blob/main/LICENSE">{t('oss.v1License')}</a><a href="https://github.com/stoa-platform/stoa-quickstart/blob/main/LICENSE">{t('oss.quickstartLicense')}</a></div>
+</div></section>
+<section class="section section--alt" id="demarrer" aria-labelledby="start-title"><div class="container steps"><div><p class="eyebrow">{t('start.eyebrow')}</p><h2 class="h2" id="start-title">{t('start.title')}</h2><ol>{[1,2,3].map(i => <li><div><strong>{t(`start.step${i}.title`)}</strong><span>{t(`start.step${i}.text`)}</span></div></li>)}</ol></div><CodeBlock id="public-sources" title={t('start.sources')} code={sources} syntax="bash" lang={lang} note={t('start.note')} /></div></section>
+<Offers /><FAQ /><CrossLink target="labs" lang={lang} />

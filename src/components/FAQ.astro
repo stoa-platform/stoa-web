@@ -1,0 +1,11 @@
+---
+import Icon from './shared/Icon.astro';
+import { faqKeys } from '../data/faq';
+import { useTranslations, getLangFromUrl, getLocalizedHref } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<section class="section section--alt" id="faq" aria-labelledby="faq-title"><div class="container faq-layout">
+  <div class="section__head"><p class="eyebrow">{t('nav.questions')}</p><h2 class="h2" id="faq-title">{t('faq.title')}</h2><p><a href={getLocalizedHref(lang, '/contact/')}>{t('faq.contact')}</a></p></div>
+  <div class="faq">{faqKeys.map(key => <details><summary>{t(`faq.${key}.q`)}<Icon name="chevron-down" /></summary><div class="faq__a"><p>{`${key === 'scope' ? `${t('license')} ` : ''}${t(`faq.${key}.a`)}`}</p></div></details>)}</div>
+</div></section>

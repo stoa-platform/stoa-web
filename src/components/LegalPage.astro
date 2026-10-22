@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations, getLocalizedHref } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+interface Props { registration: string; address: string; }
+const { registration, address } = Astro.props;
+const values: Record<string, string> = { register: registration, address };
+const fields = ['name','form','capital','siren','register','address','phone','vat','director','host'];
+---
+<Layout title={t('legal.title')} description={t('legal.description')}>
+  <section class="section"><div class="container prose"><div class="page-intro"><p class="eyebrow">CAB Ingénierie — France</p><h1 class="display">{t('legal.heading')}</h1><p class="lead">{t('legal.description')}</p></div>
+    <section><h2>{t('legal.publisher')}</h2><dl class="facts">{fields.map(key => <div class="fact"><dt>{t(`legal.${key}.label`)}</dt><dd>{values[key] ?? t(`legal.${key}.value`)}</dd></div>)}</dl><p><a href="mailto:contact@gostoa.dev">contact@gostoa.dev</a></p></section>
+    <section><h2>{t('legal.ip.title')}</h2><p>{t('license')}</p><p>{t('legal.ip.text')}</p><p><a href="https://github.com/stoa-platform/stoa/blob/main/LICENSE">{t('oss.v1License')}</a></p></section>
+    <section><h2>{t('legal.brand.title')}</h2><p>{t('legal.brand.text')}</p></section>
+    <section><h2>{t('legal.trademarks.title')}</h2><p>{t('legal.trademarks.text')}</p></section>
+    <section><h2>{t('footer.privacy')}</h2><p><a href={getLocalizedHref(lang, '/privacy/')}>{t('privacy.heading')}</a></p></section>
+  </div></section>
+</Layout>

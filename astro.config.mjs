@@ -1,51 +1,45 @@
-// astro.config.mjs
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-export default defineConfig({
-  site: 'https://gostoa.dev',
 
+const site = 'https://www.gostoa.dev';
+const localizedPath = (path, lang) => {
+  let slug = path.replace(/^\/fr(?=\/|$)/, '') || '/';
+  if (/^\/(?:legal|mentions-legales)\/$/.test(slug)) {
+    slug = lang === 'fr' ? '/mentions-legales/' : '/legal/';
+  }
+  return lang === 'fr' ? `/fr${slug}` : slug;
+};
+
+export default defineConfig({
+  site,
+  trailingSlash: 'always',
+  redirects: {
+    '/demo': '/contact/',
+    '/fr/demo': '/fr/contact/',
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'fr'],
-    routing: {
-      prefixDefaultLocale: false,
-    },
+    routing: { prefixDefaultLocale: false },
   },
-
   integrations: [
-    tailwind(),
+    tailwind({ applyBaseStyles: false }),
     sitemap({
-      i18n: {
-        defaultLocale: 'en',
-        locales: {
-          en: 'en',
-          fr: 'fr',
-        },
-      },
+      filter: (page) => !/\/(?:404(?:\.html)?|demo)\/?$/.test(new URL(page).pathname),
       serialize(item) {
-        if (item.url === 'https://gostoa.dev/' || item.url === 'https://gostoa.dev/fr/') {
-          item.changefreq = 'weekly';
-          item.priority = 1.0;
-        } else if (item.url.includes('/feedback')) {
-          item.changefreq = 'monthly';
-          item.priority = 0.8;
-        } else {
-          item.changefreq = 'monthly';
-          item.priority = 0.5;
-        }
+        const path = new URL(item.url).pathname;
+        const en = `${site}${localizedPath(path, 'en')}`;
+        const fr = `${site}${localizedPath(path, 'fr')}`;
+        item.links = [
+          { lang: 'en', url: en },
+          { lang: 'fr', url: fr },
+          { lang: 'x-default', url: en },
+        ];
         return item;
       },
     }),
   ],
-
-  build: {
-    inlineStylesheets: 'auto',
-  },
-
-  vite: {
-    build: {
-      cssMinify: true,
-    },
-  },
+  build: { format: 'directory', inlineStylesheets: 'auto' },
+  vite: { build: { cssMinify: true } },
 });

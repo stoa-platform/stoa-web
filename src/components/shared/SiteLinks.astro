@@ -1,0 +1,17 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations, getAlternateUrl, type Lang } from '../../i18n/utils';
+interface Props { site: 'platform' | 'labs'; lang: Lang; altLangUrl: string; }
+const { site, lang, altLangUrl } = Astro.props;
+const t = useTranslations(lang);
+---
+<nav class="site-switch" aria-label={t('nav.switch.label')}>
+  <a href={site === 'platform' ? (lang === 'fr' ? '/fr/' : '/') : 'https://www.gostoa.dev'} aria-current={site === 'platform' ? 'true' : undefined}>{t('nav.switch.platform')}</a>
+  <a href="https://labs.gostoa.dev" aria-current={site === 'labs' ? 'true' : undefined}>{t('nav.switch.labs')}</a>
+  <a href="https://docs.gostoa.dev">{t('nav.switch.docs')}<Icon name="arrow-up-right" small /><span class="sr-only">{t('nav.external')}</span></a>
+</nav>
+<nav class="lang" aria-label={t('nav.lang.label')}>
+  <a href={lang === 'fr' ? getAlternateUrl(Astro.url, 'fr') : altLangUrl} hreflang="fr" lang="fr" aria-current={lang === 'fr' ? 'true' : undefined}>FR</a>
+  <span class="lang__sep" aria-hidden="true">|</span>
+  <a href={lang === 'en' ? getAlternateUrl(Astro.url, 'en') : altLangUrl} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+</nav>
