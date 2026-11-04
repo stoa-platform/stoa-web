@@ -3,7 +3,7 @@
 
 ## Overview
 
-STOA (derived from Greek "stoa" - covered walkway) is the European Agent Gateway, an API gateway purpose-built for AI agents and the Model Context Protocol (MCP).
+STOA (derived from Greek "stoa" - covered walkway) is a Sovereign iPaaS — API & integration platform.
 
 ## The Problem STOA Solves
 
@@ -337,4 +337,4 @@ Covers DataPower appliance replacement, WS-Security termination, TIBCO API Manag
 
 ## Keywords
 
-MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, AI-native gateway, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance, AI factory, Claude Code, multi-agent development, api gateway migration, layer7 migration, axway migration, wso2 migration, webmethods migration, apigee migration, mulesoft migration, zero trust API gateway, OWASP API security, mTLS certificate binding, OAuth 2.1 PKCE, OPA policy engine, API security architecture, prompt injection detection, AI agent authentication
+MCP gateway, iPaaS, API integration, Model Context Protocol, AI gateway, European API gateway, token metering, LLM gateway, MCP server, STOA, API management, Kubernetes, open source, tool discovery, AI governance, enterprise API, sovereign cloud, NIS2, DORA compliance, AI factory, Claude Code, multi-agent development, api gateway migration, layer7 migration, axway migration, wso2 migration, webmethods migration, apigee migration, mulesoft migration, zero trust API gateway, OWASP API security, mTLS certificate binding, OAuth 2.1 PKCE, OPA policy engine, API security architecture, prompt injection detection, AI agent authentication

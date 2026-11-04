@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="hero" id="hero" aria-label="Hero — European Agent Gateway">
+<section class="hero" id="hero" aria-label={t('site.title')}>
   <div class="hero-bg">
     <div class="orb orb-teal" data-parallax="0.15"></div>
     <div class="orb orb-purple" data-parallax="0.25"></div>

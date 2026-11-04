@@ -1,7 +1,7 @@
 {
-  "name": "STOA Platform",
+  "name": "STOA — Sovereign iPaaS — API & integration platform",
   "short_name": "STOA",
-  "description": "API & MCP Gateway for the AI Era",
+  "description": "Sovereign iPaaS — API & integration platform",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",

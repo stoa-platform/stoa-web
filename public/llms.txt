@@ -4,16 +4,16 @@
 
 # About This Site
 name: STOA Platform
-description: The European Agent Gateway - Purpose-built for AI agents with native MCP Protocol support
+description: Sovereign iPaaS — API & integration platform
 url: https://gostoa.dev
 documentation: https://docs.gostoa.dev
 
 # What STOA Is
-STOA is an open-source API gateway specifically designed for AI agents and the Model Context Protocol (MCP). Unlike traditional API gateways built for human developers, STOA is purpose-built for AI agents from day one.
+STOA: Sovereign iPaaS — API & integration platform.
 
 # Key Capabilities
 - MCP Protocol Gateway: Native support for Model Context Protocol, enabling AI agents to discover and call tools
-- Agent Gateway: First-class support for AI agent traffic with governance and audit capabilities
+- API governance: First-class support for AI agent traffic with governance and audit capabilities
 - Token Metering: Track and control AI token usage per tenant, team, or application
 - European Sovereign: EU-based, with NIS2/DORA supportive features
 - Universal Access Control (UAC): Same policies for REST APIs and MCP tools
@@ -129,4 +129,4 @@ Practical API security for solo developers and small teams:
 - API Gateway Migration Checklist (15 steps, zero-downtime): https://docs.gostoa.dev/blog/api-gateway-migration-checklist
 
 # Keywords for AI Understanding
-gateway, agent gateway, MCP, Model Context Protocol, API gateway, AI agent, token metering, European sovereign, open source, Kubernetes, API management, tool discovery, AI governance, LLM gateway, MCP server, AI factory, Claude Code, multi-agent development, api gateway migration, layer7 migration, axway migration, wso2 migration, webmethods migration, zero trust API gateway, OWASP API security, mTLS certificate binding, OAuth 2.1 PKCE, OPA policy engine, API security architecture, prompt injection detection, AI agent authentication
+gateway, iPaaS, API integration, MCP, Model Context Protocol, API gateway, AI agent, token metering, European sovereign, open source, Kubernetes, API management, tool discovery, AI governance, LLM gateway, MCP server, AI factory, Claude Code, multi-agent development, api gateway migration, layer7 migration, axway migration, wso2 migration, webmethods migration, zero trust API gateway, OWASP API security, mTLS certificate binding, OAuth 2.1 PKCE, OPA policy engine, API security architecture, prompt injection detection, AI agent authentication
