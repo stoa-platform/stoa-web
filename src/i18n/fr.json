@@ -1,6 +1,6 @@
 {
-  "site.title": "STOA — Passerelle Agent Souveraine Européenne pour l'IA",
-  "site.description": "Connectez vos APIs legacy aux agents IA avec gouvernance complète. Souveraineté européenne, on-premise, DORA-supportif. Open source Apache 2.0.",
+  "site.title": "STOA — iPaaS souverain, plateforme d'API et d'intégration",
+  "site.description": "iPaaS souverain, plateforme d'API et d'intégration",
 
   "header.features": "Fonctionnalités",
   "header.architecture": "Architecture",
@@ -13,9 +13,9 @@
   "header.tryFree": "Réserver une démo",
 
   "hero.badge": "Apache 2.0 &middot; Déploiement on-premise &middot; DORA-supportif",
-  "hero.title.line1": "Vos APIs sont-elles prêtes",
-  "hero.title.line2": "pour les agents IA ?",
-  "hero.subtitle": "STOA est la passerelle souveraine européenne qui connecte vos APIs existantes aux agents IA — sans réécriture, avec gouvernance et piste d'audit complètes.",
+  "hero.title.line1": "iPaaS souverain,",
+  "hero.title.line2": "plateforme d'API et d'intégration",
+  "hero.subtitle": "Connectez vos APIs existantes aux agents IA — sans réécriture, avec gouvernance et piste d'audit complètes.",
   "hero.pillar1.title": "Fédérer",
   "hero.pillar1.desc": "Un plan de contrôle pour Kong, Gravitee, Apigee, Azure APIM, AWS et webMethods",
   "hero.pillar2.title": "Relier",
@@ -36,7 +36,7 @@
   "whyNow.cloudAct.description": "Les données transitant par l'infrastructure d'un fournisseur américain sont accessibles aux autorités US — même hébergées en Europe. Cela inclut les métadonnées du trafic API.",
   "whyNow.agents.title": "Agents IA non gouvernés",
   "whyNow.agents.subtitle": "C'est déjà le cas",
-  "whyNow.agents.description": "Vos équipes utilisent déjà Claude, GPT et Copilot. Sans passerelle agent, chaque appel API depuis un agent IA est non mesuré, non audité, non contrôlé.",
+  "whyNow.agents.description": "Vos équipes utilisent déjà Claude, GPT et Copilot. Sans gouvernance des API, chaque appel API depuis un agent IA est non mesuré, non audité, non contrôlé.",
 
   "beforeAfter.tag": "Le problème",
   "beforeAfter.title": "Avant <span class=\"gradient-text-alt\">&amp; Après</span>",
@@ -144,7 +144,7 @@
   "standards.prometheus": "CNCF Prometheus",
   "standards.prometheus.sub": "Observabilité",
   "standards.mcp": "Protocole MCP",
-  "standards.mcp.sub": "Passerelle Agent IA",
+  "standards.mcp.sub": "Accès des agents IA",
   "standards.apache": "Licence Apache 2.0",
   "standards.apache.sub": "Vrai Open Source",
 
@@ -174,7 +174,7 @@
   "company.stack.rust": "Passerelle Rust — haute performance, sûreté mémoire, pas de pauses GC",
   "company.stack.python": "Plan de contrôle Python — FastAPI, SQLAlchemy, async-first",
   "company.stack.react": "Console et portail React — TypeScript, outillage moderne",
-  "company.positioning": "Le seul Agent Gateway souverain européen entièrement open source (Apache 2.0) et déployable on-premise.",
+  "company.positioning": "iPaaS souverain, plateforme d'API et d'intégration",
 
   "pricing.tag": "Tarifs",
   "pricing.title": "Tarification simple et <span class=\"gradient-text\">transparente</span>",
@@ -247,7 +247,7 @@
   "finalCta.stat.mcp": "Couverture complète du protocole MCP",
   "finalCta.stat.license": "Apache 2.0 — pas de BSL",
 
-  "footer.tagline": "La passerelle Agent européenne.\nOpen source, Apache 2.0.",
+  "footer.tagline": "iPaaS souverain, plateforme d'API et d'intégration\nOpen source, Apache 2.0.",
   "footer.product": "Produit",
   "footer.product.features": "Fonctionnalités",
   "footer.product.architecture": "Architecture",
@@ -348,15 +348,15 @@
   "demo.sidebar.item3": "Q&R sur la conformité DORA/NIS2, la souveraineté et la migration",
   "demo.sidebar.item4": "Sans engagement — évaluez selon vos propres critères",
 
-  "pricing.page.title": "Tarifs — STOA Platform | Passerelle Agent Souveraine Européenne",
+  "pricing.page.title": "Tarifs — STOA | iPaaS souverain, plateforme d'API et d'intégration",
   "pricing.page.description": "STOA est gratuit et open source sous Apache 2.0. Auto-hébergez la plateforme complète pour toujours. Plans Entreprise et Souverain disponibles pour les industries réglementées.",
 
-  "seo.defaultTitle": "STOA - Passerelle Agent européenne | Protocole MCP et gouvernance API IA-native",
-  "seo.defaultDescription": "La passerelle souveraine européenne pour les agents IA. Support natif du protocole MCP, comptage de tokens, DORA-supportif. Open source Apache 2.0.",
-  "seo.keywords": "passerelle MCP, passerelle Agent, Model Context Protocol, passerelle IA, passerelle API européenne, comptage tokens, conformité DORA, NIS2, cloud souverain, STOA, gestion API, open source",
+  "seo.defaultTitle": "STOA — iPaaS souverain, plateforme d'API et d'intégration",
+  "seo.defaultDescription": "iPaaS souverain, plateforme d'API et d'intégration",
+  "seo.keywords": "passerelle MCP, iPaaS, intégration API, Model Context Protocol, passerelle IA, passerelle API européenne, comptage tokens, conformité DORA, NIS2, cloud souverain, STOA, gestion API, open source",
 
-  "structuredData.website.description": "La passerelle Agent européenne — souveraine, open source, pour les agents IA avec support natif du protocole MCP et fonctionnalités DORA-supportives.",
-  "structuredData.software.description": "Passerelle souveraine européenne pour agents IA. Protocole MCP natif, comptage tokens, déploiement on-premise, DORA-supportif.",
+  "structuredData.website.description": "iPaaS souverain, plateforme d'API et d'intégration",
+  "structuredData.software.description": "iPaaS souverain, plateforme d'API et d'intégration",
   "structuredData.software.offerDescription": "Open Source — Licence Apache 2.0",
   "structuredData.software.feature1": "Passerelle MCP — Support natif du Model Context Protocol pour les agents IA",
   "structuredData.software.feature2": "Gouvernance Agent — Piste d'audit complète, RBAC, comptage tokens pour le trafic agent IA",
@@ -364,5 +364,5 @@
   "structuredData.software.feature4": "Souveraineté européenne — Construit en France, DORA-supportif, NIS2-ready",
   "structuredData.software.feature5": "Multi-Passerelle — Orchestrez Kong, Gravitee, Apigee, webMethods depuis un plan de contrôle unique",
   "structuredData.software.feature6": "On-Premise — Plateforme complète déployable sur votre infrastructure, compatible air-gapped",
-  "structuredData.org.description": "Société française construisant la passerelle Agent souveraine européenne pour l'IA et le protocole MCP. 15+ ans d'intégration enterprise."
+  "structuredData.org.description": "Société française développant STOA. iPaaS souverain, plateforme d'API et d'intégration."
 }

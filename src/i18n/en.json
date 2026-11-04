@@ -1,6 +1,6 @@
 {
-  "site.title": "STOA — European Sovereign Agent Gateway for AI",
-  "site.description": "Connect your legacy APIs to AI agents with full governance. European sovereign, on-premise, DORA-supportive. Open source Apache 2.0.",
+  "site.title": "STOA — Sovereign iPaaS — API & integration platform",
+  "site.description": "Sovereign iPaaS — API & integration platform",
 
   "header.features": "Features",
   "header.architecture": "Architecture",
@@ -13,9 +13,9 @@
   "header.tryFree": "Book a Demo",
 
   "hero.badge": "Apache 2.0 &middot; On-premise deployment &middot; DORA-supportive",
-  "hero.title.line1": "Are your APIs ready",
-  "hero.title.line2": "for AI agents?",
-  "hero.subtitle": "STOA is the European sovereign gateway that connects your existing APIs to AI agents — without rewriting, with full governance and audit trail.",
+  "hero.title.line1": "Sovereign iPaaS —",
+  "hero.title.line2": "API & integration platform",
+  "hero.subtitle": "Connect your existing APIs to AI agents — without rewriting, with full governance and audit trail.",
   "hero.pillar1.title": "Federate",
   "hero.pillar1.desc": "One control plane for Kong, Gravitee, Apigee, Azure APIM, AWS & webMethods",
   "hero.pillar2.title": "Bridge",
@@ -36,7 +36,7 @@
   "whyNow.cloudAct.description": "Data transiting through a US provider's infrastructure is accessible to US authorities — even when hosted in Europe. This includes API traffic metadata.",
   "whyNow.agents.title": "Ungoverned AI agents",
   "whyNow.agents.subtitle": "Already happening",
-  "whyNow.agents.description": "Your teams are already using Claude, GPT, and Copilot. Without an agent gateway, every API call from an AI agent is unmeasured, unaudited, and uncontrolled.",
+  "whyNow.agents.description": "Your teams are already using Claude, GPT, and Copilot. Without API governance, every API call from an AI agent is unmeasured, unaudited, and uncontrolled.",
 
   "beforeAfter.tag": "The Problem",
   "beforeAfter.title": "Before <span class=\"gradient-text-alt\">&amp; After</span>",
@@ -144,7 +144,7 @@
   "standards.prometheus": "CNCF Prometheus",
   "standards.prometheus.sub": "Observability",
   "standards.mcp": "MCP Protocol",
-  "standards.mcp.sub": "AI Agent Gateway",
+  "standards.mcp.sub": "AI agent access",
   "standards.apache": "Apache License 2.0",
   "standards.apache.sub": "True Open Source",
 
@@ -174,7 +174,7 @@
   "company.stack.rust": "Rust gateway — high performance, memory safe, no GC pauses",
   "company.stack.python": "Python control plane — FastAPI, SQLAlchemy, async-first",
   "company.stack.react": "React console & portal — TypeScript, modern tooling",
-  "company.positioning": "The only European sovereign Agent Gateway that is fully open source (Apache 2.0) and deployable on-premise.",
+  "company.positioning": "Sovereign iPaaS — API & integration platform",
 
   "pricing.tag": "Pricing",
   "pricing.title": "Simple, Transparent <span class=\"gradient-text\">Pricing</span>",
@@ -247,7 +247,7 @@
   "finalCta.stat.mcp": "Full MCP Protocol coverage",
   "finalCta.stat.license": "Apache 2.0 — no BSL",
 
-  "footer.tagline": "The European Agent Gateway.\nOpen source, Apache 2.0.",
+  "footer.tagline": "Sovereign iPaaS — API & integration platform\nOpen source, Apache 2.0.",
   "footer.product": "Product",
   "footer.product.features": "Features",
   "footer.product.architecture": "Architecture",
@@ -348,15 +348,15 @@
   "demo.sidebar.item3": "Q&A on DORA/NIS2 compliance, sovereignty, and migration",
   "demo.sidebar.item4": "No commitment — evaluate on your own terms",
 
-  "pricing.page.title": "Pricing — STOA Platform | European Sovereign Agent Gateway",
+  "pricing.page.title": "Pricing — STOA | Sovereign iPaaS — API & integration platform",
   "pricing.page.description": "STOA is free and open source under Apache 2.0. Self-host the full platform forever. Enterprise and Sovereign plans available for regulated industries.",
 
-  "seo.defaultTitle": "STOA - European Agent Gateway | MCP Protocol & AI-Native API Governance",
-  "seo.defaultDescription": "The European sovereign gateway for AI agents. Native MCP Protocol support, token metering, DORA-supportive. Open source Apache 2.0.",
-  "seo.keywords": "MCP gateway, Agent Gateway, Model Context Protocol, AI gateway, European API gateway, token metering, DORA compliance, NIS2, sovereign cloud, STOA, API management, open source",
+  "seo.defaultTitle": "STOA — Sovereign iPaaS — API & integration platform",
+  "seo.defaultDescription": "Sovereign iPaaS — API & integration platform",
+  "seo.keywords": "MCP gateway, iPaaS, API integration, Model Context Protocol, AI gateway, European API gateway, token metering, DORA compliance, NIS2, sovereign cloud, STOA, API management, open source",
 
-  "structuredData.website.description": "The European Agent Gateway — sovereign, open source gateway for AI agents with native MCP Protocol support and DORA-supportive features.",
-  "structuredData.software.description": "European sovereign gateway for AI agents. Native MCP Protocol, token metering, on-premise deployment, DORA-supportive.",
+  "structuredData.website.description": "Sovereign iPaaS — API & integration platform",
+  "structuredData.software.description": "Sovereign iPaaS — API & integration platform",
   "structuredData.software.offerDescription": "Open Source - Apache 2.0 License",
   "structuredData.software.feature1": "MCP Gateway — Native Model Context Protocol support for AI agents",
   "structuredData.software.feature2": "Agent Governance — Full audit trail, RBAC, token metering for AI agent traffic",
@@ -364,5 +364,5 @@
   "structuredData.software.feature4": "European Sovereign — Built in France, DORA-supportive, NIS2-ready",
   "structuredData.software.feature5": "Multi-Gateway — Orchestrate Kong, Gravitee, Apigee, webMethods from one control plane",
   "structuredData.software.feature6": "On-Premise — Full platform deployable on your infrastructure, air-gapped capable",
-  "structuredData.org.description": "French company building the European sovereign Agent Gateway for AI and MCP Protocol. 15+ years in enterprise integration."
+  "structuredData.org.description": "French company building STOA. Sovereign iPaaS — API & integration platform."
 }

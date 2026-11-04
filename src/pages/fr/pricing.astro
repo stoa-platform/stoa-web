@@ -4,10 +4,13 @@ import Header from '../../components/Header.astro';
 import Pricing from '../../components/Pricing.astro';
 import PricingFAQ from '../../components/PricingFAQ.astro';
 import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
 <Layout
-  title="Tarifs — STOA Platform | Passerelle Agent Souveraine Européenne"
+  title={t('pricing.page.title')}
   description="STOA est gratuit et open source sous Apache 2.0. Auto-hébergez la plateforme complète pour toujours. Plans Entreprise et Souverain disponibles pour les industries réglementées."
 >
   <Header />
