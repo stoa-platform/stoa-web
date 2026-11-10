@@ -48,7 +48,7 @@ The product-focused English and French homepages are documented in [Product home
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 24 LTS (see `package.json` engines)
 - pnpm (recommended) or npm
 
 ### Development
