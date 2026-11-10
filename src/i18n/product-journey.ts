@@ -2,15 +2,15 @@
 export const productJourney = {
   "fr": {
     "hero": {
-      "eyebrow": "VOS AGENTS. VOS RÈGLES.",
+      "eyebrow": "PASSERELLE API & AGENTS IA",
       "title": [
-        "Ouvrez vos API aux agents.",
-        "Pas toutes les portes."
+        "Vos agents accèdent aux API.",
+        "Vous gardez le contrôle."
       ],
-      "description": "Votre assistant support doit retrouver une commande, pas modifier une fiche client. Donnez-lui l’accès utile et gardez la trace de ses actions.",
+      "description": "STOA est la passerelle entre vos agents IA et vos API existantes. Vos équipes définissent les droits d’accès et retrouvent la trace des appels.",
       "primary": "Voir le scénario",
       "secondary": "Guide de démarrage",
-      "sceneLabel": "Un assistant support. Un accès limité.",
+      "sceneLabel": "UN EXEMPLE : ASSISTANT SUPPORT",
       "agent": "Assistant support",
       "agentDetail": "Consulter une commande",
       "gateway": "STOA",
@@ -23,15 +23,15 @@ export const productJourney = {
         "02 DROIT : lire les commandes",
         "03 PREUVE : décision tracée"
       ],
-      "sceneFootnote": "Un scénario de support client."
+      "sceneFootnote": "Un exemple d’accès aux API via STOA."
     },
     "journey": {
-      "eyebrow": "UN BESOIN CONCRET. UNE LIMITE CLAIRE.",
+      "eyebrow": "UN EXEMPLE : ASSISTANT SUPPORT",
       "title": [
         "Aider un client.",
         "Sans tout autoriser."
       ],
-      "description": "Suivez un assistant support : il doit consulter une commande tout en gardant les données client à l’abri des modifications.",
+      "description": "Un assistant doit consulter une commande. Voyez comment la passerelle limite son accès et explique une tentative de modification refusée.",
       "tablist": "Les quatre étapes du scénario de support",
       "play": "Voir le scénario",
       "pause": "Mettre en pause",
@@ -144,15 +144,15 @@ export const productJourney = {
   },
   "en": {
     "hero": {
-      "eyebrow": "YOUR AGENTS. YOUR RULES.",
+      "eyebrow": "API & AI AGENT GATEWAY",
       "title": [
-        "Open your APIs to agents.",
-        "Not every door."
+        "Your agents access APIs.",
+        "You stay in control."
       ],
-      "description": "Your support assistant needs to find an order, not edit a customer record. Give it the access it needs and keep a trace of its actions.",
+      "description": "STOA is the gateway between your AI agents and existing APIs. Your teams define access permissions and can trace API calls.",
       "primary": "Explore the scenario",
       "secondary": "Quickstart guide",
-      "sceneLabel": "One support assistant. A defined scope.",
+      "sceneLabel": "AN EXAMPLE: SUPPORT ASSISTANT",
       "agent": "Support assistant",
       "agentDetail": "Look up an order",
       "gateway": "STOA",
@@ -165,15 +165,15 @@ export const productJourney = {
         "02 ACCESS: read orders",
         "03 EVIDENCE: decision recorded"
       ],
-      "sceneFootnote": "A customer support scenario."
+      "sceneFootnote": "An example of API access through STOA."
     },
     "journey": {
-      "eyebrow": "A REAL NEED. A CLEAR BOUNDARY.",
+      "eyebrow": "AN EXAMPLE: SUPPORT ASSISTANT",
       "title": [
         "Help a customer.",
         "Without allowing everything."
       ],
-      "description": "Follow a support assistant: it needs to look up an order while keeping customer records protected from changes.",
+      "description": "An assistant needs to look up an order. See how the gateway limits its access and explains a denied attempt to change customer data.",
       "tablist": "The four steps of the support scenario",
       "play": "Play the scenario",
       "pause": "Pause",

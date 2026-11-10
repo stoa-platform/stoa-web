@@ -64,32 +64,44 @@ export const productHome = {
       ],
     },
     features: {
-      eyebrow: 'Une plateforme, un fil conducteur',
-      title: ['Ouvrir les usages.', 'Garder la maîtrise.'],
-      description: 'Du catalogue à l’appel d’API, chaque étape a son rôle. STOA réunit les outils pour organiser les accès et comprendre les échanges.',
-      items: [
-        {
-          key: 'catalogue',
-          title: ['Vos services,', 'dans un même catalogue.'],
-          description: 'Rendez les API identifiables et documentées, pour les développeurs comme pour les agents.',
-          detailsLabel: 'Catalogue & découverte',
-          details: 'Le portail présente les API et leur accès. Les outils exposés via MCP donnent aux agents un moyen de découvrir et d’appeler des services.',
-        },
-        {
-          key: 'governance',
-          title: ['Chaque accès', 'a ses règles.'],
-          description: 'Associez les appels à une identité et appliquez les politiques prévues pour vos services.',
-          detailsLabel: 'Identité & gouvernance',
-          details: 'Authentification, autorisations et contrôle du trafic sont portés par les composants de la plateforme. Leur configuration dépend de votre architecture.',
-        },
-        {
-          key: 'observability',
-          title: ['Des échanges', 'que l’on comprend.'],
-          description: 'Retrouvez les appels et leurs résultats pour analyser l’utilisation et diagnostiquer les difficultés.',
-          detailsLabel: 'Traces & observabilité',
-          details: 'Les métriques, les journaux et les traces apportent des vues complémentaires sur le trafic de la passerelle.',
-        },
+      "eyebrow": "POUR LES ÉQUIPES PLATEFORME ET LES DÉVELOPPEURS",
+      "title": [
+        "Ouvrir les accès utiles.",
+        "Comprendre les échanges."
       ],
+      "description": "STOA aide les équipes plateforme et les développeurs à exposer leurs API aux agents IA, avec des droits définis et une visibilité sur les appels.",
+      "items": [
+        {
+          "key": "catalogue",
+          "title": [
+            "Qui peut faire quoi ?",
+            "Des droits explicites."
+          ],
+          "description": "Associez chaque consommateur aux services et aux actions qu’il peut utiliser.",
+          "detailsLabel": "Identités & autorisations",
+          "details": "L’authentification et les règles d’autorisation déterminent l’accès aux services exposés. Leur configuration dépend de votre architecture."
+        },
+        {
+          "key": "governance",
+          "title": [
+            "Comment l’intégrer ?",
+            "Devant vos API existantes."
+          ],
+          "description": "Placez une passerelle entre les agents et les services que vous exposez, avec un plan de contrôle pour le catalogue et les règles.",
+          "detailsLabel": "Intégration & prérequis",
+          "details": "L’intégration se prépare selon vos protocoles, votre hébergement et vos mécanismes d’identité. La documentation décrit les composants et les prérequis."
+        },
+        {
+          "key": "observability",
+          "title": [
+            "Pourquoi cet échec ?",
+            "Un contexte visible."
+          ],
+          "description": "Retrouvez le résultat et le contexte des appels pour distinguer un accès refusé d’une difficulté côté service.",
+          "detailsLabel": "Journaux, métriques & traces",
+          "details": "Les journaux, métriques et traces éclairent le parcours d’un appel. Le niveau de détail disponible dépend de la configuration."
+        }
+      ]
     },
     architecture: {
       eyebrow: 'Pensé pour votre architecture',
@@ -111,32 +123,35 @@ export const productHome = {
       },
     },
     resources: {
-      eyebrow: 'À vous d’explorer',
-      title: ['Du premier regard', 'à l’évaluation.'],
-      description: 'Examinez les guides, l’architecture et le code publié pour situer STOA dans votre contexte.',
-      items: [
-        {
-          key: 'quickstart',
-          tag: '01 / PRENDRE EN MAIN',
-          title: 'Guide de démarrage',
-          description: 'Comprendre un premier appel d’API par un agent.',
-          href: productHomeLinks.quickstart,
-        },
-        {
-          key: 'docs',
-          tag: '02 / COMPRENDRE',
-          title: 'Documentation',
-          description: 'Explorer les composants, les usages et leurs prérequis.',
-          href: productHomeLinks.docs,
-        },
-        {
-          key: 'github',
-          tag: '03 / EXAMINER',
-          title: 'Code sur GitHub',
-          description: 'Consulter les sources publiées sous licence Apache 2.0.',
-          href: productHomeLinks.github,
-        },
+      "eyebrow": "POUR ÉVALUER STOA",
+      "title": [
+        "Comprendre. Essayer.",
+        "Décider sur des faits."
       ],
+      "description": "Commencez par un premier appel, situez la passerelle dans votre système puis examinez le code.",
+      "items": [
+        {
+          "key": "quickstart",
+          "tag": "01 / ESSAYER",
+          "title": "Faire un premier appel",
+          "description": "Suivez le guide et ses prérequis pour tester un accès via STOA.",
+          "href": productHomeLinks.quickstart
+        },
+        {
+          "key": "docs",
+          "tag": "02 / INTÉGRER",
+          "title": "Situer la passerelle",
+          "description": "Comprenez les composants, le déploiement et la place de STOA dans votre architecture.",
+          "href": productHomeLinks.architecture
+        },
+        {
+          "key": "github",
+          "tag": "03 / EXAMINER",
+          "title": "Examiner le code",
+          "description": "Consultez les sources publiées sous licence Apache 2.0.",
+          "href": productHomeLinks.github
+        }
+      ]
     },
     documentationPaths: {
       label: 'Documentation : prise en main et référence',
@@ -207,33 +222,44 @@ export const productHome = {
       ],
     },
     features: {
-      eyebrow: 'One platform, one common thread',
-      title: ['Open up new uses.', 'Stay in control.'],
-      description: 'From the catalogue to the API call, each step has a role. STOA brings together tools to organise access and understand exchanges.',
-      items: [
-        {
-          key: 'catalogue',
-          title: ['Your services,', 'in one catalogue.'],
-          description: 'Make APIs discoverable and documented for developers and agents alike.',
-          detailsLabel: 'Catalogue & discovery',
-          details: 'The portal presents APIs and how to access them. Tools exposed through MCP give agents a way to discover and call services.',
-        },
-        {
-          key: 'governance',
-          title: ['Every access',
-            'has its rules.'],
-          description: 'Associate calls with an identity and apply the policies defined for your services.',
-          detailsLabel: 'Identity & governance',
-          details: 'Authentication, authorisation and traffic control are handled by the platform’s components. Their configuration depends on your architecture.',
-        },
-        {
-          key: 'observability',
-          title: ['Exchanges', 'you can understand.'],
-          description: 'Find calls and their results to analyse usage and diagnose issues.',
-          detailsLabel: 'Traces & observability',
-          details: 'Metrics, logs and traces provide complementary views of gateway traffic.',
-        },
+      "eyebrow": "FOR PLATFORM TEAMS AND DEVELOPERS",
+      "title": [
+        "Enable the right access.",
+        "Understand the exchanges."
       ],
+      "description": "STOA helps platform teams and developers expose their APIs to AI agents, with defined permissions and visibility into calls.",
+      "items": [
+        {
+          "key": "catalogue",
+          "title": [
+            "Who can do what?",
+            "Explicit permissions."
+          ],
+          "description": "Connect each consumer to the services and actions it is allowed to use.",
+          "detailsLabel": "Identity & authorisation",
+          "details": "Authentication and authorisation rules determine access to exposed services. Their configuration depends on your architecture."
+        },
+        {
+          "key": "governance",
+          "title": [
+            "How does it fit?",
+            "In front of existing APIs."
+          ],
+          "description": "Place a gateway between agents and the services you expose, with a control plane for the catalogue and rules.",
+          "detailsLabel": "Integration & prerequisites",
+          "details": "Plan the integration around your protocols, hosting and identity mechanisms. The documentation describes the components and prerequisites."
+        },
+        {
+          "key": "observability",
+          "title": [
+            "Why did it fail?",
+            "Context you can see."
+          ],
+          "description": "Find call results and context to distinguish denied access from a service-side issue.",
+          "detailsLabel": "Logs, metrics & traces",
+          "details": "Logs, metrics and traces help explain a call’s path. The level of detail available depends on the configuration."
+        }
+      ]
     },
     architecture: {
       eyebrow: 'Designed for your architecture',
@@ -255,32 +281,35 @@ export const productHome = {
       },
     },
     resources: {
-      eyebrow: 'Explore for yourself',
-      title: ['From a first look', 'to evaluation.'],
-      description: 'Review the guides, architecture and published code to see how STOA fits your context.',
-      items: [
-        {
-          key: 'quickstart',
-          tag: '01 / GET STARTED',
-          title: 'Quickstart guide',
-          description: 'Understand a first API call by an agent.',
-          href: productHomeLinks.quickstart,
-        },
-        {
-          key: 'docs',
-          tag: '02 / UNDERSTAND',
-          title: 'Documentation',
-          description: 'Explore the components, use cases and their prerequisites.',
-          href: productHomeLinks.docs,
-        },
-        {
-          key: 'github',
-          tag: '03 / EXAMINE',
-          title: 'Code on GitHub',
-          description: 'Browse the source code published under the Apache 2.0 licence.',
-          href: productHomeLinks.github,
-        },
+      "eyebrow": "EVALUATE STOA",
+      "title": [
+        "Understand. Try.",
+        "Decide on evidence."
       ],
+      "description": "Start with a first call, see where the gateway fits in your system, then examine the code.",
+      "items": [
+        {
+          "key": "quickstart",
+          "tag": "01 / TRY",
+          "title": "Make a first call",
+          "description": "Follow the guide and its prerequisites to test access through STOA.",
+          "href": productHomeLinks.quickstart
+        },
+        {
+          "key": "docs",
+          "tag": "02 / INTEGRATE",
+          "title": "Place the gateway",
+          "description": "Understand the components, deployment and STOA’s role in your architecture.",
+          "href": productHomeLinks.architecture
+        },
+        {
+          "key": "github",
+          "tag": "03 / EXAMINE",
+          "title": "Examine the code",
+          "description": "Browse the source code published under the Apache 2.0 licence.",
+          "href": productHomeLinks.github
+        }
+      ]
     },
     documentationPaths: {
       label: 'Documentation: getting started and reference',

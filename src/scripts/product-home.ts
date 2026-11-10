@@ -100,10 +100,37 @@ function updateVisibility() {
 document.addEventListener('visibilitychange', updateVisibility);
 window.addEventListener('pagehide', pauseJourney);
 updateVisibility();
+// A one-off before/after transition; visitors can switch or replay it.
+const comparison = root?.querySelector<HTMLElement>('[data-compare]');
+let comparisonTimer: number | undefined;
+let comparisonSeen = false;
+function setComparison(mode: 'with' | 'without') {
+  if (!comparison) return;
+  comparison.dataset.mode = mode;
+  comparison.querySelectorAll<HTMLButtonElement>('[data-compare-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.compareMode === mode)));
+  comparison.querySelectorAll<HTMLElement>('[data-compare-description]').forEach(node => { node.hidden = node.dataset.compareDescription !== mode; });
+}
+function replayComparison() {
+  window.clearTimeout(comparisonTimer);
+  setComparison('without');
+  if (!reducedMotion.matches && !document.hidden) comparisonTimer = window.setTimeout(() => setComparison('with'), 1200);
+}
+comparison?.querySelectorAll<HTMLButtonElement>('[data-compare-mode]').forEach(button => button.addEventListener('click', () => {
+  comparisonSeen = true;
+  window.clearTimeout(comparisonTimer);
+  setComparison(button.dataset.compareMode === 'with' ? 'with' : 'without');
+}));
+comparison?.querySelector('[data-compare-replay]')?.addEventListener('click', () => { comparisonSeen = true; replayComparison(); });
+reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) window.clearTimeout(comparisonTimer); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) window.clearTimeout(comparisonTimer); });
+window.addEventListener('pagehide', () => window.clearTimeout(comparisonTimer));
 if (root && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        if (entry.target.classList.contains('hero-in-motion') && !comparisonSeen) { comparisonSeen = true; if (!reducedMotion.matches) replayComparison(); }
+      }
       else if (entry.target.classList.contains('hero-in-motion')) entry.target.classList.remove('is-visible');
       if (entry.target === journey && !entry.isIntersecting) pauseJourney();
     });
