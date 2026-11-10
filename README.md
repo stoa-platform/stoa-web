@@ -95,6 +95,10 @@ stoa-web/
 
 ---
 
+## Product presentation
+
+See [the guided product walkthrough](docs/product-motion.md) for behavior, accessibility, checks and rollback.
+
 ## 🚀 Deployment
 
 Deployment is automatic via Vercel on push to `main`.

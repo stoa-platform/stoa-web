@@ -1,0 +1,28 @@
+---
+import { productJourney, type JourneyLocale } from '../i18n/product-journey';
+interface Props { lang: JourneyLocale }
+const {lang} = Astro.props;
+const t = productJourney[lang].hero;
+const c = lang==='fr' ? {without:'Sans STOA',with:'Avec STOA',compare:'Comparer les accès',replay:'Rejouer',shared:'Clé partagée',assistant:'Assistant',support:'support',other:'Autres',agents:'agents',app:'Application',business:'métier',orders:'Commandes',customers:'Clients',apis:'Autres API',direct:'Accès directs, droits dispersés',controlled:'Un passage contrôlé, des droits précis',before:'Une clé trop large peut donner accès à plus de données que nécessaire.',after:'La consultation passe. La modification est refusée et expliquée.',read:'Lecture autorisée',write:'Modification refusée',note:'Comparaison illustrative, sans appel réel.'} : {without:'Without STOA',with:'With STOA',compare:'Compare access',replay:'Replay',shared:'Shared key',assistant:'Support',support:'assistant',other:'Other',agents:'agents',app:'Business',business:'app',orders:'Orders',customers:'Customers',apis:'Other APIs',direct:'Direct access, scattered permissions',controlled:'One controlled path, precise permissions',before:'An overly broad key can expose more data than the task requires.',after:'The lookup is allowed. The change is denied and explained.',read:'Lookup allowed',write:'Change denied',note:'Illustrative comparison. No real requests.'};
+const left=[88,182,276]; const right=[88,182,276];
+---
+<div class="hero-scene compare-scene" data-compare data-mode="without" aria-label={c.compare}>
+  <div class="compare-toolbar"><div class="compare-switch" role="group" aria-label={c.compare}><button type="button" data-compare-mode="without" aria-pressed="true">{c.without}</button><button type="button" data-compare-mode="with" aria-pressed="false">{c.with}</button></div><button type="button" class="compare-replay" data-compare-replay aria-label={c.replay}>{c.replay} ↻</button></div>
+  <div class="compare-figure"><svg viewBox="0 0 600 345" role="img" aria-label={t.sceneLabel}>
+    <defs><linearGradient id="compareBrand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#047857"/><stop offset="1" stop-color="#059669"/></linearGradient></defs>
+    <g class="wires-before" fill="none">{left.map(y=>right.map(to=><path d={`M135 ${y} C220 ${y}, 380 ${to}, 465 ${to}`} />))}</g>
+    <g class="shared-key"><rect x="223" y="24" width="154" height="32" rx="6"/><text x="300" y="45" text-anchor="middle">{c.shared}</text></g>
+    <g class="wires-after" fill="none">{left.map(y=><path class="wire-in" d={`M135 ${y} C193 ${y}, 195 182, 247 182`}/>)}<path class="wire-allowed" d="M353 182 C407 182, 406 88, 465 88"/><path class="wire-blocked" d="M353 182 L440 182"/><path class="wire-unused" d="M353 182 C407 182, 406 276, 465 276"/></g>
+    <g class="compare-node node-agent"><rect x="10" y="61" width="125" height="54" rx="9"/><text x="72" y="85" text-anchor="middle"><tspan x="72">{c.assistant}</tspan><tspan x="72" dy="22">{c.support}</tspan></text></g>
+    <g class="compare-node node-agent"><rect x="10" y="155" width="125" height="54" rx="9"/><text x="72" y="179" text-anchor="middle"><tspan x="72">{c.other}</tspan><tspan x="72" dy="22">{c.agents}</tspan></text></g>
+    <g class="compare-node node-agent"><rect x="10" y="249" width="125" height="54" rx="9"/><text x="72" y="273" text-anchor="middle"><tspan x="72">{c.app}</tspan><tspan x="72" dy="22">{c.business}</tspan></text></g>
+    <g class="compare-node node-orders"><rect x="465" y="61" width="125" height="54" rx="9"/><text x="527" y="96" text-anchor="middle">{c.orders}</text></g>
+    <g class="compare-node node-customer"><rect x="465" y="155" width="125" height="54" rx="9"/><text x="527" y="190" text-anchor="middle">{c.customers}</text></g>
+    <g class="compare-node node-other"><rect x="465" y="249" width="125" height="54" rx="9"/><text x="527" y="284" text-anchor="middle">{c.apis}</text></g>
+    <g class="compare-gate"><rect class="gate-halo" x="238" y="124" width="124" height="116" rx="18"/><rect x="247" y="133" width="106" height="98" rx="12" fill="url(#compareBrand)"/><image href="/favicon.svg" x="282" y="143" width="36" height="36"/><text x="300" y="210" text-anchor="middle">STOA</text></g>
+    <g class="compare-denied"><circle cx="440" cy="182" r="11"/><path d="M436 178 L444 186 M444 178 L436 186"/></g>
+    <g class="compare-approved"><circle cx="443" cy="88" r="10"/><path d="M438 88 L442 92 L448 84"/></g>
+  </svg></div>
+  <div class="compare-caption"><div data-compare-description="without"><strong>{c.direct}</strong><p>{c.before}</p></div><div data-compare-description="with" hidden><strong>{c.controlled}</strong><p>{c.after}</p></div></div>
+  <div class="compare-legend"><span class="legend-read">{c.read}</span><span class="legend-write">{c.write}</span></div><p class="compare-footnote">{c.note}</p>
+</div>
