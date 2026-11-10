@@ -13,23 +13,6 @@ if (menu && navigation) {
     menu.setAttribute('aria-expanded', 'false');
   }));
 }
-const dialog = root?.querySelector<HTMLDialogElement>('#image-dialog');
-const largeScreen = root?.querySelector<HTMLImageElement>('#large-screen');
-let zoomOrigin: HTMLButtonElement | undefined;
-if (dialog && largeScreen) {
-  root?.querySelectorAll<HTMLButtonElement>('.zoom-button[data-image]').forEach(button => {
-    button.addEventListener('click', () => {
-      zoomOrigin = button;
-      largeScreen.src = button.dataset.image ?? '';
-      largeScreen.alt = button.dataset.alt ?? '';
-      pauseJourney();
-      dialog.showModal();
-    });
-  });
-  dialog.querySelector('.dialog-close')?.addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-  dialog.addEventListener('close', () => zoomOrigin?.focus());
-}
 const journey = root?.querySelector<HTMLElement>('[data-journey]');
 const tabs = Array.from(journey?.querySelectorAll<HTMLButtonElement>('[role="tab"]') ?? []);
 const panels = Array.from(journey?.querySelectorAll<HTMLElement>('[role="tabpanel"]') ?? []);
@@ -37,6 +20,20 @@ const play = journey?.querySelector<HTMLButtonElement>('.journey-play');
 const playText = play?.querySelector<HTMLElement>('.play-text');
 const playSymbol = play?.querySelector<HTMLElement>('.play-symbol');
 const counter = journey?.querySelector<HTMLElement>('[data-current-step]');
+function setExample(outcome: 'allowed' | 'blocked') {
+  if (!journey) return;
+  journey.dataset.example = outcome;
+  const blocked = outcome === 'blocked';
+  journey.querySelectorAll<HTMLButtonElement>('[data-request-case]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.requestCase === outcome)));
+  journey.querySelectorAll('[data-example-action]').forEach(node => { node.textContent = blocked ? journey.dataset.blockedAction ?? '' : journey.dataset.allowedAction ?? ''; });
+  journey.querySelectorAll('[data-example-result]').forEach(node => { node.textContent = blocked ? journey.dataset.blockedResult ?? '' : journey.dataset.allowedResult ?? ''; });
+  journey.querySelectorAll('[data-example-detail]').forEach(node => { node.textContent = blocked ? journey.dataset.blockedDetail ?? '' : journey.dataset.allowedDetail ?? ''; });
+}
+setExample('allowed');
+journey?.querySelectorAll<HTMLButtonElement>('[data-request-case]').forEach(button => button.addEventListener('click', () => {
+  pauseJourney();
+  setExample(button.dataset.requestCase === 'blocked' ? 'blocked' : 'allowed');
+}));
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const duration = 4500;
 let currentStep = 0;
@@ -85,6 +82,7 @@ if (journey && play && tabs.length === panels.length && tabs.length) {
     if (playing) { pauseJourney(); return; }
     if (reducedMotion.matches) return;
     selectStep(0);
+    setExample('allowed');
     playing = true;
     journey.classList.add('is-playing');
     if (playText) playText.textContent = journey.dataset.pauseLabel ?? '';

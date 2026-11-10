@@ -1,253 +1,287 @@
-/** Illustrated product journey. Examples do not execute requests. */
+/** Illustrated support scenario. No customer data or real requests. */
 export const productJourney = {
   "fr": {
     "hero": {
-      "eyebrow": "API & AGENTS IA · UNE PLATEFORME",
+      "eyebrow": "VOS AGENTS. VOS RÈGLES.",
       "title": [
-        "Connectez vos agents.",
-        "Gardez la main sur vos API."
+        "Ouvrez vos API aux agents.",
+        "Pas toutes les portes."
       ],
-      "description": "Un catalogue pour trouver le bon service, des règles pour y accéder, une trace pour comprendre chaque échange.",
-      "primary": "Voir STOA en action",
+      "description": "Votre assistant support doit retrouver une commande, pas modifier une fiche client. Donnez-lui l’accès utile et gardez la trace de ses actions.",
+      "primary": "Voir le scénario",
       "secondary": "Guide de démarrage",
-      "sceneLabel": "Un appel, du départ à la trace",
-      "agent": "Agent / application",
-      "agentDetail": "Demande un service",
+      "sceneLabel": "Un assistant support. Un accès limité.",
+      "agent": "Assistant support",
+      "agentDetail": "Consulter une commande",
       "gateway": "STOA",
-      "gatewayDetail": "Identité · Accès · Routage",
-      "api": "Votre API",
-      "apiDetail": "Service existant",
-      "logLabel": "Parcours illustré",
+      "gatewayDetail": "Droits vérifiés",
+      "api": "Vos données",
+      "apiDetail": "Commandes · Clients",
+      "logLabel": "Un accès précis",
       "logLines": [
-        "01 IDENTITÉ",
-        "02 ACCÈS",
-        "03 TRACE"
+        "01 IDENTITÉ : assistant support",
+        "02 DROIT : lire les commandes",
+        "03 PREUVE : décision tracée"
       ],
-      "sceneFootnote": "Schéma illustratif. Aucune requête envoyée."
+      "sceneFootnote": "Un scénario de support client."
     },
     "journey": {
-      "eyebrow": "LE PRODUIT, ÉTAPE PAR ÉTAPE",
+      "eyebrow": "UN BESOIN CONCRET. UNE LIMITE CLAIRE.",
       "title": [
-        "Suivez un appel.",
-        "Comprenez chaque étape."
+        "Aider un client.",
+        "Sans tout autoriser."
       ],
-      "description": "De la découverte du service à la lecture de sa trace, explorez le rôle de STOA dans un échange.",
-      "tablist": "Les quatre étapes d’un appel",
-      "play": "Voir le parcours",
+      "description": "Suivez un assistant support : il doit consulter une commande tout en gardant les données client à l’abri des modifications.",
+      "tablist": "Les quatre étapes du scénario de support",
+      "play": "Voir le scénario",
       "pause": "Mettre en pause",
       "replay": "Rejouer",
       "progressLabel": "Étape",
-      "notice": "Parcours illustré. Les vues console sont des captures de démonstration historiques ; aucune requête n’est envoyée.",
+      "notice": "Scénario illustré. Aucune donnée client ni requête réelle.",
       "steps": [
         {
           "key": "discover",
-          "label": "Découvrir",
-          "kicker": "01 / CATALOGUE",
-          "title": "Le service que vous cherchez, au bon endroit.",
-          "description": "Repérez les API disponibles et retrouvez leur contexte dans un catalogue partagé.",
-          "detail": "La capture présente le catalogue d’un environnement de démonstration.",
-          "visualLabel": "Console STOA · catalogue",
-          "bulletTitle": "Ce que vous retrouvez",
+          "label": "Le besoin",
+          "kicker": "01 / UNE DEMANDE CLIENT",
+          "title": "Retrouver une commande, sans ouvrir tout le SI.",
+          "description": "L’assistant répond à une question de suivi. Une clé trop large lui donnerait aussi le droit de changer des informations client.",
+          "detail": "Le risque vient de droits plus larges que le besoin.",
+          "visualLabel": "Le périmètre à encadrer",
+          "bulletTitle": "Partir du besoin réel",
           "bullets": [
-            "Un catalogue de services",
-            "Une API identifiée",
-            "Son contexte d’utilisation"
+            "Identifier l’assistant",
+            "Définir son besoin",
+            "Écarter les droits superflus"
           ]
         },
         {
           "key": "authorize",
-          "label": "Autoriser",
-          "kicker": "02 / ACCÈS",
-          "title": "Un accès associé à une identité.",
-          "description": "L’identité du consommateur et l’accès demandé sont confrontés aux règles configurées.",
-          "detail": "Cette politique est un exemple pour expliquer le contrôle d’accès.",
-          "visualLabel": "Illustration · contrôle d’accès",
-          "bulletTitle": "Les points de contrôle",
+          "label": "Les droits",
+          "kicker": "02 / UN ACCÈS PRÉCIS",
+          "title": "Lire une commande. Rien de plus.",
+          "description": "Le périmètre choisi donne à l’assistant support le droit de consulter les commandes.",
+          "detail": "Dans ce scénario, la modification des données client reste hors de son périmètre.",
+          "visualLabel": "Le droit accordé",
+          "bulletTitle": "Limiter l’accès utile",
           "bullets": [
-            "Identité du consommateur",
-            "Ressource demandée",
-            "Droit de lecture illustré"
+            "Assistant support identifié",
+            "Lecture des commandes autorisée",
+            "Modification des clients exclue"
           ]
         },
         {
           "key": "call",
-          "label": "Appeler",
-          "kicker": "03 / PASSERELLE",
-          "title": "Un appel qui suit un chemin défini.",
-          "description": "L’agent passe par STOA pour joindre le service demandé.",
-          "detail": "La requête et la réponse sont des exemples statiques, sans exécution.",
-          "visualLabel": "Illustration · requête et réponse",
-          "bulletTitle": "Le chemin de l’échange",
+          "label": "Le contrôle",
+          "kicker": "03 / DEUX ACTIONS À TESTER",
+          "title": "Deux actions. Deux décisions.",
+          "description": "Essayez une consultation de commande, puis une modification de client. Voyez où passe la limite.",
+          "detail": "La simulation compare l’action demandée au droit accordé.",
+          "visualLabel": "Testez la limite",
+          "bulletTitle": "Choisissez une action",
           "bullets": [
-            "Une demande de l’agent",
-            "Un passage par la passerelle",
-            "Une réponse du service"
+            "Consulter une commande",
+            "Tenter une modification",
+            "Voir la décision"
           ]
         },
         {
           "key": "observe",
-          "label": "Observer",
-          "kicker": "04 / TRACE",
-          "title": "Le résultat, avec son contexte.",
-          "description": "Retrouvez la circulation des appels et les indications utiles au diagnostic.",
-          "detail": "Cette vue d’observabilité est une capture historique, pas un relevé en temps réel.",
-          "visualLabel": "Console STOA · observabilité",
-          "bulletTitle": "Ce que vous pouvez examiner",
+          "label": "La preuve",
+          "kicker": "04 / UNE DÉCISION EXPLIQUÉE",
+          "title": "Qui a demandé quoi, et pourquoi.",
+          "description": "Une trace réunit l’identité de l’assistant, l’action demandée et la décision d’accès.",
+          "detail": "La trace explique le résultat de l’action sélectionnée.",
+          "visualLabel": "Le compte rendu de l’action",
+          "bulletTitle": "Comprendre la décision",
           "bullets": [
-            "Vue du trafic",
-            "Résultats des appels",
-            "Éléments de diagnostic"
+            "Qui a fait la demande",
+            "Quelle action a été tentée",
+            "Pourquoi elle est autorisée ou refusée"
           ]
         }
       ]
     },
     "policy": {
-      "title": "Vérifier l’accès",
-      "subtitle": "EXEMPLE DE POLITIQUE",
+      "title": "Un droit limité au besoin",
+      "subtitle": "LE PÉRIMÈTRE CHOISI",
       "identity": "Identité",
-      "identityValue": "agent-demo",
+      "identityValue": "Assistant support",
       "resource": "Ressource",
-      "resourceValue": "/example/orders",
-      "scope": "Droit demandé",
-      "scopeValue": "lecture",
+      "resourceValue": "Commandes",
+      "scope": "Droit accordé",
+      "scopeValue": "Lecture uniquement",
       "checks": [
-        "Identité reconnue",
-        "Ressource identifiée",
-        "Lecture autorisée"
+        "Assistant identifié",
+        "Lecture des commandes permise",
+        "Modification des clients exclue"
       ],
-      "decision": "Accès autorisé · exemple"
+      "decision": "Consulter, sans modifier"
     },
     "request": {
-      "title": "Du point d’entrée à la réponse",
-      "subtitle": "EXEMPLE STATIQUE",
-      "requestLabel": "Requête illustrée",
-      "responseLabel": "Réponse illustrée",
-      "note": "GET /example/orders est un exemple pédagogique, sans exécution ni appel au produit."
+      "title": "Le droit fait la différence.",
+      "subtitle": "À VOUS D’ESSAYER",
+      "requestLabel": "Action demandée",
+      "responseLabel": "Décision",
+      "note": "Testez une consultation, puis une modification.",
+      "allowedAction": "Consulter la commande",
+      "blockedAction": "Modifier le client",
+      "allowedResult": "Consultation autorisée",
+      "blockedResult": "Modification refusée",
+      "allowedDetail": "La lecture des commandes fait partie du droit accordé à l’assistant support.",
+      "blockedDetail": "La modification des données client sort du périmètre accordé à l’assistant.",
+      "decisionLabel": "Décision d’accès",
+      "actorLabel": "Qui",
+      "actorValue": "Assistant support",
+      "actionLabel": "Action demandée",
+      "resultLabel": "Résultat",
+      "traceLabel": "Ce qui est tracé",
+      "traceSteps": [
+        "Identité : assistant support",
+        "Action : consultation ou modification",
+        "Décision : autorisation ou refus"
+      ]
     }
   },
   "en": {
     "hero": {
-      "eyebrow": "APIS & AI AGENTS · ONE PLATFORM",
+      "eyebrow": "YOUR AGENTS. YOUR RULES.",
       "title": [
-        "Connect your agents.",
-        "Keep control of your APIs."
+        "Open your APIs to agents.",
+        "Not every door."
       ],
-      "description": "A catalogue to find the right service, rules to access it, and a trace to understand each exchange.",
-      "primary": "See STOA in action",
+      "description": "Your support assistant needs to find an order, not edit a customer record. Give it the access it needs and keep a trace of its actions.",
+      "primary": "Explore the scenario",
       "secondary": "Quickstart guide",
-      "sceneLabel": "An API call, from request to trace",
-      "agent": "Agent / application",
-      "agentDetail": "Requests a service",
+      "sceneLabel": "One support assistant. A defined scope.",
+      "agent": "Support assistant",
+      "agentDetail": "Look up an order",
       "gateway": "STOA",
-      "gatewayDetail": "Identity · Access · Routing",
-      "api": "Your API",
-      "apiDetail": "Existing service",
-      "logLabel": "Illustrated journey",
+      "gatewayDetail": "Access checked",
+      "api": "Your data",
+      "apiDetail": "Orders · Customers",
+      "logLabel": "Precisely scoped access",
       "logLines": [
-        "01 IDENTITY",
-        "02 ACCESS",
-        "03 TRACE"
+        "01 IDENTITY: support assistant",
+        "02 ACCESS: read orders",
+        "03 EVIDENCE: decision recorded"
       ],
-      "sceneFootnote": "Illustrative diagram. No request is sent."
+      "sceneFootnote": "A customer support scenario."
     },
     "journey": {
-      "eyebrow": "THE PRODUCT, STEP BY STEP",
+      "eyebrow": "A REAL NEED. A CLEAR BOUNDARY.",
       "title": [
-        "Follow a call.",
-        "Understand each step."
+        "Help a customer.",
+        "Without allowing everything."
       ],
-      "description": "From finding a service to reading its trace, explore STOA’s role in an exchange.",
-      "tablist": "The four steps of an API call",
-      "play": "Play the journey",
+      "description": "Follow a support assistant: it needs to look up an order while keeping customer records protected from changes.",
+      "tablist": "The four steps of the support scenario",
+      "play": "Play the scenario",
       "pause": "Pause",
       "replay": "Replay",
       "progressLabel": "Step",
-      "notice": "Illustrated journey. Console views are historical demonstration screenshots; no request is sent.",
+      "notice": "Illustrated scenario. No customer data or real requests.",
       "steps": [
         {
           "key": "discover",
-          "label": "Discover",
-          "kicker": "01 / CATALOGUE",
-          "title": "The service you need, in the right place.",
-          "description": "Find available APIs and their context in a shared catalogue.",
-          "detail": "The screenshot shows the catalogue in a demonstration environment.",
-          "visualLabel": "STOA console · catalogue",
-          "bulletTitle": "What you can find",
+          "label": "The need",
+          "kicker": "01 / A CUSTOMER REQUEST",
+          "title": "Find an order without opening every system.",
+          "description": "The assistant answers an order-status question. An overly broad key would also let it change customer information.",
+          "detail": "The risk comes from access that goes beyond the task.",
+          "visualLabel": "The scope to define",
+          "bulletTitle": "Start with the actual need",
           "bullets": [
-            "A catalogue of services",
-            "An identified API",
-            "Its usage context"
+            "Identify the assistant",
+            "Define its task",
+            "Remove unnecessary permissions"
           ]
         },
         {
           "key": "authorize",
-          "label": "Authorize",
-          "kicker": "02 / ACCESS",
-          "title": "Access tied to an identity.",
-          "description": "The consumer’s identity and requested access are checked against the configured rules.",
-          "detail": "This example policy illustrates the access check.",
-          "visualLabel": "Illustration · access check",
-          "bulletTitle": "The control points",
+          "label": "The access",
+          "kicker": "02 / A DEFINED SCOPE",
+          "title": "Read an order. Nothing more.",
+          "description": "The chosen scope lets the support assistant look up orders.",
+          "detail": "In this scenario, changing customer records stays outside its scope.",
+          "visualLabel": "The access granted",
+          "bulletTitle": "Allow only what is needed",
           "bullets": [
-            "Consumer identity",
-            "Requested resource",
-            "Illustrated read permission"
+            "Support assistant identified",
+            "Order reading allowed",
+            "Customer changes excluded"
           ]
         },
         {
           "key": "call",
-          "label": "Call",
-          "kicker": "03 / GATEWAY",
-          "title": "A call with a defined path.",
-          "description": "The agent goes through STOA to reach the requested service.",
-          "detail": "The request and response are static examples, with no execution.",
-          "visualLabel": "Illustration · request and response",
-          "bulletTitle": "The path of the exchange",
+          "label": "The check",
+          "kicker": "03 / TWO ACTIONS TO TRY",
+          "title": "Two actions. Two decisions.",
+          "description": "Try looking up an order, then editing a customer. See where the boundary lies.",
+          "detail": "The simulation checks the requested action against the access granted.",
+          "visualLabel": "Try the boundary",
+          "bulletTitle": "Choose an action",
           "bullets": [
-            "A request from the agent",
-            "A pass through the gateway",
-            "A response from the service"
+            "Look up an order",
+            "Attempt a change",
+            "See the decision"
           ]
         },
         {
           "key": "observe",
-          "label": "Observe",
-          "kicker": "04 / TRACE",
-          "title": "The result, with its context.",
-          "description": "See the flow of calls and the information that helps diagnose issues.",
-          "detail": "This observability view is a historical screenshot, not a real-time reading.",
-          "visualLabel": "STOA console · observability",
-          "bulletTitle": "What you can examine",
+          "label": "The evidence",
+          "kicker": "04 / AN EXPLAINED DECISION",
+          "title": "Who requested what, and why.",
+          "description": "A trace brings together the assistant’s identity, the requested action and the access decision.",
+          "detail": "The trace explains the result of the selected action.",
+          "visualLabel": "The action record",
+          "bulletTitle": "Understand the decision",
           "bullets": [
-            "Traffic overview",
-            "Call results",
-            "Diagnostic information"
+            "Who made the request",
+            "Which action was attempted",
+            "Why it was allowed or denied"
           ]
         }
       ]
     },
     "policy": {
-      "title": "Check access",
-      "subtitle": "EXAMPLE POLICY",
+      "title": "Access limited to the task",
+      "subtitle": "THE CHOSEN SCOPE",
       "identity": "Identity",
-      "identityValue": "agent-demo",
+      "identityValue": "Support assistant",
       "resource": "Resource",
-      "resourceValue": "/example/orders",
-      "scope": "Requested permission",
-      "scopeValue": "read",
+      "resourceValue": "Orders",
+      "scope": "Access granted",
+      "scopeValue": "Read only",
       "checks": [
-        "Identity recognised",
-        "Resource identified",
-        "Read access allowed"
+        "Assistant identified",
+        "Order reading allowed",
+        "Customer changes excluded"
       ],
-      "decision": "Access allowed · example"
+      "decision": "Look up, without changing"
     },
     "request": {
-      "title": "From entry point to response",
-      "subtitle": "STATIC EXAMPLE",
-      "requestLabel": "Illustrated request",
-      "responseLabel": "Illustrated response",
-      "note": "GET /example/orders is an educational example. It is not executed and does not call the product."
+      "title": "The permission makes the difference.",
+      "subtitle": "TRY IT YOURSELF",
+      "requestLabel": "Requested action",
+      "responseLabel": "Decision",
+      "note": "Try a lookup, then a change.",
+      "allowedAction": "Look up the order",
+      "blockedAction": "Edit the customer",
+      "allowedResult": "Order lookup allowed",
+      "blockedResult": "Customer change denied",
+      "allowedDetail": "Reading orders is within the access granted to the support assistant.",
+      "blockedDetail": "Changing customer records falls outside the assistant’s granted scope.",
+      "decisionLabel": "Access decision",
+      "actorLabel": "Who",
+      "actorValue": "Support assistant",
+      "actionLabel": "Requested action",
+      "resultLabel": "Result",
+      "traceLabel": "What is recorded",
+      "traceSteps": [
+        "Identity: support assistant",
+        "Action: lookup or change",
+        "Decision: allowed or denied"
+      ]
     }
   }
 } as const;
