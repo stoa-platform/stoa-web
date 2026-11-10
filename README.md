@@ -28,6 +28,10 @@ This repository contains the marketing website for STOA Platform, built with [As
 
 ---
 
+## Product homepages
+
+The product-focused English and French homepages are documented in [Product home refresh](docs/product-home-refresh.md), including image provenance, CAB/Labs/Docs links, validation and release scope.
+
 ## 🛠️ Tech Stack
 
 | Technology | Purpose |

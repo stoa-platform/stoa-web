@@ -1,0 +1,32 @@
+---
+import Analytics from '@vercel/analytics/astro';
+import SEO from '../components/SEO.astro';
+import '../styles/product.css';
+
+interface Props { title: string; description: string; lang: 'en' | 'fr'; }
+const { title, description, lang } = Astro.props;
+const canonical = new URL(lang === 'fr' ? '/fr/' : '/', 'https://gostoa.dev').href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'STOA',
+  url: canonical,
+  description,
+  inLanguage: lang,
+  publisher: { '@type': 'Organization', name: 'CAB Ingénierie', url: 'https://cab-ingenierie.com/' },
+};
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO title={title} description={description} url={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body data-product-home>
+    <slot />
+    <Analytics />
+  </body>
+</html>
