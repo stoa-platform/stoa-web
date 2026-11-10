@@ -1,0 +1,18 @@
+---
+import { productJourney, type JourneyLocale } from '../i18n/product-journey';
+interface Props { lang: JourneyLocale }
+const t = productJourney[Astro.props.lang].hero;
+---
+<div class="hero-scene" role="img" aria-label={t.sceneLabel}>
+  <div class="scene-top"><span class="scene-dot"></span><span>{t.sceneLabel}</span><span class="scene-tag">STOA / 01</span></div>
+  <div class="scene-grid" aria-hidden="true"></div>
+  <div class="scene-flow">
+    <div class="scene-endpoint"><span class="scene-icon">✳</span><strong>{t.agent}</strong><small>{t.agentDetail}</small></div>
+    <div class="scene-connector" aria-hidden="true"><i></i></div>
+    <div class="scene-gateway"><div class="gateway-orbit" aria-hidden="true"></div><img src="/favicon.svg" width="40" height="40" alt=""/><strong>{t.gateway}</strong><small>{t.gatewayDetail}</small></div>
+    <div class="scene-connector scene-connector-out" aria-hidden="true"><i></i></div>
+    <div class="scene-endpoint"><span class="scene-icon api-icon">&#123; &#125;</span><strong>{t.api}</strong><small>{t.apiDetail}</small></div>
+  </div>
+  <div class="scene-log"><div class="scene-log-title"><span>{t.logLabel}</span><span aria-hidden="true">↗</span></div>{t.logLines.map((line,index)=><div class="scene-log-line"><span class="log-number">0{index+1}</span><span>{line.replace(/^\d+\s/, '')}</span><span class="log-check" aria-hidden="true">✓</span></div>)}</div>
+  <div class="scene-footnote"><span class="scene-dot"></span>{t.sceneFootnote}</div>
+</div>

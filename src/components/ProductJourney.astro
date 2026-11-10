@@ -1,0 +1,33 @@
+---
+import { productJourney, type JourneyLocale } from '../i18n/product-journey';
+import { productHome } from '../i18n/product-home';
+interface Props { lang: JourneyLocale }
+const {lang} = Astro.props;
+const c = productJourney[lang];
+const t = c.journey;
+const preview = productHome[lang].preview;
+---
+<section class="journey motion-reveal" id="produit" data-journey data-play-label={t.play} data-pause-label={t.pause} data-replay-label={t.replay}>
+  <div class="wrap">
+    <div class="journey-heading"><div><p class="eyebrow">{t.eyebrow}</p><h2>{t.title[0]}<br/><span>{t.title[1]}</span></h2></div><p>{t.description}</p></div>
+    <div class="journey-shell">
+      <div class="journey-tabs" role="tablist" aria-label={t.tablist}>{t.steps.map((step,index)=><button class="journey-tab" role="tab" id={`journey-tab-${step.key}`} aria-selected={index===0?'true':'false'} aria-controls={`journey-panel-${step.key}`} tabindex={index===0?0:-1} data-step={index}><span class="step-number">0{index+1}</span><span>{step.label}</span><span class="step-arrow" aria-hidden="true">↗</span><span class="step-progress" aria-hidden="true"></span></button>)}</div>
+      {t.steps.map((step,index)=>{
+        const view = preview.views[index===3?1:0];
+        return <div class="journey-panel" id={`journey-panel-${step.key}`} role="tabpanel" aria-labelledby={`journey-tab-${step.key}`} tabindex="0" hidden={index!==0}>
+          <div class="journey-story"><p class="journey-kicker">{step.kicker}</p><h3>{step.title}</h3><p class="journey-description">{step.description}</p><div class="journey-benefit"><span aria-hidden="true">↳</span><p>{step.detail}</p></div><div class="journey-checklist"><strong>{step.bulletTitle}</strong>{step.bullets.map(bullet=><div><span aria-hidden="true">✓</span>{bullet}</div>)}</div></div>
+          <div class={`journey-visual journey-visual-${step.key}`}>
+            <div class="journey-visual-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>{step.visualLabel}</span><span class="visual-status" aria-hidden="true">0{index+1} / 04</span></div>
+            {(index===0 || index===3) ? <><div class="journey-capture"><img src={`/product/${view.source}`} width="1440" height="900" alt={view.alt} loading="lazy" decoding="async"/></div><div class="journey-capture-caption"><span>{view.caption}</span><button class="zoom-button" data-image={`/product/${view.source}`} data-alt={view.alt}>{preview.enlarge} ↗</button></div></> : index===1 ? <div class="policy-demo"><div class="policy-heading"><span class="policy-icon" aria-hidden="true">◇</span><div><h4>{c.policy.title}</h4><p>{c.policy.subtitle}</p></div></div><dl><div><dt>{c.policy.identity}</dt><dd>{c.policy.identityValue}</dd></div><div><dt>{c.policy.resource}</dt><dd>{c.policy.resourceValue}</dd></div><div><dt>{c.policy.scope}</dt><dd><span class="scope-chip">{c.policy.scopeValue}</span></dd></div></dl><div class="policy-checks">{c.policy.checks.map((check,i)=><div><span class="policy-check-number">0{i+1}</span><span>{check}</span><span class="policy-tick" aria-hidden="true">✓</span></div>)}</div><div class="policy-decision"><span aria-hidden="true">✓</span>{c.policy.decision}</div></div> : <div class="request-demo"><div class="request-flow" aria-hidden="true"><span>{c.hero.agent}</span><i>→</i><b>STOA</b><i>→</i><span>API</span></div><div class="request-heading"><h4>{c.request.title}</h4><p>{c.request.subtitle}</p></div><div class="code-label">{c.request.requestLabel}<span>HTTP</span></div><pre><code><span class="code-method">GET</span> /example/orders{`
+Accept: application/json`}</code></pre><div class="code-label">{c.request.responseLabel}<span class="code-ok">200 OK</span></div><pre><code>{`{
+  "status": "ok",
+  "source": "demo"
+}`}</code></pre><p class="request-note">{c.request.note}</p></div>}
+          </div>
+        </div>
+      })}
+      <div class="journey-controls"><p><span class="journey-counter" aria-live="polite"><span data-current-step>01</span><span aria-hidden="true"> / </span>04</span><span>{t.progressLabel}</span></p><button class="journey-play" type="button"><span class="play-symbol" aria-hidden="true">▶</span><span class="play-text">{t.play}</span></button></div>
+    </div>
+    <p class="journey-notice">{t.notice}</p>
+  </div>
+</section>
