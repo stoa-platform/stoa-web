@@ -6,7 +6,9 @@ Prepared on 10 November 2026 from `main` at `d4a6fa9dc462820cca1165aa9ee943cd86a
 
 Both `Layout.astro` and `ProductLayout.astro` include the same FR/EN control. This covers all 11 generated pages, including privacy, pricing, demo, feedback and 404 pages.
 
-The confirmed marketing measurement ID is `G-8PL054C7RH`. The shared STOA/documentation Clarity project ID is `zbgxdbg9n9`. Neither library loads until an explicit acceptance of Google Analytics and Clarity, or a still-valid combined acceptance saved in this browser. Refuse and Accept have identical sizing and styling. The permanent Privacy choices button reopens the controls; a separate permanent withdrawal button appears while consent is active.
+The confirmed marketing measurement ID is `G-8PL054C7RH`. The shared STOA/documentation Clarity project ID is `zbgxdbg9n9`. Neither library loads until an explicit acceptance of Google Analytics and Clarity, or a still-valid combined acceptance saved in this browser. Refuse and Accept have identical sizing and styling. The permanent Cookies button reopens the controls; a separate permanent withdrawal button appears while consent is active.
+
+The compact Cookies panel is limited to approximately 420 px on desktop and sits at the bottom of the page without a modal or backdrop. It uses the site's dark surface and subtle border. Its short FR/EN introduction is followed by equally weighted Refuse and Accept buttons. Native Learn more details explain Google Analytics, masked Clarity replays, the six-month choice and withdrawal; the privacy-policy link remains available there. The permanent launcher is labelled Cookies in both languages. This presentation change does not alter any consent, host, advertising, masking, detection or cookie-removal logic.
 
 Both tags also require HTTPS and the exact hostname `gostoa.dev` or `www.gostoa.dev`. Localhost, local IP addresses, HTTP and Vercel preview hosts retain the consent interface for review but never load either library or send analytics events, including after acceptance. Product application hosts are outside this allowlist.
 
