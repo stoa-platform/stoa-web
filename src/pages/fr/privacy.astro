@@ -2,79 +2,105 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { useTranslations } from '../../i18n/utils';
-
-const t = useTranslations('fr');
 ---
 
 <Layout
-  title={t('privacy.title')}
-  description={t('privacy.description')}
+  title="Confidentialité et mesure d’audience — STOA"
+  description="Comment gostoa.dev utilise Google Analytics et les replays Clarity avec votre accord, mémorise votre choix et masque les formulaires."
 >
   <Header />
   <main class="pt-24 pb-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold text-white mb-8">{t('privacy.heading')}</h1>
-      <p class="text-sm text-gray-500 mb-8">{t('privacy.lastUpdated')}</p>
+      <h1 class="text-3xl font-bold text-white mb-8">Confidentialité et mesure d’audience</h1>
+      <p class="text-sm text-gray-500 mb-8">Mise à jour : 10 novembre 2026</p>
 
       <div class="prose prose-invert prose-gray max-w-none space-y-8 text-gray-300 text-sm leading-relaxed">
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">{t('privacy.section1.title')}</h2>
-          <p set:html={t('privacy.section1.text')} />
+          <h2 class="text-xl font-semibold text-white mb-3">1. Ce site</h2>
+          <p>
+            CAB Ingénierie maintient le site STOA à l’adresse <strong>gostoa.dev</strong>.
+            Cette page décrit la mesure d’audience et les informations de contact sur ce site.
+            La documentation, le portail développeur et la console sont des services distincts :
+            consultez leurs propres informations pour les traitements qui y sont réalisés.
+          </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">{t('privacy.section2.title')}</h2>
-          <p set:html={t('privacy.section2.analytics')} />
-          <p set:html={t('privacy.section2.newsletter')} />
-          <p set:html={t('privacy.section2.accounts')} />
-          <p set:html={t('privacy.section2.contact')} />
+          <h2 class="text-xl font-semibold text-white mb-3">2. Google Analytics, avec votre accord</h2>
+          <p>
+            Google Analytics 4 nous aide à comprendre les pages consultées et les passages vers
+            la documentation, le quickstart ou les moyens de contact. Son script est chargé et ses
+            requêtes de mesure commencent uniquement après votre acceptation. Vous pouvez refuser
+            aussi facilement qu’accepter.
+          </p>
+          <p>
+            Une fois activé, ce service peut utiliser des cookies de mesure et transmettre des
+            informations d’usage et techniques à Google. Le stockage publicitaire, les données
+            utilisateur publicitaires et la publicité personnalisée restent désactivés dans cette intégration.
+          </p>
+          <p>
+            Les adresses de la page consultée et de provenance transmises par cette intégration
+            excluent les paramètres de requête et les fragments. Les clics mesurés utilisent seulement
+            les catégories documentation, quickstart et contact, avec des adresses nettoyées.
+            Le texte des liens, le contenu des messages et les autres saisies de formulaire
+            ne font pas partie de ces événements.
+          </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">{t('privacy.section3.title')}</h2>
-          <ul class="list-disc list-inside space-y-2 text-gray-400">
-            <li>{t('privacy.section3.item1')}</li>
-            <li>{t('privacy.section3.item2')}</li>
-            <li>{t('privacy.section3.item3')}</li>
-            <li>{t('privacy.section3.item4')}</li>
-          </ul>
-          <p class="mt-3">{t('privacy.section3.note')}</p>
+          <h2 class="text-xl font-semibold text-white mb-3">3. Votre choix</h2>
+          <p>
+            Votre acceptation ou votre refus est mémorisé localement dans ce navigateur pendant
+            six mois. Le bouton de réglages permanent sur chaque page permet de modifier ce choix
+            ou de retirer votre accord à tout moment. Le même choix explicite couvre Google Analytics
+            et Microsoft Clarity. Le retrait arrête les deux intégrations et supprime leurs cookies
+            de mesure accessibles sur ce site.
+          </p>
+          <p>
+            Ces six mois concernent votre choix enregistré. Ils ne définissent pas la durée de
+            conservation des données de mesure chez Google ou Microsoft, et le retrait n’efface pas
+            les données déjà transmises.
+          </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">{t('privacy.section4.title')}</h2>
-          <p>{t('privacy.section4.text')}</p>
+          <h2 class="text-xl font-semibold text-white mb-3">4. Replays de navigation facultatifs</h2>
+          <p>
+            Avec votre accord, Microsoft Clarity reconstitue les visites de ce site public à partir
+            de la structure des pages, des clics, des défilements et de la navigation. Ces replays
+            nous aident à repérer les difficultés de parcours. Il ne s’agit pas d’une vidéo de votre
+            écran et ils ne couvrent pas l’application STOA, le portail ou la console.
+          </p>
+          <p>
+            Les formulaires et leur contenu sont explicitement masqués, et le projet utilise le
+            masquage strict. Le replay s’arrête dès qu’un champ, une zone modifiable ou un formulaire
+            intégré reçoit le focus, et reste arrêté jusqu’à la page suivante. Les visites dont
+            l’adresse de page ou de provenance comporte des paramètres ou un fragment sont exclues
+            du replay au démarrage. Nous ne transmettons ni nom, ni adresse e-mail, ni identifiant de compte
+            par l’API d’identification de Clarity. Clarity peut utiliser ses propres cookies pseudonymes
+            pour relier les pages d’une visite. Des adresses de pages et des données techniques
+            d’interaction peuvent être transmises à Microsoft ; le nettoyage des URL décrit pour
+            Google Analytics ne s’applique pas à Clarity.
+          </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">{t('privacy.section5.title')}</h2>
-          <p>{t('privacy.section5.intro')}</p>
-          <ul class="list-disc list-inside space-y-2 text-gray-400 mt-2">
-            <li>{t('privacy.section5.item1')}</li>
-            <li>{t('privacy.section5.item2')}</li>
-            <li>{t('privacy.section5.item3')}</li>
-            <li>{t('privacy.section5.item4')}</li>
-            <li>{t('privacy.section5.item5')}</li>
-          </ul>
-          <p class="mt-3">
-            {t('privacy.section5.contact')}{' '}
+          <h2 class="text-xl font-semibold text-white mb-3">5. Informations de contact</h2>
+          <p>
+            Lorsque vous nous contactez, nous utilisons les informations que vous fournissez
+            pour répondre à votre demande. Le contenu de vos messages ne fait pas partie des
+            événements de mesure d’audience décrits ci-dessus. Un service distinct d’inscription
+            ou de compte présente ses propres informations au moment de son utilisation.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">6. Questions et demandes</h2>
+          <p>
+            Pour une question de confidentialité ou une demande concernant vos données personnelles,
+            contactez CAB Ingénierie à
             <a href="mailto:privacy@gostoa.dev" class="text-primary-400 hover:text-primary-300">privacy@gostoa.dev</a>.
           </p>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-white mb-3">{t('privacy.section6.title')}</h2>
-          <p>{t('privacy.section6.text')}</p>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-white mb-3">{t('privacy.section7.title')}</h2>
-          <p>
-            {t('privacy.section7.text')}{' '}
-            <a href="mailto:privacy@gostoa.dev" class="text-primary-400 hover:text-primary-300">privacy@gostoa.dev</a>
-          </p>
-          <p class="mt-2">{t('privacy.section7.company')}</p>
         </section>
       </div>
     </div>

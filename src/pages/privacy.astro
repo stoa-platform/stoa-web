@@ -5,85 +5,95 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-  title="Privacy Policy — STOA Platform"
-  description="Privacy Policy for STOA Platform. How we handle your data, analytics, and communications."
+  title="Privacy & audience measurement — STOA"
+  description="How gostoa.dev uses optional Google Analytics and Clarity session replays, remembers your choice and masks contact forms."
 >
   <Header />
   <main class="pt-24 pb-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold text-white mb-8">Privacy Policy</h1>
-      <p class="text-sm text-gray-500 mb-8">Last updated: February 2026</p>
+      <h1 class="text-3xl font-bold text-white mb-8">Privacy &amp; audience measurement</h1>
+      <p class="text-sm text-gray-500 mb-8">Last updated: 10 November 2026</p>
 
       <div class="prose prose-invert prose-gray max-w-none space-y-8 text-gray-300 text-sm leading-relaxed">
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">1. Who We Are</h2>
+          <h2 class="text-xl font-semibold text-white mb-3">1. This website</h2>
           <p>
-            STOA Platform is an open-source API management project maintained by CAB Ingenierie, a French consulting company.
-            This policy covers the website <strong>gostoa.dev</strong> and associated services
-            (portal.gostoa.dev, console.gostoa.dev, docs.gostoa.dev).
+            CAB Ingénierie maintains the STOA website at <strong>gostoa.dev</strong>.
+            This page describes audience measurement and contact information on that website.
+            Documentation, the developer portal and the console are separate services; refer to
+            their own information for the processing carried out there.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">2. Data We Collect</h2>
-          <p><strong>Website analytics:</strong> We use Vercel Analytics to collect anonymous, aggregated page view data. No cookies are set. No personal data is collected by analytics.</p>
-          <p><strong>Newsletter:</strong> If you subscribe to our newsletter (via Buttondown), we store your email address to send updates. You can unsubscribe at any time.</p>
-          <p><strong>Portal / Console accounts:</strong> When you create an account on portal.gostoa.dev, we collect your email and name via Keycloak (self-hosted authentication). This data is stored on European infrastructure (OVH, France).</p>
-          <p><strong>Contact forms:</strong> Emails sent to hello@gostoa.dev, demo@gostoa.dev, or sales@gostoa.dev are processed by our team and not shared with third parties.</p>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-white mb-3">3. How We Use Your Data</h2>
-          <ul class="list-disc list-inside space-y-2 text-gray-400">
-            <li>Provide and improve the STOA Platform services</li>
-            <li>Send product updates (newsletter subscribers only)</li>
-            <li>Respond to demo requests and support inquiries</li>
-            <li>Generate anonymous usage statistics</li>
-          </ul>
-          <p class="mt-3">We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-white mb-3">4. Data Storage &amp; Security</h2>
+          <h2 class="text-xl font-semibold text-white mb-3">2. Optional Google Analytics</h2>
           <p>
-            All platform data is hosted on European infrastructure (OVH GRA9, Hetzner FSN1).
-            Authentication is managed by self-hosted Keycloak. Secrets are managed via self-hosted Infisical.
-            No data is stored on US-based cloud providers for production services.
+            Google Analytics 4 helps us understand which pages people visit and whether they follow
+            links to documentation, the quickstart or contact options. Its script loads and its
+            measurement requests begin only after you accept. You can refuse just as easily as you accept.
+          </p>
+          <p>
+            Once enabled, this service may use analytics cookies and send usage and technical
+            information to Google. Advertising storage, advertising user data and personalised
+            advertising remain disabled in this integration.
+          </p>
+          <p>
+            The page address and referring address sent by this integration exclude query parameters
+            and fragments. The measured link clicks use only the categories documentation, quickstart
+            and contact, with cleaned addresses. Link text, message contents and other form entries
+            are not included in those events.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">5. Your Rights (GDPR)</h2>
-          <p>Under the General Data Protection Regulation (GDPR), you have the right to:</p>
-          <ul class="list-disc list-inside space-y-2 text-gray-400 mt-2">
-            <li>Access your personal data</li>
-            <li>Rectify inaccurate data</li>
-            <li>Request deletion of your data</li>
-            <li>Export your data in a portable format</li>
-            <li>Object to processing</li>
-          </ul>
-          <p class="mt-3">
-            To exercise these rights, contact us at
+          <h2 class="text-xl font-semibold text-white mb-3">3. Your choice</h2>
+          <p>
+            Your acceptance or refusal is remembered locally in this browser for six months.
+            The persistent settings button on every page lets you change that choice or withdraw
+            consent at any time. The same explicit choice controls Google Analytics and Microsoft Clarity.
+            Withdrawal stops both integrations and removes their accessible analytics cookies from this site.
+          </p>
+          <p>
+            This six-month period applies to your saved choice. It does not specify how long
+            Google or Microsoft retains measurement data, and withdrawal does not erase data already sent.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">4. Optional session replays</h2>
+          <p>
+            With your consent, Microsoft Clarity reconstructs visits to this public website from
+            page structure, clicks, scrolling and navigation. These session replays help us find
+            navigation difficulties. They do not record your screen as a video and do not cover
+            the STOA application, portal or console.
+          </p>
+          <p>
+            Forms and their contents are explicitly masked, and the project uses strict masking.
+            Session replay stops as soon as a form field, editable area or embedded form receives
+            focus, and remains off until the next page navigation. Visits with query parameters
+            or fragments in the page or referring address are excluded from replay at startup.
+            We do not send a name, email address or account identifier through Clarity’s identification API.
+            Clarity can use its own pseudonymous cookies to link pages in a visit. Page addresses and
+            technical interaction data can be transmitted to Microsoft; the URL cleanup described
+            for Google Analytics does not apply to Clarity.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">5. Contact information</h2>
+          <p>
+            When you contact us, we use the information you provide to respond to your request.
+            Message contents are not part of the audience-measurement events described above.
+            Any separate signup or account service provides its own information at the point of use.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">6. Questions and requests</h2>
+          <p>
+            For questions about privacy or a request concerning your personal data, contact
+            CAB Ingénierie at
             <a href="mailto:privacy@gostoa.dev" class="text-primary-400 hover:text-primary-300">privacy@gostoa.dev</a>.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-white mb-3">6. Cookies</h2>
-          <p>
-            gostoa.dev does not use tracking cookies. Vercel Analytics is cookie-free.
-            Authentication sessions on portal/console use secure, HTTP-only session cookies strictly necessary for the service.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-white mb-3">7. Contact</h2>
-          <p>
-            For privacy-related questions:
-            <a href="mailto:privacy@gostoa.dev" class="text-primary-400 hover:text-primary-300">privacy@gostoa.dev</a>
-          </p>
-          <p class="mt-2">
-            CAB Ingenierie — France
           </p>
         </section>
       </div>
