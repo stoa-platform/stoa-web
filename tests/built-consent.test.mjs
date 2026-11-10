@@ -32,6 +32,13 @@ test('every generated page has one consent control, both choices and the withdra
     const french = /<html\s+lang="fr"/.test(html);
     assert.ok(html.includes(french ? 'Refuser' : 'Refuse'), path);
     assert.ok(html.includes(french ? 'Accepter' : 'Accept'), path);
+    assert.ok(html.includes(french ? 'Cookies et confidentialité' : 'Cookies and privacy'), path);
+    assert.ok(html.includes(french
+      ? 'Avec votre accord, nous utilisons des cookies pour mesurer les visites et comprendre la navigation afin d’améliorer le site.'
+      : 'With your permission, we use cookies to measure visits and understand navigation so we can improve the site.'), path);
+    assert.match(html, /<details\b[^>]*class="consent-details[^"]*"[^>]*>/, `${path}: native details`);
+    assert.ok(html.includes(french ? 'En savoir plus' : 'Learn more'), path);
+    assert.ok(html.includes('Microsoft Clarity') && html.includes('Google Analytics'), path);
     for (const match of html.matchAll(/<(?:script|link)[^>]+(?:src|href)="(\/_astro\/[^"?#]+)"/g)) {
       await access(join('dist', match[1]));
     }
