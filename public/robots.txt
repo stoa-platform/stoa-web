@@ -14,4 +14,3 @@ Sitemap: https://gostoa.dev/sitemap-index.xml
 
 # Block sensitive paths
 Disallow: /api/
-Disallow: /_astro/

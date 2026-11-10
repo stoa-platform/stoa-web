@@ -1,0 +1,51 @@
+---
+interface Props { lang: 'en' | 'fr'; }
+const { lang } = Astro.props;
+const fr = lang === 'fr';
+const text = fr ? {
+  title: 'Mesure d’audience : à vous de choisir',
+  detail: 'Avec votre accord, Google Analytics mesure les visites et Microsoft Clarity reconstitue les parcours de navigation (clics, défilements et pages) sous forme de replays. Les saisies sont masquées ou exclues des replays. Sans accord, ces deux services restent désactivés.',
+  refuse: 'Refuser', accept: 'Accepter', settings: 'Choix de confidentialité', revoke: 'Retirer mon accord de mesure d’audience',
+  policy: 'En savoir plus', duration: 'Votre choix est conservé six mois sur ce navigateur. Vous pouvez le changer à tout moment.',
+} : {
+  title: 'Audience measurement: your choice',
+  detail: 'With your permission, Google Analytics measures visits and Microsoft Clarity reconstructs browsing activity (clicks, scrolling and pages) as session replays. Form entry is masked or excluded from replays. Without permission, both services stay disabled.',
+  refuse: 'Refuse', accept: 'Accept', settings: 'Privacy choices', revoke: 'Withdraw audience-measurement consent',
+  policy: 'Learn more', duration: 'Your choice is kept for six months in this browser. You can change it at any time.',
+};
+---
+<div data-analytics-consent-root>
+  <section class="consent-panel" id="analytics-consent" data-consent-panel aria-labelledby="analytics-consent-title" hidden>
+    <h2 id="analytics-consent-title">{text.title}</h2>
+    <p>{text.detail}</p>
+    <p><a href={fr ? '/fr/privacy/' : '/privacy/'}>{text.policy}</a></p>
+    <div class="consent-actions">
+      <button type="button" data-consent-refuse>{text.refuse}</button>
+      <button type="button" data-consent-accept>{text.accept}</button>
+    </div>
+    <p class="consent-duration">{text.duration}</p>
+  </section>
+  <div class="consent-tools">
+    <button type="button" data-consent-settings aria-controls="analytics-consent" aria-expanded="false">{text.settings}</button>
+    <button type="button" data-consent-revoke hidden>{text.revoke}</button>
+  </div>
+</div>
+<script>
+  import { mountAnalyticsConsent } from '../scripts/analytics-consent.js';
+  mountAnalyticsConsent();
+</script>
+<style>
+  .consent-panel { position:fixed; z-index:10000; bottom:60px; left:50%; transform:translateX(-50%); width:min(660px,calc(100% - 32px)); max-height:calc(100vh - 90px); overflow:auto; border:1px solid #a6bdc5; border-radius:12px; background:#fff; color:#163040; padding:24px; box-shadow:0 10px 50px #0004; font:14px/1.6 system-ui,sans-serif; }
+  .consent-panel[hidden], .consent-tools [hidden] { display:none; }
+  .consent-panel h2 { font-size:19px; line-height:1.35; font-weight:650; margin:0 0 12px; color:#163040; }
+  .consent-panel p { margin:0 0 12px; }
+  .consent-panel a { color:#175467; text-decoration:underline; text-underline-offset:3px; }
+  .consent-actions { display:flex; gap:12px; margin:18px 0 12px; }
+  .consent-actions button { flex:1; padding:10px 18px; border:1px solid #366879; border-radius:6px; background:#eaf4f6; color:#123644; font:600 14px/1.5 system-ui,sans-serif; cursor:pointer; }
+  .consent-actions button:hover { background:#d6eaf0; }
+  .consent-panel .consent-duration { font-size:12px; color:#4e6673; margin:0; }
+  .consent-tools { display:flex; flex-wrap:wrap; gap:6px; position:fixed; z-index:9999; bottom:12px; left:12px; max-width:calc(100% - 24px); }
+  .consent-tools button { border:1px solid #a4b9c2; border-radius:6px; background:#fff; color:#163040; box-shadow:0 1px 5px #0002; padding:7px 10px; font:12px/1.5 system-ui,sans-serif; cursor:pointer; }
+  .consent-panel button:focus-visible, .consent-panel a:focus-visible, .consent-tools button:focus-visible { outline:3px solid #087c9b; outline-offset:3px; }
+  @media (max-width:480px) { .consent-panel { padding:18px; bottom:85px; max-height:calc(100dvh - 110px); } .consent-tools { gap:4px; } }
+</style>
