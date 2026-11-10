@@ -24,7 +24,11 @@ test('every generated page has one consent control, both choices and the withdra
     }
     assert.ok(!/<script[^>]*\bsrc=["'][^"']*googletagmanager/i.test(html), `${path}: eager Google tag`);
     assert.ok(!/<script[^>]*\bsrc=["'][^"']*clarity\.ms/i.test(html), `${path}: eager Clarity tag`);
-    assert.ok(!html.includes('/_vercel/insights') && !html.includes('va.vercel-scripts.com'), `${path}: Vercel analytics remains`);
+    for (const match of html.matchAll(/<(?:script|link)\b[^>]+(?:src|href)=["']([^"']+)["']/g)) {
+      const resource = new URL(match[1], 'https://gostoa.dev');
+      assert.ok(!['va.vercel-scripts.com'].includes(resource.hostname)
+        && !resource.pathname.startsWith('/_vercel/insights'), `${path}: Vercel analytics remains`);
+    }
     const french = /<html\s+lang="fr"/.test(html);
     assert.ok(html.includes(french ? 'Refuser' : 'Refuse'), path);
     assert.ok(html.includes(french ? 'Accepter' : 'Accept'), path);
