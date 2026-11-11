@@ -54,7 +54,10 @@ function selectStep(index: number) {
     tab.setAttribute('aria-selected', String(i === index));
     tab.tabIndex = i === index ? 0 : -1;
   });
-  panels.forEach((panel, i) => { panel.hidden = i !== index; });
+  panels.forEach((panel, i) => {
+    panel.hidden = i !== index;
+    if (panel.hidden) panel.querySelector('.flow-is-visible')?.classList.remove('flow-is-visible');
+  });
   if (counter) counter.textContent = String(index + 1).padStart(2, '0');
 }
 function scheduleStep() {
@@ -102,6 +105,7 @@ window.addEventListener('pagehide', pauseJourney);
 updateVisibility();
 // A one-off before/after transition; visitors can switch or replay it.
 const comparison = root?.querySelector<HTMLElement>('[data-compare]');
+const comparisonFigure = comparison?.querySelector('[data-flow-animation]');
 let comparisonTimer: number | undefined;
 let comparisonSeen = false;
 function setComparison(mode: 'with' | 'without') {
@@ -127,13 +131,22 @@ window.addEventListener('pagehide', () => window.clearTimeout(comparisonTimer));
 if (root && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
+      if (entry.target.hasAttribute('data-flow-animation')) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('flow-is-visible');
+        observer.unobserve(entry.target);
+        if (entry.target === comparisonFigure && !comparisonSeen) {
+          comparisonSeen = true;
+          if (!reducedMotion.matches) replayComparison();
+        }
+        return;
+      }
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        if (entry.target.classList.contains('hero-in-motion') && !comparisonSeen) { comparisonSeen = true; if (!reducedMotion.matches) replayComparison(); }
       }
       else if (entry.target.classList.contains('hero-in-motion')) entry.target.classList.remove('is-visible');
       if (entry.target === journey && !entry.isIntersecting) pauseJourney();
     });
   }, { threshold: 0.08 });
-  root.querySelectorAll('.hero-in-motion, .motion-reveal').forEach(section => observer.observe(section));
+  root.querySelectorAll('.hero-in-motion, .motion-reveal, [data-flow-animation]').forEach(section => observer.observe(section));
 } else root?.querySelectorAll('.hero-in-motion, .motion-reveal').forEach(section => section.classList.add('is-visible'));
