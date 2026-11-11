@@ -1,4 +1,5 @@
 ---
+import FooterSocialLinks from './FooterSocialLinks.astro';
 import { getLangFromUrl, useTranslations, getLocalizedHref } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -41,5 +42,6 @@ const t = useTranslations(lang);
   </div>
   <div class="footer-bottom">
     <span set:html={t('footer.copyright')} />
+    <FooterSocialLinks lang={lang} />
   </div>
 </footer>

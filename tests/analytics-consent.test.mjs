@@ -84,6 +84,80 @@ test('a grant loads one tag then sends one cleaned page and no advertising conse
   assert.ok(!JSON.stringify(commands).includes('private-'));
 });
 
+test('social UTM attribution is limited to the approved campaign fields after consent', () => {
+  const href = 'https://gostoa.dev/fr/?utm_source=linkedin&utm_medium=social&utm_campaign=stoa&utm_content=company_profile&private_query=private-value#private-fragment';
+  const h = harness({ href, clarityId: 'testproject123' });
+  assert.equal(h.nodes.length, 0);
+  h.controller.choose('accepted');
+  assert.equal(h.nodes.length, 1, 'Clarity still skips a URL with query or fragment values');
+  h.nodes[0].onload();
+
+  const commands = h.commands();
+  const configIndex = commands.findIndex(c => c[0] === 'config');
+  const pageViewIndex = commands.findIndex(c => c[0] === 'event' && c[1] === 'page_view');
+  assert.ok(configIndex >= 0 && configIndex < pageViewIndex);
+  const config = commands[configIndex][2];
+  assert.equal(config.campaign_source, 'linkedin');
+  assert.equal(config.campaign_medium, 'social');
+  assert.equal(config.campaign_name, 'stoa');
+  assert.equal(config.campaign_content, 'company_profile');
+  assert.equal(config.page_location, 'https://gostoa.dev/fr/');
+  assert.equal(config.page_referrer, 'https://example.com/source');
+  assert.ok(!JSON.stringify(commands).includes('private-'));
+
+  const noContent = harness({ href: 'https://gostoa.dev/?utm_source=x&utm_medium=social&utm_campaign=stoa&utm_content=private-value', saved: consent('accepted') });
+  noContent.nodes[0].onload();
+  const noContentConfig = noContent.commands().find(c => c[0] === 'config')[2];
+  assert.equal(noContentConfig.campaign_source, 'x');
+  assert.equal(noContentConfig.campaign_content, undefined);
+  assert.ok(!JSON.stringify(noContent.commands()).includes('private-'));
+
+  for (const query of [
+    'utm_source=private-value&utm_medium=social&utm_campaign=stoa',
+    'utm_source=linkedin&utm_medium=email&utm_campaign=stoa',
+    'utm_source=linkedin&utm_medium=social&utm_campaign=private-value',
+    'utm_source=linkedin&utm_source=x&utm_medium=social&utm_campaign=stoa',
+    'utm_source=linkedin&utm_campaign=stoa',
+  ]) {
+    const invalid = harness({ href: 'https://gostoa.dev/?' + query, saved: consent('accepted') });
+    invalid.nodes[0].onload();
+    const config = invalid.commands().find(c => c[0] === 'config')[2];
+    assert.ok(Object.keys(config).every(key => !key.startsWith('campaign_')));
+    assert.ok(!JSON.stringify(invalid.commands()).includes('private-'));
+  }
+});
+
+test('only exact approved social destinations produce a value-free click after consent', () => {
+  const destinations = [
+    'https://www.linkedin.com/company/10041472/',
+    'https://www.linkedin.com/in/christophe-aboulicam/',
+    'https://x.com/caboulicam',
+  ];
+  const h = harness();
+  destinations.forEach(h.controller.click);
+  assert.equal(h.commands().length, 0);
+  h.controller.choose('accepted');
+  destinations.forEach(h.controller.click);
+  assert.ok(!h.commands().some(c => c[0] === 'event'));
+  h.nodes[0].onload();
+  destinations.forEach(h.controller.click);
+  [
+    destinations[0] + '?private=private-value',
+    'https://www.linkedin.com/company/another-company/',
+    'https://x.com/caboulicam/status/123',
+    'https://x.com.evil.example/caboulicam',
+  ].forEach(h.controller.click);
+  const events = h.commands().filter(c => c[0] === 'event' && c[1] !== 'page_view');
+  assert.deepEqual(events.map(c => c[1]), ['social_linkedin_company_click', 'social_linkedin_profile_click', 'social_x_profile_click']);
+  assert.deepEqual(events.map(c => c[2].link_category), ['linkedin_company', 'linkedin_profile', 'x_profile']);
+  assert.ok(events.every(c => !('link_url' in c[2]) && !('link_text' in c[2])));
+  assert.ok(destinations.every(href => !JSON.stringify(events).includes(href)));
+  assert.ok(!JSON.stringify(events).includes('private-'));
+  h.controller.revoke();
+  destinations.forEach(h.controller.click);
+  assert.equal(h.commands().length, 0);
+});
+
 test('persisted choices remain independent and are limited to six calendar months', () => {
   const h = harness({ saved: consent('accepted') });
   assert.equal(h.nodes.length, 1);

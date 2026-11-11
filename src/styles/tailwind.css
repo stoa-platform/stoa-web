@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (prefers-reduced-motion: no-preference) {
+  .header .logo:is(:hover, :focus-visible) > img,
+  .nav .nav-logo:is(:hover, :focus-visible) > svg {
+    animation: stoa-logo-tilt 520ms ease-in-out;
+  }
+}
+
+@keyframes stoa-logo-tilt {
+  45% {
+    filter: drop-shadow(0 0 5px #34d39988);
+    transform: rotate(-9deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(3deg) scale(1.03);
+  }
+}

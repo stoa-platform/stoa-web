@@ -56,3 +56,31 @@
 [data-mode=with] .wires-before,[data-mode=with] .shared-key{opacity:0}[data-mode=with] .shared-key{transform:translateY(-10px)}[data-mode=with] .wires-after{opacity:1}[data-mode=with] .wires-after path{stroke-dashoffset:0}[data-mode=with] .compare-gate{opacity:1;transform:scale(1)}[data-mode=with] .compare-approved,[data-mode=with] .compare-denied{opacity:1}[data-mode=with] .node-orders rect{fill:#064e3b;stroke:#34d399}[data-mode=with] .node-orders text{fill:#d1fae5}[data-mode=with] .node-customer rect{stroke:#c89764}[data-mode=with] .node-other{opacity:.55}.compare-caption{border-top:1px solid #286d5580;padding:15px 3px 0;min-height:89px}.compare-caption strong{font-size:14px;font-weight:550;color:#d1fae5}.compare-caption p{font-size:12px;line-height:1.65;color:#91b4a2;margin:7px 0 0}.compare-caption [hidden]{display:none}.compare-legend{display:flex;gap:18px;font-size:10px;margin-top:12px;opacity:0;transition:opacity .5s}.compare-legend span::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:6px;background:#34d399}.compare-legend .legend-write::before{background:#dba263}.compare-legend .legend-read{color:#a7f3d0}.compare-legend .legend-write{color:#d5ae82}[data-mode=with] .compare-legend{opacity:1}.compare-footnote{font:8px/1.6 var(--mono);color:#668e79;margin:12px 0 0}
 @media(max-width:760px){.compare-scene{padding:16px}.compare-switch button{font-size:11px;padding:10px 9px}.compare-replay{font-size:9px;padding:7px 0}.compare-node text{font-size:21px}.compare-caption{min-height:101px;padding-top:13px}.compare-caption strong{font-size:13px}.compare-caption p{font-size:12px}.compare-legend{font-size:9px;gap:13px}.compare-footnote{font-size:7px}}
 @media(prefers-reduced-motion:reduce){.compare-scene *{transition:none!important;animation:none!important}}
+
+@media (prefers-reduced-motion: no-preference) {
+  .architecture.is-visible .data-flow > span {
+    animation: architecture-trace 620ms ease-in-out 600ms;
+  }
+
+  .architecture.is-visible .data-flow > span:last-of-type {
+    animation-delay: 1450ms;
+  }
+
+  .architecture.is-visible .data-node.current {
+    animation: architecture-gateway 620ms ease-in-out 1000ms;
+  }
+}
+
+@keyframes architecture-trace {
+  50% {
+    color: var(--brand-soft);
+    text-shadow: 0 0 9px #34d39988;
+    transform: translateX(2px);
+  }
+}
+
+@keyframes architecture-gateway {
+  50% {
+    box-shadow: 0 0 0 2px #34d39966, 0 0 24px #34d39966;
+  }
+}
