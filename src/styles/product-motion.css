@@ -57,30 +57,164 @@
 @media(max-width:760px){.compare-scene{padding:16px}.compare-switch button{font-size:11px;padding:10px 9px}.compare-replay{font-size:9px;padding:7px 0}.compare-node text{font-size:21px}.compare-caption{min-height:101px;padding-top:13px}.compare-caption strong{font-size:13px}.compare-caption p{font-size:12px}.compare-legend{font-size:9px;gap:13px}.compare-footnote{font-size:7px}}
 @media(prefers-reduced-motion:reduce){.compare-scene *{transition:none!important;animation:none!important}}
 
+/* Each illustration marks its own flow once when it enters the viewport. */
+.compare-signals {
+  pointer-events: none;
+}
+
+.compare-signals path {
+  opacity: 0;
+  stroke: var(--brand-soft);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 14 100;
+}
+
+.compare-signals .signal-direct,
+.compare-signals .signal-blocked {
+  stroke: #e9ba88;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .architecture.is-visible .data-flow > span {
-    animation: architecture-trace 620ms ease-in-out 600ms;
+  [data-mode="without"] .flow-is-visible .signal-direct,
+  [data-mode="with"] .flow-is-visible .signal-inbound,
+  [data-mode="with"] .flow-is-visible .signal-allowed,
+  [data-mode="with"] .flow-is-visible .signal-blocked {
+    animation: compare-signal 620ms linear 160ms;
   }
 
-  .architecture.is-visible .data-flow > span:last-of-type {
-    animation-delay: 1450ms;
+  [data-mode="without"] .flow-is-visible .signal-extra,
+  [data-mode="with"] .flow-is-visible .signal-inbound {
+    animation-delay: 360ms;
   }
 
-  .architecture.is-visible .data-node.current {
-    animation: architecture-gateway 620ms ease-in-out 1000ms;
+  [data-mode="with"] .flow-is-visible .signal-allowed,
+  [data-mode="with"] .flow-is-visible .signal-blocked {
+    animation-delay: 920ms;
+  }
+
+  .arch-visual .data-flow > span,
+  .gate-graphic span,
+  .problem-connection {
+    position: relative;
+  }
+
+  .arch-visual .data-flow > span::after,
+  .arch-visual .control-plane::before,
+  .gate-graphic span::after,
+  .problem-connection::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--brand-soft);
+    box-shadow: 0 0 6px currentColor;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .arch-visual .data-flow > span::after,
+  .gate-graphic span::after {
+    top: calc(50% - 1px);
+    left: 0;
+  }
+
+  .arch-visual .control-plane::before,
+  .problem-connection::after {
+    width: 3px;
+    height: 5px;
+  }
+
+  .arch-visual .control-plane::before {
+    bottom: -6px;
+    left: calc(50% - 1px);
+    --flow-distance: 20px;
+  }
+
+  .problem-connection::after {
+    top: 0;
+    left: -2px;
+    background: #e9ba88;
+    --flow-distance: 15px;
+  }
+
+  .flow-is-visible .control-plane::before,
+  .flow-is-visible .problem-connection::after {
+    animation: vertical-signal 520ms ease-in-out 120ms;
+  }
+
+  .flow-is-visible .data-flow > span::after,
+  .flow-is-visible .gate-graphic span::after {
+    animation: horizontal-signal 520ms ease-in-out 250ms;
+  }
+
+  .flow-is-visible .data-flow > span:last-of-type::after,
+  .flow-is-visible .gate-graphic span:last-of-type::after {
+    animation-delay: 880ms;
+  }
+
+  .flow-is-visible .data-node.current,
+  .flow-is-visible .gate-graphic i:nth-of-type(2),
+  .flow-is-visible .broad-access {
+    animation: flow-emphasis 480ms ease-in-out 650ms;
+  }
+
+  .flow-is-visible .mini-stack i,
+  .flow-is-visible .policy-tick,
+  .flow-is-visible .trace-timeline b {
+    animation: flow-emphasis 450ms ease-in-out var(--flow-delay, 120ms);
+  }
+
+  .mini-stack i:nth-child(2) { --flow-delay: 250ms; }
+  .mini-stack i:nth-child(3) { --flow-delay: 380ms; }
+
+  .flow-is-visible .trace-graphic i {
+    transform-origin: center bottom;
+    animation: trace-bar 420ms ease-out var(--flow-delay, 120ms) backwards;
+  }
+
+  .trace-graphic i:nth-child(2) { --flow-delay: 190ms; }
+  .trace-graphic i:nth-child(3) { --flow-delay: 260ms; }
+  .trace-graphic i:nth-child(4) { --flow-delay: 330ms; }
+  .trace-graphic i:nth-child(5) { --flow-delay: 400ms; }
+  .trace-graphic i:nth-child(6) { --flow-delay: 470ms; }
+
+  .flow-is-visible .policy-decision,
+  .flow-is-visible .trace-verdict {
+    animation: flow-emphasis 480ms ease-in-out 570ms;
+  }
+
+  .flow-is-visible .outcome-symbol {
+    animation: flow-emphasis 480ms ease-in-out 180ms;
+  }
+
+  .customer-outcome,
+  .outcome-symbol {
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
   }
 }
 
-@keyframes architecture-trace {
-  50% {
-    color: var(--brand-soft);
-    text-shadow: 0 0 9px #34d39988;
-    transform: translateX(2px);
-  }
+@keyframes compare-signal {
+  from { stroke-dashoffset: 14; }
+  20%, 70% { opacity: .88; }
+  to { stroke-dashoffset: -100; }
 }
 
-@keyframes architecture-gateway {
-  50% {
-    box-shadow: 0 0 0 2px #34d39966, 0 0 24px #34d39966;
-  }
+@keyframes horizontal-signal {
+  20%, 70% { opacity: .9; }
+  to { transform: translateX(10px); }
+}
+
+@keyframes vertical-signal {
+  20%, 70% { opacity: .9; }
+  to { transform: translateY(var(--flow-distance)); }
+}
+
+@keyframes flow-emphasis {
+  50% { filter: brightness(1.26); }
+}
+
+@keyframes trace-bar {
+  from { transform: scaleY(.72); opacity: .7; }
 }
