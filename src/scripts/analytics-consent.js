@@ -1,3 +1,5 @@
+import { SOCIAL_LINKS } from './social-links.js';
+
 // Neither analytics library loads before the explicit Google + Clarity choice.
 export const GA_ID = 'G-8PL054C7RH';
 export const CLARITY_ID = 'zbgxdbg9n9';
@@ -34,9 +36,26 @@ export function cleanUrl(value, base) {
   } catch { return ''; }
 }
 
+function socialCampaign(href) {
+  const params = new URL(href).searchParams;
+  const unique = name => {
+    const values = params.getAll(name);
+    return values.length === 1 ? values[0] : null;
+  };
+  const source = unique('utm_source');
+  if (!['linkedin', 'x'].includes(source) || unique('utm_medium') !== 'social' || unique('utm_campaign') !== 'stoa') return {};
+
+  const content = unique('utm_content');
+  const campaign = { campaign_source: source, campaign_medium: 'social', campaign_name: 'stoa' };
+  if (['company_profile', 'personal_profile', 'post'].includes(content)) campaign.campaign_content = content;
+  return campaign;
+}
+
 export function linkCategory(value, base) {
   try {
     const url = new URL(value, base);
+    const social = SOCIAL_LINKS.find(link => link.href === url.href);
+    if (social) return social.category;
     const path = url.pathname.replace(/\/$/, '');
     if (url.hostname === 'docs.gostoa.dev') {
       return /\/(?:docs\/)?guides\/quickstart(?:\/|$)/.test(path) ? 'quickstart' : 'docs';
@@ -219,6 +238,7 @@ export function createAnalyticsConsent({ window: win, document: doc, now = Date.
         cookie_expires: 15_811_200,
         cookie_update: false,
         ...context(),
+        ...socialCampaign(win.location.href),
       });
       ready = true;
       pageView();
@@ -257,7 +277,10 @@ export function createAnalyticsConsent({ window: win, document: doc, now = Date.
   function click(href) {
     if (!allowed() || !ready) return;
     const category = linkCategory(href, win.location.href);
-    if (category) win.gtag('event', 'navigation_click', { link_category: category, ...context() });
+    if (!category) return;
+    const isSocial = SOCIAL_LINKS.some(link => link.category === category);
+    const eventName = isSocial ? `social_${category}_click` : 'navigation_click';
+    win.gtag('event', eventName, { link_category: category, ...context() });
   }
 
   // Registered before either SDK; a sensitive focus prevents resuming until navigation.
