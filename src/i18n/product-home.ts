@@ -12,8 +12,8 @@ export const productHomeLinks = {
 export const productHome = {
   fr: {
     meta: {
-      title: 'STOA — La plateforme pour vos API et agents IA',
-      description: 'STOA relie vos API à vos équipes et aux agents IA. Découvrez la console, la gouvernance des accès et l’observabilité.',
+      title: 'STOA — Passerelle MCP open source pour vos API',
+      description: 'Exposez vos API aux agents IA avec un contrôle des accès explicite et la traçabilité des appels. Évaluez STOA grâce au guide de démarrage.',
     },
     nav: {
       label: 'Navigation principale',
@@ -170,8 +170,8 @@ export const productHome = {
   },
   en: {
     meta: {
-      title: 'STOA — The platform for your APIs and AI agents',
-      description: 'STOA connects your APIs to your teams and AI agents. Explore the console, access governance and observability.',
+      title: 'STOA — Open-source MCP gateway for your APIs',
+      description: 'Expose your APIs to AI agents with explicit access control and call traceability. Evaluate STOA with the guided quickstart.',
     },
     nav: {
       label: 'Main navigation',
