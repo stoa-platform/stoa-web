@@ -36,7 +36,7 @@ const t = useTranslations(lang);
     <div class="footer-col">
       <h4>{t('footer.company')}</h4>
       <a href="https://docs.gostoa.dev/docs/enterprise/use-cases">{t('footer.company.enterprise')}</a>
-      <a href="/demo">{t('footer.company.demo')}</a>
+      <a href={getLocalizedHref(lang, '/demo/')}>{t('footer.company.demo')}</a>
       <a href="https://docs.gostoa.dev/docs/community/faq">{t('footer.company.faq')}</a>
     </div>
   </div>
