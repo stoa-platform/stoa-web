@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, getLocalizedHref } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -37,7 +37,7 @@ const plans = [
       t('pricing.enterprise.feature7'),
     ],
     cta: t('pricing.enterprise.cta'),
-    ctaLink: '/demo',
+    ctaLink: getLocalizedHref(lang, '/demo/'),
     highlight: true,
     badge: t('pricing.enterprise.badge'),
   },
@@ -55,13 +55,13 @@ const plans = [
       t('pricing.sovereign.feature6'),
     ],
     cta: t('pricing.sovereign.cta'),
-    ctaLink: '/demo',
+    ctaLink: getLocalizedHref(lang, '/demo/'),
     highlight: false,
     badge: t('pricing.sovereign.badge'),
   },
 ];
 
-const faqPath = lang === 'fr' ? '/fr/pricing#faq' : '/pricing#faq';
+const faqPath = getLocalizedHref(lang, '/pricing/') + '#faq';
 ---
 
 <section class="pricing-section" id="pricing">
