@@ -65,13 +65,19 @@ const videoJson = JSON.stringify(t.schema).replace(/</g, '\\u003c');
     video.controls = false;
     play.hidden = false;
     play.addEventListener('click', () => {
+      const language = document.documentElement.lang;
+      video.addEventListener('playing', () => {
+        for (const track of video.textTracks) {
+          track.mode = track.language === language ? 'showing' : 'disabled';
+        }
+      }, { once: true });
       play.hidden = true;
       video.controls = true;
       void video.play().catch(() => {
         // Leave the native controls available to retry playback.
       });
       video.focus({ preventScroll: true });
-    });
+    }, { once: true });
   }
 </script>
 
