@@ -57,6 +57,14 @@ export function linkCategory(value, base) {
     const social = SOCIAL_LINKS.find(link => link.href === url.href);
     if (social) return social.category;
     const path = url.pathname.replace(/\/$/, '');
+    if (url.origin === 'https://learn.gostoa.dev') {
+      const page = cleanUrl(base).replace(/\/$/, '');
+      const french = page === 'https://gostoa.dev/fr/tutorials/expose-rest-as-mcp'
+        && path === '/cours/exposer-api-rest-en-mcp';
+      const english = page === 'https://gostoa.dev/tutorials/expose-rest-as-mcp'
+        && path === '/en/courses/expose-rest-api-as-mcp';
+      return french || english ? 'tutorial_learn' : null;
+    }
     if (url.hostname === 'docs.gostoa.dev') {
       return /\/(?:docs\/)?guides\/quickstart(?:\/|$)/.test(path) ? 'quickstart' : 'docs';
     }

@@ -329,3 +329,38 @@ test('sensitive focus stops Clarity and the controller does not reload it in thi
   assert.equal(h.win[`ga-disable-${GA_ID}`], false);
   assert.equal(h.reloads(), 0, 'do not interrupt the form');
 });
+
+test('the two tutorial links to STOA Learn are measured only after consent and from their source page', () => {
+  const root = 'https://gostoa.dev';
+  const tutorialPath = '/tutorials/expose-rest-as-mcp/';
+  const frLesson = 'https://learn.gostoa.dev/cours/exposer-api-rest-en-mcp';
+  const enLesson = 'https://learn.gostoa.dev/en/courses/expose-rest-api-as-mcp';
+
+  for (const [prefix, lesson, otherLesson] of [['/fr', frLesson, enLesson], ['', enLesson, frLesson]]) {
+    const source = root + prefix + tutorialPath;
+    const h = harness({ href: source + '?private_query=private-value#private-fragment' });
+    const events = () => h.commands().filter(c => c[1] === 'navigation_click');
+    h.controller.click(lesson);
+    assert.equal(events().length, 0);
+    h.controller.choose('refused');
+    h.controller.click(lesson);
+    assert.equal(events().length, 0);
+    h.controller.choose('accepted');
+    h.nodes[0].onload();
+
+    h.controller.click(otherLesson);
+    h.controller.click('https://learn.gostoa.dev/');
+    h.controller.click('https://learn.gostoa.dev.evil.test/en/courses/expose-rest-api-as-mcp');
+    h.controller.click(lesson + '/?another=private-destination#private-fragment');
+    assert.equal(events().length, 1);
+    assert.equal(events()[0][2].link_category, 'tutorial_learn');
+    assert.equal(events()[0][2].page_location, source);
+    assert.ok(!JSON.stringify(events()).includes('private-'));
+
+    h.controller.revoke();
+    h.controller.click(lesson);
+    assert.equal(events().length, 0);
+    assert.equal(linkCategory(lesson, root + '/'), null);
+    assert.equal(linkCategory(lesson, source.replace('gostoa.dev', 'other.test')), null);
+  }
+});
