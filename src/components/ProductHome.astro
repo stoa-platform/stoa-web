@@ -10,12 +10,22 @@ const { lang } = Astro.props;
 const t = productHome[lang];
 const c = productJourney[lang];
 const languageHref = lang === 'fr' ? '/' : '/fr/';
+const learnHref = links.learn[lang];
 const languageLabel = lang === 'fr' ? 'Switch to English' : 'Passer en français';
 ---
 <a class="skip-link" href="#main">{lang === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
 <header class="header"><div class="wrap nav">
   <a class="logo" href="#accueil" aria-label={t.nav.logoLabel}><img src="/favicon.svg" alt="" width="32" height="32" /><span>STOA</span></a>
-  <nav class="nav-links" id="navigation" aria-label={t.nav.label}><a href="#produit">{t.nav.product}</a><a href="#fonctionnalites">{t.nav.features}</a><a href="#architecture">{t.nav.architecture}</a><a href="#ressources">{t.nav.resources}</a><a href={getLocalizedHref(lang, "/demo/")}>{t.nav.demo}</a><a href={getLocalizedHref(lang, "/pricing/")}>{t.nav.pricing}</a><a class="nav-doc-mobile" href={links.docs}>{t.nav.docs} ↗</a></nav>
+  <nav class="nav-links" id="navigation" aria-label={t.nav.label}>
+    <a href="#produit">{t.nav.product}</a>
+    <a href="#fonctionnalites">{t.nav.features}</a>
+    <a href="#architecture">{t.nav.architecture}</a>
+    <a href="#ressources">{t.nav.resources}</a>
+    <a href={learnHref} hreflang={lang}>STOA Learn</a>
+    <a href={getLocalizedHref(lang, "/demo/")}>{t.nav.demo}</a>
+    <a href={getLocalizedHref(lang, "/pricing/")}>{t.nav.pricing}</a>
+    <a class="nav-doc-mobile" href={links.docs}>{t.nav.docs} ↗</a>
+  </nav>
   <div class="nav-right"><a class="nav-source" href={links.github} target="_blank" rel="noopener noreferrer">{t.nav.github} ↗</a><a class="language-link" href={languageHref} aria-label={languageLabel}>{lang === 'fr' ? 'EN' : 'FR'}</a><a class="button small" href={links.docs}>{t.nav.docs} ↗</a><button class="menu-button" aria-expanded="false" aria-controls="navigation">{t.nav.menu} ☰</button></div>
 </div></header>
 <main id="main">
@@ -38,6 +48,7 @@ const languageLabel = lang === 'fr' ? 'Switch to English' : 'Passer en français
       <div class="footer-links">
         <a href="#produit">{t.footer.product}</a>
         <a href={links.docs}>{t.footer.docs} ↗</a>
+        <a href={learnHref} hreflang={lang}>STOA Learn <span aria-hidden="true">↗</span></a>
         <a href={links.github} target="_blank" rel="noopener noreferrer">{t.footer.github} ↗</a>
       </div>
     </div>
