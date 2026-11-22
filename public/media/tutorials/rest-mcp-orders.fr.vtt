@@ -1,0 +1,21 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.000
+Une API de commandes synthétique
+est exposée comme outils MCP.
+
+00:00:05.000 --> 00:00:09.000
+Le lecteur peut lister les commandes.
+L’API reçoit un GET.
+
+00:00:09.000 --> 00:00:13.000
+Son écriture est refusée par la passerelle.
+Le nombre de POST reste à zéro.
+
+00:00:13.000 --> 00:00:17.000
+Le rédacteur peut créer une commande.
+Le compteur de POST passe à un.
+
+00:00:17.000 --> 00:00:21.000
+Les trois résultats et les compteurs
+sont vérifiés par les assertions.

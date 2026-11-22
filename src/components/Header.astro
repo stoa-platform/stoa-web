@@ -1,6 +1,11 @@
 ---
 import { getLangFromUrl, useTranslations, getAlternateUrl, getLocalizedHref, languages } from '../i18n/utils';
 
+interface Props {
+  featuresHref?: string;
+}
+
+const { featuresHref = '#features' } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -18,7 +23,7 @@ const t = useTranslations(lang);
       <span>STOA</span>
     </a>
     <div class="nav-links">
-      <a href="#features">{t('header.features')}</a>
+      <a href={featuresHref}>{t('header.features')}</a>
       <a href="https://docs.gostoa.dev" target="_blank" rel="noopener">{t('header.docs')}</a>
       <a href="https://docs.gostoa.dev/docs/enterprise/use-cases" target="_blank" rel="noopener">{t('header.enterprise')}</a>
       <a href={getLocalizedHref(lang, '/pricing/')}>{t('header.pricing')}</a>
@@ -39,7 +44,7 @@ const t = useTranslations(lang);
 
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-inner">
-    <a href="#features">{t('header.features')}</a>
+    <a href={featuresHref}>{t('header.features')}</a>
     <a href="https://docs.gostoa.dev" target="_blank" rel="noopener">{t('header.docs')}</a>
     <a href="https://docs.gostoa.dev/docs/enterprise/use-cases" target="_blank" rel="noopener">{t('header.enterprise')}</a>
     <a href={getLocalizedHref(lang, '/pricing/')}>{t('header.pricing')}</a>

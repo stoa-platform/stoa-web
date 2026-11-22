@@ -1,0 +1,21 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.000
+A synthetic order API is exposed
+as MCP tools.
+
+00:00:05.000 --> 00:00:09.000
+The reader can list orders.
+The API receives one GET.
+
+00:00:09.000 --> 00:00:13.000
+The gateway rejects the reader’s write.
+The POST count stays at zero.
+
+00:00:13.000 --> 00:00:17.000
+The writer can create an order.
+The POST count goes up to one.
+
+00:00:17.000 --> 00:00:21.000
+The assertions verify all three
+results and the API counters.

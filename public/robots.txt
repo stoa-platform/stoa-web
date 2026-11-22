@@ -11,6 +11,7 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://gostoa.dev/sitemap-index.xml
+Sitemap: https://gostoa.dev/sitemap-video.xml
 
 # Block sensitive paths
 Disallow: /api/
