@@ -3,6 +3,7 @@ export const productHomeLinks = {
   cab: 'https://cab-ingenierie.com/',
   labs: 'https://cab-ingenierie.com/labs',
   docs: 'https://docs.gostoa.dev/',
+  learn: { fr: 'https://learn.gostoa.dev/', en: 'https://learn.gostoa.dev/en' },
   quickstart: 'https://docs.gostoa.dev/docs/guides/quickstart',
   architecture: 'https://docs.gostoa.dev/docs/concepts/architecture',
   apiReference: 'https://docs.gostoa.dev/docs/api/control-plane',
