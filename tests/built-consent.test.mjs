@@ -15,7 +15,7 @@ async function htmlFiles(directory) {
 
 test('every generated page has one consent control, both choices and the withdrawal control', async () => {
   const pages = await htmlFiles('dist');
-  assert.equal(pages.length, 11);
+  assert.equal(pages.length, 13);
   for (const path of pages) {
     const html = await readFile(path, 'utf8');
     assert.equal((html.match(/data-analytics-consent-root/g) || []).length, 1, path);
@@ -67,4 +67,35 @@ test('the generated robots allows the assets while retaining the API restriction
   assert.ok(!/^Disallow:\s*\/_astro\//m.test(robots));
   assert.match(robots, /^Disallow:\s*\/api\//m);
   assert.match(robots, /^Sitemap:\s*https:\/\/gostoa\.dev\/sitemap-index\.xml/m);
+});
+
+test('both tutorial pages and their video can be discovered from the homepages and sitemaps', async () => {
+  const site = 'https://gostoa.dev';
+  const video = '/media/tutorials/rest-mcp-orders.mp4';
+  const normalSitemap = await readFile('dist/sitemap-0.xml', 'utf8');
+  const videoSitemap = await readFile('dist/sitemap-video.xml', 'utf8');
+  const robots = await readFile('dist/robots.txt', 'utf8');
+  assert.ok(robots.includes(`Sitemap: ${site}/sitemap-video.xml`));
+
+  for (const [language, prefix] of [['en', ''], ['fr', '/fr']]) {
+    const path = `${prefix}/tutorials/expose-rest-as-mcp/`;
+    const home = await readFile(`dist${prefix}/index.html`, 'utf8');
+    const page = await readFile(`dist${path}index.html`, 'utf8');
+    assert.ok(home.includes(`href="${path}"`));
+    assert.ok(page.includes(`<link rel="canonical" href="${site}${path}">`));
+    assert.ok(page.includes('id="sovereignty"'));
+    assert.match(page, /<video\b[^>]*preload="none"/);
+    assert.doesNotMatch(page, /<video\b[^>]*\bautoplay\b/);
+    assert.match(page, new RegExp(`<track\\b[^>]*srclang="${language}"[^>]*\\bdefault\\b`));
+    const schema = [...page.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)]
+      .map(match => JSON.parse(match[1])).find(object => object['@type'] === 'VideoObject');
+    assert.equal(schema?.contentUrl, site + video);
+    assert.equal(schema?.duration, 'PT21S');
+    assert.equal(schema?.inLanguage, language);
+    assert.ok(normalSitemap.includes(`<loc>${site}${path}</loc>`));
+    assert.ok(videoSitemap.includes(`<loc>${site}${path}</loc>`));
+    assert.ok(videoSitemap.includes(`<video:content_loc>${site}${video}</video:content_loc>`));
+    await access(`dist/media/tutorials/rest-mcp-orders.${language}.vtt`);
+  }
+  await access('dist' + video);
 });
