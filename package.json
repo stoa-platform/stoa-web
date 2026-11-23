@@ -9,7 +9,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "test:consent": "node --test tests/analytics-consent.test.mjs",
-    "test:consent-build": "node --test tests/built-consent.test.mjs"
+    "test:consent-build": "node --test tests/built-consent.test.mjs",
+    "test:short-links": "node --test tests/short-links.test.mjs",
+    "test:short-links-build": "node --test tests/built-short-links.test.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",

@@ -1,0 +1,34 @@
+---
+import { SHORT_LINK_SLUGS, SHORT_LINK_TARGET } from '../../data/short-links.js';
+
+export function getStaticPaths() {
+  return SHORT_LINK_SLUGS.map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+---
+
+<!doctype html>
+<html lang="en" data-short-link={slug}>
+  <head>
+    <meta charset="UTF-8" />
+    {/* Origin only: GitHub sees gostoa.dev as the referrer, never the path or query string. */}
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Redirecting to STOA on GitHub</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {/* Without scripting the page redirects at once; with scripting the script below decides when. */}
+    <noscript><meta http-equiv="refresh" content={`0; url=${SHORT_LINK_TARGET}`} /></noscript>
+    <script>
+      import { mountShortLink } from '../../scripts/short-link.js';
+      mountShortLink();
+    </script>
+  </head>
+  <body style="margin:0; padding:20vh 24px; text-align:center; font:16px/1.5 system-ui,sans-serif">
+    <main>
+      <p>Redirecting to STOA on GitHub...</p>
+      <p><a href={SHORT_LINK_TARGET}>{SHORT_LINK_TARGET}</a></p>
+    </main>
+  </body>
+</html>

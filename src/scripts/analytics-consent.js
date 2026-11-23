@@ -78,6 +78,46 @@ export function linkCategory(value, base) {
   } catch { return null; }
 }
 
+// The Google setup below is shared with the /r/ short-link redirect (short-link.js),
+// so both send the same consent state and configuration.
+export function isProductionHost(location) {
+  return location.protocol === 'https:' && ['gostoa.dev', 'www.gostoa.dev'].includes(location.hostname);
+}
+
+export function queueConsentDefaults(win) {
+  win.dataLayer = [];
+  win.gtag = function () { win.dataLayer.push(arguments); };
+  win.gtag('consent', 'default', { ...DENIED });
+}
+
+export function googleTag(doc) {
+  const node = doc.createElement('script');
+  node.async = true;
+  node.referrerPolicy = 'origin';
+  node.id = 'stoa-google-analytics';
+  node.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  return node;
+}
+
+export function configureGoogle(win, timestamp, values) {
+  win.gtag('consent', 'update', { ...DENIED, analytics_storage: 'granted' });
+  win.gtag('set', 'ads_data_redaction', true);
+  win.gtag('set', 'url_passthrough', false);
+  win.gtag('js', new Date(timestamp));
+  win.gtag('config', GA_ID, {
+    send_page_view: false,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false,
+    cookie_expires: 15_811_200,
+    cookie_update: false,
+    ...values,
+  });
+}
+
+export function pageContext(location, referrer, title) {
+  return { site_section: 'marketing', page_location: location, page_referrer: referrer, page_title: title };
+}
+
 export function createAnalyticsConsent({ window: win, document: doc, now = Date.now, onState = () => {}, clarityId = CLARITY_ID }) {
   let memory = null;
   let memoryOnly = false;
@@ -94,12 +134,6 @@ export function createAnalyticsConsent({ window: win, document: doc, now = Date.
     if (memoryOnly) return parseConsent(JSON.stringify(memory), now());
     try { return parseConsent(win.localStorage.getItem(CONSENT_KEY), now()); }
     catch { return parseConsent(JSON.stringify(memory), now()); }
-  }
-
-  function queueDefaults() {
-    win.dataLayer = [];
-    win.gtag = function () { win.dataLayer.push(arguments); };
-    win.gtag('consent', 'default', { ...DENIED });
   }
 
   function removeCookies(clarityOnly = false) {
@@ -152,12 +186,7 @@ export function createAnalyticsConsent({ window: win, document: doc, now = Date.
   }
 
   function context() {
-    return {
-      site_section: 'marketing',
-      page_location: cleanUrl(win.location.href),
-      page_referrer: cleanUrl(doc.referrer),
-      page_title: doc.title,
-    };
+    return pageContext(cleanUrl(win.location.href), cleanUrl(doc.referrer), doc.title);
   }
 
   function pageView() {
@@ -169,7 +198,7 @@ export function createAnalyticsConsent({ window: win, document: doc, now = Date.
   }
 
   function productionHost() {
-    return win.location.protocol === 'https:' && ['gostoa.dev', 'www.gostoa.dev'].includes(win.location.hostname);
+    return isProductionHost(win.location);
   }
 
   function startClarity() {
@@ -224,30 +253,14 @@ export function createAnalyticsConsent({ window: win, document: doc, now = Date.
   function start() {
     if (!productionHost()) return;
     if (script || ready || !allowed()) return;
-    queueDefaults();
+    queueConsentDefaults(win);
     win[disableKey] = false;
-    const node = doc.createElement('script');
+    const node = googleTag(doc);
     script = node;
-    node.async = true;
-    node.referrerPolicy = 'origin';
-    node.id = 'stoa-google-analytics';
-    node.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
     node.onload = () => {
       // A withdrawal while the library is downloading must never flush events.
       if (script !== node || !allowed()) return;
-      win.gtag('consent', 'update', { ...DENIED, analytics_storage: 'granted' });
-      win.gtag('set', 'ads_data_redaction', true);
-      win.gtag('set', 'url_passthrough', false);
-      win.gtag('js', new Date(now()));
-      win.gtag('config', GA_ID, {
-        send_page_view: false,
-        allow_google_signals: false,
-        allow_ad_personalization_signals: false,
-        cookie_expires: 15_811_200,
-        cookie_update: false,
-        ...context(),
-        ...socialCampaign(win.location.href),
-      });
+      configureGoogle(win, now(), { ...context(), ...socialCampaign(win.location.href) });
       ready = true;
       pageView();
     };
@@ -295,7 +308,7 @@ export function createAnalyticsConsent({ window: win, document: doc, now = Date.
   doc.addEventListener?.('focus', sensitiveFocus, true);
   doc.addEventListener?.('focusin', sensitiveFocus, true);
   sensitiveFocus({ target: doc.activeElement });
-  queueDefaults();
+  queueConsentDefaults(win);
   refresh();
   return { choose, refresh, pageView, click, revoke: () => choose('refused'), state: () => current()?.choice ?? null };
 }

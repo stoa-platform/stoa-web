@@ -1,7 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, readdir, access } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, sep } from 'node:path';
+
+// The /r/ short links redirect without a consent control; built-short-links.test.mjs covers them.
+const isShortLink = path => path.startsWith(join('dist', 'r') + sep);
 
 async function htmlFiles(directory) {
   const files = [];
@@ -14,7 +17,7 @@ async function htmlFiles(directory) {
 }
 
 test('every generated page has one consent control, both choices and the withdrawal control', async () => {
-  const pages = await htmlFiles('dist');
+  const pages = (await htmlFiles('dist')).filter(path => !isShortLink(path));
   assert.equal(pages.length, 13);
   for (const path of pages) {
     const html = await readFile(path, 'utf8');
