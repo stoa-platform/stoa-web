@@ -15,6 +15,8 @@ export default defineConfig({
 
   integrations: [
     sitemap({
+      // The /r/ short links are redirects, not content.
+      filter: page => !new URL(page).pathname.startsWith('/r/'),
       i18n: {
         defaultLocale: 'en',
         locales: {
