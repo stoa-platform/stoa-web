@@ -78,19 +78,17 @@ export function linkCategory(value, base) {
   } catch { return null; }
 }
 
-// The Google setup below is shared with the /r/ short-link redirect (short-link.js),
-// so both send the same consent state and configuration.
-export function isProductionHost(location) {
+function isProductionHost(location) {
   return location.protocol === 'https:' && ['gostoa.dev', 'www.gostoa.dev'].includes(location.hostname);
 }
 
-export function queueConsentDefaults(win) {
+function queueConsentDefaults(win) {
   win.dataLayer = [];
   win.gtag = function () { win.dataLayer.push(arguments); };
   win.gtag('consent', 'default', { ...DENIED });
 }
 
-export function googleTag(doc) {
+function googleTag(doc) {
   const node = doc.createElement('script');
   node.async = true;
   node.referrerPolicy = 'origin';
@@ -99,7 +97,7 @@ export function googleTag(doc) {
   return node;
 }
 
-export function configureGoogle(win, timestamp, values) {
+function configureGoogle(win, timestamp, values) {
   win.gtag('consent', 'update', { ...DENIED, analytics_storage: 'granted' });
   win.gtag('set', 'ads_data_redaction', true);
   win.gtag('set', 'url_passthrough', false);
@@ -114,7 +112,7 @@ export function configureGoogle(win, timestamp, values) {
   });
 }
 
-export function pageContext(location, referrer, title) {
+function pageContext(location, referrer, title) {
   return { site_section: 'marketing', page_location: location, page_referrer: referrer, page_title: title };
 }
 

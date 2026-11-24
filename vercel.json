@@ -4,6 +4,10 @@
   "installCommand": "npm install",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/r/:slug", "destination": "/api/r/:slug" },
+    { "source": "/r/:slug/", "destination": "/api/r/:slug" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -39,6 +43,45 @@
       "source": "/sitemap-index.xml",
       "headers": [
         { "key": "Cache-Control", "value": "public, s-maxage=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/r/:slug",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "no-store" },
+        { "key": "CDN-Cache-Control", "value": "no-store" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Referrer-Policy", "value": "origin" }
+      ]
+    },
+    {
+      "source": "/r/:slug/",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "no-store" },
+        { "key": "CDN-Cache-Control", "value": "no-store" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Referrer-Policy", "value": "origin" }
+      ]
+    },
+    {
+      "source": "/api/r/:slug",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "no-store" },
+        { "key": "CDN-Cache-Control", "value": "no-store" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Referrer-Policy", "value": "origin" }
+      ]
+    },
+    {
+      "source": "/api/r-stats",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "no-store" },
+        { "key": "CDN-Cache-Control", "value": "no-store" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }
   ]
