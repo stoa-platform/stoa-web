@@ -12,7 +12,7 @@ import Footer from '../../components/Footer.astro';
   <main class="pt-24 pb-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-white mb-8">Confidentialité et mesure d’audience</h1>
-      <p class="text-sm text-gray-500 mb-8">Mise à jour : 23 novembre 2026</p>
+      <p class="text-sm text-gray-500 mb-8">Mise à jour : 24 novembre 2026</p>
 
       <div class="prose prose-invert prose-gray max-w-none space-y-8 text-gray-300 text-sm leading-relaxed">
         <section>
@@ -44,11 +44,6 @@ import Footer from '../../components/Footer.astro';
             les catégories documentation, quickstart et contact, avec des adresses nettoyées.
             Le texte des liens, le contenu des messages et les autres saisies de formulaire
             ne font pas partie de ces événements.
-          </p>
-          <p>
-            Les liens courts sous /r/ redirigent vers le dépôt STOA sur GitHub sans afficher les
-            réglages de cookies : ils enregistrent une page vue uniquement si vous avez déjà accepté,
-            et redirigent sinon sans aucune mesure.
           </p>
         </section>
 
@@ -90,7 +85,17 @@ import Footer from '../../components/Footer.astro';
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">5. Informations de contact</h2>
+          <h2 class="text-xl font-semibold text-white mb-3">5. Liens courts</h2>
+          <p>
+            Les liens courts sous /r/ effectuent une redirection directe côté serveur vers le dépôt
+            STOA sur GitHub sans charger Google Analytics ni Microsoft Clarity. Chaque accès
+            incrémente uniquement un compteur agrégé par lien et par jour UTC, sans cookie, sans
+            adresse IP, sans user-agent et sans identifiant visiteur.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">6. Informations de contact</h2>
           <p>
             Lorsque vous nous contactez, nous utilisons les informations que vous fournissez
             pour répondre à votre demande. Le contenu de vos messages ne fait pas partie des
@@ -100,7 +105,7 @@ import Footer from '../../components/Footer.astro';
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">6. Questions et demandes</h2>
+          <h2 class="text-xl font-semibold text-white mb-3">7. Questions et demandes</h2>
           <p>
             Pour une question de confidentialité ou une demande concernant vos données personnelles,
             contactez CAB Ingénierie à

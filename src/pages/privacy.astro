@@ -12,7 +12,7 @@ import Footer from '../components/Footer.astro';
   <main class="pt-24 pb-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-white mb-8">Privacy &amp; audience measurement</h1>
-      <p class="text-sm text-gray-500 mb-8">Last updated: 23 November 2026</p>
+      <p class="text-sm text-gray-500 mb-8">Last updated: November 24, 2026</p>
 
       <div class="prose prose-invert prose-gray max-w-none space-y-8 text-gray-300 text-sm leading-relaxed">
         <section>
@@ -42,11 +42,6 @@ import Footer from '../components/Footer.astro';
             and fragments. The measured link clicks use only the categories documentation, quickstart
             and contact, with cleaned addresses. Link text, message contents and other form entries
             are not included in those events.
-          </p>
-          <p>
-            Short links under /r/ redirect to the STOA repository on GitHub without showing the
-            cookie controls: they record a page view only if you have already accepted, and
-            otherwise redirect without any measurement.
           </p>
         </section>
 
@@ -85,7 +80,17 @@ import Footer from '../components/Footer.astro';
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">5. Contact information</h2>
+          <h2 class="text-xl font-semibold text-white mb-3">5. Short links</h2>
+          <p>
+            Short links under /r/ perform a direct server-side redirect to the STOA repository on
+            GitHub without loading Google Analytics or Microsoft Clarity. Each visit increments
+            only an aggregated counter by link and by UTC day, with no cookie, no IP address, no
+            user-agent, and no visitor identifier.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-3">6. Contact information</h2>
           <p>
             When you contact us, we use the information you provide to respond to your request.
             Message contents are not part of the audience-measurement events described above.
@@ -94,7 +99,7 @@ import Footer from '../components/Footer.astro';
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-white mb-3">6. Questions and requests</h2>
+          <h2 class="text-xl font-semibold text-white mb-3">7. Questions and requests</h2>
           <p>
             For questions about privacy or a request concerning your personal data, contact
             CAB Ingénierie at
